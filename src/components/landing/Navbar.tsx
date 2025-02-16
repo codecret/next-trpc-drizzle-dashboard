@@ -1,3 +1,4 @@
+"use client";
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import {
@@ -18,12 +19,15 @@ import {
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { JSX } from "react";
 import Image from "next/image";
+import { Separator } from "../ui/separator";
+import { ToggleTheme } from "../toogle-theme";
 
 interface MenuItem {
   title: string;
@@ -33,7 +37,7 @@ interface MenuItem {
   items?: MenuItem[];
 }
 
-interface Navbar1Props {
+interface NavbarProps {
   logo?: {
     url: string;
     src: string;
@@ -146,7 +150,7 @@ const Navbar = ({
     login: { text: "Log in", url: "#" },
     signup: { text: "Sign up", url: "#" },
   },
-}: Navbar1Props) => {
+}: NavbarProps) => {
   return (
     <section className="py-4">
       <div className="container m-auto">
@@ -169,7 +173,10 @@ const Navbar = ({
               </NavigationMenu>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
+            <SheetFooter className="flex-col sm:flex-col justify-start">
+              <ToggleTheme />
+            </SheetFooter>
             <Button asChild variant="outline" size="sm">
               <a href={auth.login.url}>{auth.login.text}</a>
             </Button>
@@ -200,7 +207,13 @@ const Navbar = ({
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
-                      <img src={logo.src} className="w-8" alt={logo.alt} />
+                      <Image
+                        src={logo.src}
+                        className="w-8"
+                        alt={logo.alt}
+                        width={32}
+                        height={32}
+                      />
                       <span className="text-lg font-semibold">
                         {logo.title}
                       </span>
@@ -228,6 +241,10 @@ const Navbar = ({
                       ))}
                     </div>
                   </div>
+                  <SheetFooter className="flex-col sm:flex-col justify-start items-start">
+                    <Separator className="mb-2" />
+                    <ToggleTheme />
+                  </SheetFooter>
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">
                       <a href={auth.login.url}>{auth.login.text}</a>
