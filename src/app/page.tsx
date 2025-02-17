@@ -6,12 +6,12 @@ import { Navbar } from "@/components/landing/Navbar";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
+    <main className="relative min-h-screen">
       <Navbar />
       <Hero />
       <Feature />
       <Faq />
       <Footer />
-    </div>
+    </main>
   );
 }
