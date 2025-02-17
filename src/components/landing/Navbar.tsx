@@ -54,10 +54,10 @@ interface NavbarProps {
       text: string;
       url: string;
     };
-    signup: {
-      text: string;
-      url: string;
-    };
+    // signup: {
+    //   text: string;
+    //   url: string;
+    // };
   };
 }
 
@@ -147,8 +147,8 @@ const Navbar = ({
     { name: "Sitemap", url: "#" },
   ],
   auth = {
-    login: { text: "Log in", url: "#" },
-    signup: { text: "Sign up", url: "#" },
+    login: { text: "Log in", url: "/auth/sign-in" },
+    // signup: { text: "Sign up", url: "/sign-up" },
   },
 }: NavbarProps) => {
   return (
@@ -180,9 +180,9 @@ const Navbar = ({
             <Button asChild variant="outline" size="sm">
               <a href={auth.login.url}>{auth.login.text}</a>
             </Button>
-            <Button asChild size="sm">
+            {/* <Button asChild size="sm">
               <a href={auth.signup.url}>{auth.signup.text}</a>
-            </Button>
+            </Button> */}
           </div>
         </nav>
         <div className="block lg:hidden">
@@ -249,9 +249,9 @@ const Navbar = ({
                     <Button asChild variant="outline">
                       <a href={auth.login.url}>{auth.login.text}</a>
                     </Button>
-                    <Button asChild>
+                    {/* <Button asChild>
                       <a href={auth.signup.url}>{auth.signup.text}</a>
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </SheetContent>
