@@ -2,7 +2,7 @@
 
 Opinionated NextJS 15.1.7 (App Router) template that contains everything you need for developing a full-stack applications.
 
-![image-preview](https://github.com/user-attachments/assets/f77c7af3-55e9-4c60-a014-9baf7e873a2c)
+![Create Next App](https://github.com/user-attachments/assets/643efd6a-13c7-444c-af02-e9a29e080bac)
 
 ## Features
 
