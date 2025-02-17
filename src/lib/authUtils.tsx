@@ -9,7 +9,7 @@ export async function checkAdminRole() {
     redirect("/auth/sign-in");
   }
   if (session?.user?.role === "user") {
-    redirect("/dashboard");
+    redirect("/dashboard/overview");
   }
 }
 

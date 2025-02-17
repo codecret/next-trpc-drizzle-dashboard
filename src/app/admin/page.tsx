@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Overview } from "@/components/admin/dashboard/overview";
 import { RecentSales } from "@/components/admin/dashboard/recent-sales";
-// import { checkAdminRole } from "@/utils/authUtils";
+import { checkAdminRole } from "@/lib/authUtils";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function DashboardPage() {
-  //   await checkAdminRole();
+  await checkAdminRole();
 
   return (
     <>

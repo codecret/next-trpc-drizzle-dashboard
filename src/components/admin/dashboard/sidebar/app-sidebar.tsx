@@ -18,7 +18,6 @@ import { sidebarItemsAdmin, sidebarItemsProject } from "./sidebar-items";
 import SidebarNavigation from "./sidebar-navigation";
 import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Image from "next/image";
-import Link from "next/link";
 
 const projects = [
   {
@@ -42,7 +41,6 @@ export function AppSidebar({
   isAdmin,
   ...props
 }: React.ComponentProps<typeof Sidebar> & { isAdmin: boolean }) {
-  const userIsAdmin = true;
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -62,12 +60,6 @@ export function AppSidebar({
         ) : (
           <SidebarMenuItem className="list-none space-x-2">
             <TeamSwitcher projects={projects} />
-            <Link
-              href={userIsAdmin ? "/admin" : "/dashboard"}
-              className="text-sm"
-            >
-              Go Back
-            </Link>
           </SidebarMenuItem>
         )}
       </SidebarHeader>

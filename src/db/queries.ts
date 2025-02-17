@@ -1,5 +1,3 @@
-// db/queries.ts
-import { User } from "@/types";
 import { db } from ".";
 import { users } from "./schema/user";
 import { auth } from "@/lib/auth";
@@ -10,8 +8,6 @@ interface GetAllUsersParams {
 }
 // Fetch all users
 export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
-  console.log("fetch coming");
-
   return await db
     .select()
     .from(users)
@@ -50,33 +46,4 @@ export async function deleteUserById(id: string) {
         : "An unexpected error occurred while removing the user."
     );
   }
-  // await db.delete(users).where(eq(users.id, id));
 }
-// export async function deleteUserById(id: string) {
-//   await db.delete(users).where(eq(users.id, id));
-// }
-
-// Add a new user
-// export async function addUser({ username, name, email, password, role }: User) {
-//   const newUser = await auth.api.createUser({
-//     body: {
-//       username,
-//       name,
-//       email,
-//       password,
-//       role,
-//     },
-//   });
-
-//   return newUser;
-// }
-
-// // Update a user
-// export async function updateUser(id: number, name: string) {
-//   return await db.update(user).set({ name }).where(eq(user.id, user.id));
-// }
-
-// // Delete a user
-// export async function deleteUser(id: number) {
-//   return await db.deleteFrom(user).where(user.id.equals(id));
-// }

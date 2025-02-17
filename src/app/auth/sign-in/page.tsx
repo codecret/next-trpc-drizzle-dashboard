@@ -14,7 +14,7 @@ export default async function Login() {
   const session = await auth.api.getSession({ headers: await headers() });
 
   if (session) {
-    redirect("/dashboard");
+    redirect("/dashboard/overview");
   }
 
   return (
