@@ -10,6 +10,8 @@ import { Label } from "./ui/label";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "@/hooks/use-toast";
+import { FaGoogle } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
 
 export function UserAuthForm({
   className,
@@ -19,6 +21,59 @@ export function UserAuthForm({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const signInApple = async () => {
+    const data = await authClient.signIn.social(
+      {
+        provider: "apples",
+        callbackURL: "/dashboard/overview",
+      },
+      {
+        onSuccess: () => {
+          console.log("onsuccess");
+
+          toast({
+            variant: "default",
+            title: "Sign In Successfully",
+            duration: 2000,
+          });
+        },
+        onError: (ctx) => {
+          toast({
+            variant: "destructive",
+            title: ctx.error?.message || "An error occurred",
+            duration: 2000,
+          });
+        },
+      }
+    );
+  };
+  const signInGoogle = async () => {
+    const data = await authClient.signIn.social(
+      {
+        provider: "google",
+        callbackURL: "/dashboard/overview",
+      },
+      {
+        onSuccess: () => {
+          console.log("onsuccess");
+
+          toast({
+            variant: "default",
+            title: "Sign In Successfully",
+            duration: 2000,
+          });
+        },
+        onError: (ctx) => {
+          toast({
+            variant: "destructive",
+            title: ctx.error?.message || "An error occurred",
+            duration: 2000,
+          });
+        },
+      }
+    );
+  };
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
@@ -35,7 +90,7 @@ export function UserAuthForm({
             title: "Sign In Successfully",
             duration: 2000,
           });
-          router.push("/dashboard");
+          router.push("/dashboard/overview");
         },
         onError: (ctx) => {
           toast({
@@ -51,7 +106,7 @@ export function UserAuthForm({
   }
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={cn("grid gap-2", className)} {...props}>
       <form onSubmit={onSubmit}>
         <div className="grid gap-2">
           <div className="grid gap-1">
@@ -93,6 +148,22 @@ export function UserAuthForm({
           </Button>
         </div>
       </form>
+      <Button
+        variant="outline"
+        className="w-full"
+        onClick={() => signInGoogle()}
+      >
+        <FaGoogle className="mr-2 size-5" />
+        Log in with Google
+      </Button>
+      {/* <Button
+        variant="outline"
+        className="w-full"
+        onClick={() => signInApple()}
+      >
+        <FaApple className="mr-2 size-5" />
+        Log in with Apple
+      </Button> */}
     </div>
   );
 }

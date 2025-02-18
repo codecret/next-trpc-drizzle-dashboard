@@ -8,12 +8,18 @@ import {
 } from "@/components/ui/sidebar";
 import { UserNav } from "@/components/admin/dashboard/user-nav";
 import { ToggleTheme } from "@/components/toogle-theme";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { User } from "better-auth";
 
 interface LayoutProps {
   readonly children: ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default async function Layout({ children }: LayoutProps) {
+  const { user } = (await auth.api.getSession({
+    headers: await headers(),
+  })) as { user: User };
   return (
     <main>
       <SidebarProvider>
@@ -25,7 +31,7 @@ export default function Layout({ children }: LayoutProps) {
               <Separator orientation="vertical" className="mr-2 h-4" />
               <div className="w-fit flex gap-2 items-center">
                 <ToggleTheme />
-                <UserNav />
+                <UserNav user={user} />
               </div>
             </div>
           </header>
