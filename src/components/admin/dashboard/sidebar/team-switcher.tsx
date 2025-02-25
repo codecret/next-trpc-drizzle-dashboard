@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { GoProject } from "react-icons/go";
-import { type LucideIcon } from "lucide-react";
+import { ChevronsUpDown, type LucideIcon } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -51,7 +51,7 @@ export function TeamSwitcher({
                 </span>
                 {/* <span className="truncate text-xs">{activeTeam.plan}</span> */}
               </div>
-              <GoProject className="ml-auto" />
+              <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent

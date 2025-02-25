@@ -35,7 +35,7 @@ export function UserAuthForm({
             title: "Sign In Successfully",
             duration: 2000,
           });
-          router.push("/dashboard");
+          router.push("/dashboard/overview");
         },
         onError: (ctx) => {
           toast({

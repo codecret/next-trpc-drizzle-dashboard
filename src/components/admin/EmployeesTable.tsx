@@ -19,20 +19,33 @@ import {
 import { MoreHorizontal, Pencil, Trash } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { trpc } from "@/lib/trpc/client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "@/app/context/AppContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import useDebounce from "@/hooks/useDebounce";
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export function EmployeesTable() {
   const searchParams = useSearchParams();
   const searchEmployee = searchParams.get("query") || "";
   const debouncedSearchQuery = useDebounce(searchEmployee || "", 1000);
 
-  console.log("search from table", searchEmployee);
-
   const router = useRouter();
   const utils = trpc.useUtils();
+  const [toggle, setToggle] = useState(false);
+
   const { data: employees, isLoading } = trpc.user.getUsers.useQuery(
     {
       searchEmployee: debouncedSearchQuery,
@@ -54,8 +67,10 @@ export function EmployeesTable() {
   };
   if (isLoading) return <div>Loading...</div>;
   if (employees?.length === 0) return <div>No Users</div>;
+
   return (
     <div className="rounded-md border">
+      <SheetSide toggle={toggle} setToggle={setToggle} />
       <Table>
         <TableHeader>
           <TableRow>
@@ -67,7 +82,12 @@ export function EmployeesTable() {
         </TableHeader>
         <TableBody>
           {employees?.map((employee) => (
-            <TableRow key={employee.id}>
+            <TableRow
+              key={employee.id}
+              onClick={() => {
+                setToggle((prev) => !prev);
+              }}
+            >
               <TableCell className="font-medium">
                 <div className="flex items-center space-x-4">
                   <Avatar>
@@ -115,6 +135,29 @@ export function EmployeesTable() {
           ))}
         </TableBody>
       </Table>
+    </div>
+  );
+}
+
+type sheetInterface = {
+  toggle: boolean;
+  setToggle: () => void;
+};
+export function SheetSide({ toggle, setToggle }: sheetInterface) {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      <Sheet open={toggle} onOpenChange={setToggle}>
+        <SheetContent side={"right"}>
+          <SheetHeader>
+            <SheetTitle>Header</SheetTitle>
+            <SheetDescription>
+              Make changes to your profile here. Click save when you&#39;re
+              done.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-4 py-4"></div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }
