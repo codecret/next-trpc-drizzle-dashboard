@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "@/hooks/use-toast";
 import { FaGoogle } from "react-icons/fa";
-import { FaApple } from "react-icons/fa";
 
 export function UserAuthForm({
   className,
@@ -22,34 +21,34 @@ export function UserAuthForm({
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const signInApple = async () => {
-    const data = await authClient.signIn.social(
-      {
-        provider: "apples",
-        callbackURL: "/dashboard/overview",
-      },
-      {
-        onSuccess: () => {
-          console.log("onsuccess");
+  // const signInApple = async () => {
+  //   const data = await authClient.signIn.social(
+  //     {
+  //       provider: "apples",
+  //       callbackURL: "/dashboard/overview",
+  //     },
+  //     {
+  //       onSuccess: () => {
+  //         console.log("onsuccess");
 
-          toast({
-            variant: "default",
-            title: "Sign In Successfully",
-            duration: 2000,
-          });
-        },
-        onError: (ctx) => {
-          toast({
-            variant: "destructive",
-            title: ctx.error?.message || "An error occurred",
-            duration: 2000,
-          });
-        },
-      }
-    );
-  };
+  //         toast({
+  //           variant: "default",
+  //           title: "Sign In Successfully",
+  //           duration: 2000,
+  //         });
+  //       },
+  //       onError: (ctx) => {
+  //         toast({
+  //           variant: "destructive",
+  //           title: ctx.error?.message || "An error occurred",
+  //           duration: 2000,
+  //         });
+  //       },
+  //     }
+  //   );
+  // };
   const signInGoogle = async () => {
-    const data = await authClient.signIn.social(
+    await authClient.signIn.social(
       {
         provider: "google",
         callbackURL: "/dashboard/overview",

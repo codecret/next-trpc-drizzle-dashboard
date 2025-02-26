@@ -25,10 +25,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NavCollapsible, NavItem, NavLink, type NavGroup } from "@/types";
 import Link from "next/link";
+import { NavCollapsible, NavGroupTypes, NavItem, NavLink } from "@/types";
 
-export function NavGroup({ title, items }: NavGroup) {
+export function NavGroup({ title, items }: NavGroupTypes) {
   const { state } = useSidebar();
   //   const href = useLocation({ select: (location) => location.href });
   return (

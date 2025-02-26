@@ -30,7 +30,7 @@ export function SheetSide() {
             <SheetHeader>
               <SheetTitle>Edit profile</SheetTitle>
               <SheetDescription>
-                Make changes to your profile here. Click save when you&nboq;re
+                Make changes to your profile here. Click save when you&apos;re
                 done.
               </SheetDescription>
             </SheetHeader>
@@ -59,5 +59,3 @@ export function SheetSide() {
     </div>
   );
 }
-
-

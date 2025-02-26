@@ -1,5 +1,6 @@
 import { TRPCClientError } from "@trpc/client";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type mutationHandlerFnHandler = () => any | Promise<any>;
 
 interface mutationHandlerFnOptions<T extends mutationHandlerFnHandler> {

@@ -1,7 +1,7 @@
 import { db } from ".";
 import { users } from "./schema/user";
 import { auth } from "@/lib/auth";
-import { eq, ilike, or } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 interface GetAllUsersParams {
   searchEmployee?: string;

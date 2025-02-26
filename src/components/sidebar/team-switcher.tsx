@@ -1,8 +1,6 @@
 "use client";
 
 import * as React from "react";
-
-import { GoProject } from "react-icons/go";
 import { ChevronsUpDown, type LucideIcon } from "lucide-react";
 
 import {

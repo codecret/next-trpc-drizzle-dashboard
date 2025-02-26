@@ -43,11 +43,6 @@ export const sidebarItemsAdmin: NavGroup[] = [
         path: `${basePath}/all-employees`,
         icon: Inbox,
       },
-      {
-        title: "Add Employee",
-        path: `${basePath}/add-employee`,
-        icon: Inbox,
-      },
     ],
   },
 ];
