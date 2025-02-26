@@ -11,8 +11,7 @@ import {
 
 import { trpc } from "@/lib/trpc/client";
 import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import useDebounce from "@/hooks/useDebounce";
+// import { useSearchParams } from "next/navigation";
 import { columns as UserColumns } from "./users-columns";
 
 import {
@@ -40,9 +39,8 @@ import { TableUser } from "../types";
 import { DataTableToolbar } from "./data-table-toolbar";
 
 export function EmployeesTable() {
-  const searchParams = useSearchParams();
-  const searchEmployee = searchParams.get("query") || "";
-  const debouncedSearchQuery = useDebounce(searchEmployee || "", 1000);
+  // const searchParams = useSearchParams();
+  // const searchEmployee = searchParams.get("query") || "";
 
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -51,9 +49,7 @@ export function EmployeesTable() {
   const columns = useMemo(() => UserColumns, []);
   const [toggle, setToggle] = useState(false);
   const { data: employees, isLoading } = trpc.user.getUsers.useQuery(
-    {
-      searchEmployee: debouncedSearchQuery,
-    },
+    undefined,
     {
       refetchOnMount: false,
       refetchOnReconnect: false,

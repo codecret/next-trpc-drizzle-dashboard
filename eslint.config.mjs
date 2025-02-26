@@ -11,9 +11,9 @@ const compat = new FlatCompat({
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
     "@typescript-eslint/no-explicit-any": "error",
-    "no-console": "warn",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
+    // "no-console": "warn",
+    // "no-unused-vars": "off",
+    // "@typescript-eslint/no-unused-vars": "warn",
   },
 });
 

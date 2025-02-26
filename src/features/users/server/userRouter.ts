@@ -1,5 +1,5 @@
 import { deleteUserById, getAllUsers, getUserById } from "@/db/queries";
-import { publicProcedure, router } from "../trpc";
+import { publicProcedure, router } from "../../../server/trpc";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
@@ -9,17 +9,9 @@ import { eq } from "drizzle-orm";
 import { account } from "@/db/schema/user";
 
 export const userRouter = router({
-  getUsers: publicProcedure
-    .input(
-      z.object({
-        searchEmployee: z.string().optional(),
-      })
-    )
-    .query(async ({ input }) => {
-      const { searchEmployee } = input;
-
-      return getAllUsers({ searchEmployee: searchEmployee ?? "" });
-    }),
+  getUsers: publicProcedure.query(async () => {
+    return getAllUsers({});
+  }),
   addUser: publicProcedure
     .input(
       z.object({

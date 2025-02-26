@@ -26,7 +26,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { NavCollapsible, NavGroupTypes, NavItem, NavLink } from "@/types";
+import {
+  NavCollapsible,
+  NavGroupTypes,
+  NavItem,
+  NavLink,
+} from "@/features/admin-dashboard/types";
 
 export function NavGroup({ title, items }: NavGroupTypes) {
   const { state } = useSidebar();
