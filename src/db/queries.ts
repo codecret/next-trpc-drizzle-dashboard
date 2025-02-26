@@ -8,10 +8,18 @@ interface GetAllUsersParams {
 }
 // Fetch all users
 export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
-  return await db
-    .select()
-    .from(users)
-    .where(or(ilike(users.name, `%${searchEmployee}`)));
+  return auth.api.listUsers({
+    headers: await headers(),
+    query: {
+      searchField: "name",
+      searchOperator: "contains",
+      searchValue: searchEmployee,
+      limit: 10,
+      sortBy: "createdAt",
+      sortDirection: "desc",
+      filter: {},
+    },
+  });
 }
 export async function getUserById(id: string) {
   return db.query.users.findFirst({ where: eq(users.id, id) });

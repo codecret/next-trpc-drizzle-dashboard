@@ -1,5 +1,5 @@
-import { AddEmployeeForm } from "@/components/admin/AddEmployeeForm";
-import { checkAdminRole } from "@/lib/authUtils";
+import { AddEmployeeForm } from "@/features/users/components/AddEmployeeForm";
+import { checkAdminRole } from "@/utils/authUtils";
 
 export default async function AddEmployeePage() {
   await checkAdminRole();

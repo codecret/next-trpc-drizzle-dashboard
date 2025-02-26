@@ -17,7 +17,7 @@ export const auth = betterAuth({
     },
     additionalFields: {
       role: {
-        type: ["admin", "user"],
+        type: ["user", "admin", "superadmin"],
       },
     },
   },
@@ -38,3 +38,6 @@ export const auth = betterAuth({
     },
   },
 });
+
+export type Session = typeof auth.$Infer.Session;
+export type User = Session["user"];

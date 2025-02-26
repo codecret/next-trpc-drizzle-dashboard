@@ -1,17 +1,17 @@
 import React, { ReactNode } from "react";
 
-import { AppSidebar } from "@/components/admin/dashboard/sidebar/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { UserNav } from "@/components/admin/dashboard/user-nav";
+import { UserNav } from "@/features/admin-dashboard/components/user-nav";
 import { ToggleTheme } from "@/components/toogle-theme";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { User } from "better-auth";
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
 
 interface LayoutProps {
   readonly children: ReactNode;

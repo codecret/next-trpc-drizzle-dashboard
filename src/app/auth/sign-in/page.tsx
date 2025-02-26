@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { UserAuthForm } from "@/components/user-auth-form";
+import { UserAuthForm } from "@/features/auth/components/user-auth-form";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";

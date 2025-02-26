@@ -26,8 +26,8 @@ import {
 } from "@/components/ui/sheet";
 import { JSX } from "react";
 import Image from "next/image";
-import { Separator } from "../ui/separator";
-import { ToggleTheme } from "../toogle-theme";
+import { ToggleTheme } from "@/components/toogle-theme";
+import { Separator } from "@radix-ui/react-separator";
 
 interface MenuItem {
   title: string;

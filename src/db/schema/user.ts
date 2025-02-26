@@ -55,3 +55,5 @@ export const verification = pgTable("verification", {
   createdAt: timestamp("created_at"),
   updatedAt: timestamp("updated_at"),
 });
+
+export type DrizzleTableUser = typeof users.$inferSelect;

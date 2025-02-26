@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import { UserAuthFormRegister } from "@/components/user-auth-form-register";
-import { fetchUsersLength } from "@/actions/_actions";
-import { redirect } from "next/navigation";
+import { UserAuthFormRegister } from "@/features/auth/components/user-auth-form-register";
 
 export const metadata: Metadata = {
   title: "Authentication",

@@ -2,11 +2,11 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Icons } from "./ui/icons";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { cn } from "@/utils";
+import { Icons } from "../../../components/ui/icons";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Label } from "../../../components/ui/label";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "@/hooks/use-toast";

@@ -1,8 +1,8 @@
-import { Faq } from "@/components/landing/Faq";
-import { Feature } from "@/components/landing/Feature";
-import { Footer } from "@/components/landing/Footer";
-import { Hero } from "@/components/landing/Hero";
-import { Navbar } from "@/components/landing/Navbar";
+import { Faq } from "@/features/landing/Faq";
+import { Feature } from "@/features/landing/Feature";
+import { Footer } from "@/features/landing/Footer";
+import { Hero } from "@/features/landing/Hero";
+import { Navbar } from "@/features/landing/Navbar";
 
 export default function Home() {
   return (

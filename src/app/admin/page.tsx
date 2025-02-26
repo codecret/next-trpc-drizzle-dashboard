@@ -6,9 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Overview } from "@/components/admin/dashboard/overview";
-import { RecentSales } from "@/components/admin/dashboard/recent-sales";
-import { checkAdminRole } from "@/lib/authUtils";
+import { Overview } from "@/features/admin-dashboard/components/overview";
+import { RecentSales } from "@/features/admin-dashboard/components/recent-sales";
+import { checkAdminRole } from "@/utils/authUtils";
 
 export const metadata: Metadata = {
   title: "Dashboard",

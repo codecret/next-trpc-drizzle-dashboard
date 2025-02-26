@@ -1,4 +1,4 @@
-import { checkUserRole } from "@/lib/authUtils";
+import { checkUserRole } from "@/utils/authUtils";
 
 export default async function UserDashboard() {
   await checkUserRole();

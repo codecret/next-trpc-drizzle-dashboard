@@ -4,7 +4,6 @@ import * as React from "react";
 
 import { AudioWaveform, Command, GalleryVerticalEnd } from "lucide-react";
 
-import { TeamSwitcher } from "@/components/admin/dashboard/sidebar/team-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -18,6 +17,7 @@ import { sidebarItemsAdmin, sidebarItemsProject } from "./sidebar-items";
 import SidebarNavigation from "./sidebar-navigation";
 import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Image from "next/image";
+import { TeamSwitcher } from "./team-switcher";
 
 const projects = [
   {

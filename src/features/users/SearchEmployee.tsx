@@ -21,7 +21,7 @@ export function SearchEmployee() {
     <div>
       <Input
         type="search"
-        placeholder="Search..."
+        placeholder="Search by name..."
         className="md:w-[100px] lg:w-[300px]"
         defaultValue={searchParams.get("query")?.toString()}
         onChange={(e) => {

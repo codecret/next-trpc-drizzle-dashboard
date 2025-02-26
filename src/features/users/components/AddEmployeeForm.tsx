@@ -17,7 +17,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc/client";
 import { AppContext } from "@/app/context/AppContext";
 import { useContext, useEffect } from "react";
-import { useAddProject, useEditProject } from "@/hooks/admin/useEmployees";
+import { useAddProject, useEditProject } from "@/hooks/useEmployees";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { mutationHandler } from "@/hooks/mutationHandler";
