@@ -2,36 +2,36 @@
 
 import { useState } from "react";
 import { IconAlertTriangle } from "@tabler/icons-react";
-import { toast } from "@/hooks/use-toast";
+import { trpc } from "@/lib/trpc/client";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ConfirmDialog } from "@/features/users/components/confirm-dialog";
-import { User } from "better-auth";
+import { AddUserTypes } from "../types";
 
 interface Props {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  currentRow: User;
+  currentRow: AddUserTypes;
 }
 
 export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
   const [value, setValue] = useState("");
+  const utils = trpc.useUtils();
+
+  const deleteUserMutation = trpc.user.deleteUserId.useMutation();
+  const onDelete = async (userId: string) => {
+    await deleteUserMutation.mutateAsync(userId, {
+      onSuccess: () => {
+        utils.user.getUsers.invalidate();
+      },
+    });
+  };
 
   const handleDelete = () => {
     if (value.trim() !== currentRow.name) return;
-
+    onDelete(currentRow.id);
     onOpenChange(false);
-    toast({
-      title: "The following user has been deleted:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">
-            {JSON.stringify(currentRow, null, 2)}
-          </code>
-        </pre>
-      ),
-    });
   };
 
   return (
@@ -45,7 +45,7 @@ export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
           <IconAlertTriangle
             className="mr-1 inline-block stroke-destructive"
             size={18}
-          />{" "}
+          />
           Delete User
         </span>
       }
@@ -56,9 +56,7 @@ export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
             <span className="font-bold">{currentRow.name}</span>?
             <br />
             This action will permanently remove the user with the role of{" "}
-            <span className="font-bold">
-              {currentRow.role.toUpperCase()}
-            </span>{" "}
+            <span className="font-bold">{currentRow.role?.toUpperCase()}</span>
             from the system. This cannot be undone.
           </p>
 

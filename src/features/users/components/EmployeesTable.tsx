@@ -49,8 +49,6 @@ export function EmployeesTable() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [sorting, setSorting] = useState<SortingState>([]);
   const columns = useMemo(() => UserColumns, []);
-  // const router = useRouter();
-  const utils = trpc.useUtils();
   const [toggle, setToggle] = useState(false);
   const { data: employees, isLoading } = trpc.user.getUsers.useQuery(
     {
@@ -61,17 +59,6 @@ export function EmployeesTable() {
       refetchOnReconnect: false,
     }
   );
-  // const { setEditedUserId } = useContext(AppContext);
-
-  const deleteUserMutation = trpc.user.deleteUserId.useMutation();
-  const onDelete = async (userId: string) => {
-    await deleteUserMutation.mutateAsync(userId, {
-      onSuccess: () => {
-        utils.user.getUsers.invalidate();
-      },
-    });
-  };
-  console.log(employees);
 
   const table = useReactTable<TableUser>({
     data: employees?.users ?? [],
@@ -100,8 +87,8 @@ export function EmployeesTable() {
   return (
     <div>
       <DataTableToolbar table={table} />
-      <SheetSide toggle={toggle} setToggle={setToggle} />
-      <Table>
+      {/* <SheetSide toggle={toggle} setToggle={setToggle} /> */}
+      <Table className="mt-3">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="group/row">
@@ -131,6 +118,7 @@ export function EmployeesTable() {
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
                 className="group/row"
+                onClick={() => setToggle(true)}
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
@@ -167,10 +155,9 @@ export function SheetSide({ toggle, setToggle }: sheetInterface) {
       <Sheet open={toggle} onOpenChange={setToggle}>
         <SheetContent side={"right"}>
           <SheetHeader>
-            <SheetTitle>Header</SheetTitle>
+            <SheetTitle>View Profile</SheetTitle>
             <SheetDescription>
-              Make changes to your profile here. Click save when you&#39;re
-              done.
+              View the information of your employee here
             </SheetDescription>
           </SheetHeader>
           <div className="grid gap-4 py-4"></div>

@@ -25,24 +25,24 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PasswordInput } from "@/components/password-input";
 import { SelectDropdown } from "@/components/select-dropdown";
-import { TableUser, filteredUserTypes } from "../types";
+import { AddUserTypes, filteredUserTypes } from "../types";
+import { useAddProject, useEditProject } from "@/hooks/useEmployees";
+import { mutationHandler } from "@/hooks/mutationHandler";
+import { trpc } from "@/lib/trpc/client";
 
 const formSchema = z
   .object({
-    firstName: z.string().min(1, { message: "First Name is required." }),
-    lastName: z.string().min(1, { message: "Last Name is required." }),
+    name: z.string().min(1, { message: "Name is required." }),
     username: z.string().min(1, { message: "Username is required." }),
-    phoneNumber: z.string().min(1, { message: "Phone number is required." }),
     email: z
       .string()
       .min(1, { message: "Email is required." })
       .email({ message: "Email is invalid." }),
     password: z.string().transform((pwd) => pwd.trim()),
-    role: z.string().min(1, { message: "Role is required." }),
-    confirmPassword: z.string().transform((pwd) => pwd.trim()),
+    role: z.enum(["admin", "user"], { message: "Invalid role selected." }),
     isEdit: z.boolean(),
   })
-  .superRefine(({ isEdit, password, confirmPassword }, ctx) => {
+  .superRefine(({ isEdit, password }, ctx) => {
     if (!isEdit || (isEdit && password !== "")) {
       if (password === "") {
         ctx.addIssue({
@@ -75,20 +75,12 @@ const formSchema = z
           path: ["password"],
         });
       }
-
-      if (password !== confirmPassword) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: "Passwords don't match.",
-          path: ["confirmPassword"],
-        });
-      }
     }
   });
 type UserForm = z.infer<typeof formSchema>;
 
 interface Props {
-  currentRow?: TableUser;
+  currentRow?: AddUserTypes;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -101,36 +93,73 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
       ? {
           ...currentRow,
           password: "",
-          confirmPassword: "",
           isEdit,
         }
       : {
-          firstName: "",
-          lastName: "",
+          name: "",
           username: "",
           email: "",
-          role: "",
-          phoneNumber: "",
+          role: "user",
           password: "",
-          confirmPassword: "",
           isEdit,
         },
   });
 
-  const onSubmit = (values: UserForm) => {
+  const mutationAdd = useAddProject();
+  const mutationEdit = useEditProject();
+
+  const adaptedToastAddEmployee = {
+    success: (message: string) => toast({ title: message, variant: "default" }), // Adapt success
+    error: (message: string) =>
+      toast({ title: message, variant: "destructive" }),
+  };
+  const adaptedToastEditEmployee = {
+    success: (message: string) => toast({ title: message, variant: "default" }), // Adapt success
+    error: (message: string) =>
+      toast({ title: message, variant: "destructive" }),
+  };
+  const utils = trpc.useUtils();
+
+  const onSubmit = async (values: UserForm) => {
+    if (isEdit) {
+      // If in edit mode, call editUser mutation instead of addUser
+      await mutationHandler(
+        async () => {
+          await mutationEdit.mutateAsync({ userId: currentRow.id, ...values });
+        },
+        {
+          onSuccess: async () => {
+            await utils.user.getUsers.invalidate();
+          },
+          successMessage: "Employee Edited Successfully",
+          errorMessage: "Failed to Edit Employee.",
+        },
+        adaptedToastEditEmployee
+      );
+      onOpenChange(false);
+      form.reset();
+      return;
+    }
+
+    await mutationHandler(
+      async () => {
+        await mutationAdd.mutateAsync(values);
+      },
+      {
+        onSuccess: async () => {
+          await utils.user.getUsers.invalidate();
+        },
+        successMessage: "Employee Added Successfully",
+        errorMessage: "Failed to Add Employee.",
+      },
+      adaptedToastAddEmployee
+    );
+
     form.reset();
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    });
     onOpenChange(false);
   };
 
-  const isPasswordTouched = !!form.formState.dirtyFields.password;
+  // const isPasswordTouched = !!form.formState.dirtyFields.password;
 
   return (
     <Dialog
@@ -207,25 +236,6 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                   </FormItem>
                 )}
               />
-              {/* <FormField
-                control={form.control}
-                name="phoneNumber"
-                render={({ field }) => (
-                  <FormItem className="grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0">
-                    <FormLabel className="col-span-2 text-right">
-                      Phone Number
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="+123456789"
-                        className="col-span-4"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className="col-span-4 col-start-3" />
-                  </FormItem>
-                )}
-              /> */}
               <FormField
                 control={form.control}
                 name="role"
@@ -263,26 +273,6 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                   </FormItem>
                 )}
               />
-              {/* <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem className="grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0">
-                    <FormLabel className="col-span-2 text-right">
-                      Confirm Password
-                    </FormLabel>
-                    <FormControl>
-                      <PasswordInput
-                        disabled={!isPasswordTouched}
-                        placeholder="e.g., S3cur3P@ssw0rd"
-                        className="col-span-4"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className="col-span-4 col-start-3" />
-                  </FormItem>
-                )}
-              /> */}
             </form>
           </Form>
         </ScrollArea>

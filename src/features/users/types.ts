@@ -6,6 +6,15 @@ export interface TableUser
   id: string;
 }
 
+export type AddUserTypes = {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  role: Extract<(typeof filteredUserTypes)[number]["value"], string>;
+  password: string;
+};
+
 export const userTypes = [
   {
     label: "Superadmin",

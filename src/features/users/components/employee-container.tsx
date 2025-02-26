@@ -1,7 +1,7 @@
 "use client";
+
 import React from "react";
 import { UsersPrimaryButtons } from "./user-add-button";
-import { SearchEmployee } from "../SearchEmployee";
 import { EmployeesTable } from "./EmployeesTable";
 import UsersProvider from "../context/users-context";
 import { UsersDialogs } from "./users-dialogs";
@@ -17,11 +17,6 @@ export function EmployeeContainer() {
           </p>
         </div>
         <UsersPrimaryButtons />
-      </div>
-      <div className="flex h-16 items-center">
-        <div className="flex items-center ">
-          <SearchEmployee />
-        </div>
       </div>
       <EmployeesTable />
       <UsersDialogs />
