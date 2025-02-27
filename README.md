@@ -96,6 +96,10 @@ The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ---
 
+## Acknowledgments
+
+- **[Shadcn Admin Dashboard](https://github.com/satnaing/shadcn-admin/tree/main)** for some components.
+
 ## License
 
 Licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
