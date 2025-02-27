@@ -1,50 +1,98 @@
-# Zero setup. Edge ready.
+# Shadcn Admin Dashboard
 
-Opinionated NextJS 15.1.7 (App Router) template that contains everything you need for developing a full-stack applications.
+Admin Panel with Role-based Dashboards built with Shadcn, Drizzle, BetterAuth, and Next.js. Designed for responsiveness, accessibility, and modularity.
 
-![Create Next App](https://github.com/user-attachments/assets/643efd6a-13c7-444c-af02-e9a29e080bac)
+---
 
 ## Features
 
-- TypeScript
-- tRPC
-- Drizzle ORM
-- Postgresql
-- Better Auth
-- ESLint
-- TailwindCSS
-- ShadCN/ui
-- Zod
-- Prettier
+- 🌗 Light/Dark Mode
+- 📱 Fully Responsive
+- ♿ Accessible UI Components
+- 🏠 Built-in Sidebar Navigation
+- 📊 Analytics Dashboard with Charts
+- 🛠️ Extra Custom Components
+- 🔒 Authentication with BetterAuth
 
-## Usage
+---
 
-Create new app
+## Tech Stack
 
-```bash
-yarn create-next-app@latest my-app -e https://github.com/codecret/next-trpc-drizzle-dashboard.git
-# or
-npx create-next-app@latest my-app -e https://github.com/codecret/next-trpc-drizzle-dashboard.git
-# or
-pnpm dlx create-next-app@latest my-app -e https://github.com/codecret/next-trpc-drizzle-dashboard.git
+- **Framework:** [Next.js 15 ](https://nextjs.org)
+- **Language:** [TypeScript](https://tailwindcss.com)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **UI Components:** [ShadcnUI](https://ui.shadcn.com)
+- **Schema Validation:** [Zod](https://zod.dev)
+- **Authentication:** [BetterAuth](https://www.better-auth.com)
+- **Database ORM:** [Drizzle ORM](https://orm.drizzle.team)
+- **Tables:** [TanStack Tables](https://tanstack.com/table/latest)
+- **Forms:** [React Hook Form](https://react-hook-form.com)
+- **Linting:** [ESLint](https://eslint.org)
+- **Formatting:** [Prettier](https://prettier.io)
+
+---
+
+## Project Structure
+
+Project is using feature-based structure 🗂.
+
+## Getting Started
+
+### Clone the repository
+
+```sh
+git clone https://github.com/codecret/next-trpc-drizzle-dashboard.git
 ```
 
-Add environment variables
-
-```env
-BETTER_AUTH_SECRET=""
-BETTER_AUTH_URL=http://localhost:3000
-DATABASE_URL=postgresql://[username]:[password]@localhost:port/[databasename]
-```
-
-Run the development server
+Go to the project directory
 
 ```bash
+cd next-trpc-drizzle-dashboard
+```
+
+### Install dependencies
+
+```sh
+npm install
+```
+
+### Run Migrations
+
+Before running the development server, make sure to apply any pending database migrations. You can run them using the following command:
+
+```sh
+npx drizzle-kit migrate
+```
+
+### Setup environment variables
+
+Copy the example environment file and update it with your configuration:
+
+```sh
+cp .env.example.txt .env
+```
+
+### Run the development server
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Happy hacking!
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Notes
+
+- We are using **Next.js 15** with **React 19**.
+- Be cautious when pulling new updates, as changes may introduce breaking changes.
+
+---
+
+### Crafted with 💙 by [@codecret](https://github.com/codecret)
+
+---
+
+## License
+
+Licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
