@@ -1,6 +1,8 @@
 # Shadcn Admin Dashboard
 
-Admin Panel with Role-based Dashboards built with Shadcn, Drizzle, BetterAuth, and Next.js. Designed for responsiveness, accessibility, and modularity.
+Admin Panel with Role-based Dashboards built with Shadcn, Drizzle, BetterAuth, and Next.js. Designed for responsiveness, accessibility, and modular
+![alt text](https://github.com/user-attachments/assets/142fc3b2-2cf2-4e88-9270-e086342735a8)
+
 
 ---
 
