@@ -91,7 +91,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
-            <p>© 2024 codecret. All rights reserved.</p>
+            <p>© 2025 codecret. All rights reserved.</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               <li className="hover:text-primary">
                 <Link href="#"> Terms and Conditions</Link>

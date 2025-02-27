@@ -5,6 +5,10 @@ import { username } from "better-auth/plugins";
 import { admin } from "better-auth/plugins";
 import { nextCookies } from "better-auth/next-js";
 import { users, account, session, verification } from "@/db/schema/user";
+import { resend } from "./email/resend";
+import { reactResetPasswordEmail } from "./email/reset-password";
+
+const from = process.env.BETTER_AUTH_EMAIL || "Acme <onboarding@resend.dev>";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -24,6 +28,17 @@ export const auth = betterAuth({
   plugins: [username(), admin(), nextCookies()],
   emailAndPassword: {
     enabled: true,
+    sendResetPassword: async ({ user, url, token }, request) => {
+      await resend.emails.send({
+        from,
+        to: user.email,
+        subject: "Reset your password",
+        react: reactResetPasswordEmail({
+          username: user.email,
+          resetLink: url,
+        }),
+      });
+    },
   },
   socialProviders: {
     google: {
