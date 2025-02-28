@@ -15,6 +15,8 @@ import { authClient } from "@/lib/auth-client";
 import { AlertCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 
 export default function ResetPassword() {
   const [password, setPassword] = useState("");
@@ -22,6 +24,9 @@ export default function ResetPassword() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+  const { locale } = useParams();
+  const t = useTranslations("Auth");
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setIsSubmitting(true);
@@ -31,9 +36,7 @@ export default function ResetPassword() {
       token: new URLSearchParams(window.location.search).get("token")!,
     });
     if (res.error) {
-      console.log(res.error.message);
-
-      //   toast.error(res.error.message);
+      setError(t("resetPassword.error"));
     }
     setIsSubmitting(false);
     router.push("/auth/sign-in");
@@ -42,32 +45,34 @@ export default function ResetPassword() {
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Reset password</CardTitle>
-          <CardDescription>
-            Enter new password and confirm it to reset your password
-          </CardDescription>
+          <CardTitle>{t("resetPassword.title")}</CardTitle>
+          <CardDescription>{t("resetPassword.description")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
             <div className="grid w-full items-center gap-2">
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">New password</Label>
+                <Label htmlFor="password">
+                  {t("resetPassword.newPasswordLabel")}
+                </Label>
                 <PasswordInput
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="password"
-                  placeholder="Password"
+                  autoComplete="new-password"
+                  placeholder={t("resetPassword.passwordPlaceholder")}
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Confirm password</Label>
+                <Label htmlFor="confirmPassword">
+                  {t("resetPassword.confirmPasswordLabel")}
+                </Label>
                 <PasswordInput
-                  id="password"
+                  id="confirmPassword"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  autoComplete="password"
-                  placeholder="Password"
+                  autoComplete="new-password"
+                  placeholder={t("resetPassword.passwordPlaceholder")}
                 />
               </div>
             </div>
@@ -82,7 +87,9 @@ export default function ResetPassword() {
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Resetting..." : "Reset password"}
+              {isSubmitting
+                ? t("resetPassword.resetting")
+                : t("resetPassword.resetButton")}
             </Button>
           </form>
         </CardContent>

@@ -9,8 +9,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Feature = () => {
+  const t = useTranslations("HomePage");
   interface FeatureItem {
     id: number;
     title: string;
@@ -21,38 +23,33 @@ const Feature = () => {
   const defaultFeatures: FeatureItem[] = [
     {
       id: 1,
-      title: "Ready-to-Use Dashboard",
+      title: t("features.readyDashboard.title"),
       image: "https://shadcnblocks.com/images/block/placeholder-1.svg",
-      description:
-        "Browse through our dashboard for great blocks designed with shadcn/ui. Each block is carefully crafted to be responsive, accessible, and easily customizable. Simply copy and paste the code into your project.",
+      description: t("features.readyDashboard.description"),
     },
     {
       id: 2,
-      title: "Tailwind CSS & TypeScript",
+      title: t("features.tailwindTypescript.title"),
       image: "https://shadcnblocks.com/images/block/placeholder-2.svg",
-      description:
-        "Built with Tailwind CSS for rapid styling and TypeScript for type safety. Our blocks leverage the full power of Tailwind's utility classes while maintaining clean, type-safe code that integrates seamlessly with your Next.js projects.",
+      description: t("features.tailwindTypescript.description"),
     },
     {
       id: 3,
-      title: "Dark Mode & Customization",
+      title: t("features.darkMode.title"),
       image: "https://shadcnblocks.com/images/block/placeholder-3.svg",
-      description:
-        "Every block supports dark mode out of the box and can be customized to match your brand. Modify colors, spacing, and typography using Tailwind's configuration. The shadcn/ui theming system makes it easy to maintain consistency across your site.",
+      description: t("features.darkMode.description"),
     },
     {
       id: 4,
-      title: "Accessibility First",
+      title: t("features.accessibility.title"),
       image: "https://shadcnblocks.com/images/block/placeholder-4.svg",
-      description:
-        "All blocks are built with accessibility in mind, following WCAG guidelines. They include proper ARIA labels, keyboard navigation support, and semantic HTML structure. Ensure your website is usable by everyone without extra effort.",
+      description: t("features.accessibility.description"),
     },
     {
       id: 5,
-      title: "Modern Development Stack",
+      title: t("features.modernStack.title"),
       image: "https://shadcnblocks.com/images/block/placeholder-5.svg",
-      description:
-        "Built for modern web development with React 18, Next.js 14, and the latest shadcn/ui components. Take advantage of React Server Components, TypeScript strict mode, and other cutting-edge features while maintaining excellent performance.",
+      description: t("features.modernStack.description"),
     },
   ];
   const [activeTabId, setActiveTabId] = useState<number | null>(1);
@@ -90,7 +87,7 @@ const Feature = () => {
                     <div className="mt-4 md:hidden">
                       <Image
                         src={tab.image}
-                        alt={tab.title}
+                        alt={t("features.imageAlt", { title: tab.title })}
                         className="h-full max-h-80 w-full rounded-md object-cover"
                         width={40}
                         height={40}
@@ -104,7 +101,7 @@ const Feature = () => {
           <div className=" m-auto hidden w-1/2 overflow-hidden rounded-xl bg-muted md:block">
             <Image
               src={activeImage}
-              alt="Feature preview"
+              alt={t("features.previewImageAlt")}
               className="aspect-[4/3] rounded-md object-cover pl-4"
               width={800}
               height={600}

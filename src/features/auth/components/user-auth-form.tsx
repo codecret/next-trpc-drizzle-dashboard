@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "@/utils/use-toast";
 import { FaGoogle } from "react-icons/fa";
+import { useParams } from "next/navigation";
 
 export function UserAuthForm({
   className,
@@ -20,7 +21,7 @@ export function UserAuthForm({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const { locale } = useParams();
   // const signInApple = async () => {
   //   const data = await authClient.signIn.social(
   //     {
@@ -77,18 +78,23 @@ export function UserAuthForm({
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     setIsLoading(true);
-    await authClient.signIn.username(
+    console.log("locale", locale);
+    console.log("username", username);
+    console.log("password", password);
+    const data = await authClient.signIn.username(
       {
         username,
         password,
       },
       {
-        onSuccess: () => {
+        onSuccess: (data) => {
           toast({
             variant: "default",
             title: "Sign In Successfully",
             duration: 2000,
           });
+
+          console.log("data", data);
           router.push("/dashboard/overview");
         },
         onError: (ctx) => {

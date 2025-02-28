@@ -9,28 +9,33 @@ import {
 import { Overview } from "@/features/admin-dashboard/components/overview";
 import { RecentSales } from "@/features/admin-dashboard/components/recent-sales";
 import { checkAdminRole } from "@/utils/authUtils";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Example dashboard app built using the components.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Admin");
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
 
 export default async function DashboardPage() {
   await checkAdminRole();
+  const t = await getTranslations("Admin");
 
   return (
     <>
       <div className="flex-col md:flex">
         <div className="flex-1 space-y-4 md:p-8 pt-6">
           <div className="flex items-center justify-between space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+            <h2 className="text-3xl font-bold tracking-tight">{t("title")}</h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Total Revenue
+                  {t("cards.revenue.title")}
                 </CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -46,16 +51,18 @@ export default async function DashboardPage() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$45,231.89</div>
+                <div className="text-2xl font-bold">
+                  {t("cards.revenue.amount")}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +20.1% from last month
+                  {t("cards.revenue.change")}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Subscriptions
+                  {t("cards.subscriptions.title")}
                 </CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -73,15 +80,19 @@ export default async function DashboardPage() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+2350</div>
+                <div className="text-2xl font-bold">
+                  {t("cards.subscriptions.amount")}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +180.1% from last month
+                  {t("cards.subscriptions.change")}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Sales</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  {t("cards.sales.title")}
+                </CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -97,16 +108,18 @@ export default async function DashboardPage() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+12,234</div>
+                <div className="text-2xl font-bold">
+                  {t("cards.sales.amount")}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +19% from last month
+                  {t("cards.sales.change")}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Active Now
+                  {t("cards.activeNow.title")}
                 </CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,9 +135,11 @@ export default async function DashboardPage() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+573</div>
+                <div className="text-2xl font-bold">
+                  {t("cards.activeNow.amount")}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +201 since last hour
+                  {t("cards.activeNow.change")}
                 </p>
               </CardContent>
             </Card>
@@ -132,7 +147,7 @@ export default async function DashboardPage() {
           <div className="md:grid gap-4 md:grid-cols-2 lg:grid-cols-7">
             <Card className="col-span-4">
               <CardHeader>
-                <CardTitle>Overview</CardTitle>
+                <CardTitle>{t("overview.title")}</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
                 <Overview />
@@ -140,9 +155,9 @@ export default async function DashboardPage() {
             </Card>
             <Card className="col-span-3 mt-4 md:mt-0">
               <CardHeader>
-                <CardTitle>Recent Sales</CardTitle>
+                <CardTitle>{t("recentSales.title")}</CardTitle>
                 <CardDescription>
-                  You made 265 sales this month.
+                  {t("recentSales.description")}
                 </CardDescription>
               </CardHeader>
               <CardContent>

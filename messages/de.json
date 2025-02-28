@@ -1,0 +1,223 @@
+{
+  "HomePage": {
+    "title": "Ihr Titel",
+    "nav": {
+      "title": "Ihr Titel",
+      "logoAlt": "Logo",
+      "home": "Startseite",
+      "products": "Produkte",
+      "blog": "Blog",
+      "blogDescription": "Die neuesten Branchennachrichten, Updates und Informationen",
+      "company": "Unternehmen",
+      "companyDescription": "Unsere Mission ist es, die Welt zu innovieren und zu stärken",
+      "careers": "Karriere",
+      "careersDescription": "Durchsuchen Sie Stellenangebote und entdecken Sie unseren Arbeitsplatz",
+      "support": "Support",
+      "supportDescription": "Kontaktieren Sie unser Support-Team oder besuchen Sie unsere Community-Foren",
+      "resources": "Ressourcen",
+      "helpCenter": "Hilfezentrum",
+      "helpCenterDescription": "Hier finden Sie alle Antworten, die Sie brauchen",
+      "contactUs": "Kontakt",
+      "contactUsDescription": "Wir sind hier, um Ihnen bei allen Fragen zu helfen",
+      "status": "Status",
+      "statusDescription": "Überprüfen Sie den aktuellen Status unserer Dienste und APIs",
+      "termsOfService": "Nutzungsbedingungen",
+      "termsDescription": "Unsere Geschäftsbedingungen für die Nutzung unserer Dienste",
+      "pricing": "Preise",
+      "press": "Presse",
+      "contact": "Kontakt",
+      "imprint": "Impressum",
+      "sitemap": "Sitemap",
+      "login": "Anmelden"
+    },
+    "hero": {
+      "logoAlt": "Firmenlogo",
+      "badge": "UI-Blöcke",
+      "title": "Bauen Sie Ihr nächstes Projekt mit dieser Vorlage",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      "getStarted": "Loslegen",
+      "learnMore": "Mehr erfahren",
+      "builtWith": "Erstellt mit Open-Source-Technologien",
+      "techLogos": {
+        "shadcn": "Shadcn UI Logo",
+        "typescript": "TypeScript Logo",
+        "react": "React Logo",
+        "tailwind": "Tailwind CSS Logo"
+      }
+    },
+    "features": {
+      "imageAlt": "{title} Feature-Illustration",
+      "previewImageAlt": "Feature-Vorschau",
+      "readyDashboard": {
+        "title": "Einsatzbereites Dashboard",
+        "description": "Durchstöbern Sie unser Dashboard nach großartigen Blöcken, die mit shadcn/ui gestaltet wurden. Jeder Block ist sorgfältig entwickelt, um responsiv, zugänglich und leicht anpassbar zu sein. Kopieren Sie einfach den Code und fügen Sie ihn in Ihr Projekt ein."
+      },
+      "tailwindTypescript": {
+        "title": "Tailwind CSS & TypeScript",
+        "description": "Entwickelt mit Tailwind CSS für schnelles Styling und TypeScript für Typsicherheit. Unsere Blöcke nutzen die volle Leistung von Tailwinds Utility-Klassen und behalten dabei sauberen, typsicheren Code bei, der sich nahtlos in Ihre Next.js-Projekte integriert."
+      },
+      "darkMode": {
+        "title": "Dark Mode & Anpassung",
+        "description": "Jeder Block unterstützt standardmäßig den Dark Mode und kann an Ihre Marke angepasst werden. Ändern Sie Farben, Abstände und Typografie mit der Tailwind-Konfiguration. Das shadcn/ui-Theming-System macht es einfach, die Konsistenz auf Ihrer Website zu bewahren."
+      },
+      "accessibility": {
+        "title": "Barrierefreiheit zuerst",
+        "description": "Alle Blöcke sind mit Blick auf Barrierefreiheit entwickelt und folgen den WCAG-Richtlinien. Sie enthalten entsprechende ARIA-Labels, Tastaturnavigationsunterstützung und semantische HTML-Struktur. Stellen Sie sicher, dass Ihre Website ohne zusätzlichen Aufwand von allen genutzt werden kann."
+      },
+      "modernStack": {
+        "title": "Moderner Entwicklungs-Stack",
+        "description": "Entwickelt für moderne Webentwicklung mit React 18, Next.js 14 und den neuesten shadcn/ui-Komponenten. Nutzen Sie React Server Components, TypeScript Strict Mode und andere moderne Funktionen bei gleichzeitig hervorragender Leistung."
+      }
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Häufige Fragen & Antworten",
+      "description": "Erfahren Sie alle wichtigen Details über unsere Plattform und wie sie Ihren Bedürfnissen dienen kann.",
+      "questions": {
+        "what": {
+          "question": "Was ist eine FAQ und warum ist sie wichtig?",
+          "answer": "FAQ steht für Frequently Asked Questions (Häufig gestellte Fragen). Es ist eine Liste, die Antworten auf häufige Fragen zu einem bestimmten Produkt, einer Dienstleistung oder einem Thema bietet."
+        },
+        "why": {
+          "question": "Warum sollte ich eine FAQ auf meiner Website oder App verwenden?",
+          "answer": "Die Verwendung einer FAQ-Sektion auf Ihrer Website oder App ist eine praktische Möglichkeit, Ihren Benutzern oder Kunden sofortige Hilfe anzubieten. Anstatt auf Antworten des Kundenservice zu warten, können sie schnell Antworten auf häufig gestellte Fragen finden."
+        },
+        "how": {
+          "question": "Wie erstelle ich effektiv eine FAQ-Sektion?",
+          "answer": "Die Erstellung einer FAQ-Sektion beginnt mit dem Sammeln der am häufigsten gestellten Fragen Ihrer Benutzer oder Kunden. Sobald Sie eine Liste haben, müssen Sie klare, detaillierte und hilfreiche Antworten auf jede Frage schreiben."
+        },
+        "benefits": {
+          "question": "Welche Vorteile hat eine gut gepflegte FAQ-Sektion?",
+          "answer": "Eine robuste FAQ-Sektion bietet zahlreiche Vorteile. In erster Linie liefert sie sofortige Antworten auf häufige Fragen, was die Benutzererfahrung verbessert."
+        }
+      }
+    },
+    "footer": {
+      "logoAlt": "Firmenlogo",
+      "brand": "codecret",
+      "description": "Eine gute responsive Vorlage für Ihr Startup oder Nebenprojekt.",
+      "social": {
+        "instagram": "Folgen Sie uns auf Instagram",
+        "github": "Besuchen Sie unser GitHub",
+        "linkedin": "Verbinden Sie sich mit uns auf LinkedIn"
+      },
+      "sections": {
+        "product": {
+          "title": "Produkt",
+          "links": {
+            "overview": "Übersicht",
+            "pricing": "Preise",
+            "marketplace": "Marktplatz",
+            "features": "Funktionen"
+          }
+        },
+        "company": {
+          "title": "Unternehmen",
+          "links": {
+            "about": "Über uns",
+            "team": "Team",
+            "blog": "Blog",
+            "careers": "Karriere"
+          }
+        },
+        "resources": {
+          "title": "Ressourcen",
+          "links": {
+            "help": "Hilfe",
+            "sales": "Vertrieb",
+            "advertise": "Werbung",
+            "privacy": "Datenschutz"
+          }
+        }
+      },
+      "copyright": "© {year} codecret. Alle Rechte vorbehalten.",
+      "legal": {
+        "terms": "Allgemeine Geschäftsbedingungen",
+        "privacy": "Datenschutzerklärung"
+      }
+    }
+  },
+  "Dashboard": {
+    "overview": {
+      "title": "Mein Dashboard"
+    }
+  },
+  "Auth": {
+    "metadata": {
+      "title": "Authentifizierung",
+      "description": "Authentifizierungsformulare erstellt mit den Komponenten."
+    },
+    "brand": "Projectify",
+    "signUp": {
+      "title": "Registrieren",
+      "description": "Geben Sie Ihre Anmeldedaten ein, um ein neues Konto zu erstellen",
+      "tagline": "Leistungsstarkes System"
+    },
+    "signIn": {
+      "title": "Anmelden",
+      "description": "Geben Sie Ihre E-Mail-Adresse ein, um sich in Ihr Konto einzuloggen",
+      "tagline": "Leistungsstarkes System",
+      "forgotPassword": "Passwort vergessen?"
+    },
+    "forgotPassword": {
+      "title": "Passwort vergessen?",
+      "description": "Geben Sie die E-Mail-Adresse ein, die mit Ihrem Konto verknüpft ist, und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts.",
+      "emailLabel": "E-Mail-Adresse",
+      "emailPlaceholder": "E-Mail eingeben",
+      "sendButton": "Link zum Zurücksetzen senden",
+      "sending": "Wird gesendet...",
+      "backToLogin": "Zurück zur Anmeldung",
+      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "checkEmailTitle": "Überprüfen Sie Ihre E-Mails",
+      "checkEmailDescription": "Wir haben Ihnen einen Link zum Zurücksetzen des Passworts per E-Mail gesendet.",
+      "checkEmailSpamNote": "Wenn Sie die E-Mail nicht sehen, überprüfen Sie Ihren Spam-Ordner.",
+      "backButton": "Zurück zum Passwort zurücksetzen"
+    },
+    "resetPassword": {
+      "title": "Passwort zurücksetzen",
+      "description": "Geben Sie ein neues Passwort ein und bestätigen Sie es, um Ihr Passwort zurückzusetzen",
+      "newPasswordLabel": "Neues Passwort",
+      "confirmPasswordLabel": "Passwort bestätigen",
+      "passwordPlaceholder": "Passwort",
+      "resetButton": "Passwort zurücksetzen",
+      "resetting": "Wird zurückgesetzt...",
+      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+    }
+  },
+  "Admin": {
+    "metadata": {
+      "title": "Admin-Dashboard",
+      "description": "Beispiel-Dashboard-App erstellt mit den Komponenten."
+    },
+    "title": "Dashboard",
+    "cards": {
+      "revenue": {
+        "title": "Gesamtumsatz",
+        "amount": "45.231,89 €",
+        "change": "+20,1% zum Vormonat"
+      },
+      "subscriptions": {
+        "title": "Abonnements",
+        "amount": "+2.350",
+        "change": "+180,1% zum Vormonat"
+      },
+      "sales": {
+        "title": "Verkäufe",
+        "amount": "+12.234",
+        "change": "+19% zum Vormonat"
+      },
+      "activeNow": {
+        "title": "Aktuell Aktiv",
+        "amount": "+573",
+        "change": "+201 seit letzter Stunde"
+      }
+    },
+    "overview": {
+      "title": "Übersicht"
+    },
+    "recentSales": {
+      "title": "Aktuelle Verkäufe",
+      "description": "Sie haben diesen Monat 265 Verkäufe getätigt."
+    }
+  }
+}

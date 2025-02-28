@@ -1,0 +1,226 @@
+{
+  "HomePage": {
+    "title": "Your Title",
+    "nav": {
+      "title": "Your Title",
+      "logoAlt": "Logo",
+      "home": "Home",
+      "products": "Products",
+      "blog": "Blog",
+      "blogDescription": "The latest industry news, updates, and info",
+      "company": "Company",
+      "companyDescription": "Our mission is to innovate and empower the world",
+      "careers": "Careers",
+      "careersDescription": "Browse job listing and discover our workspace",
+      "support": "Support",
+      "supportDescription": "Get in touch with our support team or visit our community forums",
+      "resources": "Resources",
+      "helpCenter": "Help Center",
+      "helpCenterDescription": "Get all the answers you need right here",
+      "contactUs": "Contact Us",
+      "contactUsDescription": "We are here to help you with any questions you have",
+      "status": "Status",
+      "statusDescription": "Check the current status of our services and APIs",
+      "termsOfService": "Terms of Service",
+      "termsDescription": "Our terms and conditions for using our services",
+      "pricing": "Pricing",
+      "press": "Press",
+      "contact": "Contact",
+      "imprint": "Imprint",
+      "sitemap": "Sitemap",
+      "login": "Log in"
+    },
+    "hero": {
+      "logoAlt": "Company Logo",
+      "badge": "UI Blocks",
+      "title": "Build your next project with this template",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      "getStarted": "Get Started",
+      "learnMore": "Learn more",
+      "builtWith": "Built with open-source technologies",
+      "techLogos": {
+        "shadcn": "Shadcn UI Logo",
+        "typescript": "TypeScript Logo",
+        "react": "React Logo",
+        "tailwind": "Tailwind CSS Logo"
+      }
+    },
+    "features": {
+      "imageAlt": "{title} feature illustration",
+      "previewImageAlt": "Feature preview",
+      "readyDashboard": {
+        "title": "Ready-to-Use Dashboard",
+        "description": "Browse through our dashboard for great blocks designed with shadcn/ui. Each block is carefully crafted to be responsive, accessible, and easily customizable. Simply copy and paste the code into your project."
+      },
+      "tailwindTypescript": {
+        "title": "Tailwind CSS & TypeScript",
+        "description": "Built with Tailwind CSS for rapid styling and TypeScript for type safety. Our blocks leverage the full power of Tailwind's utility classes while maintaining clean, type-safe code that integrates seamlessly with your Next.js projects."
+      },
+      "darkMode": {
+        "title": "Dark Mode & Customization",
+        "description": "Every block supports dark mode out of the box and can be customized to match your brand. Modify colors, spacing, and typography using Tailwind's configuration. The shadcn/ui theming system makes it easy to maintain consistency across your site."
+      },
+      "accessibility": {
+        "title": "Accessibility First",
+        "description": "All blocks are built with accessibility in mind, following WCAG guidelines. They include proper ARIA labels, keyboard navigation support, and semantic HTML structure. Ensure your website is usable by everyone without extra effort."
+      },
+      "modernStack": {
+        "title": "Modern Development Stack",
+        "description": "Built for modern web development with React 18, Next.js 14, and the latest shadcn/ui components. Take advantage of React Server Components, TypeScript strict mode, and other cutting-edge features while maintaining excellent performance."
+      }
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Common Questions & Answers",
+      "description": "Find out all the essential details about our platform and how it can serve your needs.",
+      "questions": {
+        "what": {
+          "question": "What is a FAQ and why is it important?",
+          "answer": "FAQ stands for Frequently Asked Questions. It is a list that provides answers to common questions people may have about a specific product, service, or topic."
+        },
+        "why": {
+          "question": "Why should I use a FAQ on my website or app?",
+          "answer": "Utilizing a FAQ section on your website or app is a practical way to offer instant assistance to your users or customers. Instead of waiting for customer support responses, they can find quick answers to commonly asked questions."
+        },
+        "how": {
+          "question": "How do I effectively create a FAQ section?",
+          "answer": "Creating a FAQ section starts with gathering the most frequent questions you receive from your users or customers. Once you have a list, you need to write clear, detailed, and helpful answers to each question."
+        },
+        "benefits": {
+          "question": "What are the benefits of having a well-maintained FAQ section?",
+          "answer": "There are numerous advantages to maintaining a robust FAQ section. Firstly, it provides immediate answers to common queries, which improves the user experience."
+        }
+      }
+    },
+    "footer": {
+      "logoAlt": "Company Logo",
+      "brand": "codecret",
+      "description": "A good responsive template for your startup business or side project.",
+      "social": {
+        "instagram": "Follow us on Instagram",
+        "github": "Visit our GitHub",
+        "linkedin": "Connect with us on LinkedIn"
+      },
+      "sections": {
+        "product": {
+          "title": "Product",
+          "links": {
+            "overview": "Overview",
+            "pricing": "Pricing",
+            "marketplace": "Marketplace",
+            "features": "Features"
+          }
+        },
+        "company": {
+          "title": "Company",
+          "links": {
+            "about": "About",
+            "team": "Team",
+            "blog": "Blog",
+            "careers": "Careers"
+          }
+        },
+        "resources": {
+          "title": "Resources",
+          "links": {
+            "help": "Help",
+            "sales": "Sales",
+            "advertise": "Advertise",
+            "privacy": "Privacy"
+          }
+        }
+      },
+      "copyright": "© {year} codecret. All rights reserved.",
+      "legal": {
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy"
+      }
+    }
+  },
+  "Dashboard": {
+    "overview": {
+      "title": "My Dashboard"
+    }
+  },
+  "Auth": {
+    "metadata": {
+      "title": "Authentication",
+      "description": "Authentication forms built using the components."
+    },
+    "brand": "Projectify",
+    "signUp": {
+      "title": "Sign Up",
+      "description": "Enter your credentials to create a new account",
+      "tagline": "Powerful system"
+    },
+    "signIn": {
+      "title": "Sign In",
+      "description": "Enter your email below to login into your account",
+      "tagline": "Powerful system",
+      "forgotPassword": "Forgot your password?"
+    },
+    "forgotPassword": {
+      "title": "Forgot your password?",
+      "description": "Enter the email address associated with your account and we'll send you a link to reset your password.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "Enter your email",
+      "sendButton": "Send reset link",
+      "sending": "Sending...",
+      "backToLogin": "Back to login",
+      "error": "An error occurred. Please try again.",
+      "checkEmailTitle": "Check your email",
+      "checkEmailDescription": "We've sent a password reset link to your email.",
+      "checkEmailSpamNote": "If you don't see the email, check your spam folder.",
+      "backButton": "Back to reset password"
+    },
+    "resetPassword": {
+      "title": "Reset password",
+      "description": "Enter new password and confirm it to reset your password",
+      "newPasswordLabel": "New password",
+      "confirmPasswordLabel": "Confirm password",
+      "passwordPlaceholder": "Password",
+      "resetButton": "Reset password",
+      "resetting": "Resetting...",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "Admin": {
+    "metadata": {
+      "title": "Admin Dashboard",
+      "description": "Example dashboard app built using the components."
+    },
+    "title": "Dashboard",
+    "cards": {
+      "revenue": {
+        "title": "Total Revenue",
+        "amount": "$45,231.89",
+        "change": "+20.1% from last month"
+      },
+      "subscriptions": {
+        "title": "Subscriptions",
+        "amount": "+2,350",
+        "change": "+180.1% from last month"
+      },
+      "sales": {
+        "title": "Sales",
+        "amount": "+12,234",
+        "change": "+19% from last month"
+      },
+      "activeNow": {
+        "title": "Active Now",
+        "amount": "+573",
+        "change": "+201 since last hour"
+      }
+    },
+    "overview": {
+      "title": "Overview"
+    },
+    "recentSales": {
+      "title": "Recent Sales",
+      "description": "You made 265 sales this month."
+    }
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Switch to {locale, select, de {German} en {English} other {Unknown}}"
+  }
+}

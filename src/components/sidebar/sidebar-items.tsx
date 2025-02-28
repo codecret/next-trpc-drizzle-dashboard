@@ -1,4 +1,4 @@
-import { Inbox, LucideIcon, PanelsTopLeft } from "lucide-react";
+import { LucideIcon, PanelsTopLeft, Users } from "lucide-react";
 
 export interface NavSubItem {
   title: string;
@@ -41,7 +41,7 @@ export const sidebarItemsAdmin: NavGroup[] = [
       {
         title: "All Employees",
         path: `${basePath}/all-employees`,
-        icon: Inbox,
+        icon: Users,
       },
     ],
   },

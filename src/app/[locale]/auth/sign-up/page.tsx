@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { UserAuthFormRegister } from "@/features/auth/components/user-auth-form-register";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Authentication",
@@ -7,10 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Register() {
-  // const count = await fetchUsersLength();
-  // if (count > 0) {
-  //   redirect("/auth/sign-in");
-  // }
+  const t = await getTranslations("Auth");
   return (
     <>
       <div className="container relative h-screen flex flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
@@ -29,20 +27,22 @@ export default async function Register() {
             >
               <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
             </svg>
-            Projectify
+            {t("brand")}
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
-              <p className="text-lg">Powerful system</p>
+              <p className="text-lg">{t("signUp.tagline")}</p>
             </blockquote>
           </div>
         </div>
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">Sign Up</h1>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                {t("signUp.title")}
+              </h1>
               <p className="text-sm text-muted-foreground">
-                Enter your credentials to create a new account
+                {t("signUp.description")}
               </p>
             </div>
             <UserAuthFormRegister />

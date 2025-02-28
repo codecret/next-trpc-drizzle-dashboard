@@ -52,6 +52,8 @@ export function UserNav({ user }: { user: User }) {
             await authClient.signOut({
               fetchOptions: {
                 onSuccess: () => {
+                  console.log("signing out");
+
                   router.push("/auth/sign-in");
                 },
               },

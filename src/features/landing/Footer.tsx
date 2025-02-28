@@ -1,38 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-
-const sections = [
-  {
-    title: "Product",
-    links: [
-      { name: "Overview", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Marketplace", href: "#" },
-      { name: "Features", href: "#" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About", href: "#" },
-      { name: "Team", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Help", href: "#" },
-      { name: "Sales", href: "#" },
-      { name: "Advertise", href: "#" },
-      { name: "Privacy", href: "#" },
-    ],
-  },
-];
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("HomePage");
+
+  const sections = [
+    {
+      title: t("footer.sections.product.title"),
+      links: [
+        { name: t("footer.sections.product.links.overview"), href: "#" },
+        { name: t("footer.sections.product.links.pricing"), href: "#" },
+        { name: t("footer.sections.product.links.marketplace"), href: "#" },
+        { name: t("footer.sections.product.links.features"), href: "#" },
+      ],
+    },
+    {
+      title: t("footer.sections.company.title"),
+      links: [
+        { name: t("footer.sections.company.links.about"), href: "#" },
+        { name: t("footer.sections.company.links.team"), href: "#" },
+        { name: t("footer.sections.company.links.blog"), href: "#" },
+        { name: t("footer.sections.company.links.careers"), href: "#" },
+      ],
+    },
+    {
+      title: t("footer.sections.resources.title"),
+      links: [
+        { name: t("footer.sections.resources.links.help"), href: "#" },
+        { name: t("footer.sections.resources.links.sales"), href: "#" },
+        { name: t("footer.sections.resources.links.advertise"), href: "#" },
+        { name: t("footer.sections.resources.links.privacy"), href: "#" },
+      ],
+    },
+  ];
+
   return (
     <section className="py-32">
       <div className="container m-auto">
@@ -43,30 +46,29 @@ const Footer = () => {
                 <span className="flex items-center justify-center gap-4 lg:justify-start">
                   <Image
                     src="/freelogo.png"
-                    alt="logo"
+                    alt={t("footer.logoAlt")}
                     width={44}
                     height={44}
                   />
-                  <p className="text-3xl font-semibold">codecret</p>
+                  <p className="text-3xl font-semibold">{t("footer.brand")}</p>
                 </span>
                 <p className="mt-6 text-sm text-muted-foreground">
-                  A good responsive template for your startup business or side
-                  project.
+                  {t("footer.description")}
                 </p>
               </div>
               <ul className="flex items-center space-x-6 text-muted-foreground">
                 <li className="font-medium hover:text-primary">
-                  <Link href="#">
+                  <Link href="#" aria-label={t("footer.social.instagram")}>
                     <FaInstagram className="size-6" />
                   </Link>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <Link href="#">
+                  <Link href="#" aria-label={t("footer.social.github")}>
                     <FaGithub className="size-6" />
                   </Link>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <Link href="#">
+                  <Link href="#" aria-label={t("footer.social.linkedin")}>
                     <FaLinkedin className="size-6" />
                   </Link>
                 </li>
@@ -91,13 +93,13 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
-            <p>© 2025 codecret. All rights reserved.</p>
+            <p>{t("footer.copyright", { year: "2025" })}</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               <li className="hover:text-primary">
-                <Link href="#"> Terms and Conditions</Link>
+                <Link href="#">{t("footer.legal.terms")}</Link>
               </li>
               <li className="hover:text-primary">
-                <Link href="#"> Privacy Policy</Link>
+                <Link href="#">{t("footer.legal.privacy")}</Link>
               </li>
             </ul>
           </div>

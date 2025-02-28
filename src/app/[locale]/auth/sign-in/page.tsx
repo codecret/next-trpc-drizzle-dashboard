@@ -4,16 +4,29 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Auth");
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
+
+type ISignInPageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default async function Login() {
+export default async function Login(props: ISignInPageProps) {
   const session = await auth.api.getSession({ headers: await headers() });
+  const { locale } = await props.params;
+  console.log("session", session);
 
+  console.log("locale", locale);
+  const t = await getTranslations("Auth");
   if (session) {
+    console.log("there is session redirecting to dashboard");
     redirect("/dashboard/overview");
   }
 
@@ -35,29 +48,31 @@ export default async function Login() {
             >
               <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
             </svg>
-            Projectify
+            {t("brand")}
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
-              <p className="text-lg">Powerful system</p>
+              <p className="text-lg">{t("signIn.tagline")}</p>
             </blockquote>
           </div>
         </div>
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">Sign In</h1>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                {t("signIn.title")}
+              </h1>
               <p className="text-sm text-muted-foreground">
-                Enter your email below to login into your account
+                {t("signIn.description")}
               </p>
             </div>
             <UserAuthForm />
             <div className="flex items-center">
               <Link
-                href="/auth/forgot-password"
+                href={"/auth/forgot-password"}
                 className="m-auto inline-block text-sm underline"
               >
-                Forgot your password?
+                {t("signIn.forgotPassword")}
               </Link>
             </div>
           </div>

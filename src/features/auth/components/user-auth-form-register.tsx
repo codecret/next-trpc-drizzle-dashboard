@@ -10,7 +10,7 @@ import { Label } from "../../../components/ui/label";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { toast } from "@/utils/use-toast";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export function UserAuthFormRegister({
   className,
@@ -21,6 +21,7 @@ export function UserAuthFormRegister({
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
+  const { locale } = useParams();
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     setIsLoading(true);
@@ -107,7 +108,7 @@ export function UserAuthFormRegister({
             Create Account
           </Button>
           <div className="mx-auto  flex justify-center gap-1 text-sm text-muted-foreground">
-            <p>Don&apos;t have an account?</p>
+            <p>Already have an account?</p>
             <Link href={"/auth/sign-in"} className="font-medium text-primary">
               Sign In
             </Link>
@@ -117,9 +118,3 @@ export function UserAuthFormRegister({
     </div>
   );
 }
-
-// codecret
-// hello@codecret.com
-// 1234
-
-// M0501461793

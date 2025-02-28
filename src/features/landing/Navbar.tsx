@@ -28,6 +28,10 @@ import { JSX } from "react";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/toogle-theme";
 import { Separator } from "@radix-ui/react-separator";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { Link } from "@/i18n/navigation";
 
 interface MenuItem {
   title: string;
@@ -37,120 +41,122 @@ interface MenuItem {
   items?: MenuItem[];
 }
 
-interface NavbarProps {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  menu?: MenuItem[];
-  mobileExtraLinks?: {
-    name: string;
-    url: string;
-  }[];
-  auth?: {
-    login: {
-      text: string;
-      url: string;
-    };
-    // signup: {
-    //   text: string;
-    //   url: string;
-    // };
-  };
-}
+// interface NavbarProps {
+//   logo?: {
+//     url: string;
+//     src: string;
+//     alt: string;
+//     title: string;
+//   };
+//   menu?: MenuItem[];
+//   mobileExtraLinks?: {
+//     name: string;
+//     url: string;
+//   }[];
+//   auth?: {
+//     login: {
+//       text: string;
+//       url: string;
+//     };
+//     // signup: {
+//     //   text: string;
+//     //   url: string;
+//     // };
+//   };
+// }
 
-const Navbar = ({
-  logo = {
+const Navbar = () => {
+  const t = useTranslations("HomePage");
+
+  const logo = {
     url: "/",
     src: "/freelogo.png",
-    alt: "logo",
-    title: "",
-  },
-  menu = [
-    { title: "Home", url: "#" },
+    alt: t("nav.logoAlt"),
+    title: t("nav.title"),
+  };
+  const menu = [
+    { title: t("nav.home"), url: "#" },
     {
-      title: "Products",
+      title: t("nav.products"),
       url: "#",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
+          title: t("nav.blog"),
+          description: t("nav.blogDescription"),
           icon: <Book className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
+          title: t("nav.company"),
+          description: t("nav.companyDescription"),
           icon: <Trees className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
+          title: t("nav.careers"),
+          description: t("nav.careersDescription"),
           icon: <Sunset className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
+          title: t("nav.support"),
+          description: t("nav.supportDescription"),
           icon: <Zap className="size-5 shrink-0" />,
           url: "#",
         },
       ],
     },
     {
-      title: "Resources",
+      title: t("nav.resources"),
       url: "#",
       items: [
         {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
+          title: t("nav.helpCenter"),
+          description: t("nav.helpCenterDescription"),
           icon: <Zap className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
+          title: t("nav.contactUs"),
+          description: t("nav.contactUsDescription"),
           icon: <Sunset className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
+          title: t("nav.status"),
+          description: t("nav.statusDescription"),
           icon: <Trees className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
+          title: t("nav.termsOfService"),
+          description: t("nav.termsDescription"),
           icon: <Book className="size-5 shrink-0" />,
           url: "#",
         },
       ],
     },
     {
-      title: "Pricing",
+      title: t("nav.pricing"),
       url: "#",
     },
     {
-      title: "Blog",
+      title: t("nav.blog"),
       url: "#",
     },
-  ],
-  mobileExtraLinks = [
-    { name: "Press", url: "#" },
-    { name: "Contact", url: "#" },
-    { name: "Imprint", url: "#" },
-    { name: "Sitemap", url: "#" },
-  ],
-  auth = {
-    login: { text: "Log in", url: "/auth/sign-in" },
-    // signup: { text: "Sign up", url: "/sign-up" },
-  },
-}: NavbarProps) => {
+  ];
+  const mobileExtraLinks = [
+    { name: t("nav.press"), url: "#" },
+    { name: t("nav.contact"), url: "#" },
+    { name: t("nav.imprint"), url: "#" },
+    { name: t("nav.sitemap"), url: "#" },
+  ];
+  const auth = {
+    login: {
+      text: t("nav.login"),
+      url: "/auth/sign-innn",
+    },
+  };
   return (
     <section className="py-4">
       <div className="container m-auto">
@@ -165,6 +171,7 @@ const Navbar = ({
                 height={32}
               />
             </a>
+            <h1>{t("title")}</h1>
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -174,15 +181,13 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2 items-center">
+            <LocaleSwitcher />
             <SheetFooter className="flex-col sm:flex-col justify-start">
               <ToggleTheme />
             </SheetFooter>
             <Button asChild variant="outline" size="sm">
-              <a href={auth.login.url}>{auth.login.text}</a>
+              <Link href="/auth/sign-in">{auth.login.text}</Link>
             </Button>
-            {/* <Button asChild size="sm">
-              <a href={auth.signup.url}>{auth.signup.text}</a>
-            </Button> */}
           </div>
         </nav>
         <div className="block lg:hidden">
@@ -210,12 +215,12 @@ const Navbar = ({
                       <Image
                         src={logo.src}
                         className="w-8"
-                        alt={logo.alt}
+                        alt={t("nav.logoAlt")}
                         width={32}
                         height={32}
                       />
                       <span className="text-lg font-semibold">
-                        {logo.title}
+                        {t("nav.title")}
                       </span>
                     </a>
                   </SheetTitle>
@@ -247,11 +252,8 @@ const Navbar = ({
                   </SheetFooter>
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.text}</a>
+                      <Link href={auth.login.url}>{auth.login.text}</Link>
                     </Button>
-                    {/* <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.text}</a>
-                    </Button> */}
                   </div>
                 </div>
               </SheetContent>
