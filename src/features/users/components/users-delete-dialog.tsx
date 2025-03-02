@@ -7,12 +7,12 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ConfirmDialog } from "@/features/users/components/confirm-dialog";
-import { AddUserTypes } from "../types";
+import { TUser } from "../types";
 
 interface Props {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  currentRow: AddUserTypes;
+  currentRow: TUser;
 }
 
 export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {

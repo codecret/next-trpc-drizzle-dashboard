@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import { AddUserTypes, TableUser, TableUserRow } from "../types";
 import useDialogState from "@/utils/use-dialog-state";
+import React, { useState } from "react";
+import { TUser } from "../types";
 
 type UsersDialogType = "invite" | "add" | "edit" | "delete";
 
 interface UsersContextType {
   open: UsersDialogType | null;
   setOpen: (str: UsersDialogType | null) => void;
-  currentRow: TableUserRow | null;
-  setCurrentRow: React.Dispatch<React.SetStateAction<TableUserRow | null>>;
+  currentRow: TUser | null;
+  setCurrentRow: React.Dispatch<React.SetStateAction<TUser | null>>;
 }
 
 const UsersContext = React.createContext<UsersContextType | null>(null);
@@ -21,7 +21,8 @@ interface Props {
 
 export default function UsersProvider({ children }: Props) {
   const [open, setOpen] = useDialogState<UsersDialogType>(null);
-  const [currentRow, setCurrentRow] = useState<TableUserRow | null>(null);
+  const [currentRow, setCurrentRow] =
+    useState<UsersContextType["currentRow"]>(null);
 
   return (
     <UsersContext value={{ open, setOpen, currentRow, setCurrentRow }}>

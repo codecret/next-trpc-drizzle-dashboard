@@ -1,17 +1,14 @@
 "use client";
 
-import * as React from "react";
-import { useState } from "react";
-import { cn } from "@/utils";
-import { Icons } from "../../../components/ui/icons";
-import { Button } from "../../../components/ui/button";
-import { Input } from "../../../components/ui/input";
-import { Label } from "../../../components/ui/label";
-import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth-client";
+import { cn } from "@/utils";
 import { toast } from "@/utils/use-toast";
-import { FaGoogle } from "react-icons/fa";
-import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export function UserAuthForm({
   className,
@@ -21,82 +18,27 @@ export function UserAuthForm({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { locale } = useParams();
-  // const signInApple = async () => {
-  //   const data = await authClient.signIn.social(
-  //     {
-  //       provider: "apples",
-  //       callbackURL: "/dashboard/overview",
-  //     },
-  //     {
-  //       onSuccess: () => {
-  //         console.log("onsuccess");
-
-  //         toast({
-  //           variant: "default",
-  //           title: "Sign In Successfully",
-  //           duration: 2000,
-  //         });
-  //       },
-  //       onError: (ctx) => {
-  //         toast({
-  //           variant: "destructive",
-  //           title: ctx.error?.message || "An error occurred",
-  //           duration: 2000,
-  //         });
-  //       },
-  //     }
-  //   );
-  // };
-  const signInGoogle = async () => {
-    await authClient.signIn.social(
-      {
-        provider: "google",
-        callbackURL: "/dashboard/overview",
-      },
-      {
-        onSuccess: () => {
-          console.log("onsuccess");
-
-          toast({
-            variant: "default",
-            title: "Sign In Successfully",
-            duration: 2000,
-          });
-        },
-        onError: (ctx) => {
-          toast({
-            variant: "destructive",
-            title: ctx.error?.message || "An error occurred",
-            duration: 2000,
-          });
-        },
-      }
-    );
-  };
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     setIsLoading(true);
-    console.log("locale", locale);
-    console.log("username", username);
-    console.log("password", password);
-    const data = await authClient.signIn.username(
+    await authClient.signIn.username(
       {
         username,
         password,
       },
       {
-        onSuccess: (data) => {
+        // TODO: remove this toast, pass onSuccess prop from UserAuthFormProps to keep this component clean
+        onSuccess: (_data) => {
+          // props?.onSuccess?.(data);
           toast({
             variant: "default",
             title: "Sign In Successfully",
             duration: 2000,
           });
-
-          console.log("data", data);
           router.push("/dashboard/overview");
         },
+        // TODO: remove this toast, pass onError prop from UserAuthFormProps to keep this component clean
         onError: (ctx) => {
           toast({
             variant: "destructive",
@@ -153,22 +95,6 @@ export function UserAuthForm({
           </Button>
         </div>
       </form>
-      <Button
-        variant="outline"
-        className="w-full"
-        onClick={() => signInGoogle()}
-      >
-        <FaGoogle className="mr-2 size-5" />
-        Log in with Google
-      </Button>
-      {/* <Button
-        variant="outline"
-        className="w-full"
-        onClick={() => signInApple()}
-      >
-        <FaApple className="mr-2 size-5" />
-        Log in with Apple
-      </Button> */}
     </div>
   );
 }
