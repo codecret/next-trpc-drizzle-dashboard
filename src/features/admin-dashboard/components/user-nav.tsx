@@ -11,22 +11,30 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
 import { authClient } from "@/lib/auth-client";
-import { User } from "better-auth";
 import { useRouter } from "next/navigation";
-
-export function UserNav({ user }: { user: User }) {
+export function UserNav() {
   const router = useRouter();
 
+  const { data: authSession, isPending: isAuthPending } =
+    authClient.useSession();
+
+  const user = authSession?.user;
+
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isAuthPending ? false : undefined}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
-            <AvatarImage src="/avatars/01.png" alt="mohamad" />
-            <AvatarFallback>{user?.name[0] ?? "U"}</AvatarFallback>
-          </Avatar>
-        </Button>
+        {isAuthPending ? (
+          <Skeleton className="h-8 w-8 rounded-full" />
+        ) : (
+          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+            <Avatar className="h-8 w-8">
+              <AvatarImage src="/avatars/01.png" alt="mohamad" />
+              <AvatarFallback>{user?.name[0] ?? "U"}</AvatarFallback>
+            </Avatar>
+          </Button>
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">

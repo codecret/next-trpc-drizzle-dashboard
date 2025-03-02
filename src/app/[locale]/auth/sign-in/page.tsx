@@ -14,19 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-type ISignInPageProps = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function Login(props: ISignInPageProps) {
+export default async function Login() {
   const session = await auth.api.getSession({ headers: await headers() });
-  const { locale } = await props.params;
-  console.log("session", session);
 
-  console.log("locale", locale);
   const t = await getTranslations("Auth");
   if (session) {
-    console.log("there is session redirecting to dashboard");
     redirect("/dashboard/overview");
   }
 
