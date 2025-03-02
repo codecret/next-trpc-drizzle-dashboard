@@ -71,7 +71,7 @@ npx drizzle-kit migrate
 Copy the example environment file and update it with your configuration:
 
 ```sh
-cp .env.example.txt .env
+cp .env.example .env
 ```
 
 ### Run the development server

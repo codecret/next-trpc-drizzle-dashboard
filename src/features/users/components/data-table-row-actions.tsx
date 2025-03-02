@@ -11,10 +11,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useUsers } from "../context/users-context";
-import { TableUserRow } from "../types";
+import { TUser } from "../types";
 
 interface DataTableRowActionsProps {
-  row: Row<TableUserRow>;
+  row: Row<TUser>;
 }
 
 export function DataTableRowActions({ row }: DataTableRowActionsProps) {

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import {
   Card,
   CardContent,
@@ -8,9 +7,8 @@ import {
 } from "@/components/ui/card";
 import { Overview } from "@/features/admin-dashboard/components/overview";
 import { RecentSales } from "@/features/admin-dashboard/components/recent-sales";
-import { checkAdminRole } from "@/utils/authUtils";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Admin");
   return {
@@ -20,7 +18,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function DashboardPage() {
-  await checkAdminRole();
   const t = await getTranslations("Admin");
 
   return (

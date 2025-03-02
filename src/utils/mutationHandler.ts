@@ -42,9 +42,13 @@ export async function mutationHandler<T extends mutationHandlerFnHandler>(
       toast.error(opts.errorMessage);
     }
     if (error instanceof TRPCClientError) {
-      const errorData = JSON.parse(error.message);
-      const errorMessage = errorData[0].message;
-      toast.error(errorMessage);
+      if (typeof error.message === "string") {
+        toast.error(error.message);
+      } else {
+        const errorData = JSON.parse(error.message);
+        const errorMessage = errorData[0].message;
+        toast.error(errorMessage);
+      }
     }
   }
 }

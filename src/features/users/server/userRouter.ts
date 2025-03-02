@@ -1,18 +1,13 @@
-import {
-  deleteUserById,
-  getAllUsers,
-  getUserById,
-  getCurrentUser,
-} from "@/db/queries";
-import { publicProcedure, router } from "../../../server/trpc";
-import { z } from "zod";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
 import { db } from "@/db";
-import { users } from "@/db/schema/user";
-import { eq } from "drizzle-orm";
-import { account } from "@/db/schema/user";
+import { deleteUserById, getAllUsers, getUserById } from "@/db/queries";
+import { account, users } from "@/db/schema/user";
+import { auth } from "@/lib/auth";
 import { protectedAdminProcedure } from "@/lib/trpc/init";
+import { getRequestSession } from "@/utils/authUtils";
+import { eq } from "drizzle-orm";
+import { headers } from "next/headers";
+import { z } from "zod";
+import { publicProcedure, router } from "../../../server/trpc";
 
 export const userRouter = router({
   getUsers: protectedAdminProcedure.query(async () => {
@@ -102,6 +97,6 @@ export const userRouter = router({
       return deleteUserById(id);
     }),
   getCurrentUser: publicProcedure.query(async ({ ctx }) => {
-    return getCurrentUser(ctx.req);
+    return getRequestSession(ctx.req);
   }),
 });

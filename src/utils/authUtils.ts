@@ -1,22 +1,56 @@
-import { auth } from "@/lib/auth";
+// TODO: impl authorization with casl.js
+
+import { Session } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function checkAdminRole() {
-  const session = await auth.api.getSession({ headers: await headers() });
+export const getRequestSession = async (req: Request) => {
+  return await authClient.getSession({
+    fetchOptions: {
+      headers: req.headers,
+    },
+  });
+};
 
-  if (!session) {
-    redirect("/auth/sign-in");
+export const getSession = async () => {
+  return await authClient.getSession({
+    fetchOptions: {
+      headers: await headers(),
+    },
+  });
+};
+
+export async function checkAuth() {
+  const { data, error } = await getSession();
+
+  if (!data || error) {
+    throw redirect("/auth/sign-in");
   }
-  if (session?.user?.role === "user") {
-    redirect("/dashboard/overview");
+
+  return data;
+}
+
+export async function isAdminSession({
+  or,
+}: {
+  or: (session?: Session) => void;
+}) {
+  const session = await checkAuth();
+
+  if (session?.user?.role !== "admin") {
+    or(session);
   }
 }
 
-export async function checkUserRole() {
-  const session = await auth.api.getSession({ headers: await headers() });
+export async function isUserSession({
+  or,
+}: {
+  or: (session?: Session) => void;
+}) {
+  const session = await checkAuth();
 
-  if (session?.user?.role === "admin") {
-    redirect("/admin");
+  if (session?.user?.role !== "user") {
+    or(session);
   }
 }

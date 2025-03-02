@@ -1,5 +1,7 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
+import { ToggleTheme } from "@/components/toogle-theme";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
@@ -7,30 +9,25 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { UserNav } from "@/features/admin-dashboard/components/user-nav";
-import { ToggleTheme } from "@/components/toogle-theme";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
-import { User } from "better-auth";
-import { AppSidebar } from "@/components/sidebar/app-sidebar";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
-import { setRequestLocale } from "next-intl/server";
+import { isUserSession } from "@/utils/authUtils";
+import { redirect } from "next/navigation";
 
 interface LayoutProps {
   readonly children: ReactNode;
   params: Promise<{ locale: string }>;
 }
 
-export default async function Layout({ children, params }: LayoutProps) {
-  const { user } = (await auth.api.getSession({
-    headers: await headers(),
-  })) as { user: User };
-  const { locale } = await params;
-  // setRequestLocale(locale);
-  // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
-    notFound();
-  }
+export default async function Layout({ children }: LayoutProps) {
+  await isUserSession({
+    or: (session) => {
+      if (session?.user.role === "admin") {
+        redirect("/admin");
+      } else {
+        redirect("/");
+      }
+    },
+  });
+
   return (
     <main>
       <SidebarProvider>
@@ -42,7 +39,7 @@ export default async function Layout({ children, params }: LayoutProps) {
               <Separator orientation="vertical" className="mr-2 h-4" />
               <div className="w-fit flex gap-2 items-center">
                 <ToggleTheme />
-                <UserNav user={user} />
+                <UserNav />
               </div>
             </div>
           </header>

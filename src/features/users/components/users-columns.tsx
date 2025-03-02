@@ -6,9 +6,9 @@ import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
-import { TableUser, TableUserRow } from "../types";
+import { TUser } from "../types";
 
-export const columns: ColumnDef<TableUser>[] = [
+export const columns: ColumnDef<TUser>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -151,6 +151,6 @@ export const columns: ColumnDef<TableUser>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <DataTableRowActions row={row as Row<TableUserRow>} />,
+    cell: ({ row }) => <DataTableRowActions row={row} />,
   },
 ];
