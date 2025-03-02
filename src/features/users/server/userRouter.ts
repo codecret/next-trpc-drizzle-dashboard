@@ -25,7 +25,7 @@ export const userRouter = router({
         password: z
           .string()
           .min(5, "password should be at least 5 digits long."),
-        role: z.enum(["admin", "user"], {
+        role: z.enum(["admin", "user", "superadmin"], {
           message: "Role must be either 'admin' or 'user'.",
         }),
       })
@@ -56,7 +56,7 @@ export const userRouter = router({
           .string()
           .min(5, "password should be at least 5 digits long.")
           .optional(),
-        role: z.enum(["admin", "user"]),
+        role: z.enum(["admin", "user", "superadmin"]),
       })
     )
     .mutation(async ({ input }) => {

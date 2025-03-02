@@ -6,9 +6,21 @@ import { headers } from "next/headers";
 interface GetAllUsersParams {
   searchEmployee?: string;
 }
+
+interface User {
+  id: string;
+  username: string;
+  name: string;
+  createdAt: string;
+}
+
+interface ListUsersResponse {
+  users: User[];
+}
+
 // Fetch all users
 export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
-  return auth.api.listUsers({
+  return await auth.api.listUsers({
     headers: await headers(),
     query: {
       searchField: "name",

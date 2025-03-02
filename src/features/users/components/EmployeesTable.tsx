@@ -57,7 +57,7 @@ export function EmployeesTable() {
   );
 
   const table = useReactTable<TableUser>({
-    data: employees?.users ?? [],
+    data: employees?.users as TableUser[],
     columns,
     state: {
       sorting,

@@ -1,18 +1,33 @@
-import { UserWithRole } from "better-auth/plugins";
 import { IconCash, IconShield, IconUserShield } from "@tabler/icons-react";
-
+import { User } from "../../lib/auth";
 export interface TableUser
-  extends Omit<UserWithRole, "createdAt" | "updatedAt" | "banExpires"> {
+  extends Omit<
+    User,
+    "createdAt" | "updatedAt" | "banExpires" | "emailVerified" | "banned"
+  > {
   id: string;
+  username?: string;
+  password?: string;
 }
+
+export type TableUserRow = {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  role: "user" | "admin" | "superadmin";
+  password: string;
+  image: string;
+};
 
 export type AddUserTypes = {
   id: string;
   name: string;
   username: string;
   email: string;
-  role: Extract<(typeof filteredUserTypes)[number]["value"], string>;
+  role: "user" | "admin" | "superadmin";
   password: string;
+  image: string;
 };
 
 export const userTypes = [

@@ -1,4 +1,4 @@
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, Row } from "@tanstack/react-table";
 import { cn } from "@/utils";
 import { Checkbox } from "@/components/ui/checkbox";
 import LongText from "@/components/long-text";
@@ -6,7 +6,7 @@ import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
-import { TableUser } from "../types";
+import { TableUser, TableUserRow } from "../types";
 
 export const columns: ColumnDef<TableUser>[] = [
   {
@@ -151,6 +151,6 @@ export const columns: ColumnDef<TableUser>[] = [
   },
   {
     id: "actions",
-    cell: DataTableRowActions,
+    cell: ({ row }) => <DataTableRowActions row={row as Row<TableUserRow>} />,
   },
 ];

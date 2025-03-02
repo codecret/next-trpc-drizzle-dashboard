@@ -39,7 +39,7 @@ const formSchema = z
       .min(1, { message: "Email is required." })
       .email({ message: "Email is invalid." }),
     password: z.string().transform((pwd) => pwd.trim()),
-    role: z.enum(["admin", "user"], { message: "Invalid role selected." }),
+    role: z.enum(["admin", "user", "superadmin"]),
     isEdit: z.boolean(),
   })
   .superRefine(({ isEdit, password }, ctx) => {
@@ -94,6 +94,7 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
           ...currentRow,
           password: "",
           isEdit,
+          role: "user",
         }
       : {
           name: "",
