@@ -5,14 +5,6 @@ import { getSessionCookie } from "better-auth";
 
 const handleI18nRouting = createMiddleware(routing);
 
-const publicPages = [
-  "/",
-  "/auth/sign-in",
-  "/auth/sign-up",
-  "/auth/forgot-password",
-  "/auth/reset-password",
-];
-
 // Authentication Middleware for Admin Routes (e.g., '/admin/:path*' and '/dashboard/overview')
 export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.includes("/api")) {
@@ -47,7 +39,3 @@ export const config = {
     "/((?!_next|_vercel|.*\\..*).*)",
   ],
 };
-
-// export const config = {
-//   matcher: ["/", "/(de|en)/:path*"],
-// }

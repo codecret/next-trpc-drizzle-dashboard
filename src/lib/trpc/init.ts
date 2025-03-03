@@ -1,10 +1,12 @@
 import { cache } from "react";
-import { initTRPC } from "@trpc/server";
-import superjson from "superjson";
+import { initTRPC, TRPCError } from "@trpc/server";
+import { getSessionCookie } from "better-auth";
+import { auth } from "../auth";
+import { headers } from "next/headers";
 
-export const createTRPCContext = cache(async () => {
+export const createTRPCContext = cache(async ({ req }: { req: Request }) => {
   // Return a valid context object here
-  return {};
+  return { req };
 });
 
 export type Context = Awaited<ReturnType<typeof createTRPCContext>>;
@@ -24,6 +26,33 @@ export const createCallerFactory = t.createCallerFactory;
 export const baseProcedure = t.procedure;
 
 export const protectedProcedure = t.procedure.use(async ({ ctx, next }) => {
-  // Your middleware logic here
+  const { req } = ctx;
+  const user = getSessionCookie(req);
+
+  const token = req.headers
+    .get("cookie")
+    ?.match(/better-auth\.session_token=([^;]*)/)?.[1];
+
+  if (!user || !token) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
   return next();
 });
+
+export const protectedAdminProcedure = t.procedure.use(
+  async ({ ctx, next }) => {
+    const { req } = ctx;
+    const user = getSessionCookie(req);
+    const session = await auth.api.getSession({ headers: await headers() });
+    const role = session?.user.role;
+
+    const token = req.headers
+      .get("cookie")
+      ?.match(/better-auth\.session_token=([^;]*)/)?.[1];
+
+    if (!user || !token || role !== "admin") {
+      throw new TRPCError({ code: "UNAUTHORIZED" });
+    }
+    return next();
+  }
+);

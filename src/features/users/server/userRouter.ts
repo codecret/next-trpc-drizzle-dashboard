@@ -1,4 +1,9 @@
-import { deleteUserById, getAllUsers, getUserById } from "@/db/queries";
+import {
+  deleteUserById,
+  getAllUsers,
+  getUserById,
+  getCurrentUser,
+} from "@/db/queries";
 import { publicProcedure, router } from "../../../server/trpc";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
@@ -7,12 +12,13 @@ import { db } from "@/db";
 import { users } from "@/db/schema/user";
 import { eq } from "drizzle-orm";
 import { account } from "@/db/schema/user";
+import { protectedAdminProcedure } from "@/lib/trpc/init";
 
 export const userRouter = router({
-  getUsers: publicProcedure.query(async () => {
+  getUsers: protectedAdminProcedure.query(async () => {
     return getAllUsers({});
   }),
-  addUser: publicProcedure
+  addUser: protectedAdminProcedure
     .input(
       z.object({
         username: z.string().min(3, {
@@ -45,7 +51,7 @@ export const userRouter = router({
       });
       return newUser;
     }),
-  editUser: publicProcedure
+  editUser: protectedAdminProcedure
     .input(
       z.object({
         userId: z.string(),
@@ -83,14 +89,19 @@ export const userRouter = router({
 
       return updatedUser;
     }),
-  userById: publicProcedure.input(z.string()).query(async ({ input }) => {
-    const id = input;
-    const user = await getUserById(id);
-    return user;
-  }),
-  deleteUserId: publicProcedure
+  userById: protectedAdminProcedure
+    .input(z.string())
+    .query(async ({ input }) => {
+      const id = input;
+      const user = await getUserById(id);
+      return user;
+    }),
+  deleteUserId: protectedAdminProcedure
     .input(z.string().min(1, { message: "User ID is required." })) // Validate that userId is not empty
     .mutation(async ({ input: id }) => {
       return deleteUserById(id);
     }),
+  getCurrentUser: publicProcedure.query(async ({ ctx }) => {
+    return getCurrentUser(ctx.req);
+  }),
 });

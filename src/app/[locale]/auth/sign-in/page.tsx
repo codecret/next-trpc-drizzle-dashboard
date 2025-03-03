@@ -20,19 +20,15 @@ type ISignInPageProps = {
 
 export default async function Login(props: ISignInPageProps) {
   const session = await auth.api.getSession({ headers: await headers() });
-  const { locale } = await props.params;
-  console.log("session", session);
 
-  console.log("locale", locale);
   const t = await getTranslations("Auth");
   if (session) {
-    console.log("there is session redirecting to dashboard");
     redirect("/dashboard/overview");
   }
 
   return (
     <>
-      <div className="container relative h-screen flex flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="container relative h-screen flex px-4 flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
           <div className="absolute inset-0 bg-zinc-900" />
           <div className="relative z-20 flex items-center text-lg font-medium">

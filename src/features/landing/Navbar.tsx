@@ -154,7 +154,7 @@ const Navbar = () => {
   const auth = {
     login: {
       text: t("nav.login"),
-      url: "/auth/sign-innn",
+      url: "/auth/sign-in",
     },
   };
   return (
@@ -190,7 +190,7 @@ const Navbar = () => {
             </Button>
           </div>
         </nav>
-        <div className="block lg:hidden">
+        <div className="block lg:hidden px-4">
           <div className="flex items-center justify-between">
             <a href={logo.url} className="flex items-center gap-2">
               <Image
@@ -246,9 +246,10 @@ const Navbar = () => {
                       ))}
                     </div>
                   </div>
-                  <SheetFooter className="flex-col sm:flex-col justify-start items-start">
+                  <SheetFooter className="flex-row sm:flex-col justify-start items-start">
                     <Separator className="mb-2" />
                     <ToggleTheme />
+                    <LocaleSwitcher />
                   </SheetFooter>
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">

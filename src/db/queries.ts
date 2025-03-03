@@ -7,17 +7,6 @@ interface GetAllUsersParams {
   searchEmployee?: string;
 }
 
-interface User {
-  id: string;
-  username: string;
-  name: string;
-  createdAt: string;
-}
-
-interface ListUsersResponse {
-  users: User[];
-}
-
 // Fetch all users
 export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
   return await auth.api.listUsers({
@@ -66,4 +55,10 @@ export async function deleteUserById(id: string) {
         : "An unexpected error occurred while removing the user."
     );
   }
+}
+export async function getCurrentUser() {
+  const result = await auth.api.getSession({
+    headers: await headers(),
+  });
+  return result;
 }
