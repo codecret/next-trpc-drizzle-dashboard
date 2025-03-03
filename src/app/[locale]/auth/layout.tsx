@@ -1,3 +1,5 @@
+import { getSession } from "@/utils/authUtils";
+import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 
 type Props = {
@@ -6,6 +8,14 @@ type Props = {
 
 // Since we have a `not-found.tsx` page on the root, a layout file
 // is required, even if it's just passing children through.
-export default function Layout({ children }: Props) {
+export default async function Layout({ children }: Props) {
+  const { data: session } = await getSession();
+  if (session?.user) {
+    if (session.user.role === "admin") {
+      redirect("/admin");
+    } else {
+      redirect("/dashboard/overview");
+    }
+  }
   return children;
 }

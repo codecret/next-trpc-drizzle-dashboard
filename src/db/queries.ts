@@ -1,16 +1,18 @@
 import { db } from ".";
 import { users } from "./schema/user";
 import { auth } from "@/lib/auth";
+import { authClient, User } from "@/lib/auth-client";
 import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 interface GetAllUsersParams {
   searchEmployee?: string;
 }
 
-// Fetch all users
 export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
-  return await auth.api.listUsers({
-    headers: await headers(),
+  return (await authClient.admin.listUsers({
+    fetchOptions: {
+      headers: await headers(),
+    },
     query: {
       searchField: "name",
       searchOperator: "contains",
@@ -18,9 +20,8 @@ export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
       limit: 10,
       sortBy: "createdAt",
       sortDirection: "desc",
-      filter: {},
     },
-  });
+  })) as unknown as Promise<{ users: User[] }>;
 }
 export async function getUserById(id: string) {
   return db.query.users.findFirst({ where: eq(users.id, id) });
@@ -55,10 +56,4 @@ export async function deleteUserById(id: string) {
         : "An unexpected error occurred while removing the user."
     );
   }
-}
-export async function getCurrentUser() {
-  const result = await auth.api.getSession({
-    headers: await headers(),
-  });
-  return result;
 }

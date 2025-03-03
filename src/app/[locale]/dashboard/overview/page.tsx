@@ -1,8 +1,5 @@
-import { checkUserRole } from "@/utils/authUtils";
 import { getTranslations } from "next-intl/server";
-
 export default async function UserDashboard() {
-  await checkUserRole();
   const t = await getTranslations("Dashboard");
   return (
     <div className="flex-1 space-y-4 px-8">

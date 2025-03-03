@@ -1,33 +1,15 @@
 import { IconCash, IconShield, IconUserShield } from "@tabler/icons-react";
-import { User } from "../../lib/auth";
-export interface TableUser
-  extends Omit<
-    User,
-    "createdAt" | "updatedAt" | "banExpires" | "emailVerified" | "banned"
-  > {
-  id: string;
-  username?: string;
-  password?: string;
-}
+import { User } from "@/lib/auth-client";
+export type TUser = Omit<
+  User,
+  "createdAt" | "updatedAt" | "banExpires" | "emailVerified" | "banned"
+>;
 
-export type TableUserRow = {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-  role: "user" | "admin" | "superadmin";
+export type AddUserTypes = Omit<
+  User,
+  "createdAt" | "updatedAt" | "banExpires" | "emailVerified" | "banned"
+> & {
   password: string;
-  image: string;
-};
-
-export type AddUserTypes = {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-  role: "user" | "admin" | "superadmin";
-  password: string;
-  image: string;
 };
 
 export const userTypes = [

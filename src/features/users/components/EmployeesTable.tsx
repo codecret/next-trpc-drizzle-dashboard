@@ -35,7 +35,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { TableUser } from "../types";
+import { TUser } from "../types";
 import { DataTableToolbar } from "./data-table-toolbar";
 
 export function EmployeesTable() {
@@ -56,8 +56,8 @@ export function EmployeesTable() {
     }
   );
 
-  const table = useReactTable<TableUser>({
-    data: employees?.users as TableUser[],
+  const table = useReactTable<TUser>({
+    data: employees?.users as TUser[],
     columns,
     state: {
       sorting,

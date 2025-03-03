@@ -14,11 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-type ISignInPageProps = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function Login(props: ISignInPageProps) {
+export default async function Login() {
   const session = await auth.api.getSession({ headers: await headers() });
 
   const t = await getTranslations("Auth");
