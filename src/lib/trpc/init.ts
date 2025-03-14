@@ -1,11 +1,10 @@
 import { cache } from "react";
 import { initTRPC, TRPCError } from "@trpc/server";
-import { getSessionCookie } from "better-auth";
+import { getSessionCookie } from "better-auth/cookies";
 import { auth } from "../auth";
 import { headers } from "next/headers";
 
 export const createTRPCContext = cache(async ({ req }: { req: Request }) => {
-  // Return a valid context object here
   return { req };
 });
 

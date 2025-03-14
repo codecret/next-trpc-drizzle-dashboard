@@ -47,6 +47,7 @@ export function UserAuthFormRegister({
         },
       }
     );
+    setIsLoading(false);
   }
 
   return (
