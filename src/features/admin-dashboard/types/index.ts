@@ -1,5 +1,3 @@
-import { LinkProps } from "@tanstack/react-router";
-
 interface BaseNavItem {
   title: string;
   badge?: string;
@@ -12,7 +10,7 @@ type NavLink = BaseNavItem & {
 };
 
 type NavCollapsible = BaseNavItem & {
-  items: (BaseNavItem & { url: LinkProps["to"] })[];
+  items: (BaseNavItem & { url: string })[];
   url?: never;
 };
 

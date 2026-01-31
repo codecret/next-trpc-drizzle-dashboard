@@ -38,7 +38,7 @@ const userEditSchema = z.object({
     .string()
     .min(1, { message: "Email is required." })
     .email({ message: "Email is invalid." }),
-  role: z.enum(["admin", "user", "superadmin"]),
+  role: z.enum(["admin", "user"]),
   password: z
     .string()
     .min(8, { message: "Password must be at least 8 characters long." })
@@ -65,7 +65,7 @@ export function UsersEditDialog({ currentRow, open, onOpenChange }: Props) {
       name: currentRow.name,
       username: currentRow.username || "",
       email: currentRow.email,
-      role: (currentRow.role as "admin" | "user" | "superadmin") || "user",
+      role: (currentRow.role as "admin" | "user") || "user",
       password: "",
     },
   });

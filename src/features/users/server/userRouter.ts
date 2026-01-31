@@ -2,17 +2,21 @@ import { db } from "@/db";
 import { deleteUserById, getAllUsers, getUserById } from "@/db/queries";
 import { account, users } from "@/db/schema/user";
 import { auth } from "@/lib/auth";
-import { protectedAdminProcedure } from "@/lib/trpc/init";
-import { getRequestSession } from "@/utils/authUtils";
+import {
+  createTRPCRouter,
+  protectedAdminProcedure,
+  publicProcedure,
+} from "@/lib/trpc/init";
+import { getSession } from "@/utils/authUtils";
 import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { z } from "zod";
-import { publicProcedure, router } from "../../../server/trpc";
 
-export const userRouter = router({
+export const userRouter = createTRPCRouter({
   getUsers: protectedAdminProcedure.query(async () => {
     return getAllUsers({});
   }),
+
   addUser: protectedAdminProcedure
     .input(
       z.object({
@@ -26,7 +30,7 @@ export const userRouter = router({
         password: z
           .string()
           .min(5, "password should be at least 5 digits long."),
-        role: z.enum(["admin", "user", "superadmin"], {
+        role: z.enum(["admin", "user"], {
           message: "Role must be either 'admin' or 'user'.",
         }),
       })
@@ -46,6 +50,7 @@ export const userRouter = router({
       });
       return newUser;
     }),
+
   editUser: protectedAdminProcedure
     .input(
       z.object({
@@ -57,7 +62,7 @@ export const userRouter = router({
           .string()
           .min(5, "password should be at least 5 digits long.")
           .optional(),
-        role: z.enum(["admin", "user", "superadmin"]),
+        role: z.enum(["admin", "user"]),
       })
     )
     .mutation(async ({ input }) => {
@@ -84,6 +89,7 @@ export const userRouter = router({
 
       return updatedUser;
     }),
+
   userById: protectedAdminProcedure
     .input(z.string())
     .query(async ({ input }) => {
@@ -91,12 +97,14 @@ export const userRouter = router({
       const user = await getUserById(id);
       return user;
     }),
+
   deleteUserId: protectedAdminProcedure
-    .input(z.string().min(1, { message: "User ID is required." })) // Validate that userId is not empty
+    .input(z.string().min(1, { message: "User ID is required." }))
     .mutation(async ({ input: id }) => {
       return deleteUserById(id);
     }),
-  getCurrentUser: publicProcedure.query(async ({ ctx }) => {
-    return getRequestSession(ctx.req);
+
+  getCurrentUser: publicProcedure.query(async () => {
+    return getSession();
   }),
 });

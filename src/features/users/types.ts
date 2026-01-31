@@ -1,4 +1,4 @@
-import { IconCash, IconShield, IconUserShield } from "@tabler/icons-react";
+import { IconCash, IconUserShield } from "@tabler/icons-react";
 import { User } from "@/lib/auth-client";
 export type TUser = Omit<
   User,
@@ -14,11 +14,6 @@ export type AddUserTypes = Omit<
 
 export const userTypes = [
   {
-    label: "Superadmin",
-    value: "superadmin",
-    icon: IconShield,
-  },
-  {
     label: "Admin",
     value: "admin",
     icon: IconUserShield,
@@ -30,6 +25,4 @@ export const userTypes = [
   },
 ] as const;
 
-export const filteredUserTypes = userTypes.filter(
-  (user) => user.value !== "superadmin"
-);
+export const filteredUserTypes = userTypes;

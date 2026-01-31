@@ -33,7 +33,7 @@ export default function ForgotPassword() {
     setError("");
 
     try {
-      await authClient.forgetPassword({
+      await authClient.requestPasswordReset({
         email,
         redirectTo: "/auth/reset-password",
       });

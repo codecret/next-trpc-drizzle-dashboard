@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import Provider from "@/lib/trpc/Provider";
+import TRPCProvider from "@/lib/trpc/Provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -48,7 +48,7 @@ export default async function Layout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Provider>
+        <TRPCProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -59,7 +59,7 @@ export default async function Layout({
               {children}
             </NextIntlClientProvider>
           </ThemeProvider>
-        </Provider>
+        </TRPCProvider>
         <Toaster />
       </body>
     </html>

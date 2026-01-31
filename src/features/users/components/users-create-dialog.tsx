@@ -38,7 +38,7 @@ const userCreateSchema = z.object({
     .string()
     .min(1, { message: "Email is required." })
     .email({ message: "Email is invalid." }),
-  role: z.enum(["admin", "user", "superadmin"]),
+  role: z.enum(["admin", "user"]),
   password: z
     .string({ message: "Password is required." })
     .min(8, { message: "Password must be at least 8 characters long." })

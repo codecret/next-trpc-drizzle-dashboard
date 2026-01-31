@@ -1,19 +1,29 @@
 import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
+import { routing, isValidLocale } from "./routing";
 
+/**
+ * Request configuration for next-intl
+ * This is called for each request to determine the locale and load messages
+ * @see https://next-intl.dev/docs/usage/configuration#i18nts
+ */
 export default getRequestConfig(async ({ requestLocale }) => {
-  // This typically corresponds to the `[locale]` segment
+  // Get the locale from the request (from [locale] segment)
   let locale = await requestLocale;
 
-  // Ensure that the incoming locale is valid
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!locale || !routing.locales.includes(locale as any)) {
-    console.log("locale is not valid so i will set it to default");
+  // Validate and fallback to default locale if invalid
+  if (!locale || !isValidLocale(locale)) {
     locale = routing.defaultLocale;
   }
 
+  // Load messages for the locale
+  const messages = (await import(`../../messages/${locale}.json`)).default;
+
   return {
     locale,
-    messages: (await import(`../../messages/${locale}.json`)).default,
+    messages,
+    // Timezone for date/time formatting
+    timeZone: "UTC",
+    // Date/time formatting options
+    now: new Date(),
   };
 });
