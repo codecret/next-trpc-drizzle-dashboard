@@ -2,7 +2,7 @@ import { db } from "@/db/index";
 import { account, session, users, verification } from "@/db/schema/user";
 import { env } from "@/lib/env";
 import { betterAuth } from "better-auth";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { nextCookies } from "better-auth/next-js";
 import { admin, username } from "better-auth/plugins";
 

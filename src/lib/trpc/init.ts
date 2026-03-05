@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
-import { ZodError } from "zod";
+import * as z from "zod";
 import { auth } from "../auth";
 import { headers } from "next/headers";
 
@@ -37,7 +37,9 @@ const t = initTRPC.context<Context>().create({
       data: {
         ...shape.data,
         zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
+          error.cause instanceof z.ZodError
+            ? z.flattenError(error.cause)
+            : null,
       },
     };
   },
