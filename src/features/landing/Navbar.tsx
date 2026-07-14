@@ -70,7 +70,7 @@ const Navbar = () => {
 
   const logo = {
     url: "/",
-    src: "/freelogo.png",
+    src: "/logo.svg",
     alt: t("nav.logoAlt"),
     title: t("nav.title"),
   };

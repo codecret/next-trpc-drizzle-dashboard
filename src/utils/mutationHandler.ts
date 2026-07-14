@@ -33,7 +33,7 @@ export async function mutationHandler<T extends mutationHandlerFnHandler>(
       }
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     if (opts.onError) {
       opts.onError(error);
     }

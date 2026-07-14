@@ -9,7 +9,7 @@ type Props = {
 // Since we have a `not-found.tsx` page on the root, a layout file
 // is required, even if it's just passing children through.
 export default async function Layout({ children }: Props) {
-  const { data: session } = await getSession();
+  const session = await getSession();
   if (session?.user) {
     if (session.user.role === "admin") {
       redirect("/admin");

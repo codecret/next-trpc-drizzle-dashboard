@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="mx-auto flex max-w-5xl flex-col items-center">
           <div className="z-10 flex flex-col items-center gap-6 text-center">
             <Image
-              src="/freelogo.png"
+              src="/logo.svg"
               alt={t("hero.logoAlt")}
               className="h-16"
               width={64}

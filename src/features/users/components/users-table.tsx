@@ -38,9 +38,9 @@ import {
 import { TUser } from "../types";
 import { DataTableToolbar } from "./data-table-toolbar";
 
-export function EmployeesTable() {
+export function UsersTable() {
   // const searchParams = useSearchParams();
-  // const searchEmployee = searchParams.get("query") || "";
+  // const search = searchParams.get("query") || "";
 
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -48,7 +48,7 @@ export function EmployeesTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
   const columns = useMemo(() => UserColumns, []);
   const [toggle, setToggle] = useState(false);
-  const { data: employees, isLoading } = trpc.user.getUsers.useQuery(
+  const { data: usersData, isLoading } = trpc.user.getUsers.useQuery(
     undefined,
     {
       refetchOnMount: false,
@@ -57,7 +57,7 @@ export function EmployeesTable() {
   );
 
   const table = useReactTable<TUser>({
-    data: employees?.users as TUser[],
+    data: usersData?.users as TUser[],
     columns,
     state: {
       sorting,
@@ -153,7 +153,7 @@ export function SheetSide({ toggle, setToggle }: sheetInterface) {
           <SheetHeader>
             <SheetTitle>View Profile</SheetTitle>
             <SheetDescription>
-              View the information of your employee here
+              View the information of your users here
             </SheetDescription>
           </SheetHeader>
           <div className="grid gap-4 py-4"></div>

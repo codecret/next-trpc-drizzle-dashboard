@@ -9,23 +9,33 @@ import { getSessionCookie } from "better-auth/cookies";
 const handleI18nRouting = createMiddleware(routing);
 
 /**
- * Routes that don't require authentication
+ * Route prefixes (locale-stripped) that don't require authentication
  */
-const publicRoutes = ["/auth", "/api"];
+const publicRoutePrefixes = ["/auth"];
 
 /**
- * Routes that are locale root paths
+ * Strip a leading locale segment (e.g. /en/dashboard -> /dashboard)
  */
-const localeRoots = routing.locales.map((locale) => `/${locale}`);
+function stripLocale(pathname: string): string {
+  for (const locale of routing.locales) {
+    if (pathname === `/${locale}`) return "/";
+    if (pathname.startsWith(`/${locale}/`)) {
+      return pathname.slice(locale.length + 1);
+    }
+  }
+  return pathname;
+}
 
 /**
  * Check if the path is a public route
  */
 function isPublicRoute(pathname: string): boolean {
+  const path = stripLocale(pathname);
   return (
-    pathname === "/" ||
-    localeRoots.includes(pathname) ||
-    publicRoutes.some((route) => pathname.includes(route))
+    path === "/" ||
+    publicRoutePrefixes.some(
+      (prefix) => path === prefix || path.startsWith(`${prefix}/`)
+    )
   );
 }
 

@@ -60,7 +60,7 @@ export function UserAuthFormRegister({
             </Label>
             <Input
               id="name"
-              placeholder="codecret"
+              placeholder="johndoe"
               type="text"
               autoCapitalize="none"
               autoComplete="name"

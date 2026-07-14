@@ -45,7 +45,7 @@ const Footer = () => {
               <div>
                 <span className="flex items-center justify-center gap-4 lg:justify-start">
                   <Image
-                    src="/freelogo.png"
+                    src="/logo.svg"
                     alt={t("footer.logoAlt")}
                     width={44}
                     height={44}

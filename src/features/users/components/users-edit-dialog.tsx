@@ -26,7 +26,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { PasswordInput } from "@/components/password-input";
 import { SelectDropdown } from "@/components/select-dropdown";
 import { filteredUserTypes, TUser } from "../types";
-import { useEditProject } from "@/hooks/useEmployees";
+import { useEditUser } from "@/hooks/use-users";
 import { mutationHandler } from "@/utils/mutationHandler";
 import { trpc } from "@/lib/trpc/client";
 
@@ -70,7 +70,7 @@ export function UsersEditDialog({ currentRow, open, onOpenChange }: Props) {
     },
   });
 
-  const mutationEdit = useEditProject();
+  const mutationEdit = useEditUser();
   const utils = trpc.useUtils();
 
   const adaptedToast = {
@@ -99,8 +99,8 @@ export function UsersEditDialog({ currentRow, open, onOpenChange }: Props) {
         onSuccess: async () => {
           await utils.user.getUsers.invalidate();
         },
-        successMessage: "Employee Edited Successfully",
-        errorMessage: "Failed to Edit Employee.",
+        successMessage: "User updated successfully",
+        errorMessage: "Failed to update user.",
       },
       adaptedToast
     );

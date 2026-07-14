@@ -2,11 +2,11 @@
 
 import React from "react";
 import { UsersPrimaryButtons } from "./user-add-button";
-import { EmployeesTable } from "./EmployeesTable";
+import { UsersTable } from "./users-table";
 import UsersProvider from "../context/users-context";
 import { UsersDialogs } from "./users-dialogs";
 
-export function EmployeeContainer() {
+export function UsersContainer() {
   return (
     <UsersProvider>
       <div className="flex items-center justify-between">
@@ -18,7 +18,7 @@ export function EmployeeContainer() {
         </div>
         <UsersPrimaryButtons />
       </div>
-      <EmployeesTable />
+      <UsersTable />
       <UsersDialogs />
     </UsersProvider>
   );

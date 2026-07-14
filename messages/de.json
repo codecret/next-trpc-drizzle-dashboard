@@ -94,7 +94,7 @@
     },
     "footer": {
       "logoAlt": "Firmenlogo",
-      "brand": "codecret",
+      "brand": "Acme",
       "description": "Eine gute responsive Vorlage für Ihr Startup oder Nebenprojekt.",
       "social": {
         "instagram": "Folgen Sie uns auf Instagram",
@@ -130,7 +130,7 @@
           }
         }
       },
-      "copyright": "© {year} codecret. Alle Rechte vorbehalten.",
+      "copyright": "© {year} Acme. Alle Rechte vorbehalten.",
       "legal": {
         "terms": "Allgemeine Geschäftsbedingungen",
         "privacy": "Datenschutzerklärung"
@@ -147,7 +147,7 @@
       "title": "Authentifizierung",
       "description": "Authentifizierungsformulare erstellt mit den Komponenten."
     },
-    "brand": "Projectify",
+    "brand": "Acme",
     "signUp": {
       "title": "Registrieren",
       "description": "Geben Sie Ihre Anmeldedaten ein, um ein neues Konto zu erstellen",

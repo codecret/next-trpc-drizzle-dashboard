@@ -5,6 +5,7 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { nextCookies } from "better-auth/next-js";
 import { admin, username } from "better-auth/plugins";
+import { sendResetPasswordEmail } from "@/lib/email/resend";
 
 /**
  * Better Auth configuration
@@ -72,14 +73,10 @@ export const auth = betterAuth({
    */
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false, // Set to true in production
-    // Password reset email handler
-    // To enable, configure RESEND_API_KEY and use a proper email service
+    requireEmailVerification: false,
+    // Sends via Resend when RESEND_API_KEY is set; logs the link otherwise
     sendResetPassword: async ({ user, url }) => {
-      if (env.NODE_ENV === "development") {
-        console.log(`[DEV] Password reset for ${user.email}: ${url}`);
-      }
-      // TODO: Implement email sending with Resend or other provider
+      await sendResetPasswordEmail({ user, url });
     },
   },
 

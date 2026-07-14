@@ -26,7 +26,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { PasswordInput } from "@/components/password-input";
 import { SelectDropdown } from "@/components/select-dropdown";
 import { filteredUserTypes } from "../types";
-import { useAddProject } from "@/hooks/useEmployees";
+import { useAddUser } from "@/hooks/use-users";
 import { mutationHandler } from "@/utils/mutationHandler";
 import { trpc } from "@/lib/trpc/client";
 
@@ -67,7 +67,7 @@ export function UsersCreateDialog({ open, onOpenChange }: Props) {
     },
   });
 
-  const mutationAdd = useAddProject();
+  const mutationAdd = useAddUser();
   const utils = trpc.useUtils();
 
   const adaptedToast = {
@@ -85,8 +85,8 @@ export function UsersCreateDialog({ open, onOpenChange }: Props) {
         onSuccess: async () => {
           await utils.user.getUsers.invalidate();
         },
-        successMessage: "Employee Added Successfully",
-        errorMessage: "Failed to Add Employee.",
+        successMessage: "User added successfully",
+        errorMessage: "Failed to add user.",
       },
       adaptedToast
     );

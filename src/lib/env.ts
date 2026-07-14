@@ -25,10 +25,10 @@ export const env = createEnv({
       .string()
       .min(32, "BETTER_AUTH_SECRET must be at least 32 characters"),
 
+    // Email (optional — password reset emails are logged to the console
+    // when RESEND_API_KEY is not set)
     BETTER_AUTH_EMAIL: z.string().optional(),
-
-    // Email (optional - uncomment when ready to use)
-    // RESEND_API_KEY: z.string().min(1),
+    RESEND_API_KEY: z.string().optional(),
 
     // Node environment
     NODE_ENV: z
@@ -53,7 +53,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
     BETTER_AUTH_EMAIL: process.env.BETTER_AUTH_EMAIL,
-    // RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
   },

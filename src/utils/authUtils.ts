@@ -1,44 +1,35 @@
-// TODO: impl authorization with casl.js
-
-import { Session } from "@/lib/auth-client";
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-export const getRequestSession = async (req: Request) => {
-  return await authClient.getSession({
-    fetchOptions: {
-      headers: req.headers,
-    },
-  });
-};
+export type ServerSession = Awaited<ReturnType<typeof auth.api.getSession>>;
 
-export const getSession = async () => {
-  return await authClient.getSession({
-    fetchOptions: {
-      headers: await headers(),
-    },
-  });
+/**
+ * Get the current session directly from Better Auth (no HTTP roundtrip).
+ * Server-side only.
+ */
+export const getSession = async (): Promise<ServerSession> => {
+  return auth.api.getSession({ headers: await headers() });
 };
 
 export async function checkAuth() {
-  const { data, error } = await getSession();
+  const session = await getSession();
 
-  if (!data || error) {
-    throw redirect("/auth/sign-in");
+  if (!session) {
+    redirect("/auth/sign-in");
   }
 
-  return data;
+  return session;
 }
 
 export async function isAdminSession({
   or,
 }: {
-  or: (session?: Session) => void;
+  or: (session: NonNullable<ServerSession>) => void;
 }) {
   const session = await checkAuth();
 
-  if (session?.user?.role !== "admin") {
+  if (session.user.role !== "admin") {
     or(session);
   }
 }
@@ -46,11 +37,11 @@ export async function isAdminSession({
 export async function isUserSession({
   or,
 }: {
-  or: (session?: Session) => void;
+  or: (session: NonNullable<ServerSession>) => void;
 }) {
   const session = await checkAuth();
 
-  if (session?.user?.role !== "user") {
+  if (session.user.role !== "user") {
     or(session);
   }
 }

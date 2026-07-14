@@ -57,14 +57,15 @@ export function UserAuthForm({
       <form onSubmit={onSubmit}>
         <div className="grid gap-2">
           <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
+            <Label className="sr-only" htmlFor="username">
               Username
             </Label>
             <Input
               id="username"
-              placeholder="Name"
-              type="name"
+              placeholder="Username"
+              type="text"
               autoCapitalize="none"
+              autoComplete="username"
               autoCorrect="off"
               disabled={isLoading}
               value={username}
@@ -72,7 +73,7 @@ export function UserAuthForm({
             />
           </div>
           <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
+            <Label className="sr-only" htmlFor="password">
               Password
             </Label>
             <Input
@@ -80,7 +81,7 @@ export function UserAuthForm({
               placeholder="Password"
               type="password"
               autoCapitalize="none"
-              autoComplete="email"
+              autoComplete="current-password"
               autoCorrect="off"
               disabled={isLoading}
               value={password}

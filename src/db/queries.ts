@@ -1,27 +1,36 @@
 import { db } from ".";
 import { users } from "./schema/user";
 import { auth } from "@/lib/auth";
-import { authClient, User } from "@/lib/auth-client";
 import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
+
 interface GetAllUsersParams {
-  searchEmployee?: string;
+  search?: string;
+  limit?: number;
+  offset?: number;
 }
 
-export async function getAllUsers({ searchEmployee }: GetAllUsersParams) {
-  return (await authClient.admin.listUsers({
-    fetchOptions: {
-      headers: await headers(),
-    },
+export async function getAllUsers({
+  search,
+  limit = 100,
+  offset = 0,
+}: GetAllUsersParams) {
+  return auth.api.listUsers({
+    headers: await headers(),
     query: {
-      searchField: "name",
-      searchOperator: "contains",
-      searchValue: searchEmployee,
-      limit: 10,
+      ...(search
+        ? {
+            searchField: "name" as const,
+            searchOperator: "contains" as const,
+            searchValue: search,
+          }
+        : {}),
+      limit,
+      offset,
       sortBy: "createdAt",
       sortDirection: "desc",
     },
-  })) as unknown as Promise<{ users: User[] }>;
+  });
 }
 export async function getUserById(id: string) {
   return db.query.users.findFirst({ where: eq(users.id, id) });

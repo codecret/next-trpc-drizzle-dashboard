@@ -1,15 +1,15 @@
-import { EmployeeContainer } from "@/features/users/components/employee-container";
+import { UsersContainer } from "@/features/users/components/users-container";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Example dashboard app built using the components.",
+  title: "Users",
+  description: "Manage users and their roles.",
 };
 
-export default async function AllEmployees() {
+export default async function UsersPage() {
   return (
     <div className="flex-1 space-y-4 p-8">
-      <EmployeeContainer />
+      <UsersContainer />
     </div>
   );
 }

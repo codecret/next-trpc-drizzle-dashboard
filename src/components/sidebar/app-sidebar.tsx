@@ -50,7 +50,7 @@ export function AppSidebar({
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={"logo"}>
                   <div className="relative max-w-[40px] max-h-[40px] min-w-[20px] h-[20px]">
-                    <Image src={"/freelogo.png"} alt="logo" fill />
+                    <Image src={"/logo.svg"} alt="logo" fill />
                   </div>
                   <span>Logo</span>
                 </SidebarMenuButton>

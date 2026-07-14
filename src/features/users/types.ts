@@ -1,4 +1,4 @@
-import { IconCash, IconUserShield } from "@tabler/icons-react";
+import { IconUser, IconUserShield } from "@tabler/icons-react";
 import { User } from "@/lib/auth-client";
 export type TUser = Omit<
   User,
@@ -19,9 +19,9 @@ export const userTypes = [
     icon: IconUserShield,
   },
   {
-    label: "Employee",
+    label: "User",
     value: "user",
-    icon: IconCash,
+    icon: IconUser,
   },
 ] as const;
 

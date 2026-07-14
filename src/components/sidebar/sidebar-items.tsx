@@ -36,11 +36,11 @@ export const sidebarItemsAdmin: NavGroup[] = [
   },
   {
     id: 2,
-    label: "Employees",
+    label: "Users",
     items: [
       {
-        title: "All Employees",
-        path: `${basePath}/all-employees`,
+        title: "All Users",
+        path: `${basePath}/users`,
         icon: Users,
       },
     ],

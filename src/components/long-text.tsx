@@ -27,12 +27,9 @@ export default function LongText({
   const [isOverflown, setIsOverflown] = useState(false);
 
   useEffect(() => {
-    if (checkOverflow(ref.current)) {
-      setIsOverflown(true);
-      return;
-    }
-
-    setIsOverflown(false);
+    // DOM measurement can only happen after render
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsOverflown(checkOverflow(ref.current));
   }, []);
 
   if (!isOverflown)
