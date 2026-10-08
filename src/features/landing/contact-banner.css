@@ -1,0 +1,111 @@
+.contact-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #d52027;
+  color: #fff;
+  padding-block: 26px;
+}
+.contact-banner-background {
+  z-index: -1;
+  object-fit: cover;
+  object-position: center 73%;
+}
+.contact-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 108px;
+}
+.contact-banner-copy {
+  max-width: 790px;
+}
+.contact-banner-eyebrow {
+  margin-bottom: 13px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+}
+.contact-banner h2 {
+  font-size: clamp(32px, 2.75vw, 40px);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+.contact-banner h2 > span {
+  display: block;
+}
+.contact-banner-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  min-width: 204px;
+  min-height: 56px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background: #fff;
+  padding: 16px 26px;
+  color: #20211f;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: background-color 200ms ease;
+}
+.contact-banner-link svg {
+  width: 18px;
+  height: 18px;
+  color: #d52027;
+  transition: transform 200ms ease;
+}
+.contact-banner-link:hover {
+  background: #f5f4ef;
+}
+.contact-banner-link:hover svg {
+  transform: translateX(3px);
+}
+.website-shell .contact-banner a:focus-visible {
+  outline-color: #fff;
+}
+@media (max-width: 1199px) {
+  .contact-banner {
+    padding-block: 27px;
+  }
+  .contact-banner-inner {
+    min-height: 110px;
+  }
+  .contact-banner h2 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-banner {
+    padding-block: 34px;
+  }
+  .contact-banner-inner {
+    align-items: start;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .contact-banner h2 {
+    font-size: clamp(29px, 5.5vw, 36px);
+  }
+  .contact-banner-background {
+    object-position: 72% bottom;
+  }
+  .contact-banner-link {
+    min-height: 50px;
+    min-width: 200px;
+    padding: 13px 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-banner-link,
+  .contact-banner-link svg {
+    transition: none;
+  }
+}

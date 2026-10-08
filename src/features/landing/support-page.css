@@ -1,0 +1,281 @@
+.support-introduction {
+  padding-block: 34px 36px;
+}
+
+.support-page .page-heading {
+  max-width: 820px;
+  padding-bottom: 0;
+  border: 0;
+}
+
+.support-page .page-heading::after {
+  display: none;
+}
+
+.support-workspace {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  align-items: start;
+  gap: 48px;
+  padding-block: 30px 64px;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.support-shortcuts {
+  position: sticky;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.support-shortcuts > .eyebrow {
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+
+.support-shortcuts a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 76px;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  background: hsl(var(--card));
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.support-shortcuts a:hover {
+  border-color: hsl(var(--primary) / 0.4);
+  background: hsl(var(--primary) / 0.025);
+}
+
+.support-shortcuts a:last-child {
+  margin-top: 8px;
+  background: hsl(var(--muted) / 0.65);
+}
+
+.support-shortcuts svg {
+  width: 19px;
+  height: 19px;
+  color: hsl(var(--primary));
+  flex-shrink: 0;
+  stroke-width: 1.6;
+}
+
+.support-shortcuts svg:last-child {
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+}
+
+.support-shortcuts strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.support-shortcuts a > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.support-shortcuts small {
+  display: block;
+  margin-top: 4px;
+  color: hsl(var(--muted-foreground));
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.support-resources {
+  min-width: 0;
+}
+
+.support-documents {
+  scroll-margin-top: 114px;
+}
+
+.support-documents-intro {
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+
+.support-documents-intro .eyebrow {
+  font-size: 10px;
+}
+
+.support-documents-intro h2 {
+  margin-top: 10px;
+  font-size: clamp(26px, 2.2vw, 32px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.support-documents-intro > p:last-child {
+  margin-top: 12px;
+  color: hsl(var(--muted-foreground));
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.support-documents .download-list {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.support-documents .download-card {
+  padding: 20px 24px;
+  border: 0;
+  border-radius: 0;
+}
+
+.support-documents .download-card + .download-card {
+  border-top: 1px solid hsl(var(--border));
+}
+
+.support-page .faq-section-full {
+  padding-block: 40px 0;
+  margin-top: 40px;
+  border-top: 1px solid hsl(var(--border));
+  background: transparent;
+}
+
+.support-page .faq-section .faq-layout {
+  width: 100%;
+  padding-inline: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.support-page .faq-section .faq-intro {
+  max-width: 640px;
+}
+
+.support-page .faq-section .faq-intro h2 {
+  font-size: clamp(26px, 2.2vw, 32px);
+}
+
+.support-page .faq-section .faq-description {
+  font-size: 13px;
+}
+
+.support-page .faq-section .faq-item summary {
+  min-height: 62px;
+  padding-inline: 18px;
+}
+
+.support-page .faq-section .faq-item > p {
+  padding-inline: 55px 28px;
+}
+
+.support-page .faq-section .faq-list {
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.support-page .faq-section .faq-item:last-child {
+  border-bottom: 0;
+}
+
+.support-page .faq-section .faq-item[open] {
+  background: hsl(var(--muted) / 0.5);
+  border-bottom-color: hsl(var(--border));
+}
+
+.support-documents .download-card:focus-visible,
+.support-page .faq-section .faq-item summary:focus-visible {
+  outline-offset: -3px;
+}
+
+@media (max-width: 1023px) {
+  .support-workspace {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .support-shortcuts a {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .support-shortcuts small {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .support-introduction {
+    padding-block: 28px;
+  }
+
+  .support-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding-block: 22px 40px;
+  }
+
+  .support-shortcuts {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .support-shortcuts > .eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+  }
+
+  .support-shortcuts a {
+    min-height: 58px;
+    padding: 12px;
+  }
+
+  .support-shortcuts a > svg:last-child {
+    display: none;
+  }
+
+  .support-shortcuts a:last-child {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    min-height: 48px;
+  }
+
+  .support-shortcuts a:last-child > svg:last-child {
+    display: block;
+  }
+
+  .support-documents .download-card {
+    padding: 18px;
+  }
+
+  .support-page .faq-section-full {
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+
+  .support-page .faq-section .faq-item summary {
+    padding-inline: 14px;
+  }
+
+  .support-page .faq-section .faq-item > p {
+    padding-inline: 14px;
+  }
+}
+
+@media (max-width: 359px) {
+  .support-shortcuts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

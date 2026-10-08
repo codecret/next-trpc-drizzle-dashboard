@@ -1,0 +1,179 @@
+.battery-sort .catalogue-filter-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 190px;
+  min-width: 0;
+  min-height: 46px;
+  height: auto;
+  padding: 11px 14px;
+  border: 1px solid hsl(var(--input) / 0.75);
+  border-radius: 5px;
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  box-shadow: 0 1px 2px hsl(var(--foreground) / 0.025);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms,
+    box-shadow 150ms,
+    background 150ms;
+}
+.catalogue-family-filter .catalogue-filter-trigger {
+  width: 230px;
+}
+.catalogue-filter-trigger > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.catalogue-filter-trigger > svg {
+  flex-shrink: 0;
+  color: hsl(var(--muted-foreground));
+  transition: transform 150ms;
+}
+.battery-sort .catalogue-filter-trigger:hover {
+  border-color: hsl(var(--muted-foreground) / 0.6);
+}
+.battery-sort .catalogue-filter-trigger[data-filtered="true"] {
+  border-color: hsl(var(--primary) / 0.4);
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.025);
+}
+.battery-sort
+  .catalogue-filter-trigger:is(:focus-visible, [data-state="open"]) {
+  border-color: hsl(var(--primary));
+  outline: none;
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+.catalogue-filter-trigger[data-state="open"] > svg {
+  transform: rotate(180deg);
+}
+.catalogue-family-menu,
+.catalogue-sort-menu {
+  z-index: 80;
+  padding: 5px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  box-shadow:
+    0 12px 40px hsl(225 7% 12% / 0.12),
+    0 2px 6px hsl(225 7% 12% / 0.04);
+  overflow: hidden;
+}
+.catalogue-family-menu {
+  width: max(300px, var(--radix-popover-trigger-width));
+  max-width: calc(100vw - 32px);
+  max-height: var(--radix-popover-content-available-height);
+  padding: 0;
+}
+.catalogue-family-menu [cmdk-root] {
+  border-radius: inherit;
+}
+.catalogue-family-menu [cmdk-input-wrapper] {
+  padding-inline: 16px;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.catalogue-family-menu [cmdk-input] {
+  height: 52px;
+  border-radius: 0;
+  font-size: 13px;
+  box-shadow: none;
+  outline: none;
+}
+.catalogue-family-menu [cmdk-list] {
+  max-height: min(
+    304px,
+    calc(var(--radix-popover-content-available-height) - 58px)
+  );
+  scroll-padding: 6px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+.catalogue-family-menu [cmdk-group] {
+  padding: 6px;
+}
+.catalogue-family-menu [cmdk-item],
+.catalogue-sort-menu [role="option"] {
+  min-height: 44px;
+  padding: 11px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+  overflow-wrap: normal;
+}
+.catalogue-family-menu [cmdk-item] {
+  justify-content: space-between;
+  gap: 16px;
+}
+.catalogue-family-menu [cmdk-item][data-current="true"],
+.catalogue-sort-menu [role="option"][data-state="checked"] {
+  color: hsl(var(--primary));
+  font-weight: 550;
+}
+.catalogue-family-menu [cmdk-item][data-selected="true"],
+.catalogue-sort-menu [role="option"][data-highlighted] {
+  background: hsl(var(--primary) / 0.065);
+  color: hsl(var(--primary));
+}
+.catalogue-family-menu [cmdk-item] svg {
+  flex-shrink: 0;
+}
+.catalogue-family-menu [cmdk-empty] {
+  padding: 28px 20px;
+  color: hsl(var(--muted-foreground));
+  font-size: 13px;
+}
+.catalogue-sort-menu {
+  min-width: max(210px, var(--radix-select-trigger-width));
+  max-width: calc(100vw - 32px);
+}
+.catalogue-sort-menu [role="option"] {
+  padding-right: 36px;
+}
+@media (max-width: 1100px) {
+  .catalogue-experience .battery-sort .catalogue-filter-trigger {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .battery-sort .catalogue-filter-trigger {
+    width: 172px;
+    gap: 8px;
+    padding-inline: 11px;
+    font-size: 12px;
+  }
+  .catalogue-family-menu [cmdk-input] {
+    font-size: 16px;
+  }
+  .catalogue-family-menu [cmdk-input]::placeholder {
+    font-size: 13px;
+  }
+}
+@media (max-width: 359px) {
+  .battery-sort .catalogue-filter-trigger {
+    width: 154px;
+  }
+  .catalogue-experience
+    .battery-results-heading
+    .catalogue-selects:has([name="family"]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .catalogue-filter-trigger,
+  .catalogue-filter-trigger > svg,
+  .catalogue-family-menu,
+  .catalogue-sort-menu {
+    transition: none !important;
+    animation: none !important;
+  }
+}

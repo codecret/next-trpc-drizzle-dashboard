@@ -1,38 +1,41 @@
-import Link from "next/link";
-import React from "react";
+"use client";
+
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import { useRouter } from "next/navigation";
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
+  const t = useTranslations("Website.nav");
+  const pathname = usePathname();
   const router = useRouter();
-  const otherLocale = locale === "en" ? "de" : "en";
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
-          {locale === "en" ? "English" : "German"}
+        <Button variant="ghost" size="sm" aria-label={t("language")}>
+          {locale.toUpperCase()}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuCheckboxItem
-          onCheckedChange={() => {
-            router.push("/" + otherLocale);
-          }}
-        >
-          {locale === "en" ? "German" : "English"}
-        </DropdownMenuCheckboxItem>
+      <DropdownMenuContent align="end">
+        {["en", "de"].map((language) => (
+          <DropdownMenuCheckboxItem
+            key={language}
+            checked={locale === language}
+            onCheckedChange={() =>
+              router.replace(`${pathname}${window.location.search}`, {
+                locale: language,
+              })
+            }
+          >
+            {language === "en" ? "English" : "Deutsch"}
+          </DropdownMenuCheckboxItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

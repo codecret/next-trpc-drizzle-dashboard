@@ -1,0 +1,18 @@
+[
+  {
+    "file": "5-Procedures-Payment-Methods-CHICKEN.pdf",
+    "sha256": "e50fc2a1ce6ecfc250e77e515b92ab5d4c9a4810df6b42c298c03c48d4def622"
+  },
+  {
+    "file": "4-Procedures-Payment-Methods-CORN.pdf",
+    "sha256": "58bda47803895bcea9842680e108cc501f2d9af6896e658e3e073cf79231c921"
+  },
+  {
+    "file": "2-Procedures-Payment-Methods-ICUMSA-45-to-1200.pdf",
+    "sha256": "88a6f94fb6cc28fd9bfb3550f72a6c794d6e096c5a5ae4cac345e2eb3e24d6d9"
+  },
+  {
+    "file": "3-Procedures-Payment-Methods-SOYBEANS.pdf",
+    "sha256": "c6acd01c5c1115f6b0a2376b7e69cfb5e94001a5df39d2fa20ebac014ec2bd32"
+  }
+]

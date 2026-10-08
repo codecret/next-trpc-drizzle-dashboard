@@ -1,0 +1,201 @@
+.industrial-footer {
+  --muted-foreground: 190 3% 74%;
+  --border: 190 4% 28%;
+  --foreground: 60 8% 97%;
+  --background: 200 11% 11%;
+  --accent: 200 7% 20%;
+  --accent-foreground: 60 8% 97%;
+  --ring: 60 8% 97%;
+  background: #191d1f;
+  color: #f5f4ef;
+  padding-block: 32px 16px;
+}
+.industrial-footer-directory {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr 1fr 1.25fr;
+  gap: 52px;
+}
+.industrial-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 6px;
+  background: #fff;
+}
+.industrial-footer-logo img {
+  display: block;
+  width: 168px;
+  height: auto;
+}
+.industrial-footer-description {
+  max-width: 290px;
+  margin-top: 14px;
+  color: #c3c6c6;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.industrial-footer h2 {
+  margin-bottom: 10px;
+  color: #f5f4ef;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.industrial-footer-directory li > a,
+.industrial-footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding-block: 5px;
+  color: #c3c6c6;
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+.industrial-footer-directory a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #fff;
+}
+.industrial-footer-contact address {
+  color: #c3c6c6;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.7;
+}
+.industrial-footer-contact address a,
+.industrial-footer-contact address p {
+  display: flex;
+  align-items: start;
+  gap: 11px;
+}
+.industrial-footer-contact address p {
+  margin-top: 5px;
+}
+.industrial-footer-contact svg {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  stroke-width: 1.5;
+}
+.industrial-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 24px;
+  border-top: 1px solid #ffffff29;
+  padding-top: 12px;
+  color: #c3c6c6;
+}
+.industrial-footer-bottom > p {
+  font-size: 10px;
+  line-height: 1.7;
+}
+.industrial-footer-preferences {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.industrial-footer-preferences > a {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 11px;
+  line-height: 1.5;
+  text-underline-offset: 5px;
+}
+.industrial-footer-preferences > a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.industrial-footer-preferences > a svg {
+  width: 14px;
+  height: 14px;
+}
+.industrial-footer-preferences > button {
+  width: 44px;
+  height: 44px;
+  border-radius: 2px;
+  border-color: #ffffff38;
+  background: transparent;
+  color: #f5f4ef;
+}
+.industrial-footer-preferences > button:hover {
+  border-color: #ffffff80;
+  background: #ffffff0d;
+}
+@media (max-width: 1199px) {
+  .industrial-footer-directory {
+    grid-template-columns: 1.15fr 0.75fr 1fr 1.2fr;
+    gap: 32px;
+  }
+  .industrial-footer-logo img {
+    width: 150px;
+  }
+}
+@media (max-width: 899px) {
+  .industrial-footer-directory {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px 44px;
+  }
+  .industrial-footer-description {
+    max-width: 350px;
+  }
+}
+@media (max-width: 639px) {
+  .industrial-footer {
+    padding-block: 32px 20px;
+  }
+  .industrial-footer-directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .industrial-footer-directory > :first-child,
+  .industrial-footer-directory > :last-child {
+    grid-column: 1 / -1;
+  }
+  .industrial-footer-directory li > a,
+  .industrial-footer-contact a {
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .industrial-footer h2,
+  .industrial-footer-description,
+  .industrial-footer-contact address {
+    font-size: 14px;
+  }
+  .industrial-footer-bottom {
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .industrial-footer-bottom > p {
+    font-size: 11px;
+  }
+  .industrial-footer-preferences {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .industrial-footer-preferences > a {
+    font-size: 12px;
+  }
+}
+@media (pointer: coarse) {
+  .industrial-footer-directory li > a,
+  .industrial-footer-contact a {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .industrial-footer-directory a {
+    transition: none;
+  }
+}

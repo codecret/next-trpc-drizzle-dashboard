@@ -95,3 +95,244 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Public website identity; existing dashboard tokens remain unchanged. */
+.website-shell,
+.public-surface {
+  --background: 0 0% 100%;
+  --foreground: 225 6.67% 11.76%;
+  --card: 0 0% 100%;
+  --card-foreground: 225 6.67% 11.76%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 225 6.67% 11.76%;
+  --brand-red: #ea252c;
+  --primary: 357.68 73.88% 48.04%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 60 11.11% 94.71%;
+  --muted-foreground: 228 2.42% 40.59%;
+  --secondary: 60 11.11% 94.71%;
+  --secondary-foreground: 225 6.67% 11.76%;
+  --accent: 60 11.11% 94.71%;
+  --accent-foreground: 225 6.67% 11.76%;
+  --border: 60 5.45% 89.22%;
+  --input: 60 5% 78%;
+  --ring: 357.68 73.88% 48.04%;
+  --radius: 0.25rem;
+  font-family: var(--font-public), sans-serif;
+  font-feature-settings: "ss01" on;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.65;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow-wrap: anywhere;
+}
+.dark .website-shell,
+.dark .public-surface {
+  --primary: 3 73% 67%;
+  --primary-foreground: 220 12% 10%;
+  --background: 220 12% 10%;
+  --foreground: 40 15% 94%;
+  --card: 220 10% 13%;
+  --card-foreground: 40 15% 94%;
+  --popover: 220 12% 13%;
+  --popover-foreground: 40 15% 94%;
+  --muted: 220 9% 16%;
+  --muted-foreground: 35 7% 67%;
+  --secondary: 220 9% 18%;
+  --secondary-foreground: 40 15% 94%;
+  --accent: 220 9% 18%;
+  --accent-foreground: 40 15% 94%;
+  --border: 220 7% 24%;
+  --input: 220 7% 33%;
+  --ring: 2 75% 64%;
+}
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10;
+  }
+  .site-section {
+    padding-block: clamp(56px, 6.2vw, 88px);
+  }
+  .nav-link {
+    @apply relative inline-flex items-center px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
+  }
+  .nav-link[aria-current="page"] {
+    @apply text-foreground;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-[3px] left-3 right-3 h-px bg-primary;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+  }
+  .nav-link:is(:hover, :focus-visible, [aria-current="page"])::after {
+    transform: scaleX(1);
+  }
+  .eyebrow {
+    @apply flex items-center gap-3 text-[11px] font-semibold uppercase leading-5 tracking-[0.14em] text-muted-foreground;
+  }
+  .section-title {
+    font-size: clamp(32px, 3.35vw, 48px);
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+  .site-button {
+    @apply h-12 rounded-sm px-6 text-sm font-semibold shadow-none;
+    transition:
+      background-color 200ms,
+      box-shadow 200ms;
+  }
+  .text-link {
+    @apply inline-flex items-center gap-5 border-b border-foreground/30 pb-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary;
+    min-height: 44px;
+  }
+  .index-number {
+    @apply shrink-0 font-mono text-[11px] tracking-wider text-primary;
+  }
+}
+.website-shell
+  :where(a, button, input, select, textarea, summary):focus-visible,
+.public-surface
+  :where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 4px;
+}
+.website-shell :where(section[id], h2[id], main[id]) {
+  scroll-margin-top: 120px;
+}
+.website-shell select {
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+}
+.website-shell input,
+.website-shell textarea,
+.public-surface input {
+  border-radius: 3px;
+  box-shadow: none;
+}
+.website-shell input,
+.website-shell select {
+  min-height: 44px;
+}
+.website-shell ::selection {
+  background: hsl(var(--primary));
+  color: #fff;
+}
+.website-shell .site-button > svg,
+.public-surface .site-button > svg,
+.text-link > svg {
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+.website-shell .site-button:hover > svg,
+.public-surface .site-button:hover > svg {
+  transform: translate(2px, -2px);
+}
+.text-link:hover > svg {
+  transform: translateX(3px);
+}
+.page-heading {
+  border-bottom: 1px solid hsl(var(--border));
+  padding-bottom: 28px;
+  position: relative;
+}
+.page-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 44px;
+  height: 2px;
+  background: hsl(var(--primary));
+}
+.page-heading h1 {
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+  max-width: 930px;
+  margin-top: 16px;
+  text-wrap: balance;
+}
+.page-intro {
+  max-width: 680px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: hsl(var(--muted-foreground));
+  margin-top: 16px;
+}
+.animate-enter {
+  animation: enter 0.55s both cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.delay-one {
+  animation-delay: 0.08s;
+}
+.delay-two {
+  animation-delay: 0.16s;
+}
+.delay-three {
+  animation-delay: 0.24s;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 639px) {
+  .page-heading {
+    padding-bottom: 30px;
+  }
+  .page-heading h1 {
+    margin-top: 18px;
+  }
+  .page-intro {
+    font-size: 15px;
+    margin-top: 18px;
+  }
+  .site-button {
+    padding-inline: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .website-shell *,
+  .website-shell *::before,
+  .website-shell *::after,
+  .public-surface * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.website-shell .site-button,
+.public-surface .site-button {
+  min-height: 48px;
+  border-radius: 3px;
+  padding-inline: 24px;
+}
+.public-surface button[type="submit"].site-button {
+  padding-inline: 16px;
+}
+.website-shell .site-button,
+.public-surface .site-button {
+  font-size: 14px;
+  font-weight: 600;
+}
+@media (max-width: 639px) {
+  .website-shell input,
+  .website-shell select,
+  .website-shell textarea,
+  .public-surface input {
+    font-size: 16px;
+  }
+}

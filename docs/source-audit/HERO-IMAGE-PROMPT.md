@@ -1,0 +1,9 @@
+# Reference hero campaign image
+
+Mode: built-in imagegen. Generated from the user's website reference and the original Toshiba High Power AA and LED bulb catalogue assets. This is a generated marketing composition; product detail pages retain source photographs and specifications.
+
+Saved asset: `public/images/campaign/hero-dubai-v1.png`.
+
+Exact generation prompt:
+
+Use case: compositing. Asset type: premium corporate website hero campaign photograph, landscape 4:3 composition. Edit/extract the visual concept of ONLY the top-right hero artwork in Image 1 (the full website reference), recreating it at high photographic quality as a standalone image, with no website UI, borders, navigation or text overlays. Image 2 is the real Toshiba High Power AA battery product identity reference, Image 3 is the real Toshiba LED bulb product identity reference. Preserve their product shapes, silver/black/blue battery materials, white bulb, screw fitting, and correct TOSHIBA lettering printed on the physical products. Composition closely matches Image 1: one tall upright blue-and-black Toshiba AA battery at left center, one larger white LED lightbulb upright at right center; both standing on layered light-gray raw concrete architectural plinths. A tall matte brand-red vertical rectangular architectural slab behind the bulb, soft hazy Dubai skyline with the Burj Khalifa in the far background, restrained off-white studio atmosphere. Elegant realistic shadows, natural soft light from upper left, architectural advertising photography. Products fill most of the scene and remain fully visible. Keep the top-left corner of the scene lightly detailed and empty for an HTML brand wordmark added later. No additional standalone slogans or captions, no warranty/energy claims, no new models, no extra objects. Return only the landscape photographic campaign artwork, approximately 1536 by 1152 pixels.

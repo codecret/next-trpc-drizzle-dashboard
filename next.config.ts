@@ -1,8 +1,18 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import legacyRedirects from "./src/features/catalogue/data/legacy-redirects.json";
 
 const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
+  async redirects() {
+    return legacyRedirects.map((redirect) => ({
+      ...redirect,
+      has: redirect.has?.map((condition) => ({
+        ...condition,
+        type: "query" as const,
+      })),
+    }));
+  },
   images: {
     remotePatterns: [
       {

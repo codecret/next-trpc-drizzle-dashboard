@@ -1,0 +1,3373 @@
+[
+  {
+    "source": "/products-by-sugar.html",
+    "destination": "/products/sugar",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-edibleoil.html",
+    "destination": "/products/edible-oils",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-seeds.html",
+    "destination": "/products/seeds",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-meatandchick.html",
+    "destination": "/products/meat-and-fish",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-chemicals.html",
+    "destination": "/products/chemicals",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-constructions.html",
+    "destination": "/products/construction-materials",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-hospitality.html",
+    "destination": "/products/hospitality",
+    "permanent": true
+  },
+  {
+    "source": "/products-by-random.html",
+    "destination": "/products/other-food-products",
+    "permanent": true
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-6aa-4aaa-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-9v-sp-1-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-9v-sp-1-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-bp-10-x10-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-bp-2-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "5"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-bp-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "6"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-bp10-6-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "59"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-bp12-8-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "60"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-bp6-4-2-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "61"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-mp-12-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "62"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-mp-12-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "63"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-mp-16-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "64"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/alpha-power-aa-bp-2-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "7"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/alpha-power-aa-bp-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "8"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/alpha-power-aa-bp-6-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "9"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/alpha-power-aaa-bp-2-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/alpha-power-aaa-bp-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "11"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/alpha-power-aaa-bp-6-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "12"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/6f22kg-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "75"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r03kg-bp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "76"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r6kg-bp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "77"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r14kg-bp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "79"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r20kg-bp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "80"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r03kg-m-mp24tgd",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "81"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r6kg-m-mp24tgpkd",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "82"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/6f22kg-sp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "83"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r03kg-sp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "84"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r6kg-sp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "85"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r6kgf-sp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "86"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r14kg-sp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "87"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r20kg-sp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "88"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r03kg-bp1x10c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "89"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/r6kg-bp1x10c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "90"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/tnh-03gae-bp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "53"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/tnh-03gae-bp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "54"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/tnh-6gae-bp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "55"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/tnh-6gae-bp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "56"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/tnh-6gle-bp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "57"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/tnh-6gle-bp-4c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "58"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/charger",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "52"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/powerbank-lpt-6000",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "66"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/cr1216-pw-bp-5",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "27"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/cr1220-pw-bp-5n",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "28"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/cr1616-pw-bp-5",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "29"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/cr1620-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "30"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/cr1620-pw-bp-5n",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "31"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/cr1632-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "32"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr41-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "100"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr43-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "101"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr44-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "102"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr44-bp-2c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "103"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr1130-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "104"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/pr41",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "23"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/pr44",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "24"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/pr48",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "25"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/pr70",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "26"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/23a-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "19"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/23a-bp-5c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "20"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/27a-bp-1c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "21"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/27a-bp-5c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "22"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/kfl-403l-g-c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "91"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/kfl-403l-r-c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "92"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/kfl-403c-k-c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "93"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/kfl-403c-w-c",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "94"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/kfl-g",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "131"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/k-137-l",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "98"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/k-138-y",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "99"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/tube-t8-9w-600mm",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "63"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/tube-t8-18w-1200mm",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "64"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/tube-t8-22w-1500mm",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "65"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-gu10-4w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "60"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-gu10-5-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "61"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-gu10-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "62"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-5-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "9"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-8-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-11w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "11"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-14w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "12"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "19"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "20"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-8-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "21"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-10-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "22"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-g95-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "31"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-g95-8-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "32"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-g95-11w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "33"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-st64-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "34"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-st64-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "35"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-t25-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "36"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-4-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "37"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-4-9w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "38"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-7w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "39"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-9w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "40"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-a-bulb-11w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "41"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-candle-c35-4-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "42"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-candle-cf35-4-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "43"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-golf-e14-4-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "44"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-g95-7w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "45"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-g95-9w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "46"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-g95-11w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "47"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-st64-4-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "48"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-st64-7w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "49"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-4-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-8-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-11w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-15w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "5"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-b22-8-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "6"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-b22-11w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "7"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-a-bulb-b22-15w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "8"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-e14-4-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "50"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-e14-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "51"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-3pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "52"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-e27-4-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "53"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-e27-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "54"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-e14-4-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "55"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-e14-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "56"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-e27-4-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "57"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-e27-7w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "58"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-3pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "59"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-e14-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "13"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-candle-e27-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "14"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-e14-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "15"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-golf-e27-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "16"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-gu10-5w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "17"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/toshiba-standard-gu10-7w-dim",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "18"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-candle-c35-2-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "23"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-candle-c35-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "24"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-candle-cf35-2-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "25"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-candle-cf35-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "26"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-golf-e14-2-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "27"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-golf-e14-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "28"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-golf-e27-2-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "29"
+      }
+    ]
+  },
+  {
+    "source": "/ledlightDetails.aspx",
+    "destination": "/products/filament-golf-e27-4-5w",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "30"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-bp-10-x10-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "115"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-mp-40-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "116"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-bp-2-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "117"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-bp-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "118"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-bp6-4-2-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "119"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-mp-12-shrink-pack-battery-120",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "120"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-mp-12-shrink-pack-battery-120",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "123"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-bp10-6-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "121"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-bp12-8-4-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "122"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-mp-16-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "124"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-mp-20-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "125"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aaa-mp-40-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "126"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr03gcp-sp-2cn",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "127"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr6gcp-sp-2cn",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "128"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr14gcp-sp-2cn",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "129"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/lr20gcp-bp-2cn",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "130"
+      }
+    ]
+  },
+  {
+    "source": "/ProductDetails.aspx",
+    "destination": "/products/high-power-aa-mp-20-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "65"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/high-power",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/alpha-power",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/zinc-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "15"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/zinc-multi-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "16"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/zinc-shrink-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "17"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/zinc-strip-blister-pack",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "18"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/rechargeable-batteries",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/chargers",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/powerbanks",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "12"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/button-batteries",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "8"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/hearing-aid-batteries",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "9"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/special-cells",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/two-way-led-light",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "13"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/economical-led-light",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "19"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/mini-led-light",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "20"
+      }
+    ]
+  },
+  {
+    "source": "/Products.aspx",
+    "destination": "/products/underwater-light",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "21"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/t8-tubes",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "5"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/floodlights-standard",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "6"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/floodlights-sensor",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "7"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/high-bay-standard",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "8"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/high-bay-standard-s2",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "9"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/high-bay-pro",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/high-bay-accessories",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "11"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/downlights-standard",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "12"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/downlights-3cct",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "13"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/weatherproofs",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "14"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/triproofs",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "15"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/panel-lights-ugr-16",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "16"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/panel-lights-ugr-19",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "17"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/panel-lights-ugr-22",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "18"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/panel-accessories",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "19"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/ceiling-lights-black",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "20"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategorylight.aspx",
+    "destination": "/products/ceiling-lights-white",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "21"
+      }
+    ]
+  },
+  {
+    "source": "/Default.aspx",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/Aboutus.aspx",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Distributors.aspx",
+    "destination": "/services#distribution",
+    "permanent": true
+  },
+  {
+    "source": "/faq.aspx",
+    "destination": "/support",
+    "permanent": true
+  },
+  {
+    "source": "/Contactus.aspx",
+    "destination": "/contact",
+    "permanent": true
+  },
+  {
+    "source": "/ProductsByCategory.aspx",
+    "destination": "/products/alkaline-batteries",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "ctid",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategory.aspx",
+    "destination": "/products/zinc-batteries",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "ctid",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/ProductsByCategory.aspx",
+    "destination": "/products/rechargeable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "ctid",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/about.html",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/services.html",
+    "destination": "/services",
+    "permanent": true
+  },
+  {
+    "source": "/products.html",
+    "destination": "/products/commodities",
+    "permanent": true
+  },
+  {
+    "source": "/media.html",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/support.html",
+    "destination": "/support",
+    "permanent": true
+  },
+  {
+    "source": "/contact.html",
+    "destination": "/contact",
+    "permanent": true
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1002"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1003"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1004"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "1005"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2002"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2003"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2004"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2005"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2006"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2007"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2008"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2009"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2010"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2011"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2012"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2013"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2014"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2015"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2016"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2017"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2018"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2019"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2020"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2021"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2022"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2023"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2024"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2025"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2026"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "sbctid",
+        "value": "2027"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1002"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1003"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1004"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1005"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2002"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2003"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2004"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2005"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2006"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2007"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2008"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2009"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2010"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2011"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/filament-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2012"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2013"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2014"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2015"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2016"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2017"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2018"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2019"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2020"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2021"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2022"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2023"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2024"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2025"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2026"
+      }
+    ]
+  },
+  {
+    "source": "/products_by_subcategorylight.aspx",
+    "destination": "/products/led-lighting",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2027"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "3"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "5"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "6"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "7"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "8"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1002"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1003"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1004"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/smd-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1005"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1006"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1007"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1008"
+      }
+    ]
+  },
+  {
+    "source": "/Productslights.aspx",
+    "destination": "/products/filament-non-dimmable",
+    "permanent": true,
+    "has": [
+      {
+        "type": "query",
+        "key": "id",
+        "value": "1009"
+      }
+    ]
+  }
+]

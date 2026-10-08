@@ -1,0 +1,40 @@
+export type LocalizedText = { en: string; de: string };
+export type Category = {
+  slug: string;
+  name: LocalizedText;
+  parent: string;
+  description: LocalizedText;
+  sources: string[];
+  ranges: string[];
+  productCount: number;
+  image: string;
+};
+export type SpecificationTable = { headers: string[]; rows: string[][] };
+export type Product = {
+  id: string;
+  slug: string;
+  name: string;
+  division: string;
+  category: string;
+  categoryPath: string[];
+  family: string;
+  sourceCategories: string[];
+  description: string[];
+  productCode: string;
+  sfgtCode: string;
+  tables: SpecificationTable[];
+  benefits: string[];
+  technical: string[];
+  images: string[];
+  imageSources: string[];
+  sources: string[];
+  sourceAliases?: string[];
+  downloads: string[];
+  notes: string[];
+};
+export type Download = {
+  id: string;
+  name: string;
+  path: string;
+  source: string;
+};

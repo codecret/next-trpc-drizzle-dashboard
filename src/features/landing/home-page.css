@@ -1,0 +1,130 @@
+.reference-company {
+  background: #f8f8f7;
+  padding-block: 28px 30px;
+  color: #1c1d20;
+}
+.reference-company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+.reference-company-copy h2 {
+  margin-top: 10px;
+  font-size: clamp(27px, 2.7vw, 38px);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+.reference-company-copy h2 span {
+  display: block;
+}
+.reference-company-description {
+  max-width: 480px;
+  margin-top: 12px;
+  color: #68696c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.reference-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 38px;
+  margin-top: 6px;
+  border-bottom: 1px solid #dededd;
+  color: #c91e26;
+  font-size: 12px;
+  font-weight: 600;
+}
+.reference-text-link svg {
+  transition: transform 200ms;
+}
+.reference-text-link:hover svg {
+  transform: translateX(3px);
+}
+.reference-company-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.reference-company-facts > div {
+  padding: 6px 28px;
+  border-left: 1px solid #e8e8e6;
+}
+.reference-company-facts svg {
+  width: 27px;
+  height: 27px;
+  color: #d52027;
+  stroke-width: 1.5;
+  margin-bottom: 14px;
+}
+.reference-company-facts dt {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.reference-company-facts dd {
+  margin-top: 8px;
+  color: #6c6d70;
+  font-size: 11px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .reference-company-grid {
+    gap: 28px;
+  }
+  .reference-company-facts > div {
+    padding-inline: 17px;
+  }
+  .reference-company-facts dt {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767px) {
+  .reference-company {
+    padding-block: 36px;
+  }
+  .reference-company-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .reference-company-copy h2 {
+    font-size: 30px;
+  }
+  .reference-company-description {
+    font-size: 14px;
+  }
+  .reference-company-facts > div {
+    padding: 5px 15px;
+  }
+  .reference-company-facts > div:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .reference-company-facts > div:last-child {
+    padding-right: 0;
+  }
+  .reference-company-facts dt {
+    font-size: 14px;
+  }
+  .reference-company-facts dd {
+    font-size: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .reference-company-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .reference-company-copy {
+    max-width: 620px;
+  }
+  .reference-company-facts > div {
+    padding-inline: 24px;
+  }
+  .reference-company-facts > div:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

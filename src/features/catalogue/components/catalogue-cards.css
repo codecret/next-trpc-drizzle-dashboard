@@ -1,0 +1,197 @@
+.product-card {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  flex-direction: column;
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  background: hsl(var(--card));
+  transition: border-color 200ms ease;
+}
+.product-card-link {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+  flex-direction: column;
+  border-radius: inherit;
+}
+.product-card-link:focus-visible,
+.category-card:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 4px;
+}
+.product-card-image {
+  position: relative;
+  aspect-ratio: 1.65;
+  overflow: hidden;
+  border-radius: 2px 2px 0 0;
+  background: #f8f8f8;
+}
+.product-card-photo {
+  transition: transform 260ms ease;
+}
+.product-card-photo-contain {
+  object-fit: contain;
+  padding: 16px 22px;
+  mix-blend-mode: multiply;
+}
+.product-card-photo-cover {
+  object-fit: cover;
+}
+.product-card-content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 21px 18px;
+}
+.product-card-category {
+  margin-bottom: 7px;
+  color: hsl(var(--muted-foreground));
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.product-card-title {
+  color: hsl(var(--foreground));
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.product-card-detail {
+  margin-top: 7px;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.product-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 22px;
+  color: hsl(var(--foreground));
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.5;
+  transition: color 200ms ease;
+}
+.product-card-action > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.product-card-action svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+.category-card {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  padding: 14px 16px 14px 13px;
+  background: hsl(var(--card));
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+.category-card-image {
+  position: relative;
+  display: grid;
+  width: 60px;
+  height: 62px;
+  flex-shrink: 0;
+  overflow: hidden;
+  place-items: center;
+  border-radius: 2px;
+  background: #fff;
+}
+.category-card-photo {
+  object-fit: contain;
+  padding: 5px;
+  transition: transform 260ms ease;
+}
+.category-card-content {
+  min-width: 0;
+  flex: 1;
+}
+.category-card-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.category-card-content p {
+  margin-top: 4px;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  line-height: 1.5;
+}
+.category-card-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: hsl(var(--muted-foreground));
+  transition:
+    transform 200ms ease,
+    color 200ms ease;
+}
+@media (hover: hover) {
+  .product-card:hover,
+  .category-card:hover {
+    border-color: hsl(var(--foreground) / 0.25);
+  }
+  .product-card:hover .product-card-photo,
+  .category-card:hover .category-card-photo {
+    transform: scale(1.025);
+  }
+  .product-card:hover .product-card-action,
+  .category-card:hover .category-card-arrow {
+    color: hsl(var(--primary));
+  }
+  .product-card:hover .product-card-action > svg,
+  .category-card:hover .category-card-arrow {
+    transform: translateX(3px);
+  }
+}
+@media (max-width: 639px) {
+  .product-card-image {
+    aspect-ratio: 1.6;
+  }
+  .product-card-content {
+    padding: 20px;
+  }
+  .product-card-action {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-card-photo,
+  .product-card-action,
+  .product-card-action svg,
+  .category-card,
+  .category-card-photo,
+  .category-card-arrow {
+    transition: none;
+  }
+  .product-card:hover .product-card-photo,
+  .category-card:hover .category-card-photo,
+  .product-card:hover .product-card-action > svg,
+  .category-card:hover .category-card-arrow {
+    transform: none;
+  }
+}
