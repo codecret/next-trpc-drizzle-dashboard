@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import "./rtl.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import TRPCProvider from "@/lib/trpc/Provider";
@@ -54,7 +55,12 @@ export default async function Layout({
   const messages = await getMessages();
 
   return (
-    <html suppressHydrationWarning lang={locale}>
+    <html
+      suppressHydrationWarning
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      className="light"
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${publicFont.variable} antialiased`}
       >
@@ -62,7 +68,8 @@ export default async function Layout({
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
-            enableSystem
+            forcedTheme="light"
+            enableSystem={false}
             disableTransitionOnChange
           >
             <NextIntlClientProvider messages={messages}>

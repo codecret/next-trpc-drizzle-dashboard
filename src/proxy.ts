@@ -10,7 +10,7 @@ const hiddenPagePrefixes = ["/admin", "/dashboard", "/auth"];
 
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const path = pathname.replace(/^\/(en|de)(?=\/|$)/, "") || "/";
+  const path = pathname.replace(/^\/(en|ar|de)(?=\/|$)/, "") || "/";
   if (
     hiddenPagePrefixes.some(
       (prefix) => path === prefix || path.startsWith(`${prefix}/`)
@@ -20,6 +20,12 @@ export function proxy(request: NextRequest) {
       status: 404,
       headers: { "X-Robots-Tag": "noindex, nofollow" },
     });
+  }
+  // Retired German bookmarks keep their page and query on the English site.
+  if (/^\/de(?=\/|$)/.test(pathname)) {
+    const destination = request.nextUrl.clone();
+    destination.pathname = path;
+    return NextResponse.redirect(destination, 308);
   }
   return handleI18nRouting(request);
 }

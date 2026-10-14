@@ -1,12 +1,16 @@
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, Building2, Globe2, UsersRound } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MapPin } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Hero } from "@/features/landing/home-hero";
-import { Feature } from "@/features/landing/service-feature";
+import { HomeSupplyProcess } from "@/features/landing/home-supply-process";
 import { Faq } from "@/features/landing/battery-faq";
-import { ContactBanner } from "@/features/landing/contact-banner";
 import { ProductEditorial } from "@/features/landing/product-editorial";
+import { company, products } from "@/features/catalogue/catalogue";
 import { pageMetadata } from "@/features/catalogue/metadata";
+import { EnquiryForm } from "@/features/contact/components/enquiry-form";
+import { getEnquiryDeliveryEnabled } from "@/features/contact/server/enquiry-delivery";
+import "@/features/contact/components/contact-page.css";
 import "@/features/landing/home-page.css";
 
 export async function generateMetadata({
@@ -32,49 +36,97 @@ export default async function Home({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations("Website");
+  const t = await getTranslations("Website.businessHome");
+  const visual = await getTranslations("Website.visualDetails");
+  const reference = await getTranslations("Website.reference");
+  const deliveryEnabled = getEnquiryDeliveryEnabled();
+
   return (
-    <>
+    <div className="business-home">
       <Hero />
-      <section className="reference-company" aria-labelledby="company-title">
-        <div className="site-container reference-company-grid">
-          <div className="reference-company-copy">
-            <p className="reference-eyebrow">{t("home.companyLabel")}</p>
-            <h2 id="company-title">
-              <span>{t("design.companyLineOne")}</span>
-              <span>{t("design.companyLineTwo")}</span>
-            </h2>
-            <p className="reference-company-description">
-              {t("home.companyDescription")}
-            </p>
-            <Link href="/about" className="reference-text-link">
-              {t("home.aboutLink")}
-              <ArrowRight size={16} />
-            </Link>
+      <section className="site-container" aria-label={t("factsLabel")}>
+        <dl className="business-facts">
+          <div className="business-fact">
+            <dt>{t("establishedTitle")}</dt>
+            <dd>{t("establishedDescription")}</dd>
           </div>
-          <dl className="reference-company-facts">
-            <div>
-              <Building2 aria-hidden="true" />
-              <dt>2013</dt>
-              <dd>{t("reference.yearEstablished")}</dd>
-            </div>
-            <div>
-              <Globe2 aria-hidden="true" />
-              <dt>{t("reference.serving")}</dt>
-              <dd>{t("reference.markets")}</dd>
-            </div>
-            <div>
-              <UsersRound aria-hidden="true" />
-              <dt>{t("reference.partnerships")}</dt>
-              <dd>{t("reference.trust")}</dd>
-            </div>
-          </dl>
+          <div className="business-fact">
+            <dt>{t("productsTitle", { count: products.length })}</dt>
+            <dd>{t("productsDescription")}</dd>
+          </div>
+          <div className="business-fact">
+            <dt>{t("baseTitle")}</dt>
+            <dd>{t("baseDescription")}</dd>
+          </div>
+        </dl>
+      </section>
+      <section
+        className="site-container business-company"
+        aria-labelledby="company-title"
+      >
+        <figure className="business-company-visual">
+          <Image
+            src="/images/campaign/hero-dubai-v1.png"
+            alt={reference("heroImageAlt")}
+            width={1448}
+            height={1086}
+            sizes="(min-width: 1280px) 560px, (min-width: 768px) 46vw, 90vw"
+          />
+          <figcaption>
+            <span>TOSHIBA</span>
+            {reference("heroImageCaption")}
+          </figcaption>
+        </figure>
+        <div className="business-company-description">
+          <p className="business-eyebrow">{company.name}</p>
+          <h2 id="company-title">
+            <span>{t("companyLineOne")}</span>
+            <span>{t("companyLineTwo")}</span>
+          </h2>
+          <p className="business-company-body">{t("companyDescription")}</p>
+          <Link href="/about" className="business-text-link">
+            {t("aboutLink")}
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <Link href="/contact" className="business-location-note">
+            <MapPin size={21} strokeWidth={1.5} aria-hidden="true" />
+            <span>
+              <strong>{visual("officeTitle")}</strong>
+              <span>{visual("officeAddress")}</span>
+            </span>
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
       </section>
+      <HomeSupplyProcess />
       <ProductEditorial locale={locale} />
-      <Feature />
       <Faq />
-      <ContactBanner />
-    </>
+      <section
+        id="homepage-enquiry"
+        className="site-container"
+        aria-labelledby="homepage-enquiry-title"
+      >
+        <div className="business-enquiry">
+          <div className="business-enquiry-copy">
+            <p className="business-eyebrow">{t("enquiryLabel")}</p>
+            <h2 id="homepage-enquiry-title">{t("enquiryTitle")}</h2>
+            <p className="business-enquiry-description">
+              {t("enquiryDescription")}
+            </p>
+            <p className="business-enquiry-note">
+              <strong>{t("enquiryNoteTitle")}</strong>
+              {t("enquiryNoteDescription")}
+            </p>
+          </div>
+          <div className="business-enquiry-form">
+            <EnquiryForm
+              compact
+              email={company.email}
+              deliveryEnabled={deliveryEnabled}
+            />
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

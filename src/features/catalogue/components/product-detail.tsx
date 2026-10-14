@@ -94,9 +94,11 @@ export async function ProductDetail({
               {localize(category.name, locale)}
             </Link>
           </div>
-          <h1 lang="en">{product.name}</h1>
+          <h1 lang="en" dir="ltr">
+            {product.name}
+          </h1>
           {product.family && (
-            <p lang="en" className="product-detail-family">
+            <p lang="en" dir="ltr" className="product-detail-family">
               {product.family}
             </p>
           )}
@@ -112,13 +114,17 @@ export async function ProductDetail({
               {product.productCode && (
                 <div>
                   <dt>{t("catalogue.code")}</dt>
-                  <dd>{product.productCode}</dd>
+                  <dd>
+                    <bdi dir="ltr">{product.productCode}</bdi>
+                  </dd>
                 </div>
               )}
               {product.sfgtCode && (
                 <div>
                   <dt>{t("catalogue.sfgtCode")}</dt>
-                  <dd>{product.sfgtCode}</dd>
+                  <dd>
+                    <bdi dir="ltr">{product.sfgtCode}</bdi>
+                  </dd>
                 </div>
               )}
             </dl>
@@ -126,6 +132,7 @@ export async function ProductDetail({
           <div
             className="product-detail-description"
             lang={product.description.length ? "en" : undefined}
+            dir={product.description.length ? "ltr" : undefined}
           >
             {product.description.length ? (
               <p>{summaryDescription}</p>
@@ -160,7 +167,7 @@ export async function ProductDetail({
               )}
             </div>
           )}
-          {locale === "de" && (
+          {locale === "ar" && (
             <p className="product-language-note">
               {t("catalogue.detailsLanguage")}
             </p>
@@ -171,7 +178,7 @@ export async function ProductDetail({
                 <Info aria-hidden="true" />
                 {t("catalogue.verification")}
               </h2>
-              <ul lang="en">
+              <ul lang="en" dir="ltr">
                 {product.notes.map((note) => (
                   <li key={note}>{note}</li>
                 ))}
@@ -226,7 +233,7 @@ export async function ProductDetail({
                 <BookOpen aria-hidden="true" />
                 <h2 id="product-overview-heading">{t("catalogue.overview")}</h2>
               </div>
-              <div className="product-source-copy" lang="en">
+              <div className="product-source-copy" lang="en" dir="ltr">
                 {product.description.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
@@ -265,6 +272,7 @@ export async function ProductDetail({
                           : "product-specification-table"
                       }
                       lang="en"
+                      dir="ltr"
                     >
                       <caption className="sr-only">
                         {product.name} — {t("catalogue.specifications")}
@@ -309,7 +317,7 @@ export async function ProductDetail({
                 <ListChecks aria-hidden="true" />
                 <h2 id="product-benefits-heading">{t("catalogue.benefits")}</h2>
               </div>
-              <div lang="en" className="product-source-copy">
+              <div lang="en" dir="ltr" className="product-source-copy">
                 {product.benefits.map((line, index) => (
                   <p
                     key={index}
@@ -337,7 +345,7 @@ export async function ProductDetail({
                   {t("catalogue.technical")}
                 </h2>
               </div>
-              <div lang="en" className="product-source-copy">
+              <div lang="en" dir="ltr" className="product-source-copy">
                 {product.technical.map((line, index) => (
                   <p key={index}>{line}</p>
                 ))}
@@ -376,7 +384,7 @@ export async function ProductDetail({
                     className="underline underline-offset-4"
                   >
                     {t("catalogue.source")} {index + 1} ·{" "}
-                    {new URL(url).hostname}
+                    <bdi dir="ltr">{new URL(url).hostname}</bdi>
                   </a>
                 </li>
               ))}

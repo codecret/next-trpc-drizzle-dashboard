@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { ToggleTheme } from "@/components/toogle-theme";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
@@ -86,7 +85,6 @@ export function Footer() {
               {t("footer.support")}
               <ArrowUpRight aria-hidden="true" />
             </Link>
-            <ToggleTheme />
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/features/catalogue/components/breadcrumbs";
 import { PageHeading } from "@/features/catalogue/components/page-heading";
 import { ContactBanner } from "@/features/landing/contact-banner";
+import { MarketFootprint } from "@/features/landing/market-footprint";
 import { pageMetadata } from "@/features/catalogue/metadata";
 import "@/features/landing/company-pages.css";
 
@@ -109,25 +110,22 @@ export default async function AboutPage() {
             <dd>{site("reference.trust")}</dd>
           </div>
         </dl>
-        <div className="company-story-grid">
-          <section className="company-story-copy">
-            <p className="company-section-label" aria-hidden="true">
-              01 / SFGT
-            </p>
-            <h2>{t("who")}</h2>
-            <p>{t("whoText")}</p>
-          </section>
-          <section className="company-story-copy">
-            <p className="company-section-label" aria-hidden="true">
-              02 / SFGT
-            </p>
-            <h2>{t("what")}</h2>
-            <p>{t("whatText")}</p>
-            <Link href="/services" className="company-page-link">
-              {site("home.servicesLink")}
-              <ArrowRight aria-hidden="true" />
-            </Link>
-          </section>
+        <div className="company-story-grid company-story-with-footprint">
+          <div className="company-story-narrative">
+            <section className="company-story-copy">
+              <h2>{t("who")}</h2>
+              <p>{t("whoText")}</p>
+            </section>
+            <section className="company-story-copy">
+              <h2>{t("what")}</h2>
+              <p>{t("whatText")}</p>
+              <Link href="/services" className="company-page-link">
+                {site("home.servicesLink")}
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </section>
+          </div>
+          <MarketFootprint />
         </div>
         <div className="company-principles">
           {principles.map(({ key, Icon }) => (

@@ -5,6 +5,7 @@ import {
   auditedAt,
 } from "@/features/catalogue/catalogue";
 import { absoluteUrl } from "@/features/catalogue/metadata";
+import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
@@ -18,13 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...products.map((product) => `/products/${product.slug}`),
   ];
   return paths.flatMap((path) =>
-    ["en", "de"].map((locale) => ({
+    routing.locales.map((locale) => ({
       url: absoluteUrl(path, locale),
       lastModified: new Date(auditedAt),
       alternates: {
         languages: {
           en: absoluteUrl(path),
-          de: absoluteUrl(path, "de"),
+          ar: absoluteUrl(path, "ar"),
           "x-default": absoluteUrl(path),
         },
       },

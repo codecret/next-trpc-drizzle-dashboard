@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { PageHeading } from "@/features/catalogue/components/page-heading";
 import { EnquiryForm } from "@/features/contact/components/enquiry-form";
+import { getEnquiryDeliveryEnabled } from "@/features/contact/server/enquiry-delivery";
 import { company } from "@/features/catalogue/catalogue";
 import { pageMetadata } from "@/features/catalogue/metadata";
 import "@/features/contact/components/contact-page.css";
@@ -50,7 +51,9 @@ export default async function ContactPage({ searchParams }: Props) {
           <Mail aria-hidden="true" />
           <span>
             <small>{ui("emailTeam")}</small>
-            <strong>{company.email}</strong>
+            <strong>
+              <bdi dir="ltr">{company.email}</bdi>
+            </strong>
           </span>
           <ArrowUpRight aria-hidden="true" />
         </a>
@@ -58,7 +61,11 @@ export default async function ContactPage({ searchParams }: Props) {
           <Phone aria-hidden="true" />
           <span>
             <small>{ui("callTeam")}</small>
-            <strong>{company.phone}</strong>
+            <strong>
+              <bdi dir="ltr" className="whitespace-nowrap">
+                {company.phone}
+              </bdi>
+            </strong>
           </span>
           <ArrowUpRight aria-hidden="true" />
         </a>
@@ -70,7 +77,11 @@ export default async function ContactPage({ searchParams }: Props) {
           <MessageCircle aria-hidden="true" />
           <span>
             <small>{t("whatsapp")}</small>
-            <strong>{company.whatsapp}</strong>
+            <strong>
+              <bdi dir="ltr" className="whitespace-nowrap">
+                {company.whatsapp}
+              </bdi>
+            </strong>
           </span>
           <ArrowUpRight aria-hidden="true" />
         </a>
@@ -80,6 +91,7 @@ export default async function ContactPage({ searchParams }: Props) {
           key={`${product}-${code}`}
           product={`${product}${code ? ` (${code})` : ""}`}
           email={company.email}
+          deliveryEnabled={getEnquiryDeliveryEnabled()}
         />
         <div className="contact-details">
           <div className="contact-direct">

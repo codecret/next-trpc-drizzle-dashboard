@@ -13,7 +13,7 @@ export const productBySlug = new Map(
   products.map((product) => [product.slug, product])
 );
 export const localize = (value: LocalizedText, locale: string) =>
-  value[locale === "de" ? "de" : "en"];
+  value[locale === "ar" ? "ar" : "en"];
 export const childrenOf = (slug = "") =>
   categories.filter((category) => category.parent === slug);
 export const productsIn = (slug: string) =>

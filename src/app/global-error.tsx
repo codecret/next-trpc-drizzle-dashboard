@@ -14,9 +14,11 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: "light" }}>
       <body
         style={{
+          background: "#fff",
+          color: "#202124",
           display: "flex",
           minHeight: "100vh",
           flexDirection: "column",

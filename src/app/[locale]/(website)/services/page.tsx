@@ -5,6 +5,8 @@ import {
   Boxes,
   FileText,
   Handshake,
+  MapPin,
+  Package,
   PackageSearch,
   Truck,
 } from "lucide-react";
@@ -14,6 +16,7 @@ import { Breadcrumbs } from "@/features/catalogue/components/breadcrumbs";
 import { PageHeading } from "@/features/catalogue/components/page-heading";
 import { pageMetadata } from "@/features/catalogue/metadata";
 import "@/features/landing/company-pages.css";
+import "@/features/landing/service-directory.css";
 
 export async function generateMetadata({
   params,
@@ -33,6 +36,7 @@ export async function generateMetadata({
 export default async function ServicesPage() {
   const t = await getTranslations("Website.services");
   const site = await getTranslations("Website");
+  const visual = await getTranslations("Website.visualDetails");
   const locale = await getLocale();
   const services = [
     {
@@ -112,19 +116,23 @@ export default async function ServicesPage() {
         </div>
         <p>{site("home.servicesDescription")}</p>
       </div>
-      <div className="company-service-list">
+      <div className="company-service-list company-service-directory">
         {services.map(({ key, Icon, href, cta }, index) => (
           <section key={key} className="company-service-entry">
-            <div className="company-service-entry-top" aria-hidden="true">
-              <Icon aria-hidden="true" />
-              <span className="company-service-index">0{index + 1}</span>
+            <div className="service-directory-heading">
+              <div className="company-service-entry-top" aria-hidden="true">
+                <span className="company-service-index">0{index + 1}</span>
+                <Icon aria-hidden="true" />
+              </div>
+              <h3>{t(`${key}Title`)}</h3>
             </div>
-            <h3>{t(`${key}Title`)}</h3>
-            <p>{t(`${key}Text`)}</p>
-            <Link href={href} className="company-page-link">
-              {cta}
-              <ArrowRight aria-hidden="true" />
-            </Link>
+            <div className="service-directory-detail">
+              <p>{t(`${key}Text`)}</p>
+              <Link href={href} className="company-page-link">
+                {cta}
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </div>
           </section>
         ))}
       </div>
@@ -149,6 +157,34 @@ export default async function ServicesPage() {
             </Link>
           </Button>
         </div>
+      </section>
+      <section
+        className="service-enquiry-guide"
+        aria-labelledby="enquiry-guide-title"
+      >
+        <div className="service-enquiry-guide-heading">
+          <p className="company-section-label">{visual("enquiryLabel")}</p>
+          <h2 id="enquiry-guide-title">{visual("enquiryTitle")}</h2>
+          <Link href="/contact" className="company-page-link">
+            {visual("enquiryCta")}
+            <ArrowRight aria-hidden="true" />
+          </Link>
+        </div>
+        <ul className="service-enquiry-details" role="list">
+          {[
+            { key: "product", Icon: PackageSearch },
+            { key: "quantity", Icon: Package },
+            { key: "destination", Icon: MapPin },
+          ].map(({ key, Icon }) => (
+            <li key={key}>
+              <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+              <div>
+                <h3>{visual(`details.${key}.title`)}</h3>
+                <p>{visual(`details.${key}.description`)}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
       <div className="company-documents">
         <FileText aria-hidden="true" />

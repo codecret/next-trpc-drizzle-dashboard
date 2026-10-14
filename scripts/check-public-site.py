@@ -14,12 +14,12 @@ data = json.loads((ROOT / 'src/features/catalogue/data/catalogue.json').read_tex
 
 class Page(HTMLParser):
     def __init__(self, html):
-        super().__init__(); self.h1 = 0; self.canonical = ''; self.description = ''; self.og = ''; self.links = []; self.jsonld = []; self.script = None; self.title = ''; self.in_title = False; self.lang = ''
+        super().__init__(); self.h1 = 0; self.canonical = ''; self.description = ''; self.og = ''; self.links = []; self.jsonld = []; self.script = None; self.title = ''; self.in_title = False; self.lang = ''; self.direction = ''
         self.feed(html)
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if tag == 'h1': self.h1 += 1
-        if tag == 'html': self.lang = a.get('lang', '')
+        if tag == 'html': self.lang = a.get('lang', ''); self.direction = a.get('dir', '')
         if tag == 'title': self.in_title = True
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical = a.get('href', '')
         if tag == 'meta' and a.get('name') == 'description': self.description = a.get('content', '')
@@ -41,7 +41,7 @@ def fetch(path):
         return error.code, error.read().decode('utf-8'), error.geturl(), dict(error.headers)
 
 paths = ['/', '/about', '/products', '/services', '/support', '/contact'] + ['/products/' + x['slug'] for x in data['categories'] + data['products']]
-localized = [(('/de' + (p if p != '/' else '')) if lang == 'de' else p, lang) for lang in ['en', 'de'] for p in paths]
+localized = [(('/ar' + (p if p != '/' else '')) if lang == 'ar' else p, lang) for lang in ['en', 'ar'] for p in paths]
 
 def check_page(item):
     path, lang = item
@@ -50,6 +50,7 @@ def check_page(item):
     page = Page(html)
     assert page.h1 == 1, (path, 'H1 count', page.h1)
     assert page.lang == lang, (path, 'html lang', page.lang)
+    assert page.direction == ('rtl' if lang == 'ar' else 'ltr'), (path, 'html dir', page.direction)
     assert page.title and page.description and page.canonical and page.og, (path, 'missing SEO')
     assert urllib.parse.urlparse(page.canonical).path.rstrip('/') == path.rstrip('/'), (path, 'wrong canonical', page.canonical)
     assert page.og == page.canonical, (path, 'Open Graph URL')
@@ -65,7 +66,7 @@ def check_page(item):
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     completed = list(executor.map(check_page, localized))
 print('Public pages and SEO verified:', len(completed), flush=True)
-for prefix in ['', '/en', '/de']:
+for prefix in ['', '/en', '/ar']:
     for path in ['/admin', '/admin/users', '/dashboard/overview', '/auth/sign-in', '/auth/sign-up']:
         assert fetch(prefix + path)[0] == 404, ('Exposed hidden page', prefix + path)
 assert fetch('/products/not-a-catalogue-product')[0] == 404

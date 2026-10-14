@@ -232,11 +232,11 @@
   }
 }
 .catalogue-experience .battery-ranges a[data-level="1"] {
-  margin-left: 15px;
-  border-left-color: hsl(var(--border));
+  margin-inline-start: 15px;
+  border-inline-start-color: hsl(var(--border));
 }
 .catalogue-experience .battery-ranges a[data-level="2"],
 .catalogue-experience .battery-ranges a[data-level="3"] {
-  margin-left: 28px;
-  border-left-color: hsl(var(--border));
+  margin-inline-start: 28px;
+  border-inline-start-color: hsl(var(--border));
 }

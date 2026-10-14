@@ -29,6 +29,7 @@ export const env = createEnv({
     // when RESEND_API_KEY is not set)
     BETTER_AUTH_EMAIL: z.string().optional(),
     RESEND_API_KEY: z.string().optional(),
+    CONTACT_FROM_EMAIL: z.string().email().optional(),
 
     // Node environment
     NODE_ENV: z
@@ -55,6 +56,7 @@ export const env = createEnv({
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
     BETTER_AUTH_EMAIL: process.env.BETTER_AUTH_EMAIL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
+    CONTACT_FROM_EMAIL: process.env.CONTACT_FROM_EMAIL,
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,

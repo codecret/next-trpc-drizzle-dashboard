@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>SFGT — التجارة والتوريد</title>
+    <link rel="alternate" hreflang="en" href="./index.html" />
+    <link rel="alternate" hreflang="ar" href="./ar.html" />
+    <style>
+      @font-face {
+        font-family: Manrope;
+        src: url("./assets/manrope.woff2") format("woff2");
+        font-weight: 200 800;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: light;
+        --red: #cf2028;
+        --ink: #202124;
+        --muted: #626367;
+        --line: #deded9;
+        --paper: #f5f5f1;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #fff;
+        color: var(--ink);
+        font-family: Manrope, sans-serif;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      h1,
+      h2,
+      h3,
+      p,
+      figure {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: 5px;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      .wrap {
+        width: min(1200px, calc(100% - 96px));
+        margin-inline: auto;
+      }
+      .proposal {
+        padding: 8px 24px;
+        border-bottom: 1px solid var(--line);
+        background: #f6f6f5;
+        color: #55565a;
+        font-size: 11px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .proposal a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .header {
+        border-bottom: 1px solid var(--line);
+      }
+      .header-inner {
+        min-height: 94px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+      .brand {
+        display: block;
+        flex-shrink: 0;
+      }
+      .brand img {
+        width: 184px;
+      }
+      .nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav a {
+        font-size: 13px;
+        font-weight: 550;
+        line-height: 1.5;
+        padding-block: 15px;
+      }
+      .nav a:hover,
+      .nav a[aria-current] {
+        color: var(--red);
+      }
+      .header-enquiry {
+        border: 1px solid var(--line);
+        padding: 12px 16px !important;
+      }
+      .arrow {
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+        margin-inline-start: 16px;
+        font-size: 20px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .hero {
+        background: var(--paper);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 48px;
+        padding-block: 44px;
+      }
+      .hero-copy {
+        padding-block: 16px;
+      }
+      .hero h1 {
+        max-width: 590px;
+        font-size: clamp(39px, 4.1vw, 58px);
+        font-weight: 650;
+        line-height: 1.12;
+        letter-spacing: -0.05em;
+        text-wrap: balance;
+      }
+      .hero-description {
+        max-width: 460px;
+        margin-top: 24px;
+        color: #545559;
+        font-size: 16px;
+        line-height: 1.8;
+        text-wrap: pretty;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 50px;
+        padding: 13px 21px;
+        background: var(--red);
+        border: 1px solid var(--red);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 650;
+        line-height: 1.5;
+        transition: background 0.15s;
+      }
+      .button:hover {
+        background: #b21922;
+      }
+      .text-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-weight: 550;
+        font-size: 13px;
+        text-decoration: underline;
+        text-decoration-color: #b9b9b3;
+        text-underline-offset: 6px;
+      }
+      .text-link:hover {
+        color: var(--red);
+        text-decoration-color: var(--red);
+      }
+      .hero-photo {
+        background: #eeeee9;
+        overflow: hidden;
+      }
+      .hero-photo img {
+        width: 100%;
+        aspect-ratio: 1.12;
+        object-fit: cover;
+        object-position: 56% center;
+      }
+      .hero-photo figcaption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 14px 18px;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        color: #66676a;
+        font-size: 11px;
+      }
+      .hero-photo strong {
+        color: var(--red);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+      }
+      .ranges {
+        padding-block: 52px 60px;
+        scroll-margin-top: 20px;
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 25px;
+      }
+      h2 {
+        font-size: clamp(26px, 2.7vw, 35px);
+        font-weight: 650;
+        line-height: 1.22;
+        letter-spacing: -0.04em;
+      }
+      .range-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 27px;
+      }
+      .range {
+        display: block;
+        min-width: 0;
+      }
+      .range-image {
+        height: 216px;
+        background: var(--paper);
+        overflow: hidden;
+        margin-bottom: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .range-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 20px;
+        mix-blend-mode: multiply;
+        transition: transform 0.2s;
+      }
+      .range-image.bulb img {
+        padding: 22px 55px;
+      }
+      .range-image.commodity img {
+        padding: 0;
+        object-fit: cover;
+        mix-blend-mode: normal;
+        object-position: center 52%;
+      }
+      .range-title {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+      }
+      .range h3 {
+        font-size: 21px;
+        line-height: 1.3;
+        letter-spacing: -0.03em;
+        font-weight: 650;
+      }
+      .range-title .arrow {
+        margin: 2px 0 0;
+        color: var(--red);
+      }
+      .range p {
+        min-height: 46px;
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 8px;
+        line-height: 1.7;
+      }
+      .range-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-top: 1px solid var(--line);
+        margin-top: 20px;
+        padding-top: 12px;
+        font-size: 12px;
+      }
+      .range-meta span:last-child {
+        color: var(--red);
+        font-weight: 550;
+      }
+      .range:hover h3 {
+        color: var(--red);
+      }
+      .range:hover img {
+        transform: scale(1.035);
+      }
+      .company {
+        border-block: 1px solid var(--line);
+        padding-block: 44px;
+      }
+      .company-grid {
+        display: grid;
+        grid-template-columns: 0.88fr 1.12fr;
+        gap: 70px;
+        align-items: start;
+      }
+      .company h2 {
+        font-size: 31px;
+        max-width: 420px;
+      }
+      .company p {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 590px;
+        line-height: 1.85;
+      }
+      .company .text-link {
+        margin-top: 16px;
+      }
+      .office {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 9px 24px;
+        border-top: 1px solid var(--line);
+        margin-top: 23px;
+        padding-top: 16px;
+        font-size: 12px;
+      }
+      .office strong {
+        font-weight: 650;
+        color: var(--ink);
+      }
+      .office span {
+        color: var(--muted);
+      }
+      .quote {
+        padding-block: 48px;
+      }
+      .quote-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+      }
+      .quote p {
+        margin-top: 12px;
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 440px;
+        line-height: 1.8;
+      }
+      .quote-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .contact-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 26px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .contact-options a {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-color: #b9b9b3;
+      }
+      .footer {
+        background: #f5f5f1;
+        border-top: 1px solid var(--line);
+        padding: 27px 0 21px;
+      }
+      .footer-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+      }
+      .footer-main img {
+        width: 160px;
+        mix-blend-mode: multiply;
+      }
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: #55565a;
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 25px;
+        border-top: 1px solid var(--line);
+        padding-top: 17px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      @media (max-width: 1000px) {
+        .wrap {
+          width: calc(100% - 56px);
+        }
+        .header-inner {
+          gap: 24px;
+          min-height: 84px;
+        }
+        .brand img {
+          width: 162px;
+        }
+        .nav {
+          gap: 20px;
+        }
+        .nav a {
+          font-size: 12px;
+        }
+        .hero-grid {
+          gap: 30px;
+        }
+        .hero h1 {
+          font-size: 43px;
+        }
+        .hero-description {
+          font-size: 14px;
+        }
+        .hero-actions {
+          gap: 12px;
+        }
+        .button {
+          padding-inline: 17px;
+          font-size: 12px;
+        }
+        .hero-actions .text-link {
+          font-size: 12px;
+        }
+        .range-grid {
+          gap: 20px;
+        }
+        .range h3 {
+          font-size: 19px;
+        }
+        .range-image {
+          height: 190px;
+        }
+        .company-grid,
+        .quote-grid {
+          gap: 42px;
+        }
+        .company h2 {
+          font-size: 27px;
+        }
+      }
+      @media (max-width: 760px) {
+        .wrap {
+          width: calc(100% - 40px);
+        }
+        .proposal {
+          padding-inline: 20px;
+          font-size: 10px;
+        }
+        .header-inner {
+          min-height: 76px;
+          flex-wrap: wrap;
+          gap: 0;
+          padding-block: 13px;
+        }
+        .brand img {
+          width: 160px;
+        }
+        .nav {
+          display: none;
+        }
+        .mobile-menu {
+          display: block;
+          position: relative;
+        }
+        .mobile-menu summary {
+          list-style: none;
+          border: 1px solid var(--line);
+          padding: 10px 15px;
+          min-height: 44px;
+          font-size: 13px;
+        }
+        .mobile-menu summary::-webkit-details-marker {
+          display: none;
+        }
+        .mobile-menu nav {
+          position: absolute;
+          inset-inline-end: 0;
+          top: 53px;
+          z-index: 2;
+          background: #fff;
+          border: 1px solid var(--line);
+          padding: 12px;
+          width: 235px;
+          box-shadow: 0 12px 26px #20212410;
+        }
+        .mobile-menu nav a {
+          display: block;
+          padding: 12px;
+          font-size: 14px;
+        }
+        .hero-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 28px;
+          padding-block: 30px;
+        }
+        .hero-copy {
+          padding: 0;
+        }
+        .hero h1 {
+          font-size: clamp(36px, 7.8vw, 49px);
+          max-width: 620px;
+        }
+        .hero-description {
+          font-size: 15px;
+          max-width: 570px;
+          margin-top: 20px;
+        }
+        .hero-actions {
+          gap: 16px 22px;
+          margin-top: 22px;
+        }
+        .hero-photo img {
+          aspect-ratio: 1.52;
+          object-position: center 52%;
+        }
+        .hero-photo figcaption {
+          padding: 11px 14px;
+        }
+        .ranges {
+          padding-block: 34px 38px;
+        }
+        .section-head {
+          align-items: flex-start;
+          margin-bottom: 22px;
+        }
+        .section-head .text-link {
+          flex-shrink: 0;
+          font-size: 12px;
+          min-height: 34px;
+        }
+        .section-head h2 {
+          max-width: 210px;
+        }
+        .section-head .arrow {
+          margin-inline-start: 8px;
+        }
+        .range-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 29px;
+        }
+        .range {
+          display: grid;
+          grid-template-columns: 112px minmax(0, 1fr);
+          gap: 0 21px;
+          padding-bottom: 25px;
+          border-bottom: 1px solid var(--line);
+        }
+        .range:last-child {
+          padding-bottom: 0;
+          border: 0;
+        }
+        .range-image {
+          height: 123px;
+          margin: 0;
+          grid-row: 1/4;
+        }
+        .range-image img {
+          padding: 12px;
+        }
+        .range-image.bulb img {
+          padding: 14px 18px;
+        }
+        .range h3 {
+          font-size: 19px;
+        }
+        .range p {
+          min-height: 0;
+          font-size: 12px;
+          line-height: 1.7;
+        }
+        .range-meta {
+          border: 0;
+          padding-top: 0;
+          margin-top: 14px;
+          font-size: 11px;
+        }
+        .range-title .arrow {
+          font-size: 20px;
+        }
+        .company {
+          padding-block: 32px;
+        }
+        .company-grid,
+        .quote-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 19px;
+        }
+        .company h2 {
+          font-size: 28px;
+          max-width: 500px;
+        }
+        .company p {
+          font-size: 14px;
+        }
+        .office {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 5px;
+        }
+        .quote {
+          padding-block: 33px;
+        }
+        .quote-actions {
+          gap: 18px;
+        }
+        .quote p {
+          font-size: 14px;
+        }
+        .contact-options {
+          font-size: 13px;
+          gap: 8px 22px;
+        }
+        .footer {
+          padding-block: 25px 20px;
+        }
+        .footer-main {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 23px;
+        }
+        .footer-links {
+          gap: 15px 24px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 7px;
+          line-height: 1.8;
+        }
+      }
+      @media (max-width: 370px) {
+        .range {
+          grid-template-columns: 88px minmax(0, 1fr);
+          gap: 0 15px;
+        }
+        .range h3 {
+          font-size: 17px;
+        }
+        .range-title .arrow {
+          display: none;
+        }
+        .range-image {
+          height: 119px;
+        }
+        .range-image img {
+          padding: 8px;
+        }
+        .hero-actions {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 5px;
+        }
+        .section-head {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .section-head h2 {
+          max-width: none;
+        }
+        .proposal {
+          font-size: 10px;
+          gap: 12px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+        .range:hover img {
+          transform: none;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="./featured.css?v=arabic-1" />
+    <link rel="stylesheet" href="./direction.css?v=arabic-1" />
+    <link rel="stylesheet" href="./commodities.css?v=arabic-1" />
+    <link rel="stylesheet" href="./business-refinement.css?v=arabic-1" />
+    <link rel="stylesheet" href="./supply-steps.css?v=arabic-1" />
+    <link rel="stylesheet" href="./trade-enquiry.css?v=arabic-1" />
+    <link rel="stylesheet" href="./visual-details.css?v=arabic-1" />
+    <link rel="stylesheet" href="./sketch-motion.css?v=arabic-1" />
+    <link rel="stylesheet" href="./tekbatt.css?v=arabic-1" />
+    <link rel="stylesheet" href="./motion.css?v=arabic-1" />
+    <link rel="stylesheet" href="./contact-actions.css?v=icons-1" />
+    <link rel="stylesheet" href="./locale.css?v=vertical-1" />
+    <script src="./locale.js?v=arabic-2" defer></script>
+    <script src="./featured.js?v=arabic-1" defer></script>
+    <script src="./trade-enquiry.js?v=arabic-1" defer></script>
+    <script src="./sketch-motion.js?v=arabic-1" defer></script>
+    <script src="./motion.js?v=arabic-1" defer></script>
+    <script src="./scroll-motion.js?v=arabic-1" defer></script>
+  </head>
+  <body>
+    <div class="proposal">
+      <span>تصميم الصفحة الرئيسية · للمراجعة</span><a href="http://localhost:4318/ar" target="_blank" rel="noopener">الموقع الحالي ↖</a>
+    </div>
+    <header class="header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#" aria-label="سليمان فاروق للتجارة العامة — الصفحة الرئيسية"><img src="./assets/logo.png" alt="سليمان فاروق للتجارة العامة ذ.م.م." width="184" /></a>
+        <nav class="nav" aria-label="التنقل الرئيسي">
+          <a href="#toshiba-products">منتجات توشيبا</a><a href="#tekbatt">Tekbatt</a><a href="#commodities">السلع</a><a href="#company">الشركة</a><a href="#capabilities">الخدمات</a><a class="header-enquiry" href="#quotation">طلب عرض سعر
+            <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path></svg></span></a>
+        </nav>
+        <nav class="language-switch" aria-label="اختر اللغة">
+          <a href="./index.html" data-locale="en" lang="en" hreflang="en">EN</a>
+          <a href="./ar.html" data-locale="ar" lang="ar" hreflang="ar" aria-current="page">العربية</a>
+        </nav>
+        <details class="mobile-menu">
+          <summary>القائمة</summary>
+          <nav aria-label="قائمة التنقل للجوال">
+            <a href="#toshiba-products">منتجات توشيبا</a><a href="#tekbatt">Tekbatt</a><a href="#commodities">السلع</a><a href="#company">الشركة</a><a href="#capabilities">الخدمات</a><a href="http://localhost:4318/ar/support" target="_blank" rel="noopener">الدعم ↖</a><a href="#quotation">تواصل معنا</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main>
+      <section class="business-hero" aria-labelledby="hero-heading">
+        <div class="wrap">
+          <div class="business-intro">
+            <h1 id="hero-heading">
+              <span class="hero-line"><span>البطاريات والإضاءة</span></span><span class="hero-line"><span>وتجارة السلع.</span></span>
+            </h1>
+            <div class="business-intro-copy">
+              <p>
+                توفّر شركة سليمان فاروق للتجارة العامة ذ.م.م. المنتجات لتجار التجزئة والجملة وشركاء التوزيع انطلاقاً من دبي. تعرّف على منتجات توشيبا، ومجموعة AgfaPhoto لدى Tekbatt، والسلع التجارية.
+              </p>
+              <a class="text-link" href="#quotation">اطلب عرض سعر
+                <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path></svg></span></a>
+            </div>
+          </div>
+          <div class="business-divisions" aria-label="تصفّح مجموعات منتجاتنا">
+            <a class="division-gateway" href="#toshiba-products"><div class="division-gateway-copy">
+                <h2>منتجات توشيبا</h2>
+                <p>
+                  بطاريات ومصادر طاقة محمولة وإضاءة LED ضمن تشكيلة منتجاتك.
+                </p>
+                <span class="division-action">تصفّح منتجات توشيبا
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path></svg></span>
+              </div>
+              <span class="division-visual"><img src="./assets/campaign.png" alt="تصميم ترويجي لبطارية توشيبا ومصباح LED" width="1536" height="1024" /></span></a>
+            <a class="division-gateway division-gateway-tekbatt" href="#tekbatt">
+              <div class="division-gateway-copy">
+                <h2>Tekbatt</h2>
+                <p>
+                  بطاريات AgfaPhoto القلوية والقابلة لإعادة الشحن والمتخصصة.
+                </p>
+                <span class="division-action">تعرّف على Tekbatt
+                  <svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" /></svg></span>
+              </div>
+              <span class="division-visual"><img src="./assets/tekbatt/alkaline-ultra-studio.webp" alt="تصميم لبطاريات AgfaPhoto Alkaline Ultra AA" width="1448" height="1086" /></span>
+            </a>
+            <a class="division-gateway division-gateway-commodities" href="#commodities"><div class="division-gateway-copy">
+                <h2>السلع<br />والتجارة العامة</h2>
+                <p>سلع غذائية ومواد كيميائية ومستلزمات تجارية.</p>
+                <span class="division-action">تصفّح السلع
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path></svg></span>
+              </div>
+              <span class="division-visual"><img src="./assets/generated/seeds-v1.webp" alt="تكوين توضيحي للقمح وفول الصويا والذرة" width="960" height="640" /></span></a>
+          </div>
+          <div class="business-tools">
+            <form class="catalogue-search" action="http://localhost:4318/ar/products" method="get" target="_blank" role="search" aria-label="كتالوج توشيبا والسلع">
+              <label for="catalogue-search-input">ابحث في منتجات توشيبا والسلع</label>
+              <div class="catalogue-search-control">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true">
+                  <path d="m21 21-4.34-4.34"></path>
+                  <circle cx="11" cy="11" r="8"></circle></svg><input id="catalogue-search-input" type="search" name="q" maxlength="160" placeholder="مثال: LR6GCP أو GU10 أو سكر" required dir="auto" /><button type="submit">
+                  بحث
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <a href="http://localhost:4318/ar/support" class="business-downloads" target="_blank" rel="noopener">الدعم والتنزيلات
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path></svg></a>
+          </div>
+        </div>
+      </section>
+      <section class="fp-section" id="toshiba-products" aria-labelledby="fp-heading">
+        <div class="wrap fp-inner" id="selected-products">
+          <div class="fp-heading-row">
+            <div class="fp-heading-copy">
+              <h2 id="fp-heading">منتجات توشيبا</h2>
+              <p>
+                تصفّح مجموعة مختارة من البطاريات وإضاءة LED من كتالوجنا.
+              </p>
+            </div>
+            <div class="fp-filters" role="group" aria-label="اختر مجموعة المنتجات">
+              <button class="fp-filter" type="button" data-fp-filter="batteries" aria-pressed="true" aria-controls="fp-results">
+                البطاريات
+              </button>
+              <button class="fp-filter" type="button" data-fp-filter="led-lighting" aria-pressed="false" aria-controls="fp-results">
+                إضاءة LED
+              </button>
+            </div>
+          </div>
+          <p class="fp-sr-only" id="fp-status" aria-live="polite" aria-atomic="true"></p>
+          <div id="fp-results">
+            <div class="fp-group" data-fp-group="batteries" data-fp-label="البطاريات" aria-label="منتجات بطاريات مختارة">
+              <div class="fp-grid">
+                <article class="fp-card" data-product-id="battery-6">
+                  <a class="fp-card-link" href="http://localhost:4318/ar/products/high-power-aa-bp-4-blister-pack" target="_blank" rel="noopener" aria-label="عرض HIGH POWER AA BP-4 (BLISTER PACK) (يفتح في علامة تبويب جديدة)">
+                    <div class="fp-product-image">
+                      <img src="./assets/product-battery-6.jpg" alt="HIGH POWER AA BP-4 (BLISTER PACK)" loading="lazy" width="360" height="180" />
+                    </div>
+                    <div class="fp-product-info">
+                      <p class="fp-category">توشيبا · High Power</p>
+                      <h3><bdi dir="ltr" lang="en">High Power AA BP-4</bdi></h3>
+                      <p class="fp-model"><bdi dir="ltr" lang="en">LR6GCP BP-4</bdi></p>
+                      <dl class="fp-specs">
+                        <div>
+                          <dt>النوع</dt>
+                          <dd>قلوية AA</dd>
+                        </div>
+                        <div>
+                          <dt>العبوة</dt>
+                          <dd>4 بطاريات</dd>
+                        </div>
+                      </dl>
+                      <span class="fp-product-action">عرض المنتج
+                        <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    </div>
+                  </a>
+                  <a class="fp-enquire" href="#quotation" data-enquiry-division="toshiba" data-enquiry-product="HIGH POWER AA BP-4 (BLISTER PACK)">طلب عرض سعر
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg></a>
+                </article>
+                <article class="fp-card" data-product-id="battery-8">
+                  <a class="fp-card-link" href="http://localhost:4318/ar/products/alpha-power-aa-bp-4-blister-pack" target="_blank" rel="noopener" aria-label="عرض ALPHA POWER AA BP-4 (BLISTER PACK) (يفتح في علامة تبويب جديدة)">
+                    <div class="fp-product-image">
+                      <img src="./assets/product-battery-8.jpg" alt="ALPHA POWER AA BP-4 (BLISTER PACK)" loading="lazy" width="360" height="180" />
+                    </div>
+                    <div class="fp-product-info">
+                      <p class="fp-category">توشيبا · Alpha Power</p>
+                      <h3><bdi dir="ltr" lang="en">Alpha Power AA BP-4</bdi></h3>
+                      <p class="fp-model"><bdi dir="ltr" lang="en">LR6GCH BP-4</bdi></p>
+                      <dl class="fp-specs">
+                        <div>
+                          <dt>النوع</dt>
+                          <dd>قلوية AA</dd>
+                        </div>
+                        <div>
+                          <dt>العبوة</dt>
+                          <dd>4 بطاريات</dd>
+                        </div>
+                      </dl>
+                      <span class="fp-product-action">عرض المنتج
+                        <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    </div>
+                  </a>
+                  <a class="fp-enquire" href="#quotation" data-enquiry-division="toshiba" data-enquiry-product="ALPHA POWER AA BP-4 (BLISTER PACK)">طلب عرض سعر
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg></a>
+                </article>
+                <article class="fp-card" data-product-id="battery-55">
+                  <a class="fp-card-link" href="http://localhost:4318/ar/products/tnh-6gae-bp-2c" target="_blank" rel="noopener" aria-label="عرض TNH-6GAE BP-2C (يفتح في علامة تبويب جديدة)">
+                    <div class="fp-product-image">
+                      <img src="./assets/product-battery-55.jpg" alt="TNH-6GAE BP-2C" loading="lazy" width="360" height="180" />
+                    </div>
+                    <div class="fp-product-info">
+                      <p class="fp-category">توشيبا · قابلة لإعادة الشحن</p>
+                      <h3><bdi dir="ltr" lang="en">TNH-6GAE BP-2C</bdi></h3>
+                      <p class="fp-model"><bdi dir="ltr" lang="en">THN-6AC 2BP</bdi></p>
+                      <dl class="fp-specs">
+                        <div>
+                          <dt>النوع</dt>
+                          <dd><bdi dir="ltr" lang="en">Ni-MH</bdi></dd>
+                        </div>
+                        <div>
+                          <dt>العبوة</dt>
+                          <dd>بطاريتان</dd>
+                        </div>
+                      </dl>
+                      <span class="fp-product-action">عرض المنتج
+                        <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    </div>
+                  </a>
+                  <a class="fp-enquire" href="#quotation" data-enquiry-division="toshiba" data-enquiry-product="TNH-6GAE BP-2C">طلب عرض سعر
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg></a>
+                </article>
+              </div>
+              <div class="fp-footer">
+                <span>تصفّح المجموعة الكاملة للاطلاع على المزيد من الطرازات والمواصفات.</span><a href="http://localhost:4318/ar/products/batteries" target="_blank" rel="noopener">عرض جميع منتجات البطاريات (82)
+                  <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="fp-sr-only"> (يفتح في علامة تبويب جديدة)</span></a>
+              </div>
+            </div>
+            <div class="fp-group" data-fp-group="led-lighting" data-fp-label="إضاءة LED" hidden aria-label="منتجات إضاءة LED مختارة">
+              <div class="fp-grid">
+                <article class="fp-card" data-product-id="led-17">
+                  <a class="fp-card-link" href="http://localhost:4318/ar/products/toshiba-standard-gu10-5w-dim" target="_blank" rel="noopener" aria-label="عرض Toshiba Standard GU10 5W DIM (يفتح في علامة تبويب جديدة)">
+                    <div class="fp-product-image">
+                      <img src="./assets/product-led-17.png" alt="Toshiba Standard GU10 5W DIM" loading="lazy" width="360" height="180" />
+                    </div>
+                    <div class="fp-product-info">
+                      <p class="fp-category">توشيبا · قابلة للتعتيم</p>
+                      <h3><bdi dir="ltr" lang="en">Standard GU10 5W DIM</bdi></h3>
+                      <dl class="fp-specs">
+                        <div>
+                          <dt>التدفق الضوئي</dt>
+                          <dd><bdi dir="ltr" lang="en">345 lm</bdi></dd>
+                        </div>
+                        <div>
+                          <dt>درجة حرارة اللون</dt>
+                          <dd><bdi dir="ltr" lang="en">3000K</bdi></dd>
+                        </div>
+                      </dl>
+                      <span class="fp-product-action">عرض المنتج
+                        <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    </div>
+                  </a>
+                  <a class="fp-enquire" href="#quotation" data-enquiry-division="toshiba" data-enquiry-product="Toshiba Standard GU10 5W DIM">طلب عرض سعر
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg></a>
+                </article>
+                <article class="fp-card" data-product-id="led-31">
+                  <a class="fp-card-link" href="http://localhost:4318/ar/products/filament-g95-7w" target="_blank" rel="noopener" aria-label="عرض Filament G95 7W (يفتح في علامة تبويب جديدة)">
+                    <div class="fp-product-image">
+                      <img src="./assets/product-led-31.png" alt="Filament G95 7W" loading="lazy" width="360" height="180" />
+                    </div>
+                    <div class="fp-product-info">
+                      <p class="fp-category">توشيبا · مصابيح الفتيل</p>
+                      <h3><bdi dir="ltr" lang="en">Filament G95 7W</bdi></h3>
+                      <dl class="fp-specs">
+                        <div>
+                          <dt>التدفق الضوئي</dt>
+                          <dd><bdi dir="ltr" lang="en">806 lm</bdi></dd>
+                        </div>
+                        <div>
+                          <dt>القاعدة</dt>
+                          <dd><bdi dir="ltr" lang="en">E27</bdi></dd>
+                        </div>
+                      </dl>
+                      <span class="fp-product-action">عرض المنتج
+                        <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    </div>
+                  </a>
+                  <a class="fp-enquire" href="#quotation" data-enquiry-division="toshiba" data-enquiry-product="Filament G95 7W">طلب عرض سعر
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg></a>
+                </article>
+                <article class="fp-card" data-product-id="led-64">
+                  <a class="fp-card-link" href="http://localhost:4318/ar/products/tube-t8-18w-1200mm" target="_blank" rel="noopener" aria-label="عرض Tube T8 18W 1200MM (يفتح في علامة تبويب جديدة)">
+                    <div class="fp-product-image">
+                      <img src="./assets/product-led-64.png" alt="Tube T8 18W 1200MM" loading="lazy" width="360" height="180" />
+                    </div>
+                    <div class="fp-product-info">
+                      <p class="fp-category">توشيبا · أنابيب LED</p>
+                      <h3><bdi dir="ltr" lang="en">Tube T8 18W 1200mm</bdi></h3>
+                      <dl class="fp-specs">
+                        <div>
+                          <dt>التدفق الضوئي</dt>
+                          <dd><bdi dir="ltr" lang="en">1980 lm</bdi></dd>
+                        </div>
+                        <div>
+                          <dt>القاعدة</dt>
+                          <dd><bdi dir="ltr" lang="en">G13</bdi></dd>
+                        </div>
+                      </dl>
+                      <span class="fp-product-action">عرض المنتج
+                        <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    </div>
+                  </a>
+                  <a class="fp-enquire" href="#quotation" data-enquiry-division="toshiba" data-enquiry-product="Tube T8 18W 1200MM">طلب عرض سعر
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg></a>
+                </article>
+              </div>
+              <div class="fp-footer">
+                <span>تصفّح المجموعة الكاملة للاطلاع على المزيد من الطرازات والمواصفات.</span><a href="http://localhost:4318/ar/products/led-lighting" target="_blank" rel="noopener">عرض جميع منتجات إضاءة LED (65)
+                  <svg viewbox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="fp-sr-only"> (يفتح في علامة تبويب جديدة)</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="tekbatt-section" id="tekbatt" aria-labelledby="tekbatt-heading">
+        <div class="wrap">
+          <div class="tb-heading">
+            <div class="tb-heading-copy">
+              <h2 id="tekbatt-heading">Tekbatt</h2>
+              <p>
+                بطاريات قلوية وقابلة لإعادة الشحن ومتخصصة. تعرّف على مجموعة AgfaPhoto من خلال Tekbatt.
+              </p>
+            </div>
+          </div>
+          <div class="tb-products">
+            <a class="tb-card" href="https://tekbatt.com/product-category/alkaline-ultra/" target="_blank" rel="noopener">
+              <div class="tb-image">
+                <img src="./assets/tekbatt/alkaline-ultra-studio.webp" alt="تصميم لبطاريات AgfaPhoto Alkaline Ultra AA" width="1448" height="1086" loading="lazy" />
+              </div>
+              <div class="tb-card-copy">
+                <h3><bdi dir="ltr" lang="en">Alkaline Ultra</bdi></h3>
+                <p>بطاريات قلوية للأجهزة اليومية.</p>
+                <span class="tb-card-action">عرض على موقع Tekbatt
+                  <svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" /></svg></span>
+              </div>
+            </a>
+            <a class="tb-card" href="https://tekbatt.com/product-category/alkaline-power/" target="_blank" rel="noopener">
+              <div class="tb-image">
+                <img src="./assets/tekbatt/alkaline-power-studio.webp" alt="تصميم لبطاريات AgfaPhoto Alkaline Power AA" width="1448" height="1086" loading="lazy" />
+              </div>
+              <div class="tb-card-copy">
+                <h3><bdi dir="ltr" lang="en">Alkaline Power</bdi></h3>
+                <p>مقاسات متنوعة للأجهزة المحمولة.</p>
+                <span class="tb-card-action">عرض على موقع Tekbatt
+                  <svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" /></svg></span>
+              </div>
+            </a>
+            <a class="tb-card" href="https://tekbatt.com/product-category/rechargeable-value-energy/" target="_blank" rel="noopener">
+              <div class="tb-image">
+                <img src="./assets/tekbatt/rechargeable-studio.webp" alt="تصميم لبطاريات AgfaPhoto Rechargeable Value Energy AA" width="1448" height="1086" loading="lazy" />
+              </div>
+              <div class="tb-card-copy">
+                <h3><bdi dir="ltr" lang="en">Rechargeable Value Energy</bdi></h3>
+                <p>بطاريات قابلة لإعادة الشحن للاستخدام المتكرر.</p>
+                <span class="tb-card-action">عرض على موقع Tekbatt
+                  <svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" /></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="tb-actions">
+            <a class="button tb-primary" href="https://tekbatt.com/shop/" target="_blank" rel="noopener">تصفّح كتالوج Tekbatt
+              <svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" /></svg></a>
+            <a class="text-link" href="#quotation" data-enquiry-division="tekbatt">استفسر عن Tekbatt
+              <span class="arrow"><svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" /></svg></span></a>
+          </div>
+        </div>
+      </section>
+      <section class="commodities-section" id="commodities" aria-labelledby="commodities-heading">
+        <div class="wrap">
+          <div class="ct-heading">
+            <div>
+              <p class="ct-division">SFGT · التجارة العامة</p>
+              <h2 id="commodities-heading">
+                السلع<br />والمستلزمات التجارية
+              </h2>
+            </div>
+            <div class="ct-introduction">
+              <p>
+                سلع غذائية ومواد كيميائية ومواد بناء ومستلزمات للضيافة. تصفّح مجموعات المنتجات أدناه، ثم أرسل إلينا المواصفات والكمية ووجهة التسليم.
+              </p>
+              <a class="text-link" href="http://localhost:4318/ar/products/commodities" target="_blank" rel="noopener">عرض جميع المنتجات (59)
+                <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path></svg></span></a>
+            </div>
+          </div>
+          <div class="ct-body">
+            <div class="ct-food">
+              <h3>السلع الغذائية</h3>
+              <div class="ct-food-grid">
+                <a class="ct-food-card" href="http://localhost:4318/ar/products/sugar" target="_blank" rel="noopener"><img src="./assets/generated/sugar-v1.webp" alt="" loading="lazy" width="960" height="640" /><span class="ct-category-title">السكر<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span><span class="ct-category-description">سكر بدرجات ICUMSA 45 و150 و600 و1200.</span></a>
+                <a class="ct-food-card" href="http://localhost:4318/ar/products/edible-oils" target="_blank" rel="noopener"><img src="./assets/generated/edible-oils-v1.webp" alt="" loading="lazy" width="960" height="640" /><span class="ct-category-title">زيوت الطعام<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span><span class="ct-category-description">زيوت دوار الشمس والزيتون والنخيل والكانولا والذرة.</span></a>
+                <a class="ct-food-card" href="http://localhost:4318/ar/products/seeds" target="_blank" rel="noopener"><img src="./assets/generated/seeds-v1.webp" alt="" loading="lazy" width="960" height="640" /><span class="ct-category-title">البذور والحبوب<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span><span class="ct-category-description">فول الصويا والذرة والقمح.</span></a>
+                <a class="ct-food-card" href="http://localhost:4318/ar/products/meat-and-fish" target="_blank" rel="noopener"><img src="./assets/generated/meat-poultry-v1.webp" alt="" loading="lazy" width="960" height="640" /><span class="ct-category-title">اللحوم والدواجن<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span><span class="ct-category-description">دجاج وقطع لحم بقري خالية من العظم من كتالوج SFGT.</span></a>
+              </div>
+              <a class="ct-other" href="http://localhost:4318/ar/products/other-food-products" target="_blank" rel="noopener"><span><strong>منتجات غذائية أخرى</strong><span>كاكاو وقهوة وفانيليا وحليب مجفف</span></span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg></a>
+            </div>
+            <div class="ct-supplies">
+              <h3>الصناعة والضيافة</h3>
+              <div class="ct-supply-list">
+                <a class="ct-supply-card" href="http://localhost:4318/ar/products/chemicals" target="_blank" rel="noopener"><img src="./assets/generated/chemicals-v1.webp" alt="" loading="lazy" width="104" height="104" /><span><span class="ct-category-title">المواد الكيميائية</span><span class="ct-category-description">يوريا وكبريت وسيليكا وأسمدة.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path></svg></a>
+                <a class="ct-supply-card" href="http://localhost:4318/ar/products/construction-materials" target="_blank" rel="noopener"><img src="./assets/generated/construction-v1.webp" alt="" loading="lazy" width="104" height="104" /><span><span class="ct-category-title">مواد البناء</span><span class="ct-category-description">ألواح OSB وخشب رقائقي وألواح MDF.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path></svg></a>
+                <a class="ct-supply-card" href="http://localhost:4318/ar/products/hospitality" target="_blank" rel="noopener"><img src="./assets/generated/hospitality-v1.webp" alt="" loading="lazy" width="104" height="104" /><span><span class="ct-category-title">مستلزمات الضيافة</span><span class="ct-category-description">مستلزمات الفنادق والمطاعم.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path></svg></a>
+              </div>
+              <div class="ct-enquiry">
+                <h4>تبحث عن منتج لتوريده؟</h4>
+                <p>أخبرنا بما تحتاج إليه وحدّد وجهة التسليم.</p>
+                <a class="text-link" href="#quotation" data-enquiry-division="commodities">استفسر عن السلع
+                  <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="capabilities" id="capabilities" aria-labelledby="capabilities-heading">
+        <div class="wrap capabilities-grid">
+          <div class="capabilities-intro">
+            <h2 id="capabilities-heading">
+              التوريد والتوزيع<br />والخدمات اللوجستية
+            </h2>
+            <p>
+              ناقش مواصفات المنتجات والكميات والتسليم مع فريقنا في دبي.
+            </p>
+            <div class="supply-process">
+              <ol class="supply-steps" role="list" aria-label="خطوات تجهيز طلبك">
+                <li>
+                  <div class="supply-step-visual" aria-hidden="true">
+                    <span class="supply-step-number">01</span>
+                    <img src="./assets/visuals/requirements.svg" alt="" width="240" height="156" loading="lazy" />
+                  </div>
+                  <div>
+                    <h3>أرسل متطلباتك</h3>
+                    <p>
+                      حدّد المنتج أو الطراز والمواصفات والكمية ووجهة التسليم.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="supply-step-visual" aria-hidden="true">
+                    <span class="supply-step-number">02</span>
+                    <img src="./assets/visuals/quotation.svg" alt="" width="240" height="156" loading="lazy" />
+                  </div>
+                  <div>
+                    <h3>راجع عرض السعر</h3>
+                    <p>
+                      أكّد المنتج والشروط التجارية وتفاصيل التسليم مع فريقنا.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="supply-step-visual" aria-hidden="true">
+                    <span class="supply-step-number">03</span>
+                    <img src="./assets/visuals/coordination.svg" alt="" width="240" height="156" loading="lazy" />
+                  </div>
+                  <div>
+                    <h3>نسّق الطلب</h3>
+                    <p>
+                      اتفق معنا على ترتيبات التوريد والشحن قبل المتابعة.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+              <a class="supply-process-link" href="#quotation">
+                أرسل متطلباتك
+                <svg width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="capabilities-list">
+            <details open>
+              <summary>
+                <svg class="service-symbol" viewbox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="9" width="10" height="19" rx="1.5" />
+                  <path d="M6 9V6h4v3M6 14h4M8 20v5M5.5 22.5h5M22 26h5M22.5 29h4" />
+                  <path d="M21 23v-2c-6-5-3-14 3.5-14S34 16 28 21v2Z" />
+                  <path d="M24.5 22v-5m-2-2 2 2 2-2" /></svg><span>البطاريات والإضاءة</span>
+              </summary>
+              <div>
+                <p>
+                  بطاريات وإضاءة LED لتجار التجزئة والجملة وشركاء التوزيع. تواصل معنا لمناقشة مجموعة المنتجات واحتياجات سوقك.
+                </p>
+                <a class="text-link" href="http://localhost:4318/ar/services#distribution" target="_blank" rel="noopener">تواصل بشأن التوزيع
+                  <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a>
+              </div>
+            </details>
+            <details>
+              <summary>
+                <svg class="service-symbol" viewbox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m4 12 12 6 12-6M16 18v12M4 12v11l12 7 12-7V12M4 12l12-6 12 6M10 9l12 6" />
+                  <path d="M7 3v3M16 1v3M25 3v3" /></svg><span>توريد السلع</span>
+              </summary>
+              <div>
+                <p>
+                  سلع غذائية ومواد كيميائية ومواد بناء ومستلزمات للضيافة. يتم الاتفاق على مواصفات المنتجات والكميات مباشرةً مع فريقنا.
+                </p>
+                <a class="text-link" href="http://localhost:4318/ar/products/commodities" target="_blank" rel="noopener">تصفّح السلع
+                  <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a>
+              </div>
+            </details>
+            <details>
+              <summary>
+                <svg class="service-symbol" viewbox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 29V12l13-8 13 8v17M1 29h30M9 29V15h14v14M9 20h14M9 25h14M13 10h6" /></svg><span>التخزين والخدمات اللوجستية</span>
+              </summary>
+              <div>
+                <p>
+                  خدمات التخزين وتنسيق المخزون ومناولة الشحنات وتخطيط النقل لتسهيل وصول طلبك.
+                </p>
+                <a class="text-link" href="http://localhost:4318/ar/contact?product=Warehousing%20%26%20logistics" target="_blank" rel="noopener">ناقش متطلبات التسليم
+                  <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a>
+              </div>
+            </details>
+            <details>
+              <summary>
+                <svg class="service-symbol" viewbox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 18v-3a11 11 0 0 1 22 0v3M5 17H3v8h5v-8ZM27 17h2v8h-5v-8ZM26 25v1a4 4 0 0 1-4 4h-4" />
+                  <path d="M12 15h8M12 19h5" /></svg><span>دعم المنتجات وخدمات ما بعد البيع</span>
+              </summary>
+              <div>
+                <p>
+                  معلومات المنتجات وعروض الأسعار وخدمات ما بعد البيع للعملاء والمورّدين. تجد في مركز الدعم إرشادات البطاريات ومستندات إجراءات تجارة السلع.
+                </p>
+                <a class="text-link" href="http://localhost:4318/ar/support" target="_blank" rel="noopener">الدعم والتنزيلات
+                  <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                      <path d="M7 7h10v10"></path>
+                      <path d="M7 17 17 7"></path></svg></span></a>
+              </div>
+            </details>
+            <a class="capabilities-all text-link" href="http://localhost:4318/ar/services" target="_blank" rel="noopener">عرض جميع الخدمات
+              <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path></svg></span></a>
+          </div>
+        </div>
+      </section>
+      <section class="company company-expanded" id="company" aria-labelledby="company-heading">
+        <div class="wrap company-grid">
+          <div class="company-story">
+            <h2 id="company-heading">عن الشركة</h2>
+            <p>
+              تأسست شركة سليمان فاروق للتجارة العامة ذ.م.م. في دبي عام 2013. نجمع بين توزيع منتجات توشيبا والتجارة العامة، ولدينا مكتب ومستودع في القصيص.
+            </p>
+            <a href="http://localhost:4318/ar/about" target="_blank" rel="noopener" class="text-link">المزيد عن الشركة
+              <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path></svg></span></a>
+            <figure class="company-city-sketch">
+              <img src="./assets/visuals/dubai-sketch.svg" alt="رسم معماري لأفق مدينة دبي" width="600" height="220" loading="lazy" />
+              <figcaption>
+                <svg viewbox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+                دبي، الإمارات العربية المتحدة
+              </figcaption>
+            </figure>
+          </div>
+          <dl class="company-record">
+            <div>
+              <dt>سنة التأسيس</dt>
+              <dd>2013<span>دبي، الإمارات العربية المتحدة</span></dd>
+            </div>
+            <div>
+              <dt>المكتب والمستودع</dt>
+              <dd>
+                القصيص<span>رقم 7، المنطقة الصناعية 1، بالقرب من وزارة العمل</span>
+              </dd>
+            </div>
+            <div>
+              <dt>أسواق عملاء توشيبا</dt>
+              <dd>
+                دول مجلس التعاون الخليجي واليمن والهند وبنغلاديش<span>الأسواق التي نخدمها من خلال توزيع منتجات توشيبا</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+      <section class="quote quote-expanded" id="quotation" aria-labelledby="quote-heading">
+        <div class="wrap quote-grid">
+          <div class="quote-copy">
+            <h2 id="quote-heading">اطلب عرض سعر</h2>
+            <p>
+              أرسل تفاصيل المنتج والكمية ووجهة التسليم ليتواصل معك فريقنا بشأن متطلباتك.
+            </p>
+            <div class="quote-contact">
+              <span>للاستفسارات عن المنتجات والتوريد</span><a href="mailto:tbts@sfgt-tbts.com"><bdi dir="ltr" lang="en">tbts@sfgt-tbts.com</bdi></a><a href="tel:+97143364633"><bdi dir="ltr" lang="en">+971 4 336 4633</bdi></a>
+            </div>
+            <p class="quote-partners">
+              مهتم بتوزيع منتجات توشيبا؟<br /><a class="text-link" href="#quotation" data-enquiry-division="distribution">ناقش شراكة توزيع
+                <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17 17 7"></path></svg></span></a>
+            </p>
+          </div>
+          <form class="enquiry-form tq-form" id="preview-enquiry" action="mailto:tbts@sfgt-tbts.com" method="post" enctype="text/plain">
+            <div class="tq-field">
+              <label for="tq-division">ما موضوع استفسارك؟</label>
+              <select id="tq-division" name="division">
+                <option value="toshiba">منتجات توشيبا</option>
+                <option value="tekbatt">Tekbatt · بطاريات AgfaPhoto</option>
+                <option value="commodities">
+                  السلع والتجارة العامة
+                </option>
+                <option value="distribution">شراكة توزيع</option>
+              </select>
+            </div>
+            <div class="tq-fields">
+              <div class="tq-field">
+                <label for="tq-name">الاسم <span>(مطلوب)</span></label>
+                <input id="tq-name" name="name" autocomplete="name" maxlength="120" required dir="auto" />
+              </div>
+              <div class="tq-field">
+                <label for="tq-email">البريد الإلكتروني للعمل <span>(مطلوب)</span></label>
+                <input id="tq-email" name="email" type="email" autocomplete="email" maxlength="254" required dir="ltr" />
+              </div>
+            </div>
+            <details class="tq-order" id="tq-order">
+              <summary>أضف تفاصيل الطلب <span>اختياري</span></summary>
+              <div class="tq-order-fields">
+                <div class="tq-field">
+                  <label for="tq-company">الشركة</label>
+                  <input id="tq-company" name="company" autocomplete="organization" maxlength="200" dir="auto" />
+                </div>
+                <div class="tq-field">
+                  <label for="tq-product">المنتج أو الطراز</label>
+                  <input id="tq-product" name="product" maxlength="500" placeholder="مثال: Toshiba High Power AA" dir="auto" />
+                </div>
+                <div class="tq-fields">
+                  <div class="tq-field">
+                    <label for="tq-quantity">الكمية والوحدة</label>
+                    <input id="tq-quantity" name="quantity" maxlength="120" placeholder="مثال: 100 كرتونة" dir="auto" />
+                  </div>
+                  <div class="tq-field">
+                    <label for="tq-destination">وجهة التسليم</label>
+                    <input id="tq-destination" name="destination" maxlength="200" placeholder="المدينة والدولة" dir="auto" />
+                  </div>
+                </div>
+              </div>
+            </details>
+            <div class="tq-field">
+              <label for="tq-message">كيف يمكننا مساعدتك؟ <span>(مطلوب)</span></label>
+              <textarea id="tq-message" name="message" rows="4" minlength="10" maxlength="4000" placeholder="أخبرنا بما تحتاج إليه، مع ذكر المواصفات أو أي أسئلة لديك." required dir="auto"></textarea>
+            </div>
+            <p class="tq-help" id="tq-help">
+              يفتح هذا الزر مسودة في تطبيق البريد الإلكتروني لمراجعتها وإرسالها.
+            </p>
+            <button class="tq-submit" type="submit" aria-describedby="tq-help">
+              افتح مسودة البريد
+            </button>
+            <p class="tq-status" id="tq-status" role="status" aria-live="polite"></p>
+            <section class="tq-fallback" id="tq-fallback" aria-labelledby="tq-fallback-heading" hidden>
+              <h3 id="tq-fallback-heading">مسودة استفسارك</h3>
+              <p>
+                إذا لم يفتح تطبيق البريد الإلكتروني، انسخ هذه المسودة وأرسلها إلى
+                <a href="mailto:tbts@sfgt-tbts.com"><bdi dir="ltr" lang="en">tbts@sfgt-tbts.com</bdi></a> . لم يتم إرسال أي رسالة من هذه الصفحة.
+              </p>
+              <label for="tq-draft">رسالة البريد الجاهزة</label>
+              <textarea id="tq-draft" rows="7" readonly dir="auto"></textarea>
+              <button class="tq-copy" id="tq-copy" type="button">
+                نسخ مسودة البريد
+              </button>
+              <p class="tq-copy-status" id="tq-copy-status" role="status" aria-live="polite"></p>
+            </section>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-main">
+          <img src="./assets/logo.png" alt="سليمان فاروق للتجارة العامة ذ.م.م." width="160" />
+          <nav class="footer-links" aria-label="روابط تذييل الصفحة">
+            <a href="http://localhost:4318/ar/products" target="_blank" rel="noopener">كتالوج المنتجات</a><a href="#tekbatt">Tekbatt</a><a href="#capabilities">الخدمات</a><a href="http://localhost:4318/ar/support" target="_blank" rel="noopener">الدعم والتنزيلات</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 سليمان فاروق للتجارة العامة ذ.م.م.</span><span>دبي، الإمارات العربية المتحدة · ص.ب. 122577</span>
+        </div>
+      </div>
+    </footer>
+    <nav class="contact-actions" aria-label="تواصل سريع">
+      <a class="contact-action contact-action-whatsapp" href="https://wa.me/971503420157" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب على ‎+971 50 342 0157‎ (يفتح في علامة تبويب جديدة)" title="واتساب: ‎+971 50 342 0157‎">
+        <svg viewbox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.52 3.48A11.84 11.84 0 0 0 12.1 0C5.56 0 .24 5.32.24 11.86c0 2.09.55 4.13 1.59 5.93L.14 24l6.36-1.67a11.85 11.85 0 0 0 5.6 1.42h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.47-8.41Zm-8.42 18.27c-1.76 0-3.48-.47-4.98-1.36l-.36-.22-3.77.99 1-3.68-.24-.38a9.84 9.84 0 0 1-1.51-5.24c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.12 1.03 6.98 2.89a9.8 9.8 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.89 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.66-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.21 5.08 4.51.71.31 1.27.49 1.71.63.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z" />
+        </svg>
+      </a>
+      <a class="contact-action contact-action-call" href="tel:+971503420157" aria-label="اتصل الآن على ‎+971 50 342 0157‎" title="اتصال: ‎+971 50 342 0157‎">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.83.56 2.79.69A2 2 0 0 1 22 16.92Z" />
+        </svg>
+      </a>
+    </nav>
+    <script>
+      document.querySelectorAll(".mobile-menu a").forEach((link) =>
+        link.addEventListener("click", () => {
+          document.querySelector(".mobile-menu").open = false;
+        }),
+      );
+    </script>
+  </body>
+</html>

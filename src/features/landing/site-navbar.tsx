@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Menu } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,7 +28,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ToggleTheme } from "@/components/toogle-theme";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { ProductSearch } from "./product-search";
 import "./navigation-footer.css";
@@ -46,6 +45,7 @@ export function Navbar({
   groups: MenuGroup[];
 }) {
   const t = useTranslations("Website.nav");
+  const locale = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const links = [
@@ -92,7 +92,10 @@ export function Navbar({
           >
             {t("home")}
           </Link>
-          <NavigationMenu className="site-mega-menu">
+          <NavigationMenu
+            className="site-mega-menu"
+            dir={locale === "ar" ? "rtl" : "ltr"}
+          >
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
@@ -193,7 +196,11 @@ export function Navbar({
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="public-surface mobile-navigation">
+            <SheetContent
+              side={locale === "ar" ? "left" : "right"}
+              className="public-surface mobile-navigation"
+              closeLabel={t("close")}
+            >
               <SheetHeader className="mobile-navigation-heading">
                 <SheetTitle>SFGT</SheetTitle>
                 <SheetDescription>
@@ -232,7 +239,7 @@ export function Navbar({
                             pathname === group.href ? "page" : undefined
                           }
                         >
-                          {group.title} →
+                          {group.title} {locale === "ar" ? "←" : "→"}
                         </Link>
                         {group.children.map((item) => (
                           <Link
@@ -273,7 +280,6 @@ export function Navbar({
               </nav>
               <div className="mobile-navigation-preferences">
                 <LocaleSwitcher />
-                <ToggleTheme />
               </div>
             </SheetContent>
           </Sheet>

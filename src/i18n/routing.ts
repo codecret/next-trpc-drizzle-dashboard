@@ -6,7 +6,7 @@ import { defineRouting } from "next-intl/routing";
  */
 export const routing = defineRouting({
   // Supported locales
-  locales: ["en", "de"],
+  locales: ["en", "ar"],
 
   // Default locale when no locale is detected
   defaultLocale: "en",
@@ -14,8 +14,8 @@ export const routing = defineRouting({
   // Only show locale prefix when not using default locale
   localePrefix: "as-needed",
 
-  // Detect locale from Accept-Language header
-  localeDetection: true,
+  // Keep English as the default; visitors choose Arabic explicitly.
+  localeDetection: false,
 });
 
 /**

@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
+import { routing } from "@/i18n/routing";
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
@@ -16,24 +17,29 @@ export default function LocaleSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
   return (
-    <DropdownMenu>
+    <DropdownMenu dir={locale === "ar" ? "rtl" : "ltr"}>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" aria-label={t("language")}>
-          {locale.toUpperCase()}
+          {locale === "ar" ? "العربية" : "EN"}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {["en", "de"].map((language) => (
+        {routing.locales.map((language) => (
           <DropdownMenuCheckboxItem
             key={language}
             checked={locale === language}
+            lang={language}
+            dir={language === "ar" ? "rtl" : "ltr"}
             onCheckedChange={() =>
-              router.replace(`${pathname}${window.location.search}`, {
-                locale: language,
-              })
+              router.replace(
+                `${pathname}${window.location.search}${window.location.hash}`,
+                {
+                  locale: language,
+                }
+              )
             }
           >
-            {language === "en" ? "English" : "Deutsch"}
+            {language === "en" ? "English" : "العربية"}
           </DropdownMenuCheckboxItem>
         ))}
       </DropdownMenuContent>

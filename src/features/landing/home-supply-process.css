@@ -1,0 +1,110 @@
+.business-process-visual .business-steps {
+  gap: 30px;
+}
+
+.business-process-visual .business-step {
+  position: relative;
+  min-width: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.business-process-visual .business-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  right: -20px;
+  left: 64px;
+  height: 1px;
+  background: #d9d9d2;
+}
+
+.business-process-visual .business-step-marker {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 23px;
+  place-items: center;
+  border: 1px solid #deded7;
+  border-radius: 3px;
+  color: #c91e26;
+  background: #fff;
+}
+
+.business-process-visual .business-step-direction {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  right: -21px;
+  color: #92938b;
+  background: #f7f7f4;
+}
+
+.business-process-visual .business-step .business-step-number {
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+}
+
+.business-process-visual .business-step-number > span {
+  margin-inline-end: 3px;
+  color: #797a72;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-process-visual .business-step-copy > p:last-child {
+  max-width: 230px;
+  color: #626366;
+  font-size: 12px;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.business-process-visual .business-services-link {
+  margin-top: 28px;
+}
+
+@media (max-width: 767px) {
+  .business-process-visual .business-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 27px;
+  }
+
+  .business-process-visual .business-step {
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+  }
+
+  .business-process-visual .business-step:not(:last-child)::after {
+    top: 60px;
+    bottom: -17px;
+    left: 25px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .business-process-visual .business-step-marker {
+    margin-bottom: 0;
+  }
+
+  .business-process-visual .business-step-direction {
+    display: none;
+  }
+
+  .business-process-visual .business-step-copy {
+    padding-top: 1px;
+  }
+
+  .business-process-visual .business-step .business-step-number {
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  .business-process-visual .business-step-copy > p:last-child {
+    max-width: 390px;
+    font-size: 13px;
+  }
+}

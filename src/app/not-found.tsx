@@ -8,9 +8,9 @@ import Error from "next/error";
 
 export default function NotFound() {
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: "light" }}>
       <body>
-        <Error statusCode={404} />
+        <Error statusCode={404} withDarkMode={false} />
       </body>
     </html>
   );

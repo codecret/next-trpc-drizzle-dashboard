@@ -46,7 +46,7 @@
   letter-spacing: 0.04em;
 }
 .site-header .header-contact {
-  margin-left: 10px;
+  margin-inline-start: 10px;
   gap: 12px;
 }
 .site-mega-menu .header-products-trigger {
@@ -152,8 +152,8 @@
   padding: 32px 28px;
 }
 .mobile-navigation-heading {
-  padding-right: 28px;
-  text-align: left;
+  padding-inline-end: 28px;
+  text-align: start;
 }
 .mobile-navigation-heading h2 {
   font-size: 23px;
@@ -176,7 +176,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  text-align: left;
+  text-align: start;
 }
 .mobile-navigation nav > a {
   border-bottom: 1px solid hsl(var(--border));
@@ -195,7 +195,7 @@
   align-items: center;
   min-height: 44px;
   padding: 10px 0 10px 12px;
-  border-left: 1px solid hsl(var(--border));
+  border-inline-start: 1px solid hsl(var(--border));
   font-size: 14px;
   line-height: 1.5;
 }
@@ -249,8 +249,8 @@
 }
 .search-dialog-heading {
   gap: 12px;
-  padding-right: 20px;
-  text-align: left;
+  padding-inline-end: 20px;
+  text-align: start;
 }
 .search-dialog-heading > * {
   margin: 0;
@@ -308,7 +308,7 @@
 }
 .search-category svg {
   flex-shrink: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
   transition: transform 180ms ease;
 }
 .search-category:hover svg {

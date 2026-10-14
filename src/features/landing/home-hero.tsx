@@ -1,118 +1,82 @@
 import Image from "next/image";
-import {
-  ArrowRight,
-  ChevronRight,
-  Headphones,
-  MapPin,
-  Truck,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { childrenOf, localize } from "@/features/catalogue/catalogue";
+import { childrenOf, localize, products } from "@/features/catalogue/catalogue";
 import "./home-hero.css";
 
 export function Hero() {
-  const t = useTranslations("Website");
+  const t = useTranslations("Website.businessHome");
   const locale = useLocale();
-  const assurances = [
-    { icon: Truck, title: "supplyTitle", text: "supplyText" },
-    { icon: MapPin, title: "localTitle", text: "localText" },
-    { icon: Headphones, title: "supportTitle", text: "supportText" },
-  ];
+  const divisions = childrenOf();
+  const lightingImage = products.find((product) => product.id === "led-1")
+    ?.images[0];
+
   return (
-    <section className="reference-hero" aria-labelledby="hero-title">
-      <div className="site-container reference-hero-grid">
-        <div className="reference-hero-copy">
-          <p className="reference-eyebrow">{t("design.eyebrow")}</p>
+    <section className="business-hero" aria-labelledby="hero-title">
+      <div className="site-container business-hero-grid">
+        <div className="business-hero-copy">
           <h1 id="hero-title">
-            <span>{t("design.heroLineOne")}</span>
-            <span>{t("design.heroLineTwo")}</span>
+            <span>{t("heroLineOne")}</span>
+            <span>{t("heroLineTwo")}</span>
+            <span className="business-hero-accent">{t("heroLineThree")}</span>
           </h1>
-          <p className="reference-hero-description">
-            {t("reference.heroDescription")}
-          </p>
-          <div className="reference-hero-actions">
+          <p className="business-hero-description">{t("heroDescription")}</p>
+          <div className="business-hero-actions">
             <Link
               href="/products"
-              className="reference-button reference-button-primary"
+              className="business-button business-button-primary"
             >
-              {t("hero.browse")}
-              <ArrowRight size={18} />
+              {t("browseProducts")}
+              <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link
-              href="/contact"
-              className="reference-button reference-button-secondary"
+            <a
+              href="#homepage-enquiry"
+              className="business-button business-button-secondary"
             >
-              {t("hero.contact")}
-              <ArrowRight size={18} />
-            </Link>
+              {t("talkToTeam")}
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
           </div>
-          <ul className="reference-assurances">
-            {assurances.map(({ icon: Icon, title, text }) => (
-              <li key={title}>
-                <Icon aria-hidden="true" />
-                <span>
-                  <strong>{t(`reference.${title}`)}</strong>
-                  <small>{t(`reference.${text}`)}</small>
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
-        <Link
-          href="/products"
-          className="reference-hero-art"
-          aria-label={t("hero.browse")}
+        <nav
+          className="business-range-panel"
+          aria-labelledby="business-ranges-title"
         >
-          <div className="reference-hero-photo">
-            <Image
-              src="/images/campaign/hero-dubai-v1.png"
-              alt={t("reference.heroImageAlt")}
-              fill
-              priority
-              sizes="(max-width: 767px) 92vw, (max-width: 1279px) 47vw, 565px"
-            />
-            <div className="reference-art-brand" aria-hidden="true">
-              <strong>TOSHIBA</strong>
-              <span>{t("reference.heroImageCaption")}</span>
-            </div>
+          <div className="business-range-heading">
+            <h2 className="business-eyebrow" id="business-ranges-title">
+              {t("rangeTitle")}
+            </h2>
+            <span>{t("divisionCount", { count: divisions.length })}</span>
           </div>
-          <div className="reference-art-caption">
-            <span>{t("reference.imageFooter")}</span>
-            <span>
-              TOSHIBA
-              <ArrowRight size={22} />
-            </span>
-          </div>
-        </Link>
-      </div>
-      <nav
-        className="reference-range-strip"
-        aria-label={t("design.divisionLabel")}
-      >
-        <div className="site-container reference-range-grid">
-          <a href="#product-index" className="reference-range-label">
-            {t("reference.exploreRange")}
-          </a>
-          {childrenOf().map((category, index) => (
+          {divisions.map((category) => (
             <Link
               key={category.slug}
               href={"/products/" + category.slug}
-              className="reference-range-link"
+              className="business-range"
             >
-              <span className="reference-range-number">0{index + 1}</span>
-              <span>
-                {localize(category.name, locale)}
-                <small>
-                  {t("reference.viewProducts")}
-                  <ArrowRight size={12} />
-                </small>
+              <div className="business-range-image">
+                <Image
+                  src={
+                    category.slug === "led-lighting" && lightingImage
+                      ? lightingImage
+                      : category.image
+                  }
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 70px, 82px"
+                />
+              </div>
+              <span className="business-range-copy">
+                <strong>{localize(category.name, locale)}</strong>
+                <span>{t(`ranges.${category.slug}`)}</span>
+                <small>{t("viewRange")}</small>
               </span>
-              <ChevronRight size={18} />
+              <ArrowUpRight aria-hidden="true" />
             </Link>
           ))}
-        </div>
-      </nav>
+        </nav>
+      </div>
     </section>
   );
 }

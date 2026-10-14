@@ -31,7 +31,10 @@ export function ProductSearch({ groups }: { groups: Group[] }) {
           <Search className="size-[18px]" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="public-surface search-dialog">
+      <DialogContent
+        className="public-surface search-dialog"
+        closeLabel={t("design.closeSearch")}
+      >
         <DialogHeader className="search-dialog-heading">
           <p className="eyebrow">{t("catalogue.eyebrow")}</p>
           <DialogTitle className="search-dialog-title">
@@ -42,7 +45,7 @@ export function ProductSearch({ groups }: { groups: Group[] }) {
           </DialogDescription>
         </DialogHeader>
         <form
-          action={(locale === "de" ? "/de" : "") + "/products"}
+          action={(locale === "ar" ? "/ar" : "") + "/products"}
           method="get"
           className="search-dialog-form"
         >

@@ -120,6 +120,7 @@ export function CatalogueFamilySelect({
 
 export function CatalogueSortSelect({ value, onValueChange }: FilterProps) {
   const t = useTranslations("Website.catalogue");
+  const locale = useLocale();
 
   return (
     <div className="battery-sort catalogue-sort-filter">
@@ -127,6 +128,7 @@ export function CatalogueSortSelect({ value, onValueChange }: FilterProps) {
         {t("sort")}
       </label>
       <Select
+        dir={locale === "ar" ? "rtl" : "ltr"}
         value={value || "source"}
         onValueChange={(next) => onValueChange(next === "source" ? "" : next)}
       >

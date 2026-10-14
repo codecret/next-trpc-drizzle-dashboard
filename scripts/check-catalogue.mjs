@@ -20,6 +20,7 @@ const paths = new Set([
   ),
 ]);
 assert.equal(data.products.length, 206);
+assert.equal(data.categories.length, 63);
 assert.equal(
   new Set([...data.categories, ...data.products].map((item) => item.slug)).size,
   data.categories.length + data.products.length,
@@ -96,6 +97,17 @@ for (const product of data.products) {
     assert.ok(data.downloads.some((download) => download.id === id));
 }
 for (const category of data.categories) {
+  for (const field of ["name", "description"]) {
+    assert.deepEqual(
+      Object.keys(category[field]).sort(),
+      ["ar", "en"],
+      `Category ${field} must have English and Arabic only: ${category.slug}`
+    );
+    assert.ok(
+      category[field].en.trim() && category[field].ar.trim(),
+      `Missing category ${field} translation: ${category.slug}`
+    );
+  }
   assert.equal(
     category.productCount,
     data.products.filter((product) =>
@@ -125,7 +137,7 @@ const keys = (object, prefix = "") =>
     .sort();
 assert.deepEqual(
   keys(read("messages/en.json")),
-  keys(read("messages/de.json")),
+  keys(read("messages/ar.json")),
   "Locale keys must match"
 );
 process.stdout.write(

@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "SFGT Arabic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/noto-sans-arabic-regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SFGT Arabic";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("/fonts/noto-sans-arabic-semibold.ttf") format("truetype");
+}
+html[dir="rtl"] body,
+html[dir="rtl"] .website-shell,
+html[dir="rtl"] .public-surface {
+  --font-public: "SFGT Arabic";
+  font-family: "SFGT Arabic", Tahoma, sans-serif;
+}
+html[dir="rtl"] :is(h1, h2, h3, h4, .eyebrow, .index-number) {
+  letter-spacing: normal;
+  line-height: 1.55;
+}
+html[dir="rtl"] :is(input, select, textarea, button) {
+  font-family: inherit;
+}
+html[dir="rtl"]
+  :is(
+    [lang="en"],
+    a[href^="tel:"],
+    a[href^="mailto:"],
+    input[type="email"],
+    input[type="tel"]
+  ) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+html[dir="rtl"]
+  :is(
+    .lucide-arrow-right,
+    .lucide-arrow-left,
+    .lucide-arrow-up-right,
+    .category-card-arrow,
+    .business-step-direction
+  ) {
+  scale: -1 1;
+}
+html[dir="rtl"] .nav-link::after {
+  transform-origin: right;
+}
+html[dir="rtl"] :is(.page-heading::after, .public-not-found::before) {
+  left: auto;
+  right: 0;
+}
+html[dir="rtl"] .site-mega-menu > .absolute {
+  left: auto;
+  right: 50%;
+  transform: translateX(42%);
+}
+html[dir="rtl"] :is(.mobile-group-overview, .mobile-group-link) {
+  padding-inline: 12px 0;
+}
+html[dir="rtl"] .search-dialog-heading,
+html[dir="rtl"] .mobile-navigation-heading {
+  text-align: start;
+}
+html[dir="rtl"] .lucide-chevron-right:not([class*="rtl:rotate"]) {
+  scale: -1 1;
+}
+html[dir="rtl"] :is(.mobile-navigation, .search-dialog) > button {
+  right: auto;
+  left: 10px;
+}
+html[dir="rtl"] .contact-page .contact-details > section {
+  padding-inline: 34px 0;
+}
+html[dir="rtl"] .contact-quick-actions a {
+  direction: rtl;
+}
+html[dir="rtl"] .contact-page .contact-details > section > svg {
+  left: auto;
+  right: 0;
+}
+html[dir="rtl"] .company-facts > div {
+  padding-inline: 77px 30px;
+}
+html[dir="rtl"] .company-facts svg {
+  left: auto;
+  right: 30px;
+}
+html[dir="rtl"]
+  .business-process-visual
+  .business-step:not(:last-child)::after {
+  left: -20px;
+  right: 64px;
+}
+html[dir="rtl"] .business-process-visual .business-step-direction {
+  left: -21px;
+  right: auto;
+}
+html[dir="rtl"] .market-footprint-markets ul::before,
+html[dir="rtl"] .market-footprint-markets li::before {
+  left: auto;
+  right: -22px;
+}
+html[dir="rtl"] .market-footprint-markets ul::after {
+  left: auto;
+  right: -37px;
+}
+html[dir="rtl"] .market-footprint-markets li::after {
+  left: auto;
+  right: -12px;
+}
+@media (max-width: 1023px) {
+  html[dir="rtl"] .company-facts > div {
+    padding-inline: 64px 22px;
+  }
+  html[dir="rtl"] .company-facts svg {
+    right: 22px;
+  }
+}
+@media (max-width: 767px) {
+  html[dir="rtl"]
+    .business-process-visual
+    .business-step:not(:last-child)::after {
+    left: auto;
+    right: 25px;
+  }
+  html[dir="rtl"] .company-facts > div {
+    padding-inline: 61px 18px;
+  }
+  html[dir="rtl"] .company-facts svg {
+    right: 18px;
+  }
+}

@@ -93,7 +93,7 @@
   position: relative;
   width: 20px;
   height: 20px;
-  margin-left: auto;
+  margin-inline-start: auto;
   flex-shrink: 0;
   color: #65666a;
 }
@@ -225,7 +225,7 @@
 }
 
 .service-feature .service-campaign-highlights li + li {
-  border-left: 1px solid #ececea;
+  border-inline-start: 1px solid #ececea;
 }
 
 .service-feature .service-campaign-highlights svg {
@@ -315,7 +315,7 @@
   width: 15px;
   height: 15px;
   flex-shrink: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
   transition: transform 200ms ease;
 }
 
@@ -381,8 +381,8 @@
   }
 
   .faq-section .faq-item > p {
-    padding-left: 31px;
-    padding-right: 0;
+    padding-inline-start: 31px;
+    padding-inline-end: 0;
   }
 }
 
@@ -403,8 +403,8 @@
   }
 
   .service-feature .service-row > p {
-    padding-left: 35px;
-    padding-right: 0;
+    padding-inline-start: 35px;
+    padding-inline-end: 0;
   }
 
   .service-feature .service-campaign-copy {

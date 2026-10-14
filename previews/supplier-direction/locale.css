@@ -1,0 +1,216 @@
+@font-face {
+  font-family: "Noto Sans Arabic";
+  src: url("./assets/fonts/noto-sans-arabic-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans Arabic";
+  src: url("./assets/fonts/noto-sans-arabic-semibold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+}
+.header-inner {
+  gap: 24px;
+}
+.nav {
+  gap: 22px;
+  margin-inline-start: auto;
+}
+.language-switch {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 2px;
+  direction: ltr;
+}
+.language-switch a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding-inline: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.language-switch [lang="ar"] {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+.language-switch a[aria-current="page"] {
+  color: var(--red);
+}
+.language-switch a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+[dir="rtl"] body {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+[dir="rtl"] :is(h1, h2, h3, h4, p, button, a, span, small, label, dt, dd) {
+  letter-spacing: normal;
+}
+[dir="rtl"] .business-intro h1 {
+  line-height: 1.55;
+  font-size: clamp(34px, 3.5vw, 49px);
+}
+[dir="rtl"] .hero-line {
+  overflow: visible;
+}
+[dir="rtl"] :is(h2, h3) {
+  line-height: 1.6;
+}
+[dir="rtl"]
+  :is(
+    .business-intro-copy p,
+    .division-gateway-copy p,
+    .tb-heading-copy p,
+    .ct-heading p,
+    .quote-copy p
+  ) {
+  line-height: 1.9;
+}
+[dir="rtl"]
+  :is(
+    .division-action,
+    .tb-card-action,
+    .tb-actions,
+    .ct-food-card,
+    .ct-supply-card,
+    .fp-footer,
+    .supply-process-link,
+    .fp-enquire,
+    .fp-product-action,
+    .business-downloads
+  )
+  > svg,
+[dir="rtl"] .arrow svg,
+[dir="rtl"] .lucide-arrow-right,
+[dir="rtl"] .lucide-arrow-up-right,
+[dir="rtl"] .catalogue-search-control button svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :is(.tb-primary, .fp-footer a, .ct-footer a) > svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .business-tools {
+  align-items: flex-end;
+}
+[dir="rtl"] bdi[lang="en"],
+[dir="rtl"] .fp-model {
+  font-family: Manrope, sans-serif;
+}
+[dir="rtl"]
+  :is(
+    input[type="email"],
+    a[href^="mailto:"],
+    a[href^="tel:"]:not(.contact-action)
+  ) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+[dir="rtl"] input[type="email"] {
+  text-align: start;
+}
+[dir="rtl"] .contact-actions {
+  right: auto;
+  left: max(24px, env(safe-area-inset-left));
+}
+[dir="rtl"] .quote-selection :is(strong, span) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+[dir="rtl"] .text-link::after,
+[dir="rtl"] .division-action::after {
+  transform-origin: right;
+}
+@media (max-width: 1120px) {
+  .nav {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .language-switch {
+    margin-inline-start: auto;
+  }
+}
+@media (max-width: 760px) {
+  .header-inner {
+    gap: 14px;
+  }
+  [dir="rtl"] .contact-actions {
+    right: auto;
+    left: max(12px, env(safe-area-inset-left));
+  }
+  [dir="rtl"] .business-intro h1 {
+    font-size: clamp(30px, 6.7vw, 40px);
+  }
+  [dir="rtl"] .division-gateway-copy h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 430px) {
+  .brand img {
+    width: 137px;
+  }
+  .header-inner {
+    gap: 9px;
+  }
+  .language-switch a {
+    padding-inline: 5px;
+    font-size: 11px;
+  }
+  .mobile-menu summary {
+    padding-inline: 9px;
+  }
+  [dir="rtl"] .division-gateway-copy h2 {
+    font-size: 20px;
+  }
+  [dir="rtl"] .division-gateway-copy p {
+    font-size: 12px;
+  }
+  [dir="rtl"] .division-action {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1120px) {
+  .mobile-menu {
+    position: relative;
+  }
+  .mobile-menu summary {
+    list-style: none;
+    border: 1px solid var(--line);
+    padding: 10px 15px;
+    min-height: 44px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobile-menu nav {
+    position: absolute;
+    inset-inline-end: 0;
+    top: 53px;
+    z-index: 20;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 12px;
+    width: 235px;
+    box-shadow: 0 12px 26px #20212410;
+  }
+  .mobile-menu nav a {
+    display: block;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 430px) {
+  .mobile-menu summary {
+    padding-inline: 9px;
+  }
+}

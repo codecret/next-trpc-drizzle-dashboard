@@ -120,18 +120,6 @@
   width: 14px;
   height: 14px;
 }
-.industrial-footer-preferences > button {
-  width: 44px;
-  height: 44px;
-  border-radius: 2px;
-  border-color: #ffffff38;
-  background: transparent;
-  color: #f5f4ef;
-}
-.industrial-footer-preferences > button:hover {
-  border-color: #ffffff80;
-  background: #ffffff0d;
-}
 @media (max-width: 1199px) {
   .industrial-footer-directory {
     grid-template-columns: 1.15fr 0.75fr 1fr 1.2fr;

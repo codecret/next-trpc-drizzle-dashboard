@@ -1,4 +1,4 @@
-export type LocalizedText = { en: string; de: string };
+export type LocalizedText = { en: string; ar: string };
 export type Category = {
   slug: string;
   name: LocalizedText;

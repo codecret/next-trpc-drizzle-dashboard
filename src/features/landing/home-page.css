@@ -1,130 +1,320 @@
-.reference-company {
-  background: #f8f8f7;
-  padding-block: 28px 30px;
-  color: #1c1d20;
+.business-home {
+  color-scheme: light;
+  color: #202124;
+  background: #fff;
 }
-.reference-company-grid {
+.business-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  padding-block: 24px;
+  border-block: 1px solid #e5e5e2;
+}
+.business-fact {
+  padding-inline-start: 26px;
+  border-inline-start: 1px solid #e5e5e2;
+}
+.business-fact:first-child {
+  padding-inline-start: 0;
+  border-inline-start: 0;
+}
+.business-fact dt {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+}
+.business-fact dd {
+  margin-top: 3px;
+  color: #66676a;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.business-company {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 50px;
+  gap: 48px;
+  padding-block: 46px;
 }
-.reference-company-copy h2 {
-  margin-top: 10px;
-  font-size: clamp(27px, 2.7vw, 38px);
-  font-weight: 650;
-  line-height: 1.08;
+.business-home h2:not(.business-eyebrow) {
+  font-size: clamp(28px, 2.55vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.045em;
+  text-wrap: balance;
 }
-.reference-company-copy h2 span {
+.business-company h2 {
+  margin-top: 12px;
+}
+.business-company h2 > span {
   display: block;
 }
-.reference-company-description {
-  max-width: 480px;
-  margin-top: 12px;
-  color: #68696c;
+.business-company-body {
+  margin-top: 18px;
+  color: #626366;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.9;
+  text-wrap: pretty;
 }
-.reference-text-link {
+.business-company-visual {
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid #e5e5e2;
+  border-radius: 3px;
+  background: #f7f7f4;
+}
+.business-company-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.business-company-visual figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 18px;
+  border-top: 1px solid #e5e5e2;
+  color: #626366;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.business-company-visual figcaption > span {
+  color: #d52027;
+  font-size: 13px;
+  font-weight: 750;
+}
+.business-location-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 24px;
+  padding-top: 19px;
+  border-top: 1px solid #e5e5e2;
+}
+.business-location-note > svg {
+  flex: 0 0 auto;
+  color: #c91e26;
+}
+.business-location-note > span {
+  flex: 1;
+  min-width: 0;
+}
+.business-location-note strong,
+.business-location-note span > span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.business-location-note span > span {
+  margin-top: 2px;
+  color: #626366;
+}
+.business-location-note:hover strong {
+  color: #c91e26;
+}
+.business-text-link {
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  min-height: 38px;
-  margin-top: 6px;
+  min-height: 40px;
+  margin-top: 10px;
   border-bottom: 1px solid #dededd;
   color: #c91e26;
   font-size: 12px;
-  font-weight: 600;
-}
-.reference-text-link svg {
-  transition: transform 200ms;
-}
-.reference-text-link:hover svg {
-  transform: translateX(3px);
-}
-.reference-company-facts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.reference-company-facts > div {
-  padding: 6px 28px;
-  border-left: 1px solid #e8e8e6;
-}
-.reference-company-facts svg {
-  width: 27px;
-  height: 27px;
-  color: #d52027;
-  stroke-width: 1.5;
-  margin-bottom: 14px;
-}
-.reference-company-facts dt {
-  font-size: 16px;
   font-weight: 650;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-.reference-company-facts dd {
-  margin-top: 8px;
-  color: #6c6d70;
-  font-size: 11px;
   line-height: 1.5;
 }
-@media (min-width: 768px) and (max-width: 1100px) {
-  .reference-company-grid {
-    gap: 28px;
+.business-text-link:hover {
+  border-color: #c91e26;
+}
+.business-text-link > svg {
+  flex-shrink: 0;
+}
+.business-process {
+  padding-block: 42px 36px;
+  background: #f7f7f4;
+}
+.business-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+.business-section-heading h2 {
+  margin-top: 10px;
+}
+.business-section-heading > p {
+  max-width: 245px;
+  color: #626366;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.business-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  list-style: none;
+}
+.business-step {
+  padding-top: 16px;
+  border-top: 1px solid #d5d6d0;
+}
+.business-step .business-step-number {
+  margin-bottom: 22px;
+  color: #c91e26;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.business-step h3 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+.business-step > p:last-child {
+  color: #626366;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.business-services-link {
+  margin-top: 24px;
+}
+.business-home .product-editorial {
+  padding-block: 44px;
+}
+.business-home .faq-section-home {
+  border-top: 1px solid #e5e5e2;
+  padding-block: 38px;
+}
+.business-enquiry {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 70px;
+  padding-block: 50px;
+  border-top: 1px solid #e5e5e2;
+}
+.business-enquiry-copy h2 {
+  max-width: 310px;
+  margin-top: 12px;
+}
+.business-enquiry-description {
+  max-width: 330px;
+  margin-top: 16px;
+  color: #626366;
+  font-size: 13px;
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+.business-enquiry-note {
+  max-width: 330px;
+  margin-top: 26px;
+  padding-top: 19px;
+  border-top: 1px solid #e5e5e2;
+  color: #626366;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.business-enquiry-note strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #202124;
+  font-weight: 700;
+}
+.business-enquiry-form {
+  min-width: 0;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .business-company {
+    gap: 30px;
   }
-  .reference-company-facts > div {
-    padding-inline: 17px;
+  .business-enquiry {
+    gap: 32px;
   }
-  .reference-company-facts dt {
-    font-size: 14px;
+  .business-steps {
+    gap: 20px;
   }
 }
 @media (max-width: 767px) {
-  .reference-company {
-    padding-block: 36px;
+  .business-facts {
+    gap: 12px;
+    padding-block: 21px;
   }
-  .reference-company-grid {
-    grid-template-columns: 1fr;
-    gap: 26px;
+  .business-fact {
+    padding-inline-start: 12px;
   }
-  .reference-company-copy h2 {
-    font-size: 30px;
+  .business-fact dt {
+    font-size: clamp(16px, 4vw, 21px);
   }
-  .reference-company-description {
-    font-size: 14px;
-  }
-  .reference-company-facts > div {
-    padding: 5px 15px;
-  }
-  .reference-company-facts > div:first-child {
-    border-left: 0;
-    padding-left: 0;
-  }
-  .reference-company-facts > div:last-child {
-    padding-right: 0;
-  }
-  .reference-company-facts dt {
-    font-size: 14px;
-  }
-  .reference-company-facts dd {
+  .business-fact dd {
     font-size: 10px;
   }
+  .business-company {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding-block: 34px;
+  }
+  .business-home h2:not(.business-eyebrow) {
+    font-size: 28px;
+  }
+  .business-company-body {
+    font-size: 14px;
+  }
+  .business-process {
+    padding-block: 32px;
+  }
+  .business-section-heading {
+    display: block;
+    margin-bottom: 24px;
+  }
+  .business-section-heading > p {
+    max-width: none;
+    margin-top: 14px;
+  }
+  .business-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 22px;
+  }
+  .business-step .business-step-number {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+  .business-home .product-editorial,
+  .business-home .faq-section-home {
+    padding-block: 34px;
+  }
+  .business-enquiry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-block: 34px;
+  }
+  .business-enquiry-description,
+  .business-enquiry-note {
+    max-width: none;
+  }
+  .business-enquiry-note {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  .reference-company-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 359px) {
+  .business-facts {
+    gap: 9px;
+  }
+  .business-fact {
+    padding-inline-start: 9px;
+  }
+  .business-fact dt {
+    font-size: 16px;
+  }
+  .business-steps {
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
-  }
-  .reference-company-copy {
-    max-width: 620px;
-  }
-  .reference-company-facts > div {
-    padding-inline: 24px;
-  }
-  .reference-company-facts > div:first-child {
-    padding-left: 0;
-    border-left: 0;
   }
 }

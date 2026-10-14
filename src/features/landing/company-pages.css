@@ -80,7 +80,7 @@
   padding: 0 30px 0 77px;
 }
 .company-facts > div + div {
-  border-left: 1px solid hsl(var(--border));
+  border-inline-start: 1px solid hsl(var(--border));
 }
 .company-facts svg {
   position: absolute;
@@ -179,8 +179,8 @@
   min-width: 0;
 }
 .company-principles > section + section {
-  border-left: 1px solid hsl(var(--border));
-  padding-left: 30px;
+  border-inline-start: 1px solid hsl(var(--border));
+  padding-inline-start: 30px;
 }
 .company-principles svg {
   width: 25px;
@@ -276,7 +276,7 @@
   align-items: start;
   gap: 64px;
   margin-top: 32px;
-  border-left: 3px solid hsl(var(--primary));
+  border-inline-start: 3px solid hsl(var(--primary));
   border-radius: 0 3px 3px 0;
   background: hsl(var(--muted) / 0.65);
   padding: 34px 36px;
@@ -376,7 +376,7 @@
     gap: 22px;
   }
   .company-principles > section + section {
-    padding-left: 22px;
+    padding-inline-start: 22px;
   }
   .company-section-heading {
     gap: 32px;
@@ -439,7 +439,7 @@
     padding: 16px 0;
   }
   .company-facts > div + div {
-    border-left: 0;
+    border-inline-start: 0;
     border-top: 1px solid hsl(var(--border));
   }
   .company-facts dt {
@@ -455,7 +455,7 @@
   .company-facts dd {
     max-width: 55%;
     font-size: 17px;
-    text-align: right;
+    text-align: end;
   }
   .company-story-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -471,7 +471,7 @@
     padding-top: 28px;
   }
   .company-principles > section + section {
-    border-left: 0;
+    border-inline-start: 0;
     border-top: 1px solid hsl(var(--border));
     padding: 24px 0 0;
   }

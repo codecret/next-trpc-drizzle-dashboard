@@ -197,19 +197,6 @@
     font-size: 13px;
   }
 }
-.dark .product-editorial {
-  background: #191b1f;
-  color: #fafafa;
-}
-.dark .product-editorial-eyebrow,
-.dark .product-editorial-category,
-.dark .product-editorial-detail {
-  color: #b8babf;
-}
-.dark .product-editorial-card {
-  border-color: #3c3e43;
-  background: #222429;
-}
 @media (prefers-reduced-motion: reduce) {
   .product-editorial *,
   .product-editorial *::before,

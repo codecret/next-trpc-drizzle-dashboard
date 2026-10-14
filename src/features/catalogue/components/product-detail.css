@@ -38,8 +38,8 @@
   letter-spacing: -0.04em;
 }
 .product-detail .product-detail-brand > a {
-  border-left: 1px solid hsl(var(--border));
-  padding-left: 13px;
+  border-inline-start: 1px solid hsl(var(--border));
+  padding-inline-start: 13px;
   color: hsl(var(--muted-foreground));
 }
 .product-detail .product-detail-brand > a:hover {
@@ -160,7 +160,7 @@
 }
 .product-detail .product-verification-note {
   margin-top: 19px;
-  border-left: 2px solid hsl(var(--primary));
+  border-inline-start: 2px solid hsl(var(--primary));
   padding: 14px 17px;
   background: hsl(var(--muted) / 0.5);
 }
@@ -431,7 +431,7 @@
   min-width: 560px;
   border-collapse: separate;
   border-spacing: 0;
-  text-align: left;
+  text-align: start;
   font-size: 13px;
   line-height: 1.6;
   overflow-wrap: normal;

@@ -2,6 +2,12 @@
 
 A production-ready boilerplate for building admin dashboards with role-based access, built on Next.js 16, tRPC, Drizzle ORM, and Better Auth.
 
+## SFGT website
+
+The repository now includes the SFGT corporate website with an English/Arabic product catalogue. Public pages use a light theme; inherited admin/auth routes are hidden from the public website. Enquiry delivery setup is documented in [docs/enquiry-delivery.md](docs/enquiry-delivery.md).
+
+The latest supplier homepage design, including Tekbatt, generated visuals and animated contact icons, is preserved separately in [previews/supplier-direction](previews/supplier-direction/README.md). That directory includes instructions to run and edit the English/Arabic preview; it is not the Next.js homepage route.
+
 ## Features
 
 - 🔒 **Authentication** — email/password auth with Better Auth (sessions, password reset, rate limiting)
@@ -9,7 +15,7 @@ A production-ready boilerplate for building admin dashboards with role-based acc
 - 🛡️ **Type-safe API** — end-to-end types with tRPC 11 + Zod validation + superjson
 - 🗄️ **Drizzle ORM** — PostgreSQL schema, migrations, and Drizzle Studio
 - ✅ **Validated env vars** — fail-fast environment validation with `@t3-oss/env-nextjs`
-- 🌍 **i18n** — English/German out of the box with next-intl (locale-prefixed routes)
+- 🌍 **i18n** — English/Arabic out of the box with next-intl (locale-prefixed routes)
 - 🌗 **Light/dark mode** — via next-themes
 - 📊 **Admin dashboard** — charts (Recharts), stat cards, and a users CRUD with TanStack Table
 - 🧩 **shadcn/ui components** — accessible Radix-based UI, fully customizable
@@ -93,7 +99,7 @@ Feature-based structure 🗂 — each feature owns its components, server router
 ```
 src/
 ├── app/
-│   ├── [locale]/          # Locale-prefixed routes (en, de)
+│   ├── [locale]/          # Locale-prefixed routes (en, ar)
 │   │   ├── page.tsx       # Landing page
 │   │   ├── auth/          # Sign in / sign up / password reset
 │   │   ├── admin/         # Admin dashboard + users management
@@ -109,7 +115,7 @@ src/
 ├── server/                # tRPC root router
 ├── utils/                 # Hooks and helpers
 └── proxy.ts               # Middleware: auth guard + i18n routing
-messages/                  # Translation files (en.json, de.json)
+messages/                  # Translation files (en.json, ar.json)
 ```
 
 ## Extending

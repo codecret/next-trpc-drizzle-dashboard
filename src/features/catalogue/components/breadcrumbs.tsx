@@ -13,7 +13,7 @@ export function Breadcrumbs({
   return (
     <>
       <nav
-        aria-label={locale === "de" ? "Brotkrümelnavigation" : "Breadcrumb"}
+        aria-label={locale === "ar" ? "مسار التصفح" : "Breadcrumb"}
         className="mb-7 text-xs text-muted-foreground sm:text-sm"
       >
         <ol className="flex flex-wrap items-center gap-x-2 gap-y-2">
@@ -23,18 +23,21 @@ export function Breadcrumbs({
               className="flex items-center gap-2"
             >
               {index > 0 && (
-                <ChevronRight aria-hidden="true" className="size-3 shrink-0" />
+                <ChevronRight
+                  aria-hidden="true"
+                  className="size-3 shrink-0 rtl:rotate-180"
+                />
               )}
               {item.href ? (
                 <Link
                   href={item.href}
                   className="hover:text-foreground hover:underline"
                 >
-                  {item.label}
+                  <bdi>{item.label}</bdi>
                 </Link>
               ) : (
                 <span aria-current="page" className="text-foreground">
-                  {item.label}
+                  <bdi>{item.label}</bdi>
                 </span>
               )}
             </li>

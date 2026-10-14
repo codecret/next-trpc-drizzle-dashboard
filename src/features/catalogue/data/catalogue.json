@@ -5,12 +5,12 @@
       "slug": "batteries",
       "name": {
         "en": "Batteries & portable power",
-        "de": "Batterien & mobile Energie"
+        "ar": "البطاريات والطاقة المحمولة"
       },
       "parent": "",
       "description": {
         "en": "Toshiba alkaline, zinc and rechargeable batteries, specialist cells, powerbanks and torches.",
-        "de": "Toshiba Alkali-, Zink- und wiederaufladbare Batterien, Spezialbatterien, Powerbanks und Taschenlampen."
+        "ar": "بطاريات توشيبا القلوية والزنك والقابلة لإعادة الشحن، والبطاريات المتخصصة، وبنوك الطاقة والمصابيح اليدوية."
       },
       "sources": [],
       "ranges": [],
@@ -21,12 +21,12 @@
       "slug": "led-lighting",
       "name": {
         "en": "LED lighting",
-        "de": "LED-Beleuchtung"
+        "ar": "إضاءة LED"
       },
       "parent": "",
       "description": {
         "en": "Explore Toshiba SMD lamps, filament lamps, tubes and the wider lighting range.",
-        "de": "Entdecken Sie Toshiba SMD-Lampen, Filamentlampen, Röhren und weitere Leuchtenserien."
+        "ar": "تعرّف على مصابيح توشيبا بتقنية SMD ومصابيح الفتيل والأنابيب الضوئية ومجموعة الإضاءة المتنوعة."
       },
       "sources": [],
       "ranges": [],
@@ -37,12 +37,12 @@
       "slug": "commodities",
       "name": {
         "en": "Commodities & supplies",
-        "de": "Handelswaren & Bedarf"
+        "ar": "السلع والمستلزمات"
       },
       "parent": "",
       "description": {
         "en": "Food commodities, chemicals, construction materials and hospitality supplies from SFGT.",
-        "de": "Lebensmittel, Chemikalien, Baustoffe und Hotel- und Gastronomiebedarf von SFGT."
+        "ar": "سلع غذائية ومواد كيميائية ومواد بناء ومستلزمات قطاع الضيافة من SFGT."
       },
       "sources": [],
       "ranges": [],
@@ -53,12 +53,12 @@
       "slug": "alkaline-batteries",
       "name": {
         "en": "Alkaline batteries",
-        "de": "Alkalibatterien"
+        "ar": "البطاريات القلوية"
       },
       "parent": "batteries",
       "description": {
         "en": "High Power, Alpha Power.",
-        "de": "High Power, Alpha Power."
+        "ar": "مجموعتا High Power وAlpha Power."
       },
       "sources": [],
       "ranges": [],
@@ -69,12 +69,12 @@
       "slug": "zinc-batteries",
       "name": {
         "en": "Zinc batteries",
-        "de": "Zinkbatterien"
+        "ar": "بطاريات الزنك"
       },
       "parent": "batteries",
       "description": {
         "en": "Blister Pack, Multi Pack, Shrink Pack, Strip Blister Pack.",
-        "de": "Blisterpackung, Mehrfachpackung, Schrumpffolienpackung, Streifenblister."
+        "ar": "عبوات بليستر وعبوات متعددة وتغليف حراري وعبوات بليستر شريطية."
       },
       "sources": [],
       "ranges": [],
@@ -85,12 +85,12 @@
       "slug": "rechargeable",
       "name": {
         "en": "Rechargeable batteries & chargers",
-        "de": "Akkus & Ladegeräte"
+        "ar": "البطاريات القابلة لإعادة الشحن والشواحن"
       },
       "parent": "batteries",
       "description": {
         "en": "Rechargeable Batteries, Chargers.",
-        "de": "Wiederaufladbare Batterien, Ladegeräte."
+        "ar": "بطاريات قابلة لإعادة الشحن وشواحن."
       },
       "sources": [],
       "ranges": [],
@@ -101,12 +101,12 @@
       "slug": "portable-power",
       "name": {
         "en": "Portable power",
-        "de": "Mobile Energie"
+        "ar": "الطاقة المحمولة"
       },
       "parent": "batteries",
       "description": {
         "en": "Powerbank.",
-        "de": "Powerbank."
+        "ar": "بنوك الطاقة."
       },
       "sources": [],
       "ranges": [],
@@ -117,12 +117,12 @@
       "slug": "special-batteries",
       "name": {
         "en": "Special batteries",
-        "de": "Spezialbatterien"
+        "ar": "البطاريات المتخصصة"
       },
       "parent": "batteries",
       "description": {
         "en": "Buttons, Hearing Aids, Specials.",
-        "de": "Knopfzellen, Hörgerätebatterien, Spezialzellen."
+        "ar": "بطاريات زرية وبطاريات أجهزة السمع وبطاريات للاستخدامات الخاصة."
       },
       "sources": [],
       "ranges": [],
@@ -133,12 +133,12 @@
       "slug": "torches",
       "name": {
         "en": "Torches & LED lights",
-        "de": "Taschenlampen & LED-Leuchten"
+        "ar": "المصابيح اليدوية ومصابيح LED"
       },
       "parent": "batteries",
       "description": {
         "en": "Two Way Led Light, Economical Led Light, Mini Led Light, Underwater Light.",
-        "de": "Zweiwege-LED-Leuchte, Economical LED-Leuchte, Mini-LED-Leuchte, Unterwasserleuchte."
+        "ar": "مصابيح LED ثنائية الاتجاه واقتصادية وصغيرة، ومصابيح للاستخدام تحت الماء."
       },
       "sources": [],
       "ranges": [],
@@ -149,12 +149,12 @@
       "slug": "smd-lamps",
       "name": {
         "en": "SMD lamps",
-        "de": "SMD-Lampen"
+        "ar": "مصابيح SMD"
       },
       "parent": "led-lighting",
       "description": {
         "en": "SMD Non Dimmable, SMD Dimmable.",
-        "de": "SMD nicht dimmbar, SMD dimmbar."
+        "ar": "مصابيح SMD قابلة للتعتيم وغير قابلة للتعتيم."
       },
       "sources": [],
       "ranges": [],
@@ -165,12 +165,12 @@
       "slug": "filament-lamps",
       "name": {
         "en": "Filament lamps",
-        "de": "Filamentlampen"
+        "ar": "مصابيح الفتيل"
       },
       "parent": "led-lighting",
       "description": {
         "en": "Filament Non-Dimmable, Filament Dimmable.",
-        "de": "Filament nicht dimmbar, Filament dimmbar."
+        "ar": "مصابيح فتيل قابلة للتعتيم وغير قابلة للتعتيم."
       },
       "sources": [],
       "ranges": [],
@@ -181,12 +181,12 @@
       "slug": "tubes",
       "name": {
         "en": "Tubes",
-        "de": "Röhren"
+        "ar": "الأنابيب الضوئية"
       },
       "parent": "led-lighting",
       "description": {
         "en": "T8 Tubes.",
-        "de": "T8-Röhren."
+        "ar": "أنابيب إضاءة T8."
       },
       "sources": [],
       "ranges": [],
@@ -197,12 +197,12 @@
       "slug": "floodlights",
       "name": {
         "en": "Floodlights",
-        "de": "Flutlichtstrahler"
+        "ar": "الكشافات"
       },
       "parent": "led-lighting",
       "description": {
         "en": "Floodlights Standard, Floodlights Sensor.",
-        "de": "Standard-Flutlichtstrahler, Flutlichtstrahler mit Sensor."
+        "ar": "كشافات قياسية وكشافات مزودة بمستشعر."
       },
       "sources": [],
       "ranges": [],
@@ -213,12 +213,12 @@
       "slug": "high-bay",
       "name": {
         "en": "High bay",
-        "de": "Hallenleuchten"
+        "ar": "مصابيح الأسقف العالية"
       },
       "parent": "led-lighting",
       "description": {
         "en": "High Bay Standard, High Bay Standard S.2, High Bay Pro, High Bay Accessories.",
-        "de": "Hallenleuchten Standard, Hallenleuchten Standard S.2, Hallenleuchten Pro, Hallenleuchten-Zubehör."
+        "ar": "مصابيح الأسقف العالية من مجموعات Standard وStandard S.2 وPro، وملحقاتها."
       },
       "sources": [],
       "ranges": [],
@@ -229,12 +229,12 @@
       "slug": "downlights",
       "name": {
         "en": "Downlights",
-        "de": "Downlights"
+        "ar": "الإضاءة السقفية الموجهة"
       },
       "parent": "led-lighting",
       "description": {
         "en": "Downlights Standard, Downlights 3CCT.",
-        "de": "Downlights Standard, Downlights 3CCT."
+        "ar": "مصابيح سقفية موجهة قياسية ومن مجموعة 3CCT."
       },
       "sources": [],
       "ranges": [],
@@ -245,12 +245,12 @@
       "slug": "proof-lights",
       "name": {
         "en": "Proof lights",
-        "de": "Feuchtraumleuchten"
+        "ar": "مصابيح مقاومة للعوامل الخارجية"
       },
       "parent": "led-lighting",
       "description": {
         "en": "Weatherproofs, Triproofs.",
-        "de": "Wetterfeste Leuchten, Triproof-Leuchten."
+        "ar": "مصابيح مقاومة للعوامل الجوية ومصابيح ثلاثية الحماية."
       },
       "sources": [],
       "ranges": [],
@@ -261,12 +261,12 @@
       "slug": "panel-lights",
       "name": {
         "en": "Panel lights",
-        "de": "Panelleuchten"
+        "ar": "ألواح الإضاءة"
       },
       "parent": "led-lighting",
       "description": {
         "en": "Panel Lights UGR < 16, Panel Lights UGR < 19, Panel Lights UGR < 22, Panels Accessories.",
-        "de": "Panelleuchten UGR < 16, Panelleuchten UGR < 19, Panelleuchten UGR < 22, Panel-Zubehör."
+        "ar": "ألواح إضاءة بقيم UGR أقل من 16 و19 و22، وملحقاتها."
       },
       "sources": [],
       "ranges": [],
@@ -277,12 +277,12 @@
       "slug": "ceiling-lights",
       "name": {
         "en": "Ceiling lights",
-        "de": "Deckenleuchten"
+        "ar": "مصابيح السقف"
       },
       "parent": "led-lighting",
       "description": {
         "en": "Ceiling Lights Black, Ceiling Lights White.",
-        "de": "Deckenleuchten Schwarz, Deckenleuchten Weiß."
+        "ar": "مصابيح سقف باللونين الأسود والأبيض."
       },
       "sources": [],
       "ranges": [],
@@ -293,12 +293,12 @@
       "slug": "high-power",
       "name": {
         "en": "High Power",
-        "de": "High Power"
+        "ar": "High Power"
       },
       "parent": "alkaline-batteries",
       "description": {
         "en": "Explore the Toshiba High Power range.",
-        "de": "Entdecken Sie die Toshiba Serie High Power."
+        "ar": "تعرّف على مجموعة بطاريات High Power من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=1",
@@ -312,12 +312,12 @@
       "slug": "alpha-power",
       "name": {
         "en": "Alpha Power",
-        "de": "Alpha Power"
+        "ar": "Alpha Power"
       },
       "parent": "alkaline-batteries",
       "description": {
         "en": "Explore the Toshiba Alpha Power range.",
-        "de": "Entdecken Sie die Toshiba Serie Alpha Power."
+        "ar": "تعرّف على مجموعة بطاريات Alpha Power من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=2",
@@ -331,12 +331,12 @@
       "slug": "zinc-blister-pack",
       "name": {
         "en": "Blister Pack",
-        "de": "Blisterpackung"
+        "ar": "عبوات بليستر"
       },
       "parent": "zinc-batteries",
       "description": {
         "en": "Explore the Toshiba Blister Pack range.",
-        "de": "Entdecken Sie die Toshiba Serie Blisterpackung."
+        "ar": "تعرّف على بطاريات توشيبا في عبوات بليستر."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=15",
@@ -350,12 +350,12 @@
       "slug": "zinc-multi-pack",
       "name": {
         "en": "Multi Pack",
-        "de": "Mehrfachpackung"
+        "ar": "عبوات متعددة"
       },
       "parent": "zinc-batteries",
       "description": {
         "en": "Explore the Toshiba Multi Pack range.",
-        "de": "Entdecken Sie die Toshiba Serie Mehrfachpackung."
+        "ar": "تعرّف على بطاريات توشيبا في العبوات المتعددة."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=16",
@@ -369,12 +369,12 @@
       "slug": "zinc-shrink-pack",
       "name": {
         "en": "Shrink Pack",
-        "de": "Schrumpffolienpackung"
+        "ar": "تغليف حراري"
       },
       "parent": "zinc-batteries",
       "description": {
         "en": "Explore the Toshiba Shrink Pack range.",
-        "de": "Entdecken Sie die Toshiba Serie Schrumpffolienpackung."
+        "ar": "تعرّف على بطاريات توشيبا ذات التغليف الحراري."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=17",
@@ -388,12 +388,12 @@
       "slug": "zinc-strip-blister-pack",
       "name": {
         "en": "Strip Blister Pack",
-        "de": "Streifenblister"
+        "ar": "عبوات بليستر شريطية"
       },
       "parent": "zinc-batteries",
       "description": {
         "en": "Explore the Toshiba Strip Blister Pack range.",
-        "de": "Entdecken Sie die Toshiba Serie Streifenblister."
+        "ar": "تعرّف على بطاريات توشيبا في عبوات بليستر شريطية."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=18",
@@ -407,12 +407,12 @@
       "slug": "rechargeable-batteries",
       "name": {
         "en": "Rechargeable Batteries",
-        "de": "Wiederaufladbare Batterien"
+        "ar": "بطاريات قابلة لإعادة الشحن"
       },
       "parent": "rechargeable",
       "description": {
         "en": "Explore the Toshiba Rechargeable Batteries range.",
-        "de": "Entdecken Sie die Toshiba Serie Wiederaufladbare Batterien."
+        "ar": "تعرّف على مجموعة بطاريات توشيبا القابلة لإعادة الشحن."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=3",
@@ -426,12 +426,12 @@
       "slug": "chargers",
       "name": {
         "en": "Chargers",
-        "de": "Ladegeräte"
+        "ar": "الشواحن"
       },
       "parent": "rechargeable",
       "description": {
         "en": "Explore the Toshiba Chargers range.",
-        "de": "Entdecken Sie die Toshiba Serie Ladegeräte."
+        "ar": "تعرّف على مجموعة شواحن توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=4",
@@ -445,12 +445,12 @@
       "slug": "powerbanks",
       "name": {
         "en": "Powerbank",
-        "de": "Powerbank"
+        "ar": "بنوك الطاقة"
       },
       "parent": "portable-power",
       "description": {
         "en": "Explore the Toshiba Powerbank range.",
-        "de": "Entdecken Sie die Toshiba Serie Powerbank."
+        "ar": "تعرّف على مجموعة بنوك الطاقة من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=12",
@@ -464,12 +464,12 @@
       "slug": "button-batteries",
       "name": {
         "en": "Buttons",
-        "de": "Knopfzellen"
+        "ar": "البطاريات الزرية"
       },
       "parent": "special-batteries",
       "description": {
         "en": "Explore the Toshiba Buttons range.",
-        "de": "Entdecken Sie die Toshiba Serie Knopfzellen."
+        "ar": "تعرّف على مجموعة البطاريات الزرية من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=8",
@@ -483,12 +483,12 @@
       "slug": "hearing-aid-batteries",
       "name": {
         "en": "Hearing Aids",
-        "de": "Hörgerätebatterien"
+        "ar": "بطاريات أجهزة السمع"
       },
       "parent": "special-batteries",
       "description": {
         "en": "Explore the Toshiba Hearing Aids range.",
-        "de": "Entdecken Sie die Toshiba Serie Hörgerätebatterien."
+        "ar": "تعرّف على مجموعة بطاريات أجهزة السمع من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=9",
@@ -502,12 +502,12 @@
       "slug": "special-cells",
       "name": {
         "en": "Specials",
-        "de": "Spezialzellen"
+        "ar": "بطاريات للاستخدامات الخاصة"
       },
       "parent": "special-batteries",
       "description": {
         "en": "Explore the Toshiba Specials range.",
-        "de": "Entdecken Sie die Toshiba Serie Spezialzellen."
+        "ar": "تعرّف على بطاريات توشيبا للاستخدامات الخاصة."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=10",
@@ -521,12 +521,12 @@
       "slug": "two-way-led-light",
       "name": {
         "en": "Two Way Led Light",
-        "de": "Zweiwege-LED-Leuchte"
+        "ar": "مصابيح LED ثنائية الاتجاه"
       },
       "parent": "torches",
       "description": {
         "en": "Explore the Toshiba Two Way Led Light range.",
-        "de": "Entdecken Sie die Toshiba Serie Zweiwege-LED-Leuchte."
+        "ar": "تعرّف على مجموعة مصابيح LED ثنائية الاتجاه من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=13",
@@ -540,12 +540,12 @@
       "slug": "economical-led-light",
       "name": {
         "en": "Economical Led Light",
-        "de": "Economical LED-Leuchte"
+        "ar": "مصابيح LED اقتصادية"
       },
       "parent": "torches",
       "description": {
         "en": "Explore the Toshiba Economical Led Light range.",
-        "de": "Entdecken Sie die Toshiba Serie Economical LED-Leuchte."
+        "ar": "تعرّف على مجموعة مصابيح LED الاقتصادية من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=19",
@@ -559,12 +559,12 @@
       "slug": "mini-led-light",
       "name": {
         "en": "Mini Led Light",
-        "de": "Mini-LED-Leuchte"
+        "ar": "مصابيح LED صغيرة"
       },
       "parent": "torches",
       "description": {
         "en": "Explore the Toshiba Mini Led Light range.",
-        "de": "Entdecken Sie die Toshiba Serie Mini-LED-Leuchte."
+        "ar": "تعرّف على مجموعة مصابيح LED الصغيرة من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=20",
@@ -578,12 +578,12 @@
       "slug": "underwater-light",
       "name": {
         "en": "Underwater Light",
-        "de": "Unterwasserleuchte"
+        "ar": "مصابيح للاستخدام تحت الماء"
       },
       "parent": "torches",
       "description": {
         "en": "Explore the Toshiba Underwater Light range.",
-        "de": "Entdecken Sie die Toshiba Serie Unterwasserleuchte."
+        "ar": "تعرّف على مجموعة مصابيح توشيبا للاستخدام تحت الماء."
       },
       "sources": [
         "https://www.toshibabts.com/Products.aspx?sbctid=21",
@@ -597,12 +597,12 @@
       "slug": "smd-non-dimmable",
       "name": {
         "en": "SMD Non Dimmable",
-        "de": "SMD nicht dimmbar"
+        "ar": "مصابيح SMD غير قابلة للتعتيم"
       },
       "parent": "smd-lamps",
       "description": {
         "en": "Explore the Toshiba SMD Non Dimmable range.",
-        "de": "Entdecken Sie die Toshiba Serie SMD nicht dimmbar."
+        "ar": "تعرّف على مصابيح SMD غير القابلة للتعتيم من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=1",
@@ -616,12 +616,12 @@
       "slug": "smd-dimmable",
       "name": {
         "en": "SMD Dimmable",
-        "de": "SMD dimmbar"
+        "ar": "مصابيح SMD قابلة للتعتيم"
       },
       "parent": "smd-lamps",
       "description": {
         "en": "Explore the Toshiba SMD Dimmable range.",
-        "de": "Entdecken Sie die Toshiba Serie SMD dimmbar."
+        "ar": "تعرّف على مصابيح SMD القابلة للتعتيم من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=2",
@@ -635,12 +635,12 @@
       "slug": "filament-non-dimmable",
       "name": {
         "en": "Filament Non-Dimmable",
-        "de": "Filament nicht dimmbar"
+        "ar": "مصابيح فتيل غير قابلة للتعتيم"
       },
       "parent": "filament-lamps",
       "description": {
         "en": "Explore the Toshiba Filament Non-Dimmable range.",
-        "de": "Entdecken Sie die Toshiba Serie Filament nicht dimmbar."
+        "ar": "تعرّف على مصابيح الفتيل غير القابلة للتعتيم من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=3",
@@ -654,12 +654,12 @@
       "slug": "filament-dimmable",
       "name": {
         "en": "Filament Dimmable",
-        "de": "Filament dimmbar"
+        "ar": "مصابيح فتيل قابلة للتعتيم"
       },
       "parent": "filament-lamps",
       "description": {
         "en": "Explore the Toshiba Filament Dimmable range.",
-        "de": "Entdecken Sie die Toshiba Serie Filament dimmbar."
+        "ar": "تعرّف على مصابيح الفتيل القابلة للتعتيم من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=4",
@@ -673,12 +673,12 @@
       "slug": "t8-tubes",
       "name": {
         "en": "T8 Tubes",
-        "de": "T8-Röhren"
+        "ar": "أنابيب إضاءة T8"
       },
       "parent": "tubes",
       "description": {
         "en": "Explore the Toshiba T8 Tubes range.",
-        "de": "Entdecken Sie die Toshiba Serie T8-Röhren."
+        "ar": "تعرّف على مجموعة أنابيب إضاءة T8 من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=5",
@@ -692,12 +692,12 @@
       "slug": "floodlights-standard",
       "name": {
         "en": "Floodlights Standard",
-        "de": "Standard-Flutlichtstrahler"
+        "ar": "كشافات قياسية"
       },
       "parent": "floodlights",
       "description": {
         "en": "Explore the Toshiba Floodlights Standard range.",
-        "de": "Entdecken Sie die Toshiba Serie Standard-Flutlichtstrahler."
+        "ar": "تعرّف على مجموعة الكشافات القياسية من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=6",
@@ -714,12 +714,12 @@
       "slug": "floodlights-sensor",
       "name": {
         "en": "Floodlights Sensor",
-        "de": "Flutlichtstrahler mit Sensor"
+        "ar": "كشافات مزودة بمستشعر"
       },
       "parent": "floodlights",
       "description": {
         "en": "Explore the Toshiba Floodlights Sensor range.",
-        "de": "Entdecken Sie die Toshiba Serie Flutlichtstrahler mit Sensor."
+        "ar": "تعرّف على مجموعة كشافات توشيبا المزودة بمستشعر."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=7",
@@ -733,12 +733,12 @@
       "slug": "high-bay-standard",
       "name": {
         "en": "High Bay Standard",
-        "de": "Hallenleuchten Standard"
+        "ar": "مصابيح الأسقف العالية Standard"
       },
       "parent": "high-bay",
       "description": {
         "en": "Explore the Toshiba High Bay Standard range.",
-        "de": "Entdecken Sie die Toshiba Serie Hallenleuchten Standard."
+        "ar": "تعرّف على مصابيح الأسقف العالية من مجموعة Standard من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=8",
@@ -756,12 +756,12 @@
       "slug": "high-bay-standard-s2",
       "name": {
         "en": "High Bay Standard S.2",
-        "de": "Hallenleuchten Standard S.2"
+        "ar": "مصابيح الأسقف العالية Standard S.2"
       },
       "parent": "high-bay",
       "description": {
         "en": "Explore the Toshiba High Bay Standard S.2 range.",
-        "de": "Entdecken Sie die Toshiba Serie Hallenleuchten Standard S.2."
+        "ar": "تعرّف على مصابيح الأسقف العالية من مجموعة Standard S.2 من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=9",
@@ -779,12 +779,12 @@
       "slug": "high-bay-pro",
       "name": {
         "en": "High Bay Pro",
-        "de": "Hallenleuchten Pro"
+        "ar": "مصابيح الأسقف العالية Pro"
       },
       "parent": "high-bay",
       "description": {
         "en": "Explore the Toshiba High Bay Pro range.",
-        "de": "Entdecken Sie die Toshiba Serie Hallenleuchten Pro."
+        "ar": "تعرّف على مصابيح الأسقف العالية من مجموعة Pro من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=10",
@@ -802,12 +802,12 @@
       "slug": "high-bay-accessories",
       "name": {
         "en": "High Bay Accessories",
-        "de": "Hallenleuchten-Zubehör"
+        "ar": "ملحقات مصابيح الأسقف العالية"
       },
       "parent": "high-bay",
       "description": {
         "en": "Explore the Toshiba High Bay Accessories range.",
-        "de": "Entdecken Sie die Toshiba Serie Hallenleuchten-Zubehör."
+        "ar": "تعرّف على ملحقات مصابيح الأسقف العالية من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=11",
@@ -821,12 +821,12 @@
       "slug": "downlights-standard",
       "name": {
         "en": "Downlights Standard",
-        "de": "Downlights Standard"
+        "ar": "إضاءة سقفية موجهة قياسية"
       },
       "parent": "downlights",
       "description": {
         "en": "Explore the Toshiba Downlights Standard range.",
-        "de": "Entdecken Sie die Toshiba Serie Downlights Standard."
+        "ar": "تعرّف على مجموعة الإضاءة السقفية الموجهة القياسية من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=12",
@@ -840,12 +840,12 @@
       "slug": "downlights-3cct",
       "name": {
         "en": "Downlights 3CCT",
-        "de": "Downlights 3CCT"
+        "ar": "إضاءة سقفية موجهة 3CCT"
       },
       "parent": "downlights",
       "description": {
         "en": "Explore the Toshiba Downlights 3CCT range.",
-        "de": "Entdecken Sie die Toshiba Serie Downlights 3CCT."
+        "ar": "تعرّف على مجموعة الإضاءة السقفية الموجهة 3CCT من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=13",
@@ -859,12 +859,12 @@
       "slug": "weatherproofs",
       "name": {
         "en": "Weatherproofs",
-        "de": "Wetterfeste Leuchten"
+        "ar": "مصابيح مقاومة للعوامل الجوية"
       },
       "parent": "proof-lights",
       "description": {
         "en": "Explore the Toshiba Weatherproofs range.",
-        "de": "Entdecken Sie die Toshiba Serie Wetterfeste Leuchten."
+        "ar": "تعرّف على مصابيح توشيبا المقاومة للعوامل الجوية."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=14",
@@ -878,12 +878,12 @@
       "slug": "triproofs",
       "name": {
         "en": "Triproofs",
-        "de": "Triproof-Leuchten"
+        "ar": "مصابيح ثلاثية الحماية"
       },
       "parent": "proof-lights",
       "description": {
         "en": "Explore the Toshiba Triproofs range.",
-        "de": "Entdecken Sie die Toshiba Serie Triproof-Leuchten."
+        "ar": "تعرّف على مجموعة المصابيح ثلاثية الحماية من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=15",
@@ -897,12 +897,12 @@
       "slug": "panel-lights-ugr-16",
       "name": {
         "en": "Panel Lights UGR < 16",
-        "de": "Panelleuchten UGR < 16"
+        "ar": "ألواح إضاءة UGR أقل من 16"
       },
       "parent": "panel-lights",
       "description": {
         "en": "Explore the Toshiba Panel Lights UGR < 16 range.",
-        "de": "Entdecken Sie die Toshiba Serie Panelleuchten UGR < 16."
+        "ar": "تعرّف على ألواح إضاءة توشيبا بقيمة UGR أقل من 16."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=16",
@@ -916,12 +916,12 @@
       "slug": "panel-lights-ugr-19",
       "name": {
         "en": "Panel Lights UGR < 19",
-        "de": "Panelleuchten UGR < 19"
+        "ar": "ألواح إضاءة UGR أقل من 19"
       },
       "parent": "panel-lights",
       "description": {
         "en": "Explore the Toshiba Panel Lights UGR < 19 range.",
-        "de": "Entdecken Sie die Toshiba Serie Panelleuchten UGR < 19."
+        "ar": "تعرّف على ألواح إضاءة توشيبا بقيمة UGR أقل من 19."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=17",
@@ -940,12 +940,12 @@
       "slug": "panel-lights-ugr-22",
       "name": {
         "en": "Panel Lights UGR < 22",
-        "de": "Panelleuchten UGR < 22"
+        "ar": "ألواح إضاءة UGR أقل من 22"
       },
       "parent": "panel-lights",
       "description": {
         "en": "Explore the Toshiba Panel Lights UGR < 22 range.",
-        "de": "Entdecken Sie die Toshiba Serie Panelleuchten UGR < 22."
+        "ar": "تعرّف على ألواح إضاءة توشيبا بقيمة UGR أقل من 22."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=18",
@@ -959,12 +959,12 @@
       "slug": "panel-accessories",
       "name": {
         "en": "Panels Accessories",
-        "de": "Panel-Zubehör"
+        "ar": "ملحقات ألواح الإضاءة"
       },
       "parent": "panel-lights",
       "description": {
         "en": "Explore the Toshiba Panels Accessories range.",
-        "de": "Entdecken Sie die Toshiba Serie Panel-Zubehör."
+        "ar": "تعرّف على ملحقات ألواح الإضاءة من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=19",
@@ -978,12 +978,12 @@
       "slug": "ceiling-lights-black",
       "name": {
         "en": "Ceiling Lights Black",
-        "de": "Deckenleuchten Schwarz"
+        "ar": "مصابيح سقف سوداء"
       },
       "parent": "ceiling-lights",
       "description": {
         "en": "Explore the Toshiba Ceiling Lights Black range.",
-        "de": "Entdecken Sie die Toshiba Serie Deckenleuchten Schwarz."
+        "ar": "تعرّف على مجموعة مصابيح السقف السوداء من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=20",
@@ -997,12 +997,12 @@
       "slug": "ceiling-lights-white",
       "name": {
         "en": "Ceiling Lights White",
-        "de": "Deckenleuchten Weiß"
+        "ar": "مصابيح سقف بيضاء"
       },
       "parent": "ceiling-lights",
       "description": {
         "en": "Explore the Toshiba Ceiling Lights White range.",
-        "de": "Entdecken Sie die Toshiba Serie Deckenleuchten Weiß."
+        "ar": "تعرّف على مجموعة مصابيح السقف البيضاء من توشيبا."
       },
       "sources": [
         "https://www.toshibabts.com/ProductsByCategorylight.aspx?sbctid=21",
@@ -1016,12 +1016,12 @@
       "slug": "sugar",
       "name": {
         "en": "Sugar",
-        "de": "Zucker"
+        "ar": "السكر"
       },
       "parent": "commodities",
       "description": {
         "en": "Sugar ICUMSA 45, 150, 600 and 1200.",
-        "de": "Zucker ICUMSA 45, 150, 600 und 1200."
+        "ar": "سكر بدرجات ICUMSA 45 و150 و600 و1200."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-sugar.html"
@@ -1034,12 +1034,12 @@
       "slug": "edible-oils",
       "name": {
         "en": "Edible oils",
-        "de": "Speiseöle"
+        "ar": "زيوت الطعام"
       },
       "parent": "commodities",
       "description": {
         "en": "Sunflower, olive, palm, canola and corn oils.",
-        "de": "Sonnenblumen-, Oliven-, Palm-, Raps- und Maisöl."
+        "ar": "زيوت دوار الشمس والزيتون والنخيل والكانولا والذرة."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-edibleoil.html"
@@ -1052,12 +1052,12 @@
       "slug": "seeds",
       "name": {
         "en": "Seeds & grains",
-        "de": "Saaten & Getreide"
+        "ar": "البذور والحبوب"
       },
       "parent": "commodities",
       "description": {
         "en": "Soya, corn and wheat.",
-        "de": "Soja, Mais und Weizen."
+        "ar": "فول الصويا والذرة والقمح."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-seeds.html"
@@ -1070,12 +1070,12 @@
       "slug": "meat-and-fish",
       "name": {
         "en": "Meat & fish",
-        "de": "Fleisch & Fisch"
+        "ar": "اللحوم والأسماك"
       },
       "parent": "commodities",
       "description": {
         "en": "Chicken and boneless beef cuts from the SFGT catalogue.",
-        "de": "Hähnchen und Rindfleischstücke ohne Knochen aus dem SFGT-Sortiment."
+        "ar": "دجاج وقطع لحم بقري خالية من العظم من كتالوج SFGT."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-meatandchick.html"
@@ -1088,12 +1088,12 @@
       "slug": "chemicals",
       "name": {
         "en": "Chemicals",
-        "de": "Chemikalien"
+        "ar": "المواد الكيميائية"
       },
       "parent": "commodities",
       "description": {
         "en": "Urea 46% granular, sulphur, silica, muriate of potash and diammonium phosphate.",
-        "de": "Harnstoff 46 % granuliert, Schwefel, Silica, Kaliumchlorid und Diammoniumphosphat."
+        "ar": "يوريا حبيبية بتركيز 46%، وكبريت، وسيليكا، وكلوريد البوتاسيوم، وفوسفات ثنائي الأمونيوم."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-chemicals.html"
@@ -1106,12 +1106,12 @@
       "slug": "construction-materials",
       "name": {
         "en": "Construction materials",
-        "de": "Baustoffe"
+        "ar": "مواد البناء"
       },
       "parent": "commodities",
       "description": {
         "en": "OSB, plywood and MDF.",
-        "de": "OSB, Sperrholz und MDF."
+        "ar": "ألواح OSB والخشب الرقائقي وألواح MDF."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-constructions.html"
@@ -1124,12 +1124,12 @@
       "slug": "hospitality",
       "name": {
         "en": "Hospitality",
-        "de": "Hotel- & Gastronomiebedarf"
+        "ar": "مستلزمات الضيافة"
       },
       "parent": "commodities",
       "description": {
         "en": "Supplies for hotels and restaurants.",
-        "de": "Bedarf für Hotels und Restaurants."
+        "ar": "مستلزمات الفنادق والمطاعم."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-hospitality.html"
@@ -1142,12 +1142,12 @@
       "slug": "other-food-products",
       "name": {
         "en": "Other food products",
-        "de": "Weitere Lebensmittel"
+        "ar": "منتجات غذائية أخرى"
       },
       "parent": "commodities",
       "description": {
         "en": "Cocoa powder and beans, vanilla beans, coffee beans and powdered milk.",
-        "de": "Kakaopulver und -bohnen, Vanilleschoten, Kaffeebohnen und Milchpulver."
+        "ar": "مسحوق وحبوب الكاكاو وقرون الفانيليا وحبوب القهوة والحليب المجفف."
       },
       "sources": [
         "https://commodities.sfgt-tbts.com/products-by-random.html"

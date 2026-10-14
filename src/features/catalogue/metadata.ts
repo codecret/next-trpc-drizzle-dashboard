@@ -7,7 +7,7 @@ export function siteOrigin() {
     .origin;
 }
 export function localizedPath(path: string, locale: string) {
-  return `${locale === "de" ? "/de" : ""}${path === "/" ? "" : path}` || "/";
+  return `${locale === "ar" ? "/ar" : ""}${path === "/" ? "" : path}` || "/";
 }
 export function absoluteUrl(path: string, locale = "en") {
   return new URL(localizedPath(path, locale), siteOrigin()).toString();
@@ -41,7 +41,7 @@ export function pageMetadata({
       canonical: url,
       languages: {
         en: absoluteUrl(path),
-        de: absoluteUrl(path, "de"),
+        ar: absoluteUrl(path, "ar"),
         "x-default": absoluteUrl(path),
       },
     },
@@ -51,8 +51,8 @@ export function pageMetadata({
       url,
       siteName: company.name,
       type: "website",
-      locale: locale === "de" ? "de_DE" : "en_AE",
-      alternateLocale: locale === "de" ? "en_AE" : "de_DE",
+      locale: locale === "ar" ? "ar_AE" : "en_AE",
+      alternateLocale: locale === "ar" ? "en_AE" : "ar_AE",
       images,
     },
     twitter: {

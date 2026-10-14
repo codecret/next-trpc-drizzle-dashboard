@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 156" fill="none">
+  <title>Two quotation sheets ready for review</title>
+  <g stroke="#2a2b2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m99 15 72 13-19 103-72-13Z" fill="#ecece5"/>
+    <path d="m112 35 43 8m-46 4 29 6" stroke="#9e9e96"/>
+    <path d="m58 29 74-10 14 106-74 10Z" fill="#f6f6f1"/>
+    <path d="m73 45 43-6" stroke="#be2932"/>
+    <path d="m75 53 27-4" stroke="#9e9e96"/>
+    <path d="m76 66 45-6 5 36-45 6Z" fill="#ecece5"/>
+    <path d="m78 78 45-6m-44 18 46-6m-18-22 5 36" stroke="#9e9e96"/>
+    <path d="m84 116 19-3m10-1 15-2"/>
+    <path d="m155 66 34 6-7 38-34-6Z" fill="#f6f6f1"/>
+    <path d="m158 88 7 9 16-17" stroke="#be2932" stroke-width="2"/>
+    <path d="m156 118 20 4" stroke="#9e9e96"/>
+  </g>
+</svg>

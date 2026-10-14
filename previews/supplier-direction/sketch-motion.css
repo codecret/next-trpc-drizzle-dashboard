@@ -1,0 +1,82 @@
+/* Keep the original image proportions and the visual-details.css breakpoints. */
+.motion-sketch,
+.motion-sketch-stage {
+  display: block;
+  position: relative;
+}
+
+.motion-sketch {
+  box-sizing: border-box;
+  height: auto;
+}
+
+.motion-sketch-stage > .motion-sketch-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.motion-sketch-stage > .motion-sketch-ink {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.motion-sketch-ink :is(path, rect, circle, ellipse, line, polyline, polygon) {
+  fill: none;
+}
+
+.supply-step-visual .motion-sketch {
+  width: 116px;
+}
+
+.company-city-sketch .motion-sketch {
+  width: 100%;
+  padding: 15px 15px 0;
+}
+
+@media (min-width: 1101px) {
+  .supply-step-visual .motion-sketch {
+    width: 132px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .supply-step-visual .motion-sketch {
+    width: 91px;
+  }
+}
+
+@media (max-width: 760px) {
+  .supply-step-visual .motion-sketch {
+    width: 100px;
+  }
+}
+
+@media (max-width: 360px) {
+  .supply-step-visual .motion-sketch {
+    width: 78px;
+  }
+}
+
+/* Also keep the static artwork legible if the preference changes mid-draw. */
+[data-motion="reduced"] .motion-sketch-art {
+  opacity: 1 !important;
+}
+
+[data-motion="reduced"] .motion-sketch-ink {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-sketch-art {
+    opacity: 1 !important;
+  }
+
+  .motion-sketch-ink {
+    display: none !important;
+  }
+}

@@ -1,0 +1,465 @@
+body {
+  font-size: 16px;
+}
+h2,
+.company-expanded h2,
+.ct-heading h2,
+.fp-section .fp-heading-copy h2 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.nav {
+  gap: 24px;
+}
+.header-enquiry {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+.nav .header-enquiry:hover {
+  background: #b21922;
+  color: #fff;
+}
+.business-hero {
+  padding-block: 45px 28px;
+  background: var(--paper);
+}
+.business-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 33px;
+}
+.business-intro h1 {
+  margin: 0;
+  font-size: clamp(38px, 3.6vw, 51px);
+  line-height: 1.16;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.business-intro-copy p {
+  color: #55565a;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.business-intro-copy .text-link {
+  margin-top: 10px;
+}
+.business-divisions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+.division-gateway {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  min-height: 250px;
+  background: #fff;
+  border: 1px solid #deded9;
+  overflow: hidden;
+}
+.division-gateway-copy {
+  padding: 25px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.division-gateway h2 {
+  font-size: clamp(20px, 1.8vw, 25px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.division-gateway p {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.division-action {
+  margin-top: auto;
+  padding-top: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--red);
+}
+.division-action svg {
+  flex-shrink: 0;
+}
+.division-gateway > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center;
+}
+.division-gateway-commodities > img {
+  object-position: center;
+}
+.division-gateway:hover {
+  border-color: #b5b5af;
+}
+.division-gateway:hover .division-action {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.business-tools {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 24px;
+}
+.catalogue-search {
+  width: 100%;
+  max-width: 660px;
+}
+.catalogue-search label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.catalogue-search-control {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  gap: 12px;
+  padding-inline-start: 16px;
+  border: 1px solid #c9cac4;
+  background: #fff;
+}
+.catalogue-search-control:focus-within {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+.catalogue-search-control > svg {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+.catalogue-search-control input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 10px 0;
+  background: none;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+}
+.catalogue-search-control input::placeholder {
+  color: #67686a;
+}
+.catalogue-search-control button {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px;
+  background: #fff;
+  border: 0;
+  border-inline-start: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.catalogue-search-control button:hover {
+  color: var(--red);
+  background: #fafaf8;
+}
+.catalogue-search-control button:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: -4px;
+}
+.business-downloads {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 50px;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 550;
+}
+.business-downloads:hover {
+  color: var(--red);
+}
+.toshiba-ranges .range-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.toshiba-ranges .range {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  column-gap: 24px;
+}
+.toshiba-ranges .range-image {
+  grid-row: 1 / 4;
+  height: 160px;
+  margin: 0;
+}
+.toshiba-ranges .range-image img {
+  padding: 12px;
+}
+.toshiba-ranges .range-image.bulb img {
+  padding: 14px 36px;
+}
+.toshiba-ranges .range-title {
+  align-self: end;
+}
+.toshiba-ranges .range h3 {
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+}
+.toshiba-ranges .range p {
+  min-height: 0;
+  font-size: 14px;
+}
+.toshiba-ranges .range-meta {
+  grid-column: 2;
+  font-size: 13px;
+  margin-top: 15px;
+  align-self: end;
+}
+.distribution-invitation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0 0;
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.distribution-invitation p strong {
+  display: block;
+  font-weight: 550;
+  font-size: 15px;
+}
+.distribution-invitation p span {
+  display: block;
+  margin-top: 3px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.distribution-invitation a {
+  flex-shrink: 0;
+}
+.text-link,
+.button {
+  font-size: 14px;
+}
+.fp-section .fp-card {
+  display: flex;
+  flex-direction: column;
+}
+.fp-section .fp-card-link {
+  flex: 1;
+  height: auto;
+}
+.fp-enquire {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 20px;
+  min-height: 45px;
+  border-top: 1px solid var(--line);
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 600;
+}
+.fp-enquire:hover {
+  background: #fafaf8;
+}
+.fp-section .fp-heading-copy p,
+.fp-section .fp-filter,
+.fp-section .fp-product-action {
+  font-size: 14px;
+}
+.fp-section .fp-model,
+.fp-section .fp-category,
+.fp-section .fp-specs,
+.fp-section .fp-footer {
+  font-size: 13px;
+}
+.fp-section .fp-product-info h3 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.capabilities-list p,
+.company-story > p,
+.quote-copy > p,
+.ct-introduction > p,
+.capabilities-intro > p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.capabilities-list summary {
+  letter-spacing: -0.015em;
+}
+.ct-category-description,
+.ct-other span > span,
+.ct-enquiry p,
+.company-record dt,
+.company-record dd > span {
+  font-size: 13px;
+}
+.ct-category-title,
+.company-record dd {
+  letter-spacing: -0.015em;
+}
+.company-record dt {
+  min-width: 0;
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .nav {
+    gap: 16px;
+  }
+  .nav a {
+    font-size: 12px;
+  }
+  .header-inner {
+    gap: 20px;
+  }
+  .brand img {
+    width: 160px;
+  }
+  .business-intro {
+    gap: 32px;
+  }
+  .business-divisions {
+    gap: 20px;
+  }
+  .division-gateway {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .division-gateway-copy {
+    padding: 22px 19px;
+  }
+  .toshiba-ranges .range {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .toshiba-ranges .range-image.bulb img {
+    padding-inline: 22px;
+  }
+}
+@media (max-width: 760px) {
+  .business-hero {
+    padding-block: 30px 25px;
+  }
+  .business-intro {
+    grid-template-columns: 1fr;
+    gap: 19px;
+    margin-bottom: 25px;
+  }
+  .business-intro h1 {
+    font-size: clamp(32px, 7.7vw, 44px);
+    line-height: 1.16;
+  }
+  .business-intro-copy p {
+    font-size: 16px;
+  }
+  .business-divisions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .division-gateway {
+    min-height: 215px;
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .division-gateway-copy {
+    padding: 21px 18px;
+  }
+  .division-gateway h2 {
+    font-size: 21px;
+  }
+  .division-gateway p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .division-action {
+    font-size: 13px;
+    gap: 10px;
+    padding-top: 18px;
+  }
+  .business-tools {
+    display: block;
+    margin-top: 22px;
+  }
+  .catalogue-search-control {
+    gap: 8px;
+    padding-inline-start: 11px;
+  }
+  .catalogue-search-control input {
+    font-size: 16px;
+  }
+  .catalogue-search-control button {
+    padding-inline: 12px;
+  }
+  .catalogue-search-control button svg {
+    display: none;
+  }
+  .business-downloads {
+    margin-top: 9px;
+  }
+  .toshiba-ranges .range-grid {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+  .toshiba-ranges .range {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 0 18px;
+    padding: 0;
+    border: 0;
+  }
+  .toshiba-ranges .range-image {
+    height: 150px;
+  }
+  .toshiba-ranges .range-image.bulb img {
+    padding-inline: 22px;
+  }
+  .toshiba-ranges .range h3 {
+    font-size: 20px;
+  }
+  .toshiba-ranges .range-meta {
+    display: flex;
+    gap: 9px;
+    font-size: 12px;
+  }
+  .distribution-invitation {
+    display: block;
+  }
+  .distribution-invitation a {
+    margin-top: 12px;
+  }
+}
+@media (max-width: 360px) {
+  .division-gateway-copy {
+    padding: 18px 14px;
+  }
+  .division-gateway {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+  .division-gateway h2 {
+    font-size: 19px;
+  }
+  .division-gateway p {
+    font-size: 13px;
+  }
+  .division-action {
+    gap: 6px;
+    font-size: 12px;
+  }
+  .toshiba-ranges .range {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 0 14px;
+  }
+  .toshiba-ranges .range h3 {
+    font-size: 18px;
+  }
+}

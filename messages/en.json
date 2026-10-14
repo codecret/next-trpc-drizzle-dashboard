@@ -221,7 +221,7 @@
     }
   },
   "LocaleSwitcher": {
-    "switchLocale": "Switch to {locale, select, de {German} en {English} other {Unknown}}"
+    "switchLocale": "Switch to {locale, select, ar {Arabic} en {English} other {Unknown}}"
   },
   "Website": {
     "nav": {
@@ -428,9 +428,9 @@
       "email": "Email address",
       "company": "Company (optional)",
       "product": "Product or range (optional)",
-      "quantity": "Quantity & destination (optional)",
-      "message": "Your requirements",
-      "messagePlaceholder": "Tell us the model, specifications, quantity and destination you need.",
+      "quantity": "Quantity (optional)",
+      "message": "How can we help?",
+      "messagePlaceholder": "Products, quantities, or a question for our team…",
       "submit": "Open email draft",
       "draftReady": "Your draft is ready. If your email app did not open, use the email link below or copy your enquiry.",
       "copy": "Copy enquiry",
@@ -443,7 +443,20 @@
       "maxLength": "Please shorten this field.",
       "privacy": "This form prepares a draft on your device. It does not send or store your details on this website.",
       "draftSubject": "Product enquiry — {product}",
-      "draftFallback": "General trading"
+      "draftFallback": "General trading",
+      "destination": "Destination (optional)",
+      "optionalDetails": "Add order details (optional)",
+      "sendFormTitle": "Make an enquiry",
+      "sendFormIntro": "Tell us what you need. Our team can help with product enquiries, quotations and distribution opportunities.",
+      "sendSubmit": "Send enquiry",
+      "sending": "Sending enquiry…",
+      "sendPrivacy": "Your contact details and requirements are sent to SFGT so our team can respond to your enquiry.",
+      "sendSuccessTitle": "Thank you for your enquiry.",
+      "sendSuccessBody": "Your enquiry has been sent to our team. We will use {email} to respond.",
+      "anotherEnquiry": "Make another enquiry",
+      "sendFailed": "We could not confirm your enquiry. Your details are still here: please try again or use email instead.",
+      "rateLimited": "Please wait a few minutes before trying again, or contact our team by email.",
+      "emailInstead": "Use email instead"
     },
     "footer": {
       "description": "Toshiba batteries and lighting, commodities and commercial supplies. Based in Dubai, serving business customers and distribution partners.",
@@ -491,7 +504,8 @@
       "locationLabel": "Our base",
       "locationShort": "Dubai, UAE",
       "ctaLineOne": "Your next requirement.",
-      "ctaLineTwo": "Our next conversation."
+      "ctaLineTwo": "Our next conversation.",
+      "closeSearch": "Close search"
     },
     "atlas": {
       "selection": "01 / Product index",
@@ -569,6 +583,99 @@
       "searchLabel": "Search batteries and portable power",
       "searchPlaceholder": "Search by product name or code…",
       "viewAll": "View all products"
+    },
+    "businessHome": {
+      "heroLineOne": "Product sourcing",
+      "heroLineTwo": "& distribution.",
+      "heroLineThree": "From Dubai.",
+      "heroDescription": "Toshiba batteries and LED lighting, commodities and commercial supplies for retailers, wholesalers and distribution partners.",
+      "browseProducts": "Explore our products",
+      "talkToTeam": "Talk to our team",
+      "rangeTitle": "What we supply",
+      "divisionCount": "{count, plural, one {# division} other {# divisions}}",
+      "viewRange": "Explore this range",
+      "ranges": {
+        "batteries": "Toshiba batteries for everyday devices.",
+        "led-lighting": "Bulbs, tubes and lighting products.",
+        "commodities": "Food commodities and commercial products."
+      },
+      "factsLabel": "Company facts",
+      "establishedTitle": "Since 2013",
+      "establishedDescription": "Established in Dubai",
+      "productsTitle": "{count, plural, one {# product} other {# products}}",
+      "productsDescription": "In our product catalogue",
+      "baseTitle": "Dubai base",
+      "baseDescription": "Office & warehouse in Al-Qusais",
+      "companyLineOne": "A local team.",
+      "companyLineTwo": "A practical approach to supply.",
+      "companyDescription": "Based in Dubai, SFGT brings product sourcing, sales and distribution together. From selecting a product to coordinating supply, our team supports your requirements across Toshiba products, commodities and commercial supplies.",
+      "aboutLink": "Get to know SFGT",
+      "processLabel": "Working with SFGT",
+      "processTitle": "From enquiry to delivery.",
+      "processDescription": "A clear conversation at every stage of your order.",
+      "steps": {
+        "requirements": {
+          "label": "Requirements",
+          "title": "Tell us what you need",
+          "description": "Share your product, specification, quantity and destination."
+        },
+        "quotation": {
+          "label": "Quotation",
+          "title": "Review the details",
+          "description": "Discuss availability, product selection and commercial terms with our team."
+        },
+        "coordination": {
+          "label": "Coordination",
+          "title": "Arrange your supply",
+          "description": "Agree shipment and delivery requirements for your order."
+        },
+        "support": {
+          "label": "Support",
+          "title": "Keep in touch",
+          "description": "Contact our team for product and after-sales assistance."
+        }
+      },
+      "servicesLink": "Explore our services",
+      "enquiryLabel": "Let's discuss your requirements",
+      "enquiryTitle": "What does your business need?",
+      "enquiryDescription": "Tell us what you are looking for. Our team can help with product enquiries, quotations and distribution opportunities.",
+      "enquiryNoteTitle": "Already have a product in mind?",
+      "enquiryNoteDescription": "Include its name or model number in your enquiry."
+    },
+    "visualDetails": {
+      "officeTitle": "Our Dubai base",
+      "officeAddress": "Office & Warehouse No. 7 · Al-Qusais Industrial Area 1",
+      "enquiryLabel": "Planning an enquiry?",
+      "enquiryTitle": "Three details to get started.",
+      "enquiryCta": "Prepare your enquiry",
+      "details": {
+        "product": {
+          "title": "Product & specification",
+          "description": "A product name, model number or specification."
+        },
+        "quantity": {
+          "title": "Quantity",
+          "description": "Your required quantity and preferred pack size."
+        },
+        "destination": {
+          "title": "Destination",
+          "description": "The country and city where you need your order."
+        }
+      }
+    },
+    "marketFootprint": {
+      "eyebrow": "Toshiba distribution",
+      "title": "Our customer markets",
+      "baseLabel": "Our base",
+      "base": "Dubai",
+      "baseCountry": "United Arab Emirates",
+      "marketsLabel": "Customer markets",
+      "gcc": "GCC",
+      "gccDetail": "Gulf Cooperation Council",
+      "yemen": "Yemen",
+      "india": "India",
+      "bangladesh": "Bangladesh",
+      "caption": "Customer markets for our Toshiba distribution activity."
     }
   }
 }

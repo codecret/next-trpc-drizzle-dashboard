@@ -23,8 +23,8 @@
   letter-spacing: -0.04em;
 }
 .battery-eyebrow > span:last-child {
-  border-left: 1px solid hsl(var(--border));
-  padding-left: 14px;
+  border-inline-start: 1px solid hsl(var(--border));
+  padding-inline-start: 14px;
   color: hsl(var(--muted-foreground));
   font-size: 10px;
   font-weight: 550;
@@ -138,7 +138,7 @@
 }
 .battery-range-count {
   min-width: 20px;
-  text-align: right;
+  text-align: end;
   font-size: 11px;
   font-variant-numeric: tabular-nums;
   opacity: 0.75;
@@ -506,7 +506,7 @@
     border: 1px solid hsl(var(--border));
     border-radius: 3px;
     padding: 12px 15px;
-    text-align: left;
+    text-align: start;
   }
   .battery-range-toggle > span > span {
     display: block;
@@ -543,7 +543,7 @@
   }
   .battery-search-bar {
     gap: 9px;
-    padding-left: 13px;
+    padding-inline-start: 13px;
   }
   .battery-search-bar input {
     font-size: 16px;

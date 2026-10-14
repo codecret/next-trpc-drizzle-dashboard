@@ -70,7 +70,7 @@
 .support-shortcuts svg:last-child {
   width: 15px;
   height: 15px;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .support-shortcuts strong {
