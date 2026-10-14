@@ -1,3 +1,5 @@
+import "./page-heading.css";
+
 export function PageHeading({
   eyebrow,
   title,
@@ -8,7 +10,7 @@ export function PageHeading({
   description?: string;
 }) {
   return (
-    <div className="page-heading animate-enter">
+    <div className="page-heading">
       <p className="eyebrow">{eyebrow}</p>
       <h1>{title}</h1>
       {description && <p className="page-intro">{description}</p>}

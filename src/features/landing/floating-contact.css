@@ -1,0 +1,170 @@
+.sfgt-floating-contact {
+  position: fixed;
+  z-index: 30;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  width: 56px;
+  gap: 12px;
+}
+
+.sfgt-floating-contact[dir="rtl"] {
+  right: auto;
+  left: max(24px, env(safe-area-inset-left));
+}
+
+.sfgt-contact-action {
+  --contact-glow: #12804a;
+  --contact-delay: 0s;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 18px #20231f26;
+  color: #fff;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 180ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.sfgt-contact-action::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -3px;
+  border: 1px solid var(--contact-glow);
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  animation: sfgt-contact-halo 6.4s ease-out var(--contact-delay) infinite;
+}
+
+.sfgt-contact-action svg {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  animation: sfgt-contact-icon 6.4s ease-in-out var(--contact-delay) infinite;
+}
+
+.sfgt-contact-whatsapp {
+  background: #12804a;
+}
+
+.sfgt-contact-call {
+  --contact-glow: #555e52;
+  --contact-delay: 3.2s;
+  background: #20231f;
+}
+
+.sfgt-contact-action:focus-visible {
+  outline: 3px solid #bd2c32;
+  outline-offset: 4px;
+}
+
+.sfgt-contact-action:is(:hover, :focus-visible) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 22px #20231f30;
+}
+
+.sfgt-contact-whatsapp:is(:hover, :focus-visible) {
+  background: #0d673b;
+}
+
+.sfgt-contact-call:is(:hover, :focus-visible) {
+  background: #41463e;
+}
+
+.sfgt-contact-action:is(:hover, :focus-visible)::before,
+.sfgt-contact-action:is(:hover, :focus-visible) svg {
+  animation-play-state: paused;
+}
+
+@keyframes sfgt-contact-halo {
+  0%,
+  40%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  6% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+  32% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes sfgt-contact-icon {
+  0%,
+  32%,
+  100% {
+    transform: translateY(0);
+  }
+  14% {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 760px) {
+  .sfgt-floating-contact {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    width: 52px;
+    gap: 10px;
+  }
+
+  .sfgt-floating-contact[dir="rtl"] {
+    left: max(12px, env(safe-area-inset-left));
+  }
+
+  .sfgt-contact-action {
+    width: 52px;
+    height: 52px;
+  }
+
+  body:has(.website-shell :is(input, textarea, select):focus)
+    .sfgt-floating-contact {
+    visibility: hidden;
+  }
+}
+
+html[data-motion="reduced"] .sfgt-contact-action {
+  transition: none;
+  transform: none;
+}
+
+html[data-motion="reduced"] .sfgt-contact-action::before,
+html[data-motion="reduced"] .sfgt-contact-action svg {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sfgt-contact-action,
+  .sfgt-contact-action:is(:hover, :focus-visible) {
+    transition: none;
+    transform: none;
+  }
+
+  .sfgt-contact-action::before,
+  .sfgt-contact-action svg {
+    animation: none;
+  }
+}
+
+@media print {
+  .sfgt-floating-contact {
+    display: none;
+  }
+}

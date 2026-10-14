@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { categoryBySlug, localize } from "../catalogue";
@@ -30,6 +30,9 @@ export function ProductCard({
         aria-label={`${t("viewProduct")}: ${product.name}`}
       >
         <div className="product-card-image">
+          <span className="product-card-brand" lang="en" dir="ltr">
+            {product.division === "commodities" ? "SFGT" : "TOSHIBA"}
+          </span>
           <Image
             src={product.images[0]}
             alt={product.name}
@@ -46,20 +49,17 @@ export function ProductCard({
           <p className="product-card-category">
             {localize(category.name, locale)}
           </p>
-          <h3 lang="en" className="product-card-title">
+          <h3 lang="en" dir="ltr" className="product-card-title">
             {product.name}
           </h3>
           {detail && (
-            <p className="product-card-detail" lang="en">
+            <p className="product-card-detail" lang="en" dir="ltr">
               {detail}
             </p>
           )}
           <span className="product-card-action">
-            <span>
-              {t("viewProduct")}
-              <ArrowRight aria-hidden="true" />
-            </span>
-            <ChevronRight aria-hidden="true" />
+            <span>{t("viewProduct")}</span>
+            <ArrowUpRight aria-hidden="true" />
           </span>
         </div>
       </Link>

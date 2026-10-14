@@ -1,6 +1,8 @@
 import { getLocale } from "next-intl/server";
 import { Navbar } from "@/features/landing/site-navbar";
 import { Footer } from "@/features/landing/site-footer";
+import { FloatingContact } from "@/features/landing/floating-contact";
+import { EditorialMotion } from "@/features/landing/editorial-motion";
 import {
   brand,
   childrenOf,
@@ -31,6 +33,8 @@ export default async function WebsiteLayout({
         {children}
       </main>
       <Footer />
+      <FloatingContact />
+      <EditorialMotion />
       <JsonLd
         data={{
           "@context": "https://schema.org",

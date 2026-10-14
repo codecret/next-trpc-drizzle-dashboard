@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ArrowLeft, ArrowRight, FileText, Search, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Search, X } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { childrenOf, ancestorsOf, localize } from "../catalogue";
@@ -11,6 +10,8 @@ import { Breadcrumbs } from "./breadcrumbs";
 import { ProductCard } from "./product-card";
 import { BatteryRangeNavigation, BatterySearch } from "./battery-controls";
 import "./battery-catalogue.css";
+import { CatalogueMasthead } from "./catalogue-masthead";
+import "./catalogue-design.css";
 
 export async function BatteryCatalogue({
   category,
@@ -50,12 +51,24 @@ export async function BatteryCatalogue({
       href: href({ category: undefined, page: undefined }),
       selected: !selectedCategory,
     },
-    ...childrenOf("batteries").map((range) => ({
-      name: localize(range.name, locale),
-      count: range.productCount,
-      href: href({ category: range.slug, page: undefined }),
-      selected: selectedBranch === range.slug,
-    })),
+    ...childrenOf("batteries").flatMap((range) => [
+      {
+        name: localize(range.name, locale),
+        count: range.productCount,
+        href: href({ category: range.slug, page: undefined }),
+        selected: selectedCategory?.slug === range.slug,
+        level: 0,
+      },
+      ...(selectedBranch === range.slug
+        ? childrenOf(range.slug).map((child) => ({
+            name: localize(child.name, locale),
+            count: child.productCount,
+            href: href({ category: child.slug, page: undefined }),
+            selected: selectedCategory?.slug === child.slug,
+            level: 1,
+          }))
+        : []),
+    ]),
   ];
   const chips = [
     ...(selectedCategory
@@ -80,7 +93,7 @@ export async function BatteryCatalogue({
   );
 
   return (
-    <div className="site-container battery-page">
+    <div className="site-container battery-page catalogue-design">
       <Breadcrumbs
         locale={locale}
         items={[
@@ -89,30 +102,19 @@ export async function BatteryCatalogue({
           { label: localize(category.name, locale) },
         ]}
       />
-      <header className="battery-intro">
-        <div className="battery-intro-copy">
-          <p className="battery-eyebrow">
-            <span>TOSHIBA</span>
-            <span>{t("eyebrow")}</span>
-          </p>
-          <h1>{localize(category.name, locale)}</h1>
-          <p className="battery-intro-description">{t("intro")}</p>
-          <Link href="/support#faq-heading" className="battery-guide-link">
-            <FileText size={15} aria-hidden="true" />
-            {t("guide")}
-            <ArrowRight size={14} aria-hidden="true" />
-          </Link>
-        </div>
-        <div className="battery-intro-image">
-          <Image
-            src="/images/campaign/batteries-lifestyle-v1.png"
-            alt={t("imageAlt")}
-            fill
-            priority
-            sizes="(max-width: 767px) 1px, (max-width: 1023px) 36vw, 380px"
-          />
-        </div>
-      </header>
+      <CatalogueMasthead
+        title={localize(category.name, locale)}
+        description={t("intro")}
+        brand="TOSHIBA"
+        count={category.productCount}
+        locale={locale}
+        ranges={childrenOf("batteries")}
+        image={{
+          src: "/images/campaign/batteries-lifestyle-v1.png",
+          alt: t("imageAlt"),
+          cover: true,
+        }}
+      />
 
       <div className="battery-workspace">
         <aside className="battery-sidebar">
@@ -254,7 +256,7 @@ export async function BatteryCatalogue({
           )}
         </section>
       </div>
-      <aside className="battery-bottom-help">
+      <aside className="battery-bottom-help" data-reveal>
         <div>
           <h2>{t("helpTitle")}</h2>
           <p>{t("helpText")}</p>

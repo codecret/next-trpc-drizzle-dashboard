@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowLeft, ArrowRight, Lightbulb, Search, X } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -16,6 +15,8 @@ import { Breadcrumbs } from "./breadcrumbs";
 import { BatteryRangeNavigation, BatterySearch } from "./battery-controls";
 import "./battery-catalogue.css";
 import "./catalogue-browser.css";
+import { CatalogueMasthead } from "./catalogue-masthead";
+import "./catalogue-design.css";
 
 export type CatalogueQuery = {
   q?: string;
@@ -190,7 +191,7 @@ export async function CatalogueBrowser({
   const compactIntro = !category || intro?.layout === "compact";
   const visual = compactIntro ? undefined : category?.image;
   return (
-    <div className="site-container battery-page catalogue-experience">
+    <div className="site-container battery-page catalogue-experience catalogue-design">
       <Breadcrumbs
         locale={locale}
         items={[
@@ -210,46 +211,26 @@ export async function CatalogueBrowser({
             : []),
         ]}
       />
-      <header
-        className={`battery-intro catalogue-intro ${!visual ? "catalogue-intro-text" : ""} ${compactIntro ? "catalogue-intro-compact" : ""}`}
-      >
-        <div className="battery-intro-copy">
-          <p className="battery-eyebrow">
-            <span>
-              {division && division !== "commodities" ? "TOSHIBA" : "SFGT"}
-            </span>
-            <span>{t("eyebrow")}</span>
-          </p>
-          <h1>{category ? localize(category.name, locale) : t("title")}</h1>
-          <div className="catalogue-intro-summary">
-            <p className="battery-intro-description">
-              {intro?.description ??
-                (category
-                  ? localize(category.description, locale)
-                  : t("description"))}
-            </p>
-            <Link href={enquiry} className="battery-guide-link">
-              {ui("helpAction")}
-              <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-        {visual && (
-          <div
-            className={`catalogue-intro-visual ${division === "commodities" ? "catalogue-intro-visual-cover" : ""}`}
-          >
-            <div>
-              <Image
-                src={visual}
-                alt=""
-                fill
-                priority
-                sizes="(max-width:767px) 1px, 330px"
-              />
-            </div>
-          </div>
-        )}
-      </header>
+      <CatalogueMasthead
+        title={category ? localize(category.name, locale) : t("title")}
+        description={
+          intro?.description ??
+          (category ? localize(category.description, locale) : t("description"))
+        }
+        brand={division && division !== "commodities" ? "TOSHIBA" : "SFGT"}
+        count={pool.length}
+        locale={locale}
+        ranges={childRanges}
+        image={
+          visual
+            ? {
+                src: visual,
+                alt: category ? localize(category.name, locale) : "",
+                cover: division === "commodities",
+              }
+            : undefined
+        }
+      />
       <div className="battery-workspace">
         <aside className="battery-sidebar">
           {parent && (
@@ -274,7 +255,7 @@ export async function CatalogueBrowser({
         </aside>
         <section className="battery-products" aria-label={t("filterHeading")}>
           {category && !pool.length ? (
-            <div className="catalogue-range-enquiry">
+            <div className="catalogue-range-enquiry" id="catalogue-results">
               <span className="catalogue-range-symbol">
                 <Lightbulb size={30} strokeWidth={1.5} aria-hidden="true" />
               </span>
@@ -441,7 +422,7 @@ export async function CatalogueBrowser({
           )}
         </section>
       </div>
-      <aside className="battery-bottom-help">
+      <aside className="battery-bottom-help" data-reveal>
         <div>
           <h2>{design("needHelp")}</h2>
           <p>{design("helpText")}</p>

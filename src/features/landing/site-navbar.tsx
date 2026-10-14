@@ -46,8 +46,26 @@ export function Navbar({
 }) {
   const t = useTranslations("Website.nav");
   const locale = useLocale();
+  const isArabic = locale === "ar";
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const copy = isArabic
+    ? {
+        navigation: "التنقل الرئيسي",
+        quote: "اطلب عرض سعر",
+        ranges: "مجموعات المنتجات",
+        tekbatt: "اكتشف Tekbatt",
+        location: "دبي، الإمارات العربية المتحدة",
+        language: "اللغة",
+      }
+    : {
+        navigation: "Main navigation",
+        quote: "Request a quote",
+        ranges: "Product ranges",
+        tekbatt: "Explore Tekbatt",
+        location: "Dubai, United Arab Emirates",
+        language: "Language",
+      };
   const links = [
     { label: t("about"), href: "/about" },
     { label: t("services"), href: "/services" },
@@ -56,7 +74,7 @@ export function Navbar({
   const logoLink = (
     <Link
       href="/"
-      aria-label="Sulemane Faruk General Trading LLC — Home"
+      aria-label={`Sulemane Faruk General Trading LLC — ${t("home")}`}
       onClick={() => setOpen(false)}
       className="brand-logo"
     >
@@ -67,22 +85,19 @@ export function Navbar({
         alt="Sulemane Faruk General Trading LLC"
         priority
         className="brand-logo-image"
-        sizes="(max-width: 639px) 148px, 174px"
+        sizes="(max-width: 639px) 132px, 176px"
       />
     </Link>
   );
   return (
     <header className="site-header sticky top-0 z-40">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground"
-      >
+      <a href="#main-content" className="site-skip-link">
         {t("skip")}
       </a>
       <div className="site-container site-header-inner">
         {logoLink}
         <nav
-          aria-label={t("menu")}
+          aria-label={copy.navigation}
           className="header-navigation hidden items-center xl:flex"
         >
           <Link
@@ -90,7 +105,10 @@ export function Navbar({
             aria-current={pathname === "/" ? "page" : undefined}
             className="nav-link"
           >
-            {t("home")}
+            <span className="nav-index" aria-hidden="true">
+              00
+            </span>
+            <span>{t("home")}</span>
           </Link>
           <NavigationMenu
             className="site-mega-menu"
@@ -102,10 +120,16 @@ export function Navbar({
                   className="header-products-trigger"
                   data-current={pathname.startsWith("/products") || undefined}
                 >
-                  {t("products")}
+                  <span className="nav-label-stack">
+                    <span className="nav-index" aria-hidden="true">
+                      01
+                    </span>
+                    <span>{t("products")}</span>
+                  </span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="mega-menu-panel">
+                    <p className="mega-menu-eyebrow">{copy.ranges}</p>
                     <NavigationMenuLink asChild>
                       <Link
                         href="/products"
@@ -119,8 +143,11 @@ export function Navbar({
                       </Link>
                     </NavigationMenuLink>
                     <div className="mega-menu-groups">
-                      {groups.map((group) => (
+                      {groups.map((group, index) => (
                         <div key={group.href}>
+                          <span className="mega-menu-index" aria-hidden="true">
+                            0{index + 1}
+                          </span>
                           <NavigationMenuLink asChild>
                             <Link
                               href={group.href}
@@ -154,19 +181,28 @@ export function Navbar({
                         </div>
                       ))}
                     </div>
+                    <NavigationMenuLink asChild>
+                      <Link href="/#tekbatt" className="mega-menu-tekbatt">
+                        <span>{copy.tekbatt}</span>
+                        <ArrowUpRight aria-hidden="true" />
+                      </Link>
+                    </NavigationMenuLink>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          {links.map((link) => (
+          {links.map((link, index) => (
             <Link
               key={link.href}
               href={link.href}
               aria-current={pathname === link.href ? "page" : undefined}
               className="nav-link"
             >
-              {link.label}
+              <span className="nav-index" aria-hidden="true">
+                0{index + 2}
+              </span>
+              <span>{link.label}</span>
             </Link>
           ))}
         </nav>
@@ -178,13 +214,14 @@ export function Navbar({
               href="/contact"
               aria-current={pathname === "/contact" ? "page" : undefined}
             >
-              {t("contact")}
-              <ArrowUpRight className="size-4" />
+              {copy.quote}
+              <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>
         </div>
         <div className="header-actions flex items-center xl:hidden">
           <ProductSearch groups={groups} />
+          <LocaleSwitcher />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
@@ -202,12 +239,17 @@ export function Navbar({
               closeLabel={t("close")}
             >
               <SheetHeader className="mobile-navigation-heading">
-                <SheetTitle>SFGT</SheetTitle>
+                <SheetTitle>
+                  SFGT<span aria-hidden="true"> /</span>
+                </SheetTitle>
                 <SheetDescription>
                   Sulemane Faruk General Trading LLC
                 </SheetDescription>
               </SheetHeader>
-              <nav className="mobile-navigation-links" aria-label={t("menu")}>
+              <nav
+                className="mobile-navigation-links"
+                aria-label={copy.navigation}
+              >
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
@@ -258,6 +300,14 @@ export function Navbar({
                     </AccordionItem>
                   ))}
                 </Accordion>
+                <Link
+                  href="/#tekbatt"
+                  onClick={() => setOpen(false)}
+                  className="mobile-navigation-link"
+                >
+                  {copy.tekbatt}
+                  <ArrowUpRight aria-hidden="true" />
+                </Link>
                 {links.map((link) => (
                   <Link
                     key={link.href}
@@ -275,12 +325,15 @@ export function Navbar({
                   className="mobile-navigation-link mobile-contact-link"
                   aria-current={pathname === "/contact" ? "page" : undefined}
                 >
-                  {t("contact")}
+                  {copy.quote}
+                  <ArrowUpRight aria-hidden="true" />
                 </Link>
               </nav>
               <div className="mobile-navigation-preferences">
+                <span>{copy.language}</span>
                 <LocaleSwitcher />
               </div>
+              <p className="mobile-navigation-location">{copy.location}</p>
             </SheetContent>
           </Sheet>
         </div>

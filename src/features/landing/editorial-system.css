@@ -1,0 +1,179 @@
+/* SFGT / industrial editorial design system. Public surfaces only. */
+.website-shell,
+.public-surface {
+  --paper: #f5f3ed;
+  --ink: #20231f;
+  --red: #c82227;
+  --line: #d8d7cf;
+  --background: 45 29% 95%;
+  --foreground: 105 6% 13%;
+  --card: 45 25% 98%;
+  --card-foreground: 105 6% 13%;
+  --popover: 45 25% 98%;
+  --popover-foreground: 105 6% 13%;
+  --primary: 358 71% 46%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 45 13% 90%;
+  --muted-foreground: 90 3% 37%;
+  --secondary: 45 13% 90%;
+  --secondary-foreground: 105 6% 13%;
+  --accent: 45 13% 90%;
+  --accent-foreground: 105 6% 13%;
+  --border: 53 10% 83%;
+  --input: 60 5% 70%;
+  --ring: 358 71% 46%;
+  --radius: 0;
+  font-weight: 400;
+  font-feature-settings: "ss01" on;
+  background: var(--paper);
+  color: var(--ink);
+}
+.website-shell .site-container,
+.public-surface .site-container {
+  max-width: 1440px;
+  padding-inline: clamp(20px, 4.5vw, 64px);
+}
+.website-shell h1,
+.website-shell h2,
+.website-shell h3 {
+  overflow-wrap: normal;
+}
+.editorial-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+.editorial-label::before {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  background: var(--red);
+}
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 46px;
+  border-bottom: 1px solid currentColor;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+.editorial-link:hover {
+  color: var(--red);
+}
+.editorial-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.editorial-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 54px;
+  padding: 14px 22px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+.editorial-button:hover {
+  background: #a71920;
+  border-color: #a71920;
+}
+.editorial-button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.website-shell .site-button,
+.public-surface .site-button {
+  border-radius: 0;
+}
+.website-shell :is(input, textarea, select),
+.public-surface :is(input, textarea, select) {
+  border-radius: 0;
+}
+.website-shell :is(a, button) {
+  -webkit-tap-highlight-color: transparent;
+}
+.website-shell :where(section[id], h2[id], main[id]) {
+  scroll-margin-top: 120px;
+}
+.website-shell :is(.faq-intro h2, .section-title) {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(40px, 4.6vw, 66px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+.website-shell .faq-section {
+  padding-block: 72px;
+  background: var(--paper);
+}
+.website-shell .faq-list {
+  border-top: 1px solid var(--ink);
+}
+.website-shell .faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.website-shell .faq-question {
+  font-size: 15px;
+  font-weight: 500;
+}
+.website-shell .faq-item summary {
+  padding-block: 21px;
+}
+.website-shell .faq-item > p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.website-shell .faq-description {
+  font-size: 15px;
+}
+html[dir="rtl"] .website-shell,
+html[dir="rtl"] .public-surface {
+  --font-display: "SFGT Arabic";
+  --font-public: "SFGT Arabic";
+}
+html[dir="rtl"] .editorial-label {
+  letter-spacing: 0;
+}
+html[dir="rtl"] .website-shell :is(h1, h2, h3) {
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+html[data-motion="reduced"] .website-shell *,
+html[data-motion="reduced"] .website-shell *::before,
+html[data-motion="reduced"] .website-shell *::after,
+html[data-motion="reduced"] .public-surface * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+@media (max-width: 767px) {
+  .website-shell .faq-section {
+    padding-block: 48px;
+  }
+  .editorial-label {
+    font-size: 10px;
+  }
+  .editorial-link {
+    font-size: 14px;
+  }
+}

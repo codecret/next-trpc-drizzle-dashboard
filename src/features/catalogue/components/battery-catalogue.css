@@ -309,43 +309,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px 16px;
 }
-.battery-product-grid .product-card {
-  border-color: hsl(var(--border));
-}
-.battery-product-grid .product-card-image {
-  aspect-ratio: 1.28;
-  background: #f7f7f5;
-}
-.battery-product-grid .product-card-photo-contain {
-  padding: 22px 28px;
-}
-.battery-product-grid .product-card-content {
-  padding: 17px 17px 16px;
-}
-.battery-product-grid .product-card-title {
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: -0.015em;
-}
-.battery-product-grid .product-card-category {
-  font-size: 9px;
-  letter-spacing: 0.06em;
-}
-.battery-product-grid .product-card-detail {
-  font-size: 11px;
-}
-.battery-product-grid .product-card-action {
-  font-size: 11px;
-  padding-top: 21px;
-}
-.battery-product-grid .product-card-action > svg {
-  display: none;
-}
-.battery-product-grid .product-card-action > span {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-}
 .battery-empty {
   padding: 56px 24px;
   border: 1px solid hsl(var(--border));
@@ -587,32 +550,6 @@
   .battery-product-grid {
     gap: 14px 12px;
   }
-  .battery-product-grid .product-card-content {
-    padding: 13px;
-  }
-  .battery-product-grid .product-card-title {
-    font-size: 13px;
-  }
-  .battery-product-grid .product-card-image {
-    aspect-ratio: 1;
-  }
-  .battery-product-grid .product-card-photo-contain {
-    padding: 17px;
-  }
-  .battery-product-grid .product-card-category {
-    font-size: 9px;
-  }
-  .battery-product-grid .product-card-detail {
-    font-size: 10px;
-  }
-  .battery-product-grid .product-card-action {
-    font-size: 11px;
-    padding-top: 17px;
-  }
-  .battery-product-grid .product-card-action svg {
-    width: 12px;
-    height: 12px;
-  }
   .battery-pagination {
     gap: 3px;
   }
@@ -646,12 +583,6 @@
 @media (max-width: 359px) {
   .battery-product-grid {
     grid-template-columns: 1fr;
-  }
-  .battery-product-grid .product-card-image {
-    aspect-ratio: 1.4;
-  }
-  .battery-product-grid .product-card-title {
-    font-size: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

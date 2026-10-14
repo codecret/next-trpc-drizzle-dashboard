@@ -1,4 +1,4 @@
-import { Download as DownloadIcon, FileText } from "lucide-react";
+import { Download as DownloadIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { downloads } from "../catalogue";
 import "./download-list.css";
@@ -10,12 +10,16 @@ export function DownloadList({ ids }: { ids?: string[] }) {
     : downloads;
   return (
     <div className="download-list">
-      {files.map((file) => (
+      {files.map((file, index) => (
         <a key={file.id} href={file.path} download className="download-card">
-          <FileText className="download-file-icon" aria-hidden="true" />
+          <span className="download-number" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
           <div className="download-card-copy">
             <span className="download-format">PDF</span>
-            <h3 lang="en">{file.name}</h3>
+            <h3 lang="en" dir="ltr">
+              {file.name}
+            </h3>
             <p>{t("procedure")}</p>
           </div>
           <span className="download-action">

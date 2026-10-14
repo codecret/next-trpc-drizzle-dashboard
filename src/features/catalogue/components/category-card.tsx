@@ -23,7 +23,7 @@ export function CategoryCard({
             alt=""
             fill
             className="category-card-photo"
-            sizes="60px"
+            sizes="84px"
           />
         ) : (
           <Lightbulb className="size-6 text-neutral-500" aria-hidden="true" />

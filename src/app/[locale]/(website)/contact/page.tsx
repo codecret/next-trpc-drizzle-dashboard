@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import {
   ArrowUpRight,
   Clock,
@@ -7,12 +7,13 @@ import {
   Mail,
   MessageCircle,
 } from "lucide-react";
-import { PageHeading } from "@/features/catalogue/components/page-heading";
+import { Breadcrumbs } from "@/features/catalogue/components/breadcrumbs";
 import { EnquiryForm } from "@/features/contact/components/enquiry-form";
 import { getEnquiryDeliveryEnabled } from "@/features/contact/server/enquiry-delivery";
 import { company } from "@/features/catalogue/catalogue";
 import { pageMetadata } from "@/features/catalogue/metadata";
 import "@/features/contact/components/contact-page.css";
+import "@/features/landing/editorial-inner.css";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -34,18 +35,38 @@ export async function generateMetadata({ params }: Props) {
 export default async function ContactPage({ searchParams }: Props) {
   const t = await getTranslations("Website.contact");
   const ui = await getTranslations("Website.inner");
+  const locale = await getLocale();
+  const site = await getTranslations("Website");
   const query = await searchParams;
   const product = (
     typeof query.product === "string" ? query.product : ""
   ).slice(0, 180);
   const code = (typeof query.code === "string" ? query.code : "").slice(0, 60);
   return (
-    <div className="site-container contact-page">
-      <PageHeading
-        eyebrow={t("eyebrow")}
-        title={t("title")}
-        description={t("intro")}
+    <div className="editorial-inner editorial-contact site-container contact-page">
+      <Breadcrumbs
+        locale={locale}
+        items={[
+          { label: site("nav.home"), href: "/" },
+          { label: site("nav.contact") },
+        ]}
       />
+      <header className="ei-hero ei-contact-hero">
+        <div>
+          <p className="ei-kicker">{t("eyebrow")}</p>
+          <h1>
+            {locale === "ar" ? "لنتحدث عن\nمتطلباتك." : "Let’s talk\nsupply."}
+          </h1>
+          <p className="ei-intro">{t("intro")}</p>
+        </div>
+        <aside className="ei-contact-hours">
+          <Clock aria-hidden="true" />
+          <p className="ei-kicker">{t("hours")}</p>
+          <p>{t("weekdays")}</p>
+          <p>{t("sunday")}</p>
+          <small>{t("timezone")}</small>
+        </aside>
+      </header>
       <nav className="contact-quick-actions" aria-label={t("general")}>
         <a href={`mailto:${company.email}`}>
           <Mail aria-hidden="true" />
@@ -86,7 +107,7 @@ export default async function ContactPage({ searchParams }: Props) {
           <ArrowUpRight aria-hidden="true" />
         </a>
       </nav>
-      <div className="contact-layout">
+      <div className="contact-layout" data-reveal>
         <EnquiryForm
           key={`${product}-${code}`}
           product={`${product}${code ? ` (${code})` : ""}`}
@@ -128,7 +149,7 @@ export default async function ContactPage({ searchParams }: Props) {
                     href="tel:+97143364633"
                     className="inline-block py-1 hover:underline"
                   >
-                    {company.phone}
+                    <bdi dir="ltr">{company.phone}</bdi>
                   </a>
                 </dd>
               </div>
@@ -139,7 +160,7 @@ export default async function ContactPage({ searchParams }: Props) {
                     href="tel:+971565006024"
                     className="inline-block py-1 hover:underline"
                   >
-                    {company.mobile}
+                    <bdi dir="ltr">{company.mobile}</bdi>
                   </a>
                 </dd>
               </div>
@@ -157,7 +178,7 @@ export default async function ContactPage({ searchParams }: Props) {
                   href={`mailto:${company.toshibaEmail}`}
                   className="hover:underline"
                 >
-                  {company.toshibaEmail}
+                  <bdi dir="ltr">{company.toshibaEmail}</bdi>
                 </a>
               </p>
               <p>
@@ -165,7 +186,7 @@ export default async function ContactPage({ searchParams }: Props) {
                   href={`mailto:${company.toshibaAlternativeEmail}`}
                   className="hover:underline"
                 >
-                  {company.toshibaAlternativeEmail}
+                  <bdi dir="ltr">{company.toshibaAlternativeEmail}</bdi>
                 </a>
               </p>
             </div>

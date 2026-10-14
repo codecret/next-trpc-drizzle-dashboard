@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ExternalLink, ScanLine } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import "./product-detail.css";
 
 export function ProductGallery({
@@ -14,6 +14,7 @@ export function ProductGallery({
   name: string;
 }) {
   const [active, setActive] = useState(0);
+  const isRtl = useLocale() === "ar";
   const imageId = useId();
   const thumbnails = useRef<(HTMLButtonElement | null)[]>([]);
   const thumbnailRail = useRef<HTMLDivElement>(null);
@@ -27,9 +28,11 @@ export function ProductGallery({
     const rail = thumbnailRail.current;
     const thumbnail = thumbnails.current[active];
     if (rail && thumbnail) {
-      rail.scrollTo({
+      rail.scrollBy({
         left:
-          thumbnail.offsetLeft - (rail.clientWidth - thumbnail.clientWidth) / 2,
+          thumbnail.getBoundingClientRect().left -
+          rail.getBoundingClientRect().left -
+          (rail.clientWidth - thumbnail.clientWidth) / 2,
         behavior: "auto",
       });
     }
@@ -40,9 +43,10 @@ export function ProductGallery({
     index: number
   ) {
     let next = index;
-    if (event.key === "ArrowRight") next = (index + 1) % images.length;
+    if (event.key === "ArrowRight")
+      next = (index + (isRtl ? -1 : 1) + images.length) % images.length;
     else if (event.key === "ArrowLeft")
-      next = (index - 1 + images.length) % images.length;
+      next = (index + (isRtl ? 1 : -1) + images.length) % images.length;
     else if (event.key === "Home") next = 0;
     else if (event.key === "End") next = images.length - 1;
     else return;
@@ -64,7 +68,7 @@ export function ProductGallery({
           fill
           priority
           className="product-gallery-photo"
-          sizes="(min-width: 1280px) 520px, (min-width: 768px) 44vw, 90vw"
+          sizes="(min-width: 1440px) 720px, (min-width: 768px) 52vw, 90vw"
         />
         <a
           href={images[active]}
@@ -137,7 +141,7 @@ export function ProductGallery({
                 src={src}
                 alt=""
                 fill
-                sizes="64px"
+                sizes="78px"
                 className="product-gallery-thumbnail-photo"
               />
             </button>
