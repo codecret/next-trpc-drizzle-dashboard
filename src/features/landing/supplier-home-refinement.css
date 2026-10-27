@@ -1,0 +1,722 @@
+/* Shared by the EN/AR preview and the integrated homepage. */
+.supplier-home {
+  --paper: #f6f5f2;
+  --line: #deded9;
+  -webkit-font-smoothing: antialiased;
+}
+.supplier-home .wrap {
+  width: min(1280px, calc(100% - 96px));
+}
+.supplier-home .header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #fff;
+  border-bottom-color: #e9e8e3;
+}
+.supplier-home .header-inner {
+  min-height: 88px;
+}
+.supplier-home .header .brand img {
+  width: 170px;
+}
+.supplier-home .nav {
+  gap: 24px;
+}
+.supplier-home .nav a {
+  font-size: 13px;
+}
+.supplier-home .header-enquiry {
+  border-radius: 2px;
+  padding: 12px 18px !important;
+}
+.supplier-home main > section {
+  scroll-margin-top: 110px;
+}
+.supplier-home :is(a, button, input, textarea, select, summary, #main-content) {
+  scroll-margin-block-start: 110px;
+  scroll-margin-block-end: 24px;
+}
+.supplier-home .business-hero {
+  padding: 32px 0 0;
+  background: #fff;
+}
+.supplier-home .corporate-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  align-items: stretch;
+  background: var(--paper);
+}
+.supplier-home .corporate-hero-copy {
+  padding: clamp(34px, 4.2vw, 64px) clamp(28px, 3.5vw, 52px);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.supplier-home .corporate-hero-copy h1 {
+  font-size: clamp(38px, 4.1vw, 59px);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.047em;
+  text-wrap: balance;
+}
+.supplier-home .corporate-hero-copy h1 > span {
+  color: var(--red);
+}
+.supplier-home .corporate-hero-copy > p {
+  margin-top: 24px;
+  max-width: 425px;
+  color: #55565a;
+  font-size: 15px;
+  line-height: 1.85;
+}
+.supplier-home .corporate-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  margin-top: 29px;
+}
+.supplier-home .corporate-hero-actions a {
+  gap: 22px;
+  font-size: 13px;
+}
+.supplier-home .corporate-hero-actions .button {
+  color: #fff;
+}
+.supplier-home .corporate-company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+  color: #666762;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.supplier-home .corporate-company-link:hover {
+  color: var(--red);
+}
+.supplier-home .corporate-hero-visual {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+.supplier-home .corporate-hero-visual > img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  max-height: 540px;
+  object-fit: cover;
+  object-position: 57% center;
+}
+.supplier-home .corporate-hero-visual figcaption {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 58px;
+  padding: 8px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: none;
+  font-size: 12px;
+}
+.supplier-home .corporate-hero-visual figcaption strong {
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.supplier-home .corporate-hero-visual figcaption > span {
+  color: var(--muted);
+}
+.supplier-home .corporate-hero-visual figcaption a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-inline-start: auto;
+}
+.supplier-home .corporate-divisions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+  margin-top: 26px;
+}
+.supplier-home .corporate-divisions > a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 24px;
+  transition: background 180ms;
+  min-width: 0;
+}
+.supplier-home .corporate-divisions > a:first-child {
+  padding-inline-start: 0;
+}
+.supplier-home .corporate-divisions > a:last-child {
+  padding-inline-end: 0;
+}
+.supplier-home .corporate-divisions > a + a {
+  border-inline-start: 1px solid var(--line);
+}
+.supplier-home .corporate-divisions > a:hover {
+  background: #f8f7f4;
+}
+.supplier-home .corporate-divisions img {
+  width: 76px;
+  height: 72px;
+  flex: 0 0 76px;
+  object-fit: cover;
+  background: var(--paper);
+}
+.supplier-home .corporate-divisions > a:first-child img {
+  object-fit: contain;
+  padding: 6px;
+}
+.supplier-home .corporate-divisions > a > span {
+  flex: 1;
+}
+.supplier-home .corporate-divisions strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.supplier-home .corporate-divisions span > span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.supplier-home .corporate-divisions > a > svg {
+  flex-shrink: 0;
+  color: var(--red);
+}
+.supplier-home .business-tools {
+  padding-block: 24px;
+  margin-top: 0;
+  align-items: center;
+  gap: 30px;
+}
+.supplier-home .catalogue-search {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 850px;
+}
+.supplier-home .catalogue-search label {
+  font-size: 12px;
+  font-weight: 500;
+  max-width: 140px;
+  margin: 0;
+}
+.supplier-home .catalogue-search-control {
+  flex: 1;
+  min-width: 0;
+  min-height: 46px;
+}
+.supplier-home .catalogue-search-control input {
+  font-size: 13px;
+}
+.supplier-home .catalogue-search-control button {
+  font-size: 13px;
+}
+.supplier-home .business-downloads {
+  font-size: 12px;
+}
+.supplier-home .fp-section {
+  padding: 64px 0 72px;
+  border-top: 1px solid var(--line);
+}
+.supplier-home .fp-section .fp-heading-copy h2,
+.supplier-home .tb-heading-copy h2,
+.supplier-home .ct-heading h2,
+.supplier-home .company-expanded h2,
+.supplier-home .capabilities-intro h2,
+.supplier-home .quote-copy h2 {
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+.supplier-home .fp-section .fp-heading-row {
+  margin-bottom: 32px;
+}
+.supplier-home .fp-section .fp-product-image {
+  height: 234px;
+  border: none;
+}
+.supplier-home .fp-section .fp-product-image img {
+  height: 190px;
+  max-width: 78%;
+}
+.supplier-home .fp-section .fp-card {
+  border-color: #e5e5df;
+  transition: border-color 180ms;
+}
+.supplier-home .fp-section .fp-card:hover {
+  border-color: #b6b6ae;
+}
+.supplier-home .fp-section .fp-product-info {
+  padding: 24px;
+}
+.supplier-home .fp-section .fp-enquire {
+  padding: 12px 24px;
+}
+.supplier-home .fp-section .fp-footer {
+  margin-top: 28px;
+}
+.supplier-home .corporate-tekbatt {
+  padding-block: 76px;
+  background: #f4f3ee;
+}
+.supplier-home .corporate-tekbatt > .wrap {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.8fr) minmax(0, 2.5fr);
+  column-gap: 42px;
+  align-items: start;
+}
+.supplier-home .corporate-tekbatt .tb-heading {
+  margin: 0;
+  padding-top: 8px;
+}
+.supplier-home .corporate-tekbatt .tb-heading-copy > p:last-child {
+  font-size: 15px;
+  margin-top: 20px;
+}
+.supplier-home .corporate-tekbatt .tb-products {
+  gap: 18px;
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+.supplier-home .corporate-tekbatt .tb-card {
+  background: transparent;
+  border: 0;
+}
+.supplier-home .corporate-tekbatt .tb-image {
+  aspect-ratio: 1;
+}
+.supplier-home .corporate-tekbatt .tb-card-copy {
+  padding: 20px 0 0;
+}
+.supplier-home .corporate-tekbatt .tb-card h3 {
+  font-size: 18px;
+}
+.supplier-home .corporate-tekbatt .tb-card-action {
+  border-top: 1px solid #d7d7cf;
+  margin-top: 20px;
+  padding-top: 14px;
+}
+.supplier-home .corporate-tekbatt .tb-actions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 26px;
+}
+.supplier-home .corporate-tekbatt .tb-primary {
+  padding: 13px 16px;
+  font-size: 12px;
+  text-align: start;
+  gap: 12px;
+}
+.supplier-home .corporate-tekbatt .tb-actions .text-link {
+  font-size: 12px;
+}
+.supplier-home .commodities-section {
+  padding-block: 76px;
+}
+.supplier-home .ct-heading {
+  grid-template-columns: 1.25fr 1fr;
+  padding-bottom: 42px;
+}
+.supplier-home .ct-heading .ct-introduction > p {
+  font-size: 15px;
+}
+.supplier-home .ct-body {
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 48px;
+}
+.supplier-home .ct-food-grid {
+  gap: 30px 24px;
+}
+.supplier-home .ct-food-card img {
+  aspect-ratio: 1.65;
+}
+.supplier-home .ct-supplies {
+  background: var(--paper);
+  padding: 0 24px 24px;
+}
+.supplier-home .ct-supply-card {
+  grid-template-columns: 80px minmax(0, 1fr) 18px;
+}
+.supplier-home .ct-supply-card img {
+  width: 80px;
+  height: 80px;
+}
+.supplier-home .company-expanded {
+  padding-block: 72px;
+  background: #f6f4ef;
+  border-block: 1px solid #e7e4dc;
+}
+.supplier-home .company-expanded .company-grid {
+  gap: 100px;
+  align-items: center;
+}
+.supplier-home .company-story > p {
+  max-width: 490px;
+  margin-top: 24px;
+  font-size: 15px;
+}
+.supplier-home .company-city-sketch {
+  max-width: 450px;
+  margin-top: 30px;
+}
+.supplier-home .company-record {
+  margin: 0;
+}
+.supplier-home .company-record > div {
+  padding-block: 27px;
+  grid-template-columns: 140px minmax(0, 1fr);
+}
+.supplier-home .company-record > div:first-child dd {
+  font-size: 58px;
+  color: var(--red);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+.supplier-home .company-record > div:first-child dd > span {
+  margin-top: 14px;
+  line-height: 1.7;
+  letter-spacing: normal;
+  color: var(--muted);
+}
+.supplier-home .company-record dd {
+  font-size: 23px;
+}
+.supplier-home .capabilities {
+  padding-block: 76px;
+  background: #fff;
+}
+.supplier-home .capabilities-grid {
+  gap: 90px;
+}
+.supplier-home .capabilities-intro > p {
+  margin-top: 22px;
+  font-size: 15px;
+}
+.supplier-home .capabilities-list {
+  padding-top: 8px;
+}
+.supplier-home .capabilities-list summary {
+  min-height: 80px;
+  font-size: 20px;
+}
+.supplier-home .quote-expanded {
+  padding-block: 76px;
+  background: #f6f5f2;
+  border-top: 1px solid var(--line);
+}
+.supplier-home .quote-expanded .quote-grid {
+  gap: 90px;
+}
+.supplier-home .quote-copy {
+  padding-top: 14px;
+}
+.supplier-home .quote-contact {
+  border-inline-start: 2px solid var(--red);
+  padding-inline-start: 22px;
+}
+.supplier-home .tq-form {
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 28px #20212404;
+}
+.supplier-home .footer {
+  padding-top: 54px;
+}
+[dir="rtl"] .supplier-home .corporate-hero-copy h1 {
+  font-size: clamp(34px, 3.6vw, 51px);
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+[dir="rtl"] .supplier-home .corporate-hero-actions svg,
+[dir="rtl"] .supplier-home .corporate-divisions > a > svg,
+[dir="rtl"] .supplier-home .corporate-hero-visual figcaption svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .supplier-home .corporate-hero-visual figcaption strong {
+  direction: ltr;
+}
+[dir="rtl"]
+  .supplier-home
+  :is(
+    .fp-heading-copy h2,
+    .tb-heading-copy h2,
+    .ct-heading h2,
+    .company-expanded h2,
+    .capabilities-intro h2,
+    .quote-copy h2
+  ) {
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+@media (max-width: 1120px) {
+  .supplier-home .corporate-hero-copy {
+    padding: 34px 28px;
+  }
+  .supplier-home .corporate-hero-copy h1 {
+    font-size: 44px;
+  }
+  .supplier-home .corporate-hero-visual > img {
+    min-height: 390px;
+  }
+  .supplier-home .corporate-divisions > a {
+    padding-inline: 18px;
+    gap: 12px;
+  }
+  .supplier-home .corporate-divisions img {
+    width: 58px;
+    flex-basis: 58px;
+    height: 64px;
+  }
+  .supplier-home .corporate-divisions strong {
+    font-size: 17px;
+  }
+  .supplier-home .corporate-tekbatt > .wrap {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .supplier-home .corporate-tekbatt .tb-products {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .supplier-home .corporate-tekbatt .tb-actions {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+    gap: 28px;
+  }
+  .supplier-home .company-expanded .company-grid,
+  .supplier-home .capabilities-grid,
+  .supplier-home .quote-expanded .quote-grid {
+    gap: 44px;
+  }
+  .supplier-home .ct-body {
+    gap: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .supplier-home .wrap {
+    width: calc(100% - 40px);
+  }
+  .supplier-home .header-inner {
+    min-height: 76px;
+  }
+  .supplier-home .header .brand img {
+    width: 145px;
+  }
+  .supplier-home .business-hero {
+    padding-top: 16px;
+  }
+  .supplier-home main > section {
+    scroll-margin-top: 92px;
+  }
+  .supplier-home
+    :is(a, button, input, textarea, select, summary, #main-content) {
+    scroll-margin-block-start: 92px;
+  }
+  .supplier-home .corporate-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .supplier-home .corporate-hero-copy {
+    padding: 30px 24px;
+  }
+  .supplier-home .corporate-hero-copy h1 {
+    font-size: clamp(34px, 7.4vw, 48px);
+    line-height: 1.14;
+    letter-spacing: -0.04em;
+  }
+  .supplier-home .corporate-hero-copy > p {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .supplier-home .corporate-hero-actions {
+    margin-top: 24px;
+    gap: 12px 20px;
+  }
+  .supplier-home .corporate-hero-actions a {
+    font-size: 12px;
+    gap: 14px;
+  }
+  .supplier-home .corporate-company-link {
+    margin-top: 24px;
+    font-size: 11px;
+  }
+  .supplier-home .corporate-hero-visual > img {
+    aspect-ratio: 1.55;
+    height: auto;
+    min-height: 0;
+    max-height: 400px;
+  }
+  .supplier-home .corporate-hero-visual figcaption {
+    gap: 12px;
+    padding: 5px 18px;
+    font-size: 10px;
+    min-height: 54px;
+  }
+  .supplier-home .corporate-hero-visual figcaption strong {
+    font-size: 16px;
+  }
+  .supplier-home .corporate-divisions {
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+  .supplier-home .corporate-divisions > a {
+    padding: 15px 0;
+    gap: 20px;
+  }
+  .supplier-home .corporate-divisions > a + a {
+    border-inline-start: none;
+    border-top: 1px solid var(--line);
+  }
+  .supplier-home .corporate-divisions img {
+    width: 64px;
+    flex-basis: 64px;
+    height: 58px;
+  }
+  .supplier-home .corporate-divisions strong {
+    font-size: 18px;
+  }
+  .supplier-home .business-tools {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-block: 24px 18px;
+  }
+  .supplier-home .catalogue-search {
+    display: block;
+  }
+  .supplier-home .catalogue-search label {
+    max-width: none;
+    margin-bottom: 8px;
+  }
+  .supplier-home .catalogue-search-control input {
+    font-size: 16px;
+  }
+  .supplier-home .catalogue-search-control button {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .supplier-home .business-downloads {
+    min-height: 42px;
+  }
+  .supplier-home .fp-section,
+  .supplier-home .corporate-tekbatt,
+  .supplier-home .commodities-section,
+  .supplier-home .company-expanded,
+  .supplier-home .capabilities,
+  .supplier-home .quote-expanded {
+    padding-block: 44px;
+  }
+  .supplier-home .fp-section .fp-heading-copy h2,
+  .supplier-home .tb-heading-copy h2,
+  .supplier-home .ct-heading h2,
+  .supplier-home .company-expanded h2,
+  .supplier-home .capabilities-intro h2,
+  .supplier-home .quote-copy h2 {
+    font-size: 31px;
+  }
+  .supplier-home .fp-section .fp-heading-row {
+    margin-bottom: 24px;
+  }
+  .supplier-home .fp-section .fp-product-image {
+    height: 210px;
+  }
+  .supplier-home .fp-section .fp-product-image img {
+    height: 176px;
+  }
+  .supplier-home .fp-section .fp-product-info {
+    padding: 20px;
+  }
+  .supplier-home .corporate-tekbatt .tb-products {
+    gap: 30px;
+  }
+  .supplier-home .corporate-tekbatt .tb-image {
+    aspect-ratio: 1.6;
+  }
+  .supplier-home .corporate-tekbatt .tb-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .supplier-home .ct-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 28px;
+  }
+  .supplier-home .ct-body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .supplier-home .ct-food-grid {
+    gap: 24px 16px;
+  }
+  .supplier-home .ct-food-card img {
+    aspect-ratio: 1.2;
+  }
+  .supplier-home .ct-supplies {
+    padding-inline: 20px;
+  }
+  .supplier-home .company-expanded .company-grid,
+  .supplier-home .capabilities-grid,
+  .supplier-home .quote-expanded .quote-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .supplier-home .company-record > div {
+    grid-template-columns: 108px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .supplier-home .company-record dd {
+    font-size: 21px;
+  }
+  .supplier-home .company-record > div:first-child dd {
+    font-size: 48px;
+  }
+  .supplier-home .company-city-sketch {
+    margin-top: 20px;
+  }
+  .supplier-home .capabilities-list {
+    padding: 0;
+  }
+  .supplier-home .quote-copy {
+    padding: 0;
+  }
+  [dir="rtl"] .supplier-home .corporate-hero-copy h1 {
+    font-size: 35px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 380px) {
+  .supplier-home .wrap {
+    width: calc(100% - 32px);
+  }
+  .supplier-home .header .brand img {
+    width: 126px;
+  }
+  .supplier-home .corporate-hero-copy {
+    padding-inline: 20px;
+  }
+  .supplier-home .corporate-hero-copy h1 {
+    font-size: 32px;
+  }
+  .supplier-home .corporate-hero-visual figcaption {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .supplier-home .corporate-hero-visual figcaption > span {
+    font-size: 9px;
+  }
+}

@@ -25,7 +25,7 @@
 
   // Typography and image framing stay steady. Only visible photography settles.
   if (!location.hash || location.hash === "#") {
-    document.querySelectorAll(".division-visual > img").forEach((image) => {
+    document.querySelectorAll(".corporate-hero-visual > img, .division-visual > img").forEach((image) => {
       if (image.getBoundingClientRect().top >= innerHeight * 0.85) return;
       animate(
         image,

@@ -1,0 +1,46 @@
+{
+  "checked_at_utc": "2026-10-18T22:03:20.071238+00:00",
+  "origin": "https://sfgt-website.vercel.app",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://sfgt-website.vercel.app",
+      "approved_heading_present": true,
+      "email_draft_label_present": true
+    },
+    {
+      "path": "/ar",
+      "status": 200,
+      "canonical": "https://sfgt-website.vercel.app/ar",
+      "rtl_present": true
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "canonical": "https://sfgt-website.vercel.app/contact"
+    },
+    {
+      "path": "/products",
+      "status": 200,
+      "canonical": "https://sfgt-website.vercel.app/products"
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "url_count": 550
+    },
+    {
+      "path": "/api/auth/get-session",
+      "status": 404
+    },
+    {
+      "path": "/api/trpc/user.getCurrentUser",
+      "status": 404
+    }
+  ]
+}

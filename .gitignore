@@ -41,3 +41,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Private client handover notes and machine-specific backup records
+/docs/delivery/CLIENT-MESSAGE.md
+/docs/delivery/LAUNCH-PLAN.md
+/docs/delivery/SOURCE-BACKUP.json

@@ -1,0 +1,309 @@
+{
+  "audit_local_date": "2026-10-19",
+  "timezone": "Asia/Dubai",
+  "observed_through_utc": "2026-10-18T22:02:24Z",
+  "domain": "sfgt-tbts.com",
+  "scope": "Public DNS only. No accounts, credentials, services, mailbox content, SMTP connections, DKIM selector guesses, or DNS changes.",
+  "sanitization": "Only requested public record answers and negative-response authority records retained; unrelated public TXT verification value omitted. No transcript personal information included.",
+  "queries": [
+    {
+      "name": "sfgt-tbts.com",
+      "type": "NS",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com."
+      ],
+      "authority": []
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "SOA",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t3600\tIN\tSOA\tns77.domaincontrol.com. dns.jomax.net. 2026090900 28800 7200 604800 600"
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "A",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t600\tIN\tA\t184.168.28.240"
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "AAAA",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [],
+      "authority": [
+        "sfgt-tbts.com.\t\t600\tIN\tSOA\tns77.domaincontrol.com. dns.jomax.net. 2026090900 28800 7200 604800 600"
+      ]
+    },
+    {
+      "name": "www.sfgt-tbts.com",
+      "type": "A",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "www.sfgt-tbts.com.\t3600\tIN\tCNAME\tsfgt-tbts.com.",
+        "sfgt-tbts.com.\t\t600\tIN\tA\t184.168.28.240"
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "www.sfgt-tbts.com",
+      "type": "AAAA",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "www.sfgt-tbts.com.\t3600\tIN\tCNAME\tsfgt-tbts.com."
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t600\tIN\tSOA\tns77.domaincontrol.com. dns.jomax.net. 2026090900 28800 7200 604800 600"
+      ]
+    },
+    {
+      "name": "www.sfgt-tbts.com",
+      "type": "CNAME",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "www.sfgt-tbts.com.\t3600\tIN\tCNAME\tsfgt-tbts.com."
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "MX",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t3600\tIN\tMX\t10 mailstore1.secureserver.net.",
+        "sfgt-tbts.com.\t\t3600\tIN\tMX\t0 smtp.secureserver.net."
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "TXT",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t3600\tIN\tTXT\t\"[unrelated public TXT value omitted]\"",
+        "sfgt-tbts.com.\t\t3600\tIN\tTXT\t\"v=spf1 include:secureserver.net -all\""
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "_dmarc.sfgt-tbts.com",
+      "type": "TXT",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "_dmarc.sfgt-tbts.com.\t3600\tIN\tTXT\t\"v=DMARC1; p=reject; rua=mailto:dmarc_rua@onsecureserver.net; adkim=r; aspf=r;\""
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "autoconfig.sfgt-tbts.com",
+      "type": "CNAME",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NXDOMAIN",
+      "authoritative": true,
+      "answer": [],
+      "authority": [
+        "sfgt-tbts.com.\t\t600\tIN\tSOA\tns77.domaincontrol.com. dns.jomax.net. 2026090900 28800 7200 604800 600"
+      ]
+    },
+    {
+      "name": "autodiscover.sfgt-tbts.com",
+      "type": "CNAME",
+      "server": "ns77.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "autodiscover.sfgt-tbts.com. 3600 IN\tCNAME\tautodiscover.outlook.com."
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "A",
+      "server": "ns78.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t600\tIN\tA\t184.168.28.240"
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "MX",
+      "server": "ns78.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t3600\tIN\tMX\t10 mailstore1.secureserver.net.",
+        "sfgt-tbts.com.\t\t3600\tIN\tMX\t0 smtp.secureserver.net."
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "sfgt-tbts.com",
+      "type": "TXT",
+      "server": "ns78.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "sfgt-tbts.com.\t\t3600\tIN\tTXT\t\"[unrelated public TXT value omitted]\"",
+        "sfgt-tbts.com.\t\t3600\tIN\tTXT\t\"v=spf1 include:secureserver.net -all\""
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "_dmarc.sfgt-tbts.com",
+      "type": "TXT",
+      "server": "ns78.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "_dmarc.sfgt-tbts.com.\t3600\tIN\tTXT\t\"v=DMARC1; p=reject; rua=mailto:dmarc_rua@onsecureserver.net; adkim=r; aspf=r;\""
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "autodiscover.sfgt-tbts.com",
+      "type": "CNAME",
+      "server": "ns78.domaincontrol.com",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": true,
+      "answer": [
+        "autodiscover.sfgt-tbts.com. 3600 IN\tCNAME\tautodiscover.outlook.com."
+      ],
+      "authority": [
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns77.domaincontrol.com.",
+        "sfgt-tbts.com.\t\t3600\tIN\tNS\tns78.domaincontrol.com."
+      ]
+    },
+    {
+      "name": "smtp.secureserver.net",
+      "type": "A",
+      "server": "system recursive resolver",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": false,
+      "answer": [
+        "smtp.secureserver.net.\t300\tIN\tA\t92.204.80.20"
+      ],
+      "authority": []
+    },
+    {
+      "name": "smtp.secureserver.net",
+      "type": "AAAA",
+      "server": "system recursive resolver",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": false,
+      "answer": [],
+      "authority": [
+        "smtp.secureserver.net.\t1800\tIN\tSOA\tcns3.secureserver.net. dns.jomax.net. 2026050501 300 600 1209600 3600"
+      ]
+    },
+    {
+      "name": "mailstore1.secureserver.net",
+      "type": "A",
+      "server": "system recursive resolver",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": false,
+      "answer": [
+        "mailstore1.secureserver.net. 300 IN\tA\t92.204.80.19"
+      ],
+      "authority": []
+    },
+    {
+      "name": "mailstore1.secureserver.net",
+      "type": "AAAA",
+      "server": "system recursive resolver",
+      "exit_code": 0,
+      "dns_status": "NOERROR",
+      "authoritative": false,
+      "answer": [],
+      "authority": [
+        "mailstore1.secureserver.net. 1800 IN\tSOA\tcns3.secureserver.net. dns.jomax.net. 2026050501 300 600 1209600 3600"
+      ]
+    }
+  ]
+}

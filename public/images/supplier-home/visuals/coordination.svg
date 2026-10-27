@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 156" fill="none">
+  <title>Cartons prepared for coordinated dispatch</title>
+  <g transform="translate(22 12) scale(.84)" stroke="#2a2b2d" stroke-width="1.785714" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m47 106 55-29 84 39-55 29Z" fill="#ecece5"/>
+    <path d="m47 106 84 39v7l-84-39Zm84 39 55-29v7l-55 29Z" fill="#f6f6f1"/>
+    <path d="m66 96 83 39m-65-49 83 39" stroke="#9e9e96"/>
+    <path d="m64 53 33-17 37 18-33 17Z" fill="#f6f6f1"/>
+    <path d="m64 53 37 18v46l-37-18Z" fill="#ecece5"/>
+    <path d="m101 71 33-17v46l-33 17Z" fill="#f6f6f1"/>
+    <path d="m79 45 37 18v13l-8 4V67L71 49" fill="#be2932" stroke="#be2932"/>
+    <path d="m73 79 16 8m-16-2 10 5" stroke="#9e9e96"/>
+    <path d="m101 87 33-17 37 18-33 17Z" fill="#f6f6f1"/>
+    <path d="m101 87 37 18v30l-37-18Z" fill="#ecece5"/>
+    <path d="m138 105 33-17v30l-33 17Z" fill="#f6f6f1"/>
+    <path d="m116 79 37 18v11l-7 4v-11l-37-18" fill="#f6f6f1"/>
+    <path d="m109 106 17 8m-17-2 10 5" stroke="#9e9e96"/>
+    <path d="M127 41h23a12 12 0 0 0 12-12v-4a12 12 0 0 1 12-12h24" stroke="#be2932"/>
+    <path d="m192 7 6 6-6 6" stroke="#be2932"/>
+  </g>
+</svg>

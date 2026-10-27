@@ -6,13 +6,19 @@ const handleI18nRouting = createMiddleware(routing);
 
 // Public-website phase: keep the existing dashboard/auth code dormant.
 // Remove this gate only when the dashboard is deliberately reactivated.
-const hiddenPagePrefixes = ["/admin", "/dashboard", "/auth"];
+const hiddenPrefixes = [
+  "/admin",
+  "/dashboard",
+  "/auth",
+  "/api/auth",
+  "/api/trpc",
+];
 
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const path = pathname.replace(/^\/(en|ar|de)(?=\/|$)/, "") || "/";
   if (
-    hiddenPagePrefixes.some(
+    hiddenPrefixes.some(
       (prefix) => path === prefix || path.startsWith(`${prefix}/`)
     )
   ) {
@@ -31,5 +37,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api(?:/|$)|_next|.*\\..*).*)"],
+  matcher: [
+    "/api/auth/:path*",
+    "/api/trpc/:path*",
+    "/((?!api(?:/|$)|_next|.*\\..*).*)",
+  ],
 };

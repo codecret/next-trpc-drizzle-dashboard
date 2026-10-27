@@ -1,10 +1,22 @@
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
-import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
+import {
+  ArrowRight,
+  Boxes,
+  FileText,
+  Handshake,
+  MapPin,
+  Package,
+  PackageSearch,
+  Truck,
+} from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/features/catalogue/components/breadcrumbs";
+import { PageHeading } from "@/features/catalogue/components/page-heading";
 import { pageMetadata } from "@/features/catalogue/metadata";
-import "@/features/landing/editorial-inner.css";
+import "@/features/landing/company-pages.css";
+import "@/features/landing/service-directory.css";
 
 export async function generateMetadata({
   params,
@@ -26,38 +38,35 @@ export default async function ServicesPage() {
   const site = await getTranslations("Website");
   const visual = await getTranslations("Website.visualDetails");
   const locale = await getLocale();
-  const copy =
-    locale === "ar"
-      ? {
-          title: "من التوريد\nإلى التوزيع.",
-          details: "ابدأ بمتطلباتك",
-          scope: "خدماتنا",
-          partnership: "شراكات التوزيع",
-          number: "الخدمة",
-        }
-      : {
-          title: "From sourcing\nto distribution.",
-          details: "Start with your requirements",
-          scope: "What we do",
-          partnership: "Distribution partnerships",
-          number: "Service",
-        };
   const services = [
     {
       key: "sourcing",
+      Icon: PackageSearch,
       href: "/products/commodities",
       cta: site("reference.viewProducts"),
     },
-    { key: "distribution", href: "#distribution", cta: t("partnerCta") },
+    {
+      key: "distribution",
+      Icon: Boxes,
+      href: "#distribution",
+      cta: t("partnerCta"),
+    },
     {
       key: "logistics",
+      Icon: Truck,
       href: { pathname: "/contact", query: { product: t("logisticsTitle") } },
       cta: site("inner.talkToTeam"),
     },
-    { key: "support", href: "/support", cta: t("downloadLink") },
+    {
+      key: "support",
+      Icon: Handshake,
+      href: "/support",
+      cta: t("downloadLink"),
+    },
   ];
+
   return (
-    <div className="editorial-inner editorial-services site-container">
+    <div className="site-container company-page">
       <Breadcrumbs
         locale={locale}
         items={[
@@ -65,104 +74,126 @@ export default async function ServicesPage() {
           { label: site("nav.services") },
         ]}
       />
-      <header className="ei-hero ei-services-hero">
-        <div>
-          <p className="ei-kicker">{site("nav.services")}</p>
-          <h1>{copy.title}</h1>
-          <p className="ei-intro">{t("intro")}</p>
-          <Link className="ei-button" href="/contact">
-            {site("inner.talkToTeam")}
-            <ArrowUpRight aria-hidden="true" />
-          </Link>
-        </div>
-        <aside className="ei-requirements" aria-labelledby="requirements-title">
-          <p className="ei-kicker">{visual("enquiryLabel")}</p>
-          <h2 id="requirements-title">{copy.details}</h2>
-          <ol>
-            {["product", "quantity", "destination"].map((key, index) => (
-              <li key={key}>
-                <span aria-hidden="true">0{index + 1}</span>
-                <div>
-                  <h3>{visual(`details.${key}.title`)}</h3>
-                  <p>{visual(`details.${key}.description`)}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <Link href="/contact" className="ei-text-link">
-            {visual("enquiryCta")}
-            <ArrowRight aria-hidden="true" />
-          </Link>
-        </aside>
-      </header>
-      <section
-        className="ei-service-ledger"
-        aria-labelledby="service-ledger-title"
-        data-reveal
-      >
-        <div className="ei-ledger-label">
-          <h2 id="service-ledger-title">{copy.scope}</h2>
-          <span>{site("design.locationShort")}</span>
-        </div>
-        {services.map(({ key, href, cta }, index) => (
-          <article key={key} className="ei-service-row">
-            <span className="ei-index" aria-hidden="true">
-              0{index + 1}
-            </span>
-            <h3>{t(`${key}Title`)}</h3>
-            <div>
-              <p>{t(`${key}Text`)}</p>
-              <Link href={href} className="ei-text-link">
-                {cta}
-                <ArrowUpRight aria-hidden="true" />
+      <div className="company-hero company-services-hero">
+        <div className="company-hero-copy">
+          <PageHeading
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+            description={t("intro")}
+          />
+          <div className="company-hero-actions">
+            <Button asChild className="site-button">
+              <Link href="/contact">
+                {site("inner.talkToTeam")}
+                <ArrowRight aria-hidden="true" />
               </Link>
-            </div>
-          </article>
-        ))}
-      </section>
-      <section
-        id="distribution"
-        className="ei-distribution-spread"
-        data-reveal
-        aria-labelledby="distribution-title"
-      >
-        <figure>
+            </Button>
+            <Link href="/products" className="company-page-link">
+              {site("nav.products")}
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+        <figure className="company-hero-visual company-service-visual">
           <Image
             src="/images/campaign/service-lifestyle-v1.png"
             alt={site("reference.serviceImageAlt")}
             width={1925}
             height={817}
-            sizes="(min-width: 900px) 50vw, 90vw"
+            priority
+            sizes="(min-width: 1280px) 540px, (min-width: 900px) 44vw, 90vw"
           />
           <figcaption>
-            <strong>TOSHIBA</strong>
-            <span>{site("reference.distribution")}</span>
+            <span>TOSHIBA</span>
+            {site("reference.distribution")}
           </figcaption>
         </figure>
+      </div>
+      <div className="company-section-heading">
         <div>
-          <p className="ei-kicker">{copy.partnership}</p>
-          <h2 id="distribution-title">{t("partnerTitle")}</h2>
+          <p className="company-section-label">{site("home.servicesLabel")}</p>
+          <h2>{site("home.servicesTitle")}</h2>
+        </div>
+        <p>{site("home.servicesDescription")}</p>
+      </div>
+      <div className="company-service-list company-service-directory">
+        {services.map(({ key, Icon, href, cta }, index) => (
+          <section key={key} className="company-service-entry">
+            <div className="service-directory-heading">
+              <div className="company-service-entry-top" aria-hidden="true">
+                <span className="company-service-index">0{index + 1}</span>
+                <Icon aria-hidden="true" />
+              </div>
+              <h3>{t(`${key}Title`)}</h3>
+            </div>
+            <div className="service-directory-detail">
+              <p>{t(`${key}Text`)}</p>
+              <Link href={href} className="company-page-link">
+                {cta}
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </div>
+          </section>
+        ))}
+      </div>
+      <section id="distribution" className="company-distribution">
+        <div>
+          <p className="company-section-label">
+            {site("reference.distribution")}
+          </p>
+          <h2>{t("partnerTitle")}</h2>
+        </div>
+        <div>
           <p>{t("partnerText")}</p>
-          <Link
-            href={{
-              pathname: "/contact",
-              query: { product: "Toshiba distribution partnership" },
-            }}
-            className="ei-button"
-          >
-            {t("partnerCta")}
-            <ArrowUpRight aria-hidden="true" />
-          </Link>
+          <Button asChild className="site-button">
+            <Link
+              href={{
+                pathname: "/contact",
+                query: { product: "Toshiba distribution partnership" },
+              }}
+            >
+              {t("partnerCta")}
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </Button>
         </div>
       </section>
-      <aside className="ei-document-note">
+      <section
+        className="service-enquiry-guide"
+        aria-labelledby="enquiry-guide-title"
+      >
+        <div className="service-enquiry-guide-heading">
+          <p className="company-section-label">{visual("enquiryLabel")}</p>
+          <h2 id="enquiry-guide-title">{visual("enquiryTitle")}</h2>
+          <Link href="/contact" className="company-page-link">
+            {visual("enquiryCta")}
+            <ArrowRight aria-hidden="true" />
+          </Link>
+        </div>
+        <ul className="service-enquiry-details" role="list">
+          {[
+            { key: "product", Icon: PackageSearch },
+            { key: "quantity", Icon: Package },
+            { key: "destination", Icon: MapPin },
+          ].map(({ key, Icon }) => (
+            <li key={key}>
+              <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+              <div>
+                <h3>{visual(`details.${key}.title`)}</h3>
+                <p>{visual(`details.${key}.description`)}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <div className="company-documents">
         <FileText aria-hidden="true" />
         <p>{t("documents")}</p>
-        <Link href="/support" className="ei-text-link">
+        <Link href="/support" className="company-page-link">
           {t("downloadLink")}
           <ArrowRight aria-hidden="true" />
         </Link>
-      </aside>
+      </div>
     </div>
   );
 }

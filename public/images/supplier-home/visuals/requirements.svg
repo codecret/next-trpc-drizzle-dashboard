@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 156" fill="none">
+  <title>Specification sheet and product sample</title>
+  <g stroke="#2a2b2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m58 29 73-10 14 106-73 10Z" fill="#ecece5"/>
+    <path d="m52 24 73-10 14 106-73 10Z" fill="#f6f6f1"/>
+    <path d="m67 39 42-6" stroke="#be2932"/>
+    <path d="m69 47 27-4" stroke="#9e9e96"/>
+    <path d="m72 64 29-4 4 29-29 4Z" fill="#ecece5"/>
+    <path d="m75 65 10 8 18-3M85 73l3 17" stroke="#9e9e96"/>
+    <path d="m110 62 8-1m-6 12 8-1m-7 12 8-1"/>
+    <path d="m78 105 22-3m6-1 16-2" stroke="#9e9e96"/>
+    <path d="m122 83 33-17 39 18-33 18Z" fill="#f6f6f1"/>
+    <path d="m122 83 39 19v31l-39-19Z" fill="#ecece5"/>
+    <path d="m161 102 33-18v31l-33 18Z" fill="#f6f6f1"/>
+    <path d="m137 75 40 18v12l-9 5V98l-40-18" fill="#be2932" stroke="#be2932"/>
+    <path d="m131 101 15 7m-15-2 9 5" stroke="#9e9e96"/>
+  </g>
+</svg>

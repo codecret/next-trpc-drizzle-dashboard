@@ -720,6 +720,7 @@
     <link rel="stylesheet" href="./motion.css?v=arabic-1" />
     <link rel="stylesheet" href="./contact-actions.css?v=icons-1" />
     <link rel="stylesheet" href="./locale.css?v=vertical-1" />
+    <link rel="stylesheet" href="./corporate-refinement.css" />
     <script src="./locale.js?v=arabic-2" defer></script>
     <script src="./featured.js?v=arabic-1" defer></script>
     <script src="./trade-enquiry.js?v=arabic-1" defer></script>
@@ -727,7 +728,7 @@
     <script src="./motion.js?v=arabic-1" defer></script>
     <script src="./scroll-motion.js?v=arabic-1" defer></script>
   </head>
-  <body>
+  <body class="supplier-home">
     <div class="proposal">
       <span>تصميم الصفحة الرئيسية · للمراجعة</span><a href="http://localhost:4318/ar" target="_blank" rel="noopener">الموقع الحالي ↖</a>
     </div>
@@ -755,55 +756,35 @@
     <main>
       <section class="business-hero" aria-labelledby="hero-heading">
         <div class="wrap">
-          <div class="business-intro">
-            <h1 id="hero-heading">
-              <span class="hero-line"><span>البطاريات والإضاءة</span></span><span class="hero-line"><span>وتجارة السلع.</span></span>
-            </h1>
-            <div class="business-intro-copy">
-              <p>
-                توفّر شركة سليمان فاروق للتجارة العامة ذ.م.م. المنتجات لتجار التجزئة والجملة وشركاء التوزيع انطلاقاً من دبي. تعرّف على منتجات توشيبا، ومجموعة AgfaPhoto لدى Tekbatt، والسلع التجارية.
-              </p>
-              <a class="text-link" href="#quotation">اطلب عرض سعر
-                <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
-                    <path d="M7 7h10v10"></path>
-                    <path d="M7 17 17 7"></path></svg></span></a>
+          <div class="corporate-hero-grid">
+            <div class="corporate-hero-copy">
+              <h1 id="hero-heading">البطاريات والإضاءة<br /><span>والسلع.</span></h1>
+              <p>منتجات توشيبا وبطاريات Tekbatt وتجارة السلع، من دبي إلى تجار التجزئة والجملة وشركاء التوزيع.</p>
+              <div class="corporate-hero-actions">
+                <a class="button" href="http://localhost:4318/ar/products">تصفّح المنتجات <svg viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+                <a class="text-link" href="#quotation">اطلب عرض سعر <svg viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+              </div>
+              <a class="corporate-company-link" href="#company">سليمان فاروق للتجارة العامة ذ.م.م. <span aria-hidden="true">↗</span></a>
             </div>
+            <figure class="corporate-hero-visual">
+              <img src="./assets/campaign.webp" alt="تصميم ترويجي لبطارية توشيبا ومصباح LED" width="1448" height="1086" fetchpriority="high" />
+              <figcaption><strong>TOSHIBA</strong><span>بطاريات وإضاءة LED</span><a href="#toshiba-products" aria-label="تصفّح منتجات توشيبا"><svg viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a></figcaption>
+            </figure>
           </div>
-          <div class="business-divisions" aria-label="تصفّح مجموعات منتجاتنا">
-            <a class="division-gateway" href="#toshiba-products"><div class="division-gateway-copy">
-                <h2>منتجات توشيبا</h2>
-                <p>
-                  بطاريات ومصادر طاقة محمولة وإضاءة LED ضمن تشكيلة منتجاتك.
-                </p>
-                <span class="division-action">تصفّح منتجات توشيبا
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path></svg></span>
-              </div>
-              <span class="division-visual"><img src="./assets/campaign.png" alt="تصميم ترويجي لبطارية توشيبا ومصباح LED" width="1536" height="1024" /></span></a>
-            <a class="division-gateway division-gateway-tekbatt" href="#tekbatt">
-              <div class="division-gateway-copy">
-                <h2>Tekbatt</h2>
-                <p>
-                  بطاريات AgfaPhoto القلوية والقابلة لإعادة الشحن والمتخصصة.
-                </p>
-                <span class="division-action">تعرّف على Tekbatt
-                  <svg viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" /></svg></span>
-              </div>
-              <span class="division-visual"><img src="./assets/tekbatt/alkaline-ultra-studio.webp" alt="تصميم لبطاريات AgfaPhoto Alkaline Ultra AA" width="1448" height="1086" /></span>
+          <nav class="corporate-divisions" aria-label="تصفّح مجموعات منتجاتنا">
+            <a href="#toshiba-products">
+              <img src="./assets/product-battery-6.jpg" alt="" width="96" height="88" />
+              <span><strong>توشيبا</strong><span>بطاريات وإضاءة LED</span></span><svg viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
             </a>
-            <a class="division-gateway division-gateway-commodities" href="#commodities"><div class="division-gateway-copy">
-                <h2>السلع<br />والتجارة العامة</h2>
-                <p>سلع غذائية ومواد كيميائية ومستلزمات تجارية.</p>
-                <span class="division-action">تصفّح السلع
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path></svg></span>
-              </div>
-              <span class="division-visual"><img src="./assets/generated/seeds-v1.webp" alt="تكوين توضيحي للقمح وفول الصويا والذرة" width="960" height="640" /></span></a>
-          </div>
+            <a href="#tekbatt">
+              <img src="./assets/tekbatt/alkaline-ultra-studio.webp" alt="" width="96" height="88" />
+              <span><strong>Tekbatt</strong><span>بطاريات قلوية وقابلة لإعادة الشحن</span></span><svg viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+            </a>
+            <a href="#commodities">
+              <img src="./assets/generated/seeds-v1.webp" alt="" width="96" height="88" />
+              <span><strong>السلع</strong><span>سلع غذائية ومستلزمات تجارية</span></span><svg viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+            </a>
+          </nav>
           <div class="business-tools">
             <form class="catalogue-search" action="http://localhost:4318/ar/products" method="get" target="_blank" role="search" aria-label="كتالوج توشيبا والسلع">
               <label for="catalogue-search-input">ابحث في منتجات توشيبا والسلع</label>
@@ -830,7 +811,7 @@
         <div class="wrap fp-inner" id="selected-products">
           <div class="fp-heading-row">
             <div class="fp-heading-copy">
-              <h2 id="fp-heading">منتجات توشيبا</h2>
+              <h2 id="fp-heading">بطاريات وإضاءة توشيبا</h2>
               <p>
                 تصفّح مجموعة مختارة من البطاريات وإضاءة LED من كتالوجنا.
               </p>
@@ -1038,7 +1019,7 @@
           </div>
         </div>
       </section>
-      <section class="tekbatt-section" id="tekbatt" aria-labelledby="tekbatt-heading">
+      <section class="tekbatt-section corporate-tekbatt" id="tekbatt" aria-labelledby="tekbatt-heading">
         <div class="wrap">
           <div class="tb-heading">
             <div class="tb-heading-copy">
@@ -1164,6 +1145,49 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="company company-expanded" id="company" aria-labelledby="company-heading">
+        <div class="wrap company-grid">
+          <div class="company-story">
+            <h2 id="company-heading">شركة تجارة عامة،<br />مقرّها دبي.</h2>
+            <p>
+              تأسست شركة سليمان فاروق للتجارة العامة ذ.م.م. في دبي عام 2013. نجمع بين توزيع منتجات توشيبا والتجارة العامة، ولدينا مكتب ومستودع في القصيص.
+            </p>
+            <a href="http://localhost:4318/ar/about" target="_blank" rel="noopener" class="text-link">المزيد عن الشركة
+              <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path></svg></span></a>
+            <figure class="company-city-sketch">
+              <img src="./assets/visuals/dubai-sketch.svg" alt="رسم معماري لأفق مدينة دبي" width="600" height="220" loading="lazy" />
+              <figcaption>
+                <svg viewbox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+                دبي، الإمارات العربية المتحدة
+              </figcaption>
+            </figure>
+          </div>
+          <dl class="company-record">
+            <div>
+              <dt>سنة التأسيس</dt>
+              <dd>2013<span>دبي، الإمارات العربية المتحدة</span></dd>
+            </div>
+            <div>
+              <dt>المكتب والمستودع</dt>
+              <dd>
+                القصيص<span>رقم 7، المنطقة الصناعية 1، بالقرب من وزارة العمل</span>
+              </dd>
+            </div>
+            <div>
+              <dt>أسواق عملاء توشيبا</dt>
+              <dd>
+                دول مجلس التعاون الخليجي واليمن والهند وبنغلاديش<span>الأسواق التي نخدمها من خلال توزيع منتجات توشيبا</span>
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -1294,48 +1318,6 @@
                   <path d="M7 7h10v10"></path>
                   <path d="M7 17 17 7"></path></svg></span></a>
           </div>
-        </div>
-      </section>
-      <section class="company company-expanded" id="company" aria-labelledby="company-heading">
-        <div class="wrap company-grid">
-          <div class="company-story">
-            <h2 id="company-heading">عن الشركة</h2>
-            <p>
-              تأسست شركة سليمان فاروق للتجارة العامة ذ.م.م. في دبي عام 2013. نجمع بين توزيع منتجات توشيبا والتجارة العامة، ولدينا مكتب ومستودع في القصيص.
-            </p>
-            <a href="http://localhost:4318/ar/about" target="_blank" rel="noopener" class="text-link">المزيد عن الشركة
-              <span class="arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
-                  <path d="M7 7h10v10"></path>
-                  <path d="M7 17 17 7"></path></svg></span></a>
-            <figure class="company-city-sketch">
-              <img src="./assets/visuals/dubai-sketch.svg" alt="رسم معماري لأفق مدينة دبي" width="600" height="220" loading="lazy" />
-              <figcaption>
-                <svg viewbox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-                دبي، الإمارات العربية المتحدة
-              </figcaption>
-            </figure>
-          </div>
-          <dl class="company-record">
-            <div>
-              <dt>سنة التأسيس</dt>
-              <dd>2013<span>دبي، الإمارات العربية المتحدة</span></dd>
-            </div>
-            <div>
-              <dt>المكتب والمستودع</dt>
-              <dd>
-                القصيص<span>رقم 7، المنطقة الصناعية 1، بالقرب من وزارة العمل</span>
-              </dd>
-            </div>
-            <div>
-              <dt>أسواق عملاء توشيبا</dt>
-              <dd>
-                دول مجلس التعاون الخليجي واليمن والهند وبنغلاديش<span>الأسواق التي نخدمها من خلال توزيع منتجات توشيبا</span>
-              </dd>
-            </div>
-          </dl>
         </div>
       </section>
       <section class="quote quote-expanded" id="quotation" aria-labelledby="quote-heading">

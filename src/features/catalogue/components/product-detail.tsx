@@ -392,7 +392,7 @@ export async function ProductDetail({
           </details>
         </div>
       </div>
-      <section className="product-enquiry-followup" data-reveal>
+      <section className="product-enquiry-followup">
         <div>
           <h2>{t("design.needHelp")}</h2>
           <p>{t("design.helpText")}</p>
@@ -403,7 +403,7 @@ export async function ProductDetail({
         </Link>
       </section>
       {related.length > 0 && (
-        <section className="product-related-section" data-reveal>
+        <section className="product-related-section">
           <div className="product-related-heading">
             <h2>{t("catalogue.related")}</h2>
             <Link

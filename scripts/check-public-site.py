@@ -69,6 +69,9 @@ print('Public pages and SEO verified:', len(completed), flush=True)
 for prefix in ['', '/en', '/ar']:
     for path in ['/admin', '/admin/users', '/dashboard/overview', '/auth/sign-in', '/auth/sign-up']:
         assert fetch(prefix + path)[0] == 404, ('Exposed hidden page', prefix + path)
+hidden_apis = ['/api/auth', '/api/auth/get-session', '/api/trpc', '/api/trpc/user.getCurrentUser']
+for path in hidden_apis:
+    assert fetch(path)[0] == 404, ('Exposed dormant API', path)
 assert fetch('/products/not-a-catalogue-product')[0] == 404
 assert fetch('/this-page-does-not-exist')[0] == 404
 for path, snippet in [('/products?q=LPT-6000', 'POWERBANK LPT-6000'), ('/products?category=sugar', 'Sugar ICUMSA 1200'), ('/products?q=NO-MATCH-FOR-THIS-QUERY', 'No matching products'), ('/products?page=2', 'Page 2 of 18'), ('/products/led-lighting?family=SMD+A+Bulb', 'Toshiba Standard A Bulb')]:
@@ -85,6 +88,6 @@ assert status == 200 and 'Disallow: /admin' in robots and 'sitemap.xml' in robot
 for file in data['downloads']:
     with urllib.request.urlopen(BASE + file['path']) as response:
         assert response.status == 200 and response.read(5) == b'%PDF-'
-print('Verified hidden routes, 404s, search/filter/pagination states, legacy redirects, sitemap, robots and four PDF downloads.', flush=True)
-report = {'publicPages': len(completed), 'products': len(data['products']), 'categories': len(data['categories']), 'sourceSpecifications': 149, 'hiddenRoutes': 15, 'pdfs': 4, 'status': 'passed'}
+print('Verified hidden routes, dormant APIs, 404s, search/filter/pagination states, legacy redirects, sitemap, robots and four PDF downloads.', flush=True)
+report = {'publicPages': len(completed), 'products': len(data['products']), 'categories': len(data['categories']), 'sourceSpecifications': 149, 'hiddenRoutes': 15, 'hiddenApis': len(hidden_apis), 'pdfs': 4, 'status': 'passed'}
 (ROOT / 'docs/source-audit/http-verification.json').write_text(json.dumps(report, indent=2) + '\n')

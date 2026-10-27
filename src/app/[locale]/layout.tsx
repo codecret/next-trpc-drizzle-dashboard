@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  IBM_Plex_Sans,
-  Barlow_Condensed,
-} from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import "./rtl.css";
-import "@/features/landing/editorial-system.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import TRPCProvider from "@/lib/trpc/Provider";
@@ -18,15 +12,8 @@ import { isValidLocale } from "@/i18n/routing";
 import { brand, company } from "@/features/catalogue/catalogue";
 import { siteOrigin } from "@/features/catalogue/metadata";
 
-const publicFont = IBM_Plex_Sans({
+const publicFont = Manrope({
   variable: "--font-public",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const displayFont = Barlow_Condensed({
-  variable: "--font-display",
-  weight: ["500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -75,7 +62,7 @@ export default async function Layout({
       className="light"
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${publicFont.variable} ${displayFont.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${publicFont.variable} antialiased`}
       >
         <TRPCProvider>
           <ThemeProvider

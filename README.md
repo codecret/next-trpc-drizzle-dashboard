@@ -6,7 +6,9 @@ A production-ready boilerplate for building admin dashboards with role-based acc
 
 The repository now includes the SFGT corporate website with an English/Arabic product catalogue. Public pages use a light theme; inherited admin/auth routes are hidden from the public website. Enquiry delivery setup is documented in [docs/enquiry-delivery.md](docs/enquiry-delivery.md).
 
-The latest supplier homepage design, including Tekbatt, generated visuals and animated contact icons, is preserved separately in [previews/supplier-direction](previews/supplier-direction/README.md). That directory includes instructions to run and edit the English/Arabic preview; it is not the Next.js homepage route.
+The selected English/Arabic supplier design is now the main Next.js homepage, including Toshiba, Tekbatt, commodities, generated visuals and animated contact icons. Its reviewed HTML sources remain in [previews/supplier-direction](previews/supplier-direction/README.md); `scripts/sync-supplier-home.py` prepares the markup and assets used by `src/app/[locale]/(supplier)/page.tsx`. The production domain is [sfgt-tbts.com](https://sfgt-tbts.com).
+
+The homepage prepares an email draft; the separate Contact page can send enquiries only after its delivery service is configured. This source includes the restored supplier design and the latest corporate homepage refinement, while preserving the earlier design commits in Git history. See the [handover status](docs/source-audit/HANDOVER.md) and [domain connection record](docs/delivery/DOMAIN-CUTOVER-2026-10-27.md) for release context. Confirm the deployed commit before treating a local design change as published; mailbox backup and enquiry inbox delivery remain separate work.
 
 ## Features
 
