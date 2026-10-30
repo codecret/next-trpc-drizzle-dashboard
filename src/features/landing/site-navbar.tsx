@@ -50,13 +50,22 @@ export function SiteNavbar({
   const pathname = usePathname();
   const isArabic = locale === "ar";
   const [open, setOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState("");
+  const [activeMenu, setActiveMenu] = useState("");
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const updateScrolled = () => setScrolled(window.scrollY > 8);
     updateScrolled();
     window.addEventListener("scroll", updateScrolled, { passive: true });
     return () => window.removeEventListener("scroll", updateScrolled);
+  }, []);
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeHiddenNavigation = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+      else setActiveMenu("");
+    };
+    desktop.addEventListener("change", closeHiddenNavigation);
+    return () => desktop.removeEventListener("change", closeHiddenNavigation);
   }, []);
   const quoteLabel = isArabic ? "اطلب عرض سعر" : "Request a quote";
   const rangesLabel = isArabic ? "تصفّح فئات المنتجات" : "View product ranges";
@@ -138,7 +147,7 @@ export function SiteNavbar({
   ];
   const closeMenus = () => {
     setOpen(false);
-    setProductsOpen("");
+    setActiveMenu("");
   };
 
   return (
@@ -167,7 +176,7 @@ export function SiteNavbar({
             alt="Sulemane Faruk General Trading LLC"
             priority
             className="brand-logo-image"
-            sizes="(max-width: 639px) 148px, 170px"
+            sizes="(max-width: 767px) 152px, (max-width: 1199px) 164px, 180px"
           />
         </Link>
 
@@ -178,8 +187,13 @@ export function SiteNavbar({
           <NavigationMenu
             className="site-mega-menu"
             dir={isArabic ? "rtl" : "ltr"}
-            value={productsOpen}
-            onValueChange={setProductsOpen}
+            value={activeMenu}
+            onValueChange={setActiveMenu}
+            delayDuration={140}
+            skipDelayDuration={240}
+            aria-label={
+              isArabic ? "المنتجات والقطاعات" : "Products and industries"
+            }
           >
             <NavigationMenuList>
               <NavigationMenuItem value="products">
@@ -238,6 +252,9 @@ export function SiteNavbar({
                           <Link
                             href={route.href}
                             className="mega-menu-route"
+                            aria-current={
+                              pathname === route.href ? "page" : undefined
+                            }
                             onClick={closeMenus}
                           >
                             <span className="mega-menu-route-title">
@@ -283,7 +300,13 @@ export function SiteNavbar({
         </div>
         <div className="header-actions header-mobile-actions">
           <ProductSearch groups={groups} />
-          <Sheet open={open} onOpenChange={setOpen}>
+          <Sheet
+            open={open}
+            onOpenChange={(nextOpen) => {
+              setOpen(nextOpen);
+              if (nextOpen) setActiveMenu("");
+            }}
+          >
             <SheetTrigger asChild>
               <Button
                 size="icon"
@@ -291,17 +314,18 @@ export function SiteNavbar({
                 className="header-menu-button"
                 aria-label={t("menu")}
               >
-                <Menu className="size-5" />
+                <Menu className="size-5" aria-hidden="true" />
               </Button>
             </SheetTrigger>
             <SheetContent
               side={isArabic ? "left" : "right"}
               className="public-surface mobile-navigation"
               closeLabel={t("close")}
+              dir={isArabic ? "rtl" : "ltr"}
               data-mobile-navigation
             >
               <SheetHeader className="mobile-navigation-heading">
-                <SheetTitle>SFGT</SheetTitle>
+                <SheetTitle>{t("menu")}</SheetTitle>
                 <SheetDescription>
                   {isArabic
                     ? "سليمان فاروق للتجارة العامة ذ.م.م"
@@ -361,6 +385,9 @@ export function SiteNavbar({
                           href={route.href}
                           onClick={closeMenus}
                           className="mobile-product-route"
+                          aria-current={
+                            pathname === route.href ? "page" : undefined
+                          }
                         >
                           {route.title}
                           <span>{route.detail}</span>
@@ -381,17 +408,19 @@ export function SiteNavbar({
                   </Link>
                 ))}
               </nav>
-              <Link
-                href={quoteHref}
-                onClick={closeMenus}
-                className="header-quote-link mobile-quote-link"
-              >
-                {quoteLabel}
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-              <div className="mobile-navigation-preferences">
-                <span>{t("language")}</span>
-                <LocaleSwitcher />
+              <div className="mobile-navigation-footer">
+                <Link
+                  href={quoteHref}
+                  onClick={closeMenus}
+                  className="header-quote-link mobile-quote-link"
+                >
+                  {quoteLabel}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+                <div className="mobile-navigation-preferences">
+                  <span>{t("language")}</span>
+                  <LocaleSwitcher />
+                </div>
               </div>
             </SheetContent>
           </Sheet>

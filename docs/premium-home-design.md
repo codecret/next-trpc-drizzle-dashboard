@@ -4,15 +4,17 @@ Implemented from the supplied full-page reference image and JSON. The homepage i
 
 ## Design and content decisions
 
-- Mobile category navigation now uses a visible two-column grid through 900px, with a full-width product-catalogue link below.
-- Follow-up refinement: removed all seven red section labels/lines and the three generic hero trust badges.
+- Restored the previous warm, panoramic hero and its original three-line “Batteries, Lighting and Commodities for a Brighter Tomorrow” headline after the user preferred its visual impact to the plain split layout.
+- Mobile category navigation retains the compact snap-scrolling rail with visible arrow controls and an always-available catalogue link. Desktop keeps four structured category tiles.
+- The handwritten hero note returns as part of the original visual treatment. The seven red section labels/lines, three generic hero trust badges and continuous decorative motion remain removed.
 
-- Manrope for English; IBM Plex Sans Arabic for Arabic; locally hosted Caveat for the decorative English hero note.
-- Full-width warm hero, overlapping category navigation, four verified featured products, Toshiba banner, commodities, Tekbatt, company facts, services, quotation form and a light footer.
+- Manrope for English and IBM Plex Sans Arabic for Arabic, with the original handwritten accent restricted to the hero note.
+- Panoramic hero, structured category navigation, four verified featured products, Toshiba showcase, commodities, Tekbatt, company facts, services, quotation form and a light footer. The restored hero retains its warm imagery while the improved navigation, carousel, accessible controls and form remain in place.
+- Featured products use four desktop columns, two tablet columns and a single-card mobile carousel. Filters, previous/next controls, Home/End navigation, RTL scrolling and live position feedback are supported. Controls appear only after hydration; product links and native scrolling remain available without JavaScript.
 - Keep Tekbatt, existing company name, established year, verified contact numbers and `tbts@sfgt-tbts.com`.
 - Featured lamp is the catalogue's 4.7W E27 model; the reference's 9W model was not substituted into the data.
 - Use actual available category routes, including Seeds & Grains, rather than inventing product ranges.
-- No genuine staff or warehouse photographs were available. A Dubai location illustration is used instead of fabricated staff/facility imagery.
+- No genuine staff or warehouse photographs were available. Company credibility is presented through verified history, operating markets and an office-map link. No fabricated staff/facility imagery; decorative skyline illustration removed.
 - Form keeps its existing required fields, validation, spam protection, duplicate handling and delivery backend. Added an optional phone field. File uploads are not exposed because the current endpoint accepts JSON enquiries only.
 - No placeholder social, privacy or terms links added. Existing support links remain functional.
 
@@ -38,7 +40,7 @@ Created with the built-in image generation tool (not the fallback CLI). The foll
 
 **Prompt brief:** Wide 3:1 editorial commercial port photograph. Container vessel along the bottom middle/right, muted containers and port cranes on the horizon. Leave the upper two thirds and left third as clean, hazy warm sky for interface content. Ivory and late-afternoon tones. No lettering, logos or people. Generic trading imagery, with no claim of company fleet ownership.
 
-All three originals remain in the Codex generated-images directory. WebP compression was performed for website delivery without altering the artwork.
+All three originals remain in the Codex generated-images directory. WebP compression was performed for website delivery without altering the artwork. The hero and Toshiba scene now use their optimized source WebPs directly so cropping a panorama does not upscale a small Next Image thumbnail. The logistics artwork is retained as an unused asset; the quotation form now has a plain background.
 
 ### Catalogue thumbnails
 
@@ -54,6 +56,6 @@ The three `*-thumb.webp` images in `public/images/premium-home/` are optimized d
 - ESLint: no errors; eight existing warnings elsewhere in the repository.
 - All 16 enquiry checks pass without sending emails.
 - Catalogue validation: 206 products, 63 categories and translation parity pass.
-- Browser checked at desktop 1440px, tablet 820px and mobile 390px/320px, including Arabic RTL.
-- Product filter, mobile Industries menu, centered search, product-to-quote prefilling and empty-form validation checked.
+- Browser checked in English and Arabic at 320, 375, 390, 430, 768, 1024 and 1440px; no horizontal page overflow or visible buttons below 44px.
+- Product filtering, carousel controls and keyboard endpoints, category scrolling, mobile navigation, centered search, language switching, product-to-quote prefilling and empty-form validation checked without sending email.
 - Reduced-motion styles and no-JavaScript visibility preserved.

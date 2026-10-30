@@ -751,7 +751,9 @@
         "batteries": "البطاريات",
         "lighting": "الإضاءة",
         "commodities": "السلع التجارية",
-        "tekbatt": "تيكبات"
+        "tekbatt": "تيكبات",
+        "previous": "الفئات السابقة",
+        "next": "المزيد من الفئات"
       },
       "commodities": {
         "title": "السلع والمستلزمات التجارية",
@@ -843,6 +845,12 @@
             "description": "المصابيح والأنابيب وإضاءة الفتيل"
           }
         }
+      },
+      "carousel": {
+        "label": "المنتجات المميزة",
+        "previous": "المنتج السابق",
+        "next": "المنتج التالي",
+        "position": "{current} من {total}"
       }
     },
     "premiumCompany": {

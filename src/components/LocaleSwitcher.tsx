@@ -27,6 +27,7 @@ export default function LocaleSwitcher() {
         {routing.locales.map((language) => (
           <DropdownMenuCheckboxItem
             key={language}
+            className="min-h-11"
             checked={locale === language}
             lang={language}
             dir={language === "ar" ? "rtl" : "ltr"}

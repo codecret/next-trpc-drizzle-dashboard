@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Building2,
   FlaskConical,
-  Grid2X2,
   Package,
   Phone,
   Wheat,
@@ -18,7 +17,7 @@ import {
   PremiumQuotation,
   PremiumServices,
 } from "./premium-company";
-import { PremiumHomeMotion } from "./premium-home-motion";
+import { CategoryNavigation } from "./category-navigation";
 import "./premium-home.css";
 
 export async function PremiumHome({
@@ -91,6 +90,7 @@ export async function PremiumHome({
               alt={t("hero.imageAlt")}
               fill
               priority
+              unoptimized
               sizes="100vw"
             />
           </div>
@@ -126,9 +126,11 @@ export async function PremiumHome({
           </div>
         </section>
 
-        <nav
-          className="premium-category-bar premium-container"
-          aria-label={t("categories.label")}
+        <CategoryNavigation
+          label={t("categories.label")}
+          previousLabel={t("categories.previous")}
+          nextLabel={t("categories.next")}
+          allLabel={t("viewAll")}
         >
           {categoryLinks.map((category) => (
             <Link
@@ -149,14 +151,7 @@ export async function PremiumHome({
               <ArrowRight aria-hidden="true" />
             </Link>
           ))}
-          <Link
-            href="/products"
-            className="premium-category-tile premium-category-all"
-          >
-            <Grid2X2 aria-hidden="true" />
-            <strong>{t("viewAll")}</strong>
-          </Link>
-        </nav>
+        </CategoryNavigation>
 
         <PremiumProducts locale={locale} />
         <ToshibaShowcase locale={locale} />
@@ -165,7 +160,6 @@ export async function PremiumHome({
           className="premium-commodities premium-container"
           id="commodities"
           aria-labelledby="premium-commodities-title"
-          data-premium-reveal
         >
           <div className="premium-section-heading">
             <div>
@@ -189,7 +183,7 @@ export async function PremiumHome({
                     src={`/images/supplier-home/generated/${category.image}`}
                     alt={t(`commodities.${category.key}.alt`)}
                     fill
-                    sizes="(max-width: 600px) 100vw, (max-width: 1000px) 45vw, 23vw"
+                    sizes="(max-width: 767px) 112px, (max-width: 1023px) 45vw, 23vw"
                   />
                 </div>
                 <div className="premium-commodity-caption">
@@ -222,7 +216,6 @@ export async function PremiumHome({
           className="premium-tekbatt premium-container"
           id="tekbatt"
           aria-labelledby="premium-tekbatt-title"
-          data-premium-reveal
         >
           <div className="premium-tekbatt-copy">
             <h2 id="premium-tekbatt-title">{t("tekbatt.title")}</h2>
@@ -247,7 +240,7 @@ export async function PremiumHome({
               >
                 <Image
                   src={`/images/supplier-home/tekbatt/${item.image}`}
-                  alt={t(`tekbatt.${item.key}`)}
+                  alt=""
                   width={136}
                   height={112}
                   sizes="(max-width: 600px) 26vw, 120px"
@@ -286,7 +279,6 @@ export async function PremiumHome({
           <Phone aria-hidden="true" />
         </a>
       </nav>
-      <PremiumHomeMotion />
     </div>
   );
 }

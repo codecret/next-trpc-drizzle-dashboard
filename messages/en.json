@@ -751,7 +751,9 @@
         "batteries": "Batteries",
         "lighting": "Lighting",
         "commodities": "Commodities",
-        "tekbatt": "Tekbatt"
+        "tekbatt": "Tekbatt",
+        "previous": "Previous categories",
+        "next": "More categories"
       },
       "commodities": {
         "title": "Commodities & Commercial Supplies",
@@ -843,6 +845,12 @@
             "description": "Lamps, tubes & filament bulbs"
           }
         }
+      },
+      "carousel": {
+        "label": "Featured products",
+        "previous": "Previous product",
+        "next": "Next product",
+        "position": "{current} of {total}"
       }
     },
     "premiumCompany": {

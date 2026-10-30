@@ -2,9 +2,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
-  Building2,
-  CalendarDays,
-  Globe2,
   Headset,
   Mail,
   MapPin,
@@ -29,12 +26,7 @@ export async function PremiumCompany({ locale }: LocaleProps) {
     locale,
     namespace: "Website.premiumCompany",
   });
-  const facts = [
-    { key: "established", Icon: CalendarDays },
-    { key: "base", Icon: Globe2 },
-    { key: "office", Icon: MapPin },
-    { key: "markets", Icon: Globe2 },
-  ] as const;
+  const facts = ["established", "base", "office", "markets"] as const;
 
   return (
     <section
@@ -43,7 +35,7 @@ export async function PremiumCompany({ locale }: LocaleProps) {
       aria-labelledby="premium-company-title"
     >
       <div className="premium-container premium-company-grid">
-        <div className="premium-company-story" data-premium-reveal>
+        <div className="premium-company-story">
           <h2 id="premium-company-title" className="premium-section-heading">
             {t("company.title")}
           </h2>
@@ -52,45 +44,29 @@ export async function PremiumCompany({ locale }: LocaleProps) {
             {t("company.action")}
             <ArrowRight size={17} aria-hidden="true" />
           </Link>
+          <a
+            className="premium-company-location"
+            href={officeMap}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("company.mapAction")}
+          >
+            <MapPin size={20} strokeWidth={1.7} aria-hidden="true" />
+            <span>
+              <strong>{t("company.locationTitle")}</strong>
+              <span>{t("company.locationDescription")}</span>
+            </span>
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
         </div>
-        <dl className="premium-company-facts" data-premium-reveal>
-          {facts.map(({ key, Icon }) => (
+        <dl className="premium-company-facts">
+          {facts.map((key) => (
             <div key={key}>
-              <dt>
-                <Icon size={25} strokeWidth={1.5} aria-hidden="true" />
-                {t(`company.facts.${key}.label`)}
-              </dt>
+              <dt>{t(`company.facts.${key}.label`)}</dt>
               <dd>{t(`company.facts.${key}.value`)}</dd>
             </div>
           ))}
         </dl>
-        <figure className="premium-company-location" data-premium-reveal>
-          <div className="premium-company-location-heading">
-            <span>{t("company.locationLabel")}</span>
-            <Building2 size={22} strokeWidth={1.4} aria-hidden="true" />
-          </div>
-          <Image
-            src="/images/supplier-home/visuals/dubai-sketch.svg"
-            alt=""
-            width={600}
-            height={220}
-            sizes="(min-width: 1100px) 32vw, (min-width: 768px) 42vw, 90vw"
-          />
-          <figcaption>
-            <div>
-              <strong>{t("company.locationTitle")}</strong>
-              <span>{t("company.locationDescription")}</span>
-            </div>
-            <a
-              href={officeMap}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t("company.mapAction")}
-            >
-              <ArrowUpRight size={21} aria-hidden="true" />
-            </a>
-          </figcaption>
-        </figure>
       </div>
     </section>
   );
@@ -114,24 +90,21 @@ export async function PremiumServices({ locale }: LocaleProps) {
       aria-labelledby="premium-services-title"
     >
       <div className="premium-container premium-services-grid">
-        <div className="premium-services-intro" data-premium-reveal>
-          <h2 id="premium-services-title" className="premium-section-heading">
-            {t("services.title")}
-          </h2>
-          <p>{t("services.description")}</p>
+        <div className="premium-services-intro">
+          <div>
+            <h2 id="premium-services-title" className="premium-section-heading">
+              {t("services.title")}
+            </h2>
+            <p>{t("services.description")}</p>
+          </div>
           <Link href="/services" className="premium-button-outline">
             {t("services.action")}
             <ArrowRight size={17} aria-hidden="true" />
           </Link>
         </div>
         {services.map(({ key, Icon, href }) => (
-          <Link
-            key={key}
-            href={href}
-            className="premium-service-card"
-            data-premium-reveal
-          >
-            <Icon size={34} strokeWidth={1.5} aria-hidden="true" />
+          <Link key={key} href={href} className="premium-service-card">
+            <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
             <h3>{t(`services.items.${key}.title`)}</h3>
             <p>{t(`services.items.${key}.description`)}</p>
             <span>
@@ -162,30 +135,22 @@ export async function PremiumQuotation({
     >
       <div className="premium-container">
         <div className="premium-quote">
-          <div className="premium-quote-photo" aria-hidden="true">
-            <Image
-              src="/images/premium-home/trade-logistics.webp"
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 60vw, 100vw"
-            />
-          </div>
-          <div className="premium-quote-copy" data-premium-reveal>
+          <div className="premium-quote-copy">
             <h2 id="quote-heading" className="premium-section-heading">
               {t("quote.title")}
             </h2>
             <p>{t("quote.description")}</p>
             <address className="premium-quote-contact">
               <a href={officeTelephone}>
-                <Phone size={23} strokeWidth={1.5} aria-hidden="true" />
+                <Phone size={20} strokeWidth={1.6} aria-hidden="true" />
                 <span dir="ltr">{company.phone}</span>
               </a>
               <a href={`mailto:${company.email}`}>
-                <Mail size={23} strokeWidth={1.5} aria-hidden="true" />
+                <Mail size={20} strokeWidth={1.6} aria-hidden="true" />
                 <span dir="ltr">{company.email}</span>
               </a>
               <a href={officeMap} target="_blank" rel="noopener noreferrer">
-                <MapPin size={23} strokeWidth={1.5} aria-hidden="true" />
+                <MapPin size={20} strokeWidth={1.6} aria-hidden="true" />
                 <span>{t("quote.location")}</span>
               </a>
             </address>
@@ -236,7 +201,7 @@ export async function PremiumFooter({ locale }: LocaleProps) {
                 alt={company.name}
                 width={190}
                 height={56}
-                sizes="174px"
+                sizes="190px"
               />
             </Link>
             <p>{t("footer.description")}</p>
@@ -277,14 +242,6 @@ export async function PremiumFooter({ locale }: LocaleProps) {
               <MapPin size={16} aria-hidden="true" />
               <span>{t("footer.address")}</span>
             </a>
-            <Image
-              src="/images/supplier-home/visuals/dubai-sketch.svg"
-              alt=""
-              width={600}
-              height={220}
-              sizes="240px"
-              className="premium-footer-skyline"
-            />
           </div>
         </div>
         <div className="premium-footer-bottom">

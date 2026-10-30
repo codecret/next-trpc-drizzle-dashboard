@@ -101,24 +101,24 @@ body {
 .website-shell,
 .public-surface {
   --background: 0 0% 100%;
-  --foreground: 225 6.67% 11.76%;
+  --foreground: 0 0% 9%;
   --card: 0 0% 100%;
   --card-foreground: 225 6.67% 11.76%;
   --popover: 0 0% 100%;
   --popover-foreground: 225 6.67% 11.76%;
-  --brand-red: #ea252c;
-  --primary: 357.68 73.88% 48.04%;
+  --brand-red: #d71920;
+  --primary: 358 79% 47%;
   --primary-foreground: 0 0% 100%;
   --muted: 60 11.11% 94.71%;
-  --muted-foreground: 228 2.42% 40.59%;
+  --muted-foreground: 0 0% 40%;
   --secondary: 60 11.11% 94.71%;
   --secondary-foreground: 225 6.67% 11.76%;
   --accent: 60 11.11% 94.71%;
   --accent-foreground: 225 6.67% 11.76%;
-  --border: 60 5.45% 89.22%;
+  --border: 60 4% 91%;
   --input: 60 5% 78%;
-  --ring: 357.68 73.88% 48.04%;
-  --radius: 0.25rem;
+  --ring: 358 79% 47%;
+  --radius: 0.375rem;
   font-family: var(--font-public), sans-serif;
   font-feature-settings: "ss01" on;
   font-size: 16px;
@@ -209,7 +209,7 @@ body {
 .website-shell input,
 .website-shell textarea,
 .public-surface input {
-  border-radius: 3px;
+  border-radius: 6px;
   box-shadow: none;
 }
 .website-shell input,
@@ -264,21 +264,21 @@ body {
   margin-top: 16px;
 }
 .animate-enter {
-  animation: site-enter 0.55s both cubic-bezier(0.2, 0.7, 0.2, 1);
+  animation: site-enter 200ms both ease-out;
 }
 .delay-one {
-  animation-delay: 0.08s;
+  animation-delay: 0ms;
 }
 .delay-two {
-  animation-delay: 0.16s;
+  animation-delay: 0ms;
 }
 .delay-three {
-  animation-delay: 0.24s;
+  animation-delay: 0ms;
 }
 @keyframes site-enter {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
@@ -315,7 +315,7 @@ body {
 .website-shell .site-button,
 .public-surface .site-button {
   min-height: 48px;
-  border-radius: 3px;
+  border-radius: 6px;
   padding-inline: 24px;
 }
 .public-surface button[type="submit"].site-button {
