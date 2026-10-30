@@ -1,34 +1,43 @@
 # Website enquiries
 
-The integrated supplier homepage and the separate Contact page have different enquiry implementations in both English and Arabic. The review deployment is [sfgt-website.vercel.app](https://sfgt-website.vercel.app); its availability does not establish company-domain launch or tested inbox delivery. On 19 October 2026, the production environment-variable name inventory had neither `RESEND_API_KEY` nor `CONTACT_FROM_EMAIL`, so direct Contact page delivery was not configured. The later website-domain connection is recorded in the [cutover record](delivery/DOMAIN-CUTOVER-2026-10-27.md); mailbox access and inbox delivery remain separate work.
+The supplier homepage and Contact page now use the same React Hook Form/Zod `EnquiryForm` and `POST /api/enquiry`, in English and Arabic. The homepage form is server-rendered in the quotation section; there is no second mailto implementation in the app runtime.
 
-## Homepage: email draft
+## Buyer experience
 
-`src/features/landing/supplier-home-interactions.ts` handles the supplier homepage form. It validates the fields, prepares a `mailto:` link and exposes a copy fallback. The visitor must review and send the message in their email application. It does not call `/api/enquiry`, send email from the server or store an enquiry.
+- Name, reply email and requirements are required. Division, company, product, quantity and destination are optional.
+- Homepage product/division quote links prefill the form without discarding an unfinished enquiry. Additional products are appended once, shown above the fields and can be removed. Product-page links continue to prefill the Contact form.
+- When sending is configured, the button says **Send enquiry** and posts directly to the server. Only provider acceptance returns a success confirmation. It does not prove that a human read the message or that the inbox received it.
+- Validation, timeout and provider errors preserve the entered values. An explicit **Use email instead** action prepares a draft. Nothing is automatically retried through another provider.
+- Without delivery configuration, the form clearly says **Open email draft** and explains that the visitor must send it in their email application. Copying is available as a fallback; success is never simulated.
 
-The homepage recipient is currently set directly to `tbts@sfgt-tbts.com` in that file. Configuring the server delivery variables below does **not** activate direct sending on the homepage. That requires a separate implementation change and verification. Keep the form's labels, status and privacy copy consistent with its actual behavior.
+## Enable delivery through the existing MXroute provider
 
-## Contact page: optional direct delivery
+Set these **server-only** environment variables in the deployment environment, then redeploy:
 
-`src/app/[locale]/(website)/contact/page.tsx` renders `EnquiryForm` and passes `getEnquiryDeliveryEnabled()`. Name, email and requirements are required; company, product, quantity and destination are optional. Product-page enquiry links prefill the product field and open the optional details.
+| Variable | Value/purpose |
+| --- | --- |
+| `CONTACT_FROM_EMAIL` | Authorised sender: `tbts@sfgt-tbts.com` (selected by the owner) |
+| `CONTACT_SMTP_HOST` | `sunfire.mxrouting.net` for the existing SFGT MXroute server |
+| `CONTACT_SMTP_PORT` | `465` (TLS; default) or `587` (required STARTTLS) |
+| `CONTACT_SMTP_USER` | Full sender mailbox address |
+| `CONTACT_SMTP_PASSWORD` | That mailbox’s password, entered through the hosting environment-variable UI |
 
-## Enable direct delivery
+The owner selected the existing `tbts@sfgt-tbts.com` mailbox. Keep its authorised credentials in server-only environment configuration; never put them in `NEXT_PUBLIC_*`, commit them, or expose them to client code. Certificate verification remains enabled. SMTP debug logging is off. No mailbox, DNS record or external account is created or changed by this implementation.
 
-Set these server-side variables in the deployment environment (or `.env.local` for local use):
+Enquiries go only to `company.email` in `src/features/catalogue/catalogue.ts`, currently `tbts@sfgt-tbts.com`. The visitor’s address is **Reply-To**, not the sender. The server does not accept a recipient from the browser.
 
-- `RESEND_API_KEY`: a Resend key permitted to send email.
-- `CONTACT_FROM_EMAIL`: a sender email address on a domain verified in that Resend account.
+## Existing Resend alternative
 
-Restart the application after configuring these variables; rebuild/redeploy if your host supplies environment variables during the build. Do not put credentials in public environment variables or commit them.
+If SMTP is not configured, direct delivery can use `RESEND_API_KEY` plus `CONTACT_FROM_EMAIL` on a domain verified by that Resend account. Fully configured SMTP takes precedence over Resend. Sending failures do not trigger automatic provider fallback because an uncertain result could create duplicate messages.
 
-Server-submitted Contact page enquiries go to `company.email` in `src/features/catalogue/catalogue.ts`, currently `tbts@sfgt-tbts.com`. The visitor's address is the reply-to address. No recipient is accepted from the browser. Confirm the intended recipient with the company; changing `company.email` alone does not update the homepage's separate recipient. The provider must return an accepted message ID before the website shows a sent confirmation; this does not prove inbox delivery.
+Mailbox hosting and website sending are separate. Do not replace existing MX, SPF or DKIM records to enable the website sender. Any necessary DNS additions need to be considered against the current mail setup.
 
-Without both variables, the Contact form offers an email draft and copy fallback. It never simulates a successful send. Provider or network failures preserve entered details and offer an explicit email fallback.
+## Verification and limits
 
-Website sending configuration is separate from existing mailbox hosting, backups and any future mailbox migration. Do not replace existing mail-related DNS records as a side effect of sender verification. Coordinate any required record additions with the current mail provider and the domain connection record.
+Run `node --import tsx --test scripts/check-enquiry.ts`. Tests use mocks and send no messages. They cover schema validation, preserved product selection, EN/AR homepage extraction, request-size/origin checks, provider acceptance and rejection, fixed mail routing, and throttling.
 
-## Verification
+The endpoint uses bounded JSON, a honeypot, strict field validation and a bounded per-process throttle. Production ingress should rate-limit across instances and replace untrusted forwarded-IP headers. Enquiry contents and provider credentials are not logged by the endpoint.
 
-Run `node --import tsx --test scripts/check-enquiry.ts` for mocked delivery, validation, request-size/origin, idempotency and throttling checks. These tests send no email and do not cover the homepage's separate draft implementation. After configuring the production sender, verify actual receipt and reply behavior with the company's intended inbox, and record the result. This document does not assert that production sending is configured or that inbox delivery has been tested.
+Unchanged client retries reuse their request ID. Resend enforces the provider idempotency key. SMTP receives a stable Message-ID, but SMTP has no equivalent guaranteed idempotency: an ambiguous timeout followed by a retry can duplicate a message. No automatic retry is performed.
 
-The public endpoint is `POST /api/enquiry`. It validates bounded JSON, checks origin, uses a honeypot and applies a bounded per-process throttle. Deployment ingress should enforce rate limits across instances and replace untrusted forwarded-IP headers. Retries of an unchanged enquiry reuse a provider idempotency key. Enquiry contents are not logged by the endpoint. The public-phase gates for `/api/auth` and `/api/trpc` leave `/api/enquiry` available; those dormant APIs are not required for the enquiry form.
+On 30 October 2026, the selected MXroute sender was configured in the ignored local environment file. SMTP connection, TLS and mailbox authentication passed without sending an email. The owner-approved test was submitted through the local homepage form on 30 October 2026 at 10:23 UTC. The form showed its success state, and read-only IMAP verification confirmed receipt in the `tbts@sfgt-tbts.com` inbox with `Reply-To: info@nxfold.com`. No reply or additional test message was sent. Production environment configuration and deployment remain outstanding; local verification does not assert that the live website has changed.

@@ -13,7 +13,8 @@
   -moz-osx-font-smoothing: auto;
 }
 /* Restore the preview's browser baseline without resetting SVG presentation attributes. */
-.supplier-home :where(*):not(:where(svg, svg *)) {
+.supplier-home
+  :where(*):not(:where(svg, svg *, .supplier-enquiry, .supplier-enquiry *)) {
   all: revert;
   box-sizing: border-box;
 }

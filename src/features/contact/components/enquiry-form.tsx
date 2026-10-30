@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -11,10 +11,17 @@ import {
   LoaderCircle,
   Mail,
   Plus,
+  X,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { createEnquirySchema, type EnquiryValues } from "../types";
+import {
+  createEnquirySchema,
+  enquiryDivisions,
+  type EnquiryDivision,
+  type EnquiryValues,
+} from "../types";
+import { mergeEnquiryProduct } from "../product-selection";
 import { mutationHandler } from "@/utils/mutationHandler";
 import { toast } from "@/utils/use-toast";
 import "./contact-page.css";
@@ -28,6 +35,7 @@ const optionalFields = [
 const fieldLimits = {
   name: 100,
   email: 254,
+  phone: 50,
   company: 150,
   product: 250,
   quantity: 250,
@@ -39,15 +47,22 @@ export function EnquiryForm({
   email,
   compact = false,
   deliveryEnabled = false,
+  supplierHome = false,
+  premiumHome = false,
 }: {
   product?: string;
   email: string;
   compact?: boolean;
   deliveryEnabled?: boolean;
+  supplierHome?: boolean;
+  premiumHome?: boolean;
 }) {
   const t = useTranslations("Website.contact");
   const ui = useTranslations("Website.inner");
   const id = useId();
+  const detailsFields = premiumHome
+    ? optionalFields.filter((field) => field !== "company")
+    : optionalFields;
   const schema = createEnquirySchema({
     required: t("required"),
     invalidEmail: t("invalidEmail"),
@@ -59,6 +74,8 @@ export function EnquiryForm({
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
+      division: "",
       company: "",
       product,
       quantity: "",
@@ -72,6 +89,9 @@ export function EnquiryForm({
   const [copyStatus, setCopyStatus] = useState("");
   const [serverError, setServerError] = useState("");
   const [sent, setSent] = useState(false);
+  const [selectionNotice, setSelectionNotice] = useState("");
+  const panel = useRef<HTMLElement>(null);
+  const selectedProduct = useWatch({ control: form.control, name: "product" });
   const successHeading = useRef<HTMLHeadingElement>(null);
   const submission = useRef<{ payload: string; requestId: string } | null>(
     null
@@ -79,8 +99,89 @@ export function EnquiryForm({
   const busy = form.formState.isSubmitting;
 
   useEffect(() => {
-    if (sent) successHeading.current?.focus();
+    if (sent) {
+      panel.current?.scrollIntoView({ block: "start", behavior: "instant" });
+      successHeading.current?.focus({ preventScroll: true });
+    }
   }, [sent]);
+
+  useEffect(() => {
+    if (!supplierHome && !premiumHome) return;
+    const root = panel.current?.closest(".supplier-home");
+    if (!root) return;
+    let frame = 0;
+    const prefill = (event: Event) => {
+      if (!(event instanceof MouseEvent) || !(event.target instanceof Element))
+        return;
+      const link = event.target.closest<HTMLAnchorElement>(
+        "a[data-enquiry-product], a[data-enquiry-division]"
+      );
+      if (
+        !link ||
+        !root.contains(link) ||
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        busy
+      )
+        return;
+      event.preventDefault();
+      if (window.location.hash !== "#quotation") {
+        window.history.pushState(null, "", "#quotation");
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      }
+      const division = link.dataset.enquiryDivision as EnquiryDivision;
+      const nextProduct = (link.dataset.enquiryProduct ?? "").trim();
+      // A new selection starts a fresh enquiry after a completed submission.
+      if (sent) {
+        form.reset();
+        submission.current = null;
+        setSent(false);
+      }
+      if (enquiryDivisions.some((value) => value === division)) {
+        form.setValue("division", division, { shouldDirty: true });
+      }
+      if (nextProduct) {
+        form.setValue(
+          "product",
+          mergeEnquiryProduct(form.getValues("product"), nextProduct),
+          {
+            shouldDirty: true,
+            shouldValidate: true,
+          }
+        );
+        setDetailsOpen(true);
+        setSelectionNotice(t("selectionAdded", { product: nextProduct }));
+      } else {
+        setSelectionNotice(t("divisionSelected"));
+      }
+      setDraft("");
+      setCopyStatus("");
+      setServerError("");
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const input =
+          panel.current?.querySelector<HTMLInputElement>('[name="name"]');
+        panel.current?.scrollIntoView({
+          block: "start",
+          behavior:
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+            root.getAttribute("data-motion") === "reduced"
+              ? "instant"
+              : "smooth",
+        });
+        input?.focus({ preventScroll: true });
+      });
+    };
+    root.addEventListener("click", prefill);
+    return () => {
+      root.removeEventListener("click", prefill);
+      cancelAnimationFrame(frame);
+    };
+  }, [supplierHome, premiumHome, form, t, busy, sent]);
 
   function prepare(values: EnquiryValues) {
     const subject = t("draftSubject", {
@@ -89,6 +190,10 @@ export function EnquiryForm({
     const body = [
       `${t("name")}: ${values.name}`,
       `${t("email")}: ${values.email}`,
+      ...(values.phone ? [`${t("phone")}: ${values.phone}`] : []),
+      ...(values.division
+        ? [`${t("division")}: ${t(`divisions.${values.division}`)}`]
+        : []),
       ...optionalFields
         .filter((field) => values[field])
         .map((field) => `${t(field)}: ${values[field]}`),
@@ -161,7 +266,9 @@ export function EnquiryForm({
     );
   }
 
-  function field(name: "name" | "email" | (typeof optionalFields)[number]) {
+  function field(
+    name: "name" | "email" | "phone" | (typeof optionalFields)[number]
+  ) {
     const required = name === "name" || name === "email";
     const error = form.formState.errors[name];
     return (
@@ -175,15 +282,17 @@ export function EnquiryForm({
         </label>
         <Input
           id={`${id}-${name}`}
-          type={name === "email" ? "email" : "text"}
+          type={name === "email" ? "email" : name === "phone" ? "tel" : "text"}
           autoComplete={
             name === "name"
               ? "name"
               : name === "email"
                 ? "email"
-                : name === "company"
-                  ? "organization"
-                  : "off"
+                : name === "phone"
+                  ? "tel"
+                  : name === "company"
+                    ? "organization"
+                    : "off"
           }
           {...form.register(name)}
           required={required}
@@ -207,7 +316,8 @@ export function EnquiryForm({
 
   return (
     <section
-      className={`enquiry-panel${compact ? " enquiry-panel-compact" : ""}`}
+      ref={panel}
+      className={`enquiry-panel${compact ? " enquiry-panel-compact" : ""}${supplierHome ? " supplier-enquiry" : ""}${premiumHome ? " premium-enquiry" : ""}`}
       aria-labelledby={`${id}-title`}
     >
       {sent ? (
@@ -224,6 +334,7 @@ export function EnquiryForm({
               form.reset();
               setSent(false);
               setDetailsOpen(Boolean(product));
+              setSelectionNotice("");
               submission.current = null;
             }}
           >
@@ -248,9 +359,17 @@ export function EnquiryForm({
           </p>
           <p className="enquiry-required">{ui("requiredFields")}</p>
           <form
+            method="post"
+            action="/api/enquiry"
+            onChange={() => {
+              if (draft) {
+                setDraft("");
+                setCopyStatus("");
+              }
+            }}
             onSubmit={(event) => {
               void form.handleSubmit(submit, (errors) => {
-                const invalid = optionalFields.find((name) => errors[name]);
+                const invalid = detailsFields.find((name) => errors[name]);
                 if (invalid) {
                   setDetailsOpen(true);
                   requestAnimationFrame(() => form.setFocus(invalid));
@@ -264,10 +383,69 @@ export function EnquiryForm({
               className="enquiry-fields"
               aria-busy={busy}
             >
-              <div className="enquiry-field-grid">
-                {field("name")}
-                {field("email")}
-              </div>
+              {(supplierHome || premiumHome) && (
+                <div>
+                  <label
+                    htmlFor={`${id}-division`}
+                    className="mb-2 block text-sm font-medium"
+                  >
+                    {t("division")}
+                  </label>
+                  <select id={`${id}-division`} {...form.register("division")}>
+                    <option value="">{t("divisionPlaceholder")}</option>
+                    {enquiryDivisions.map((division) => (
+                      <option key={division} value={division}>
+                        {t(`divisions.${division}`)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              {selectedProduct && (
+                <div className="enquiry-product-context">
+                  <div>
+                    <span>{t("selectedProduct")}</span>
+                    <strong>{selectedProduct}</strong>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      form.setValue("product", "", {
+                        shouldDirty: true,
+                        shouldValidate: true,
+                      });
+                      setSelectionNotice(t("selectionRemoved"));
+                    }}
+                    aria-label={t("removeProduct")}
+                  >
+                    <X size={16} aria-hidden="true" />
+                  </button>
+                </div>
+              )}
+              <p
+                className="sr-only enquiry-selection-notice"
+                role="status"
+                aria-live="polite"
+              >
+                {selectionNotice}
+              </p>
+              {premiumHome ? (
+                <>
+                  <div className="enquiry-field-grid">
+                    {field("name")}
+                    {field("company")}
+                  </div>
+                  <div className="enquiry-field-grid">
+                    {field("email")}
+                    {field("phone")}
+                  </div>
+                </>
+              ) : (
+                <div className="enquiry-field-grid">
+                  {field("name")}
+                  {field("email")}
+                </div>
+              )}
               <div>
                 <label
                   htmlFor={`${id}-message`}
@@ -310,7 +488,7 @@ export function EnquiryForm({
                   <Plus aria-hidden="true" />
                 </summary>
                 <div className="enquiry-field-grid">
-                  {optionalFields.map(field)}
+                  {detailsFields.map(field)}
                 </div>
               </details>
               <div className="enquiry-honeypot" aria-hidden="true">

@@ -222,6 +222,178 @@
   gap: 18px;
 }
 
+.enquiry-fields select {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font: inherit;
+  font-size: 14px;
+}
+
+.enquiry-product-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-inline-start: 2px solid #d71920;
+  background: #f8f5f2;
+}
+
+.enquiry-product-context span,
+.enquiry-product-context strong {
+  display: block;
+}
+
+.enquiry-product-context span {
+  margin-bottom: 5px;
+  color: #626367;
+  font-size: 11px;
+}
+
+.enquiry-product-context strong {
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.enquiry-product-context button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid #dedbd6;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.enquiry-selection-notice {
+  color: #54565b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.enquiry-selection-notice:empty {
+  display: none;
+}
+
+.supplier-home .supplier-enquiry {
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 6px 28px #20212404;
+}
+
+.supplier-home .supplier-enquiry .enquiry-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.supplier-home .supplier-enquiry .enquiry-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.supplier-home .supplier-enquiry .enquiry-fields > *,
+.supplier-home .supplier-enquiry .enquiry-field-grid > * {
+  min-width: 0;
+}
+
+.supplier-home .supplier-enquiry label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.supplier-home .supplier-enquiry :is(input, textarea, select) {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid #d5d6d8;
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: none;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.supplier-home .supplier-enquiry textarea {
+  min-height: 128px;
+  resize: vertical;
+}
+
+.supplier-home .supplier-enquiry ::placeholder {
+  color: #73767c;
+  opacity: 1;
+}
+
+.supplier-home .supplier-enquiry [aria-invalid="true"] {
+  border-color: #c62028;
+}
+
+.supplier-home .supplier-enquiry .enquiry-required {
+  margin-block: 12px 22px;
+}
+
+.supplier-home .supplier-enquiry .enquiry-submit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.supplier-home .supplier-enquiry .site-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 48px;
+  padding-inline: 20px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+}
+
+.supplier-home .supplier-enquiry .site-button svg {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.supplier-home .supplier-enquiry .enquiry-direct-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding-block: 12px;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.supplier-home .supplier-enquiry :is(input, textarea, select):focus-visible,
+.enquiry-product-context button:focus-visible {
+  outline: 2px solid #d71920;
+  outline-offset: 3px;
+}
+
 .enquiry-field-wide {
   grid-column: 1 / -1;
 }
@@ -406,8 +578,18 @@
 }
 
 @media (max-width: 767px) {
+  .supplier-home .supplier-enquiry {
+    padding: 22px 18px;
+  }
+  .supplier-home .supplier-enquiry .enquiry-field-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .supplier-home .supplier-enquiry :is(input, textarea, select) {
+    font-size: 16px;
+  }
   .enquiry-fields input,
-  .enquiry-fields textarea {
+  .enquiry-fields textarea,
+  .enquiry-fields select {
     font-size: 16px;
   }
   .enquiry-submit-actions .site-button {
@@ -454,4 +636,85 @@
   .contact-phone-list > div {
     display: flex;
   }
+}
+.contact-page .page-heading h1 {
+  font-size: clamp(36px, 4.1vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.12;
+}
+.contact-page .page-heading .page-intro {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.contact-page .contact-quick-actions {
+  gap: 0;
+  border-block: 1px solid #d7d8d3;
+}
+.contact-page .contact-quick-actions a {
+  border: 0;
+  border-radius: 0;
+  padding-block: 24px;
+}
+.contact-page .contact-quick-actions a + a {
+  border-inline-start: 1px solid #d7d8d3;
+}
+.contact-page .contact-quick-actions small {
+  font-size: 13px;
+}
+.contact-page .contact-quick-actions strong {
+  font-size: 15px;
+}
+.contact-page .contact-details h2 {
+  font-size: 15px;
+}
+.contact-page .contact-office address,
+.contact-page .contact-phone-list,
+.contact-page .contact-toshiba a,
+.contact-page .contact-hours > p {
+  font-size: 14px;
+}
+.contact-page .contact-details > section {
+  padding-inline: 34px 0;
+}
+.contact-page .contact-details > section > svg {
+  left: auto;
+  inset-inline-start: 0;
+}
+.contact-page .enquiry-panel {
+  border-radius: 0;
+  background: #f4f4f1;
+}
+.contact-page .enquiry-panel-heading h2 {
+  letter-spacing: -0.025em;
+}
+.contact-page .enquiry-intro {
+  font-size: 15px;
+}
+.contact-page .enquiry-fields label,
+.contact-page .enquiry-order-details summary {
+  font-size: 14px;
+}
+.contact-page .enquiry-required,
+.contact-page .enquiry-privacy {
+  font-size: 12px;
+}
+@media (max-width: 767px) {
+  .contact-page .contact-quick-actions {
+    grid-template-columns: 1fr;
+  }
+  .contact-page .contact-quick-actions a {
+    padding: 17px 8px;
+  }
+  .contact-page .contact-quick-actions a + a {
+    border-inline-start: 0;
+    border-top: 1px solid #d7d8d3;
+  }
+  .contact-page .contact-quick-actions a > svg:last-child {
+    display: block;
+  }
+}
+html[dir="rtl"] .contact-page .page-heading h1 {
+  letter-spacing: normal;
+  line-height: 1.55;
 }

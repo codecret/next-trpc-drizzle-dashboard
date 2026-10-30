@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { setupSupplierInteractions } from "./supplier-home-interactions";
 import { setupSupplierMotion } from "./supplier-home-motion";
 import { setupSupplierScroll } from "./supplier-home-scroll";
-import { setupSupplierSketches } from "./supplier-home-sketches";
 
 export interface SupplierRuntimeContext {
   root: HTMLElement;
@@ -29,11 +28,9 @@ export function SupplierHomeRuntime({ locale }: { locale: string }) {
     const cleanInteractions = setupSupplierInteractions(context);
     const cleanMotion = setupSupplierMotion(context);
     const cleanScroll = setupSupplierScroll(context);
-    const cleanSketches = setupSupplierSketches(context);
 
     return () => {
       controller.abort();
-      cleanSketches();
       cleanScroll();
       cleanMotion();
       cleanInteractions();

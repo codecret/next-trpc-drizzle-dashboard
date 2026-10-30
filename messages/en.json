@@ -326,23 +326,64 @@
       "filterHeading": "Browse the catalogue",
       "noImage": "Contact us for product imagery",
       "removeFilter": "Remove {filter} filter",
-      "pagination": "Catalogue pages"
+      "pagination": "Catalogue pages",
+      "landingTitle": "Find the right product range.",
+      "landingIntro": "Browse Toshiba batteries and lighting, or explore the SFGT commodities catalogue. Compare product details and send your requirements to our team.",
+      "listedProducts": "products in the catalogue",
+      "chooseRange": "Browse by range",
+      "browseAll": "Browse all products",
+      "browseRange": "View range",
+      "rangeDescriptions": {
+        "batteries": "Alkaline, zinc and rechargeable batteries, specialist cells and portable power.",
+        "led-lighting": "Lamps, filament lighting and tubes, with model specifications and available variants.",
+        "commodities": "Food commodities, chemicals, construction materials and hospitality supplies."
+      },
+      "tekbattTitle": "Alkaline & rechargeable ranges",
+      "tekbattIntro": "Looking for Tekbatt? View the battery ranges and contact our team for model and supply enquiries.",
+      "tekbattAction": "Explore Tekbatt",
+      "quoteTitle": "Ready to request a quotation?",
+      "quoteIntro": "Include the product or specification, quantity, packaging and delivery destination. Product availability is confirmed on enquiry.",
+      "requestQuote": "Request a quote"
     },
     "about": {
       "eyebrow": "OUR COMPANY",
-      "title": "A trading partner based in Dubai.",
-      "intro": "Sulemane Faruk General Trading LLC was established in 2013. Our business combines the distribution of Toshiba batteries and lighting with the sourcing and supply of commodities and commercial products.",
-      "who": "Who we are",
-      "whoText": "From our UAE headquarters, we work with customers and suppliers to understand their needs and support their businesses. Our Toshiba distribution activity serves customers in the GCC, Yemen, India and Bangladesh.",
-      "what": "What we do",
-      "whatText": "Our sales and distribution network is supported by an experienced team, supply-chain operations, warehousing and logistics. Alongside Toshiba products, the SFGT catalogue includes food commodities, chemicals, construction materials and hospitality supplies.",
+      "title": "Distribution and trading, based in Dubai.",
+      "intro": "Sulemane Faruk General Trading LLC supplies retailers, wholesalers and distribution partners with batteries, lighting and commodities. Established in 2013, our office and warehouse are in Al Qusais, Dubai.",
+      "who": "Toshiba distribution",
+      "whoText": "Our Toshiba distribution activity serves customers in the GCC, Yemen, India and Bangladesh. The catalogue covers batteries, portable power and LED lighting, with product codes and specifications to help customers identify their requirements.",
+      "what": "Sourcing and supply",
+      "whatText": "Alongside Toshiba products and Tekbatt battery ranges, we handle food commodities, chemicals, construction materials and hospitality supplies. Our team works with customers on product selection, quotations, warehousing and delivery arrangements.",
       "values": "How we work",
       "valuesText": "Honesty, loyalty and commitment guide our relationships. We focus on quality, timely delivery, transparent communication and long-term relationships with customers and suppliers.",
       "vision": "Our direction",
       "visionText": "We aim to be a trusted distribution and trading partner across the Middle East, South Asia and Africa, helping customers grow through product supply and ongoing support.",
       "mission": "Supporting our partners",
       "missionText": "Our work includes product sourcing, competitive quotations, careful shipment handling and after-sales support. We welcome discussions with retailers, wholesalers and distribution partners.",
-      "portfolio": "Explore our portfolio"
+      "portfolio": "Browse products",
+      "profileLabel": "COMPANY PROFILE",
+      "profileBase": "Based in",
+      "profileActivity": "Business activity",
+      "profileActivityValue": "Distribution & general trading",
+      "profileOffice": "Office & warehouse",
+      "profileAddress": "No. 7, Al Qusais Industrial Area 1, near Ministry of Labour, Dubai. P.O. Box 122577.",
+      "viewArea": "View Al Qusais on the map",
+      "activityLabel": "OUR BUSINESS",
+      "activityTitle": "Products and supply enquiries",
+      "viewRange": "Explore range",
+      "activities": {
+        "toshiba": {
+          "title": "Toshiba batteries & lighting",
+          "description": "Battery formats, pack sizes, lamps and tubes. Browse models and technical specifications in our product catalogue."
+        },
+        "tekbatt": {
+          "title": "Tekbatt battery ranges",
+          "description": "Explore alkaline and rechargeable ranges, then contact our team with the model and quantity you require."
+        },
+        "commodities": {
+          "title": "Commodities & supplies",
+          "description": "Food commodities and commercial supplies. Request a quotation with your specification, quantity, packaging and destination."
+        }
+      }
     },
     "services": {
       "eyebrow": "SERVICES & DISTRIBUTION",
@@ -409,8 +450,8 @@
     },
     "contact": {
       "eyebrow": "CONTACT SFGT",
-      "title": "Tell us what your business needs.",
-      "intro": "For product enquiries, quotations or distribution opportunities, speak with our team in Dubai.",
+      "title": "Contact our Dubai team.",
+      "intro": "Product enquiries, quotations and distribution opportunities. Send your requirements below or contact us directly.",
       "office": "Office & warehouse",
       "poBox": "P.O. Box {box}",
       "general": "General enquiries",
@@ -446,8 +487,8 @@
       "draftFallback": "General trading",
       "destination": "Destination (optional)",
       "optionalDetails": "Add order details (optional)",
-      "sendFormTitle": "Make an enquiry",
-      "sendFormIntro": "Tell us what you need. Our team can help with product enquiries, quotations and distribution opportunities.",
+      "sendFormTitle": "Request a quote",
+      "sendFormIntro": "Include the product or specification, quantity and delivery destination where available.",
       "sendSubmit": "Send enquiry",
       "sending": "Sending enquiry…",
       "sendPrivacy": "Your contact details and requirements are sent to SFGT so our team can respond to your enquiry.",
@@ -456,7 +497,20 @@
       "anotherEnquiry": "Make another enquiry",
       "sendFailed": "We could not confirm your enquiry. Your details are still here: please try again or use email instead.",
       "rateLimited": "Please wait a few minutes before trying again, or contact our team by email.",
-      "emailInstead": "Use email instead"
+      "emailInstead": "Use email instead",
+      "division": "What is your enquiry about?",
+      "divisionPlaceholder": "Select a division (optional)",
+      "divisions": {
+        "toshiba": "Toshiba batteries & lighting",
+        "tekbatt": "Tekbatt battery ranges",
+        "commodities": "Commodities & general trading",
+        "distribution": "Distribution partnership"
+      },
+      "selectedProduct": "Your product selection",
+      "removeProduct": "Remove product selection",
+      "selectionAdded": "{product} added to your enquiry. Your other details have been kept.",
+      "selectionRemoved": "Product selection removed.",
+      "divisionSelected": "Enquiry division updated. Your other details have been kept."
     },
     "footer": {
       "description": "Toshiba batteries and lighting, commodities and commercial supplies. Based in Dubai, serving business customers and distribution partners.",
@@ -676,6 +730,196 @@
       "india": "India",
       "bangladesh": "Bangladesh",
       "caption": "Customer markets for our Toshiba distribution activity."
+    },
+    "premiumHome": {
+      "browse": "Browse Products",
+      "quote": "Request a Quote",
+      "viewAll": "View all products",
+      "hero": {
+        "imageAlt": "Toshiba battery and LED bulb on a stone podium with the Dubai skyline",
+        "line1": "Batteries, Lighting",
+        "line2": "and Commodities",
+        "prefix": "for a",
+        "highlight": "Brighter Tomorrow",
+        "description": "Reliable supply of quality products to businesses across the UAE, GCC and international markets.",
+        "note1": "Powering",
+        "note2": "People &",
+        "note3": "Possibilities"
+      },
+      "categories": {
+        "label": "Explore our product ranges",
+        "batteries": "Batteries",
+        "lighting": "Lighting",
+        "commodities": "Commodities",
+        "tekbatt": "Tekbatt"
+      },
+      "commodities": {
+        "title": "Commodities & Commercial Supplies",
+        "description": "Food commodities and commercial products for retail, wholesale and business supply.",
+        "explore": "Explore all categories",
+        "viewAll": "View all commodities",
+        "sugar": {
+          "alt": "White sugar in a ceramic bowl",
+          "title": "Sugar",
+          "description": "Grades for retail and bulk supply"
+        },
+        "oils": {
+          "alt": "Golden cooking oil in glass bottles",
+          "title": "Edible Oils",
+          "description": "Cooking oils for retail and wholesale"
+        },
+        "grains": {
+          "alt": "An assortment of seeds and grains",
+          "title": "Seeds & Grains",
+          "description": "Explore our food commodity range"
+        },
+        "meat": {
+          "alt": "Packaged meat and poultry",
+          "title": "Meat & Poultry",
+          "description": "Browse available products and cuts"
+        },
+        "chemicals": "Chemicals",
+        "construction": "Construction Materials",
+        "hospitality": "Hospitality Supplies",
+        "otherFood": "Other Food Products"
+      },
+      "tekbatt": {
+        "title": "Explore Tekbatt",
+        "description": "Alkaline and rechargeable battery ranges for everyday devices.",
+        "explore": "Visit Tekbatt",
+        "ultra": "Alkaline Ultra",
+        "power": "Alkaline Power",
+        "rechargeable": "Rechargeable"
+      },
+      "quickContact": "Quick contact",
+      "whatsapp": "Chat with SFGT on WhatsApp",
+      "call": "Call SFGT"
+    },
+    "premiumProducts": {
+      "heading": "Featured products",
+      "description": "Explore Toshiba batteries and lighting, with product details to help you choose.",
+      "viewAll": "View all products",
+      "filterLabel": "Filter featured products",
+      "filters": {
+        "all": "All products",
+        "batteries": "Batteries",
+        "lighting": "Lighting"
+      },
+      "products": {
+        "highPower": "Toshiba High Power AA Alkaline Batteries",
+        "alphaPower": "Toshiba Alpha Power AA Batteries",
+        "rechargeable": "Toshiba Rechargeable AA Batteries",
+        "lighting": "Toshiba Standard A LED Bulb 4.7W"
+      },
+      "attributes": "Product specifications",
+      "attributesText": {
+        "alkaline": "Alkaline",
+        "rechargeable": "Rechargeable"
+      },
+      "details": "View details",
+      "enquire": "Add to enquiry",
+      "enquireAbout": "Add {product} to your enquiry",
+      "showcase": {
+        "heading": "Batteries & lighting for everyday needs.",
+        "description": "Explore Toshiba battery formats, lighting models and pack options for your next order.",
+        "action": "Explore Toshiba batteries",
+        "benefits": {
+          "range": "Battery and lighting ranges",
+          "pack": "Product and pack specifications",
+          "support": "Supply enquiries with our team"
+        },
+        "rangeLabel": "Toshiba product ranges",
+        "ranges": {
+          "alkaline": {
+            "title": "Alkaline power",
+            "description": "High Power & Alpha Power"
+          },
+          "rechargeable": {
+            "title": "Rechargeable",
+            "description": "AA & AAA battery formats"
+          },
+          "lighting": {
+            "title": "LED lighting",
+            "description": "Lamps, tubes & filament bulbs"
+          }
+        }
+      }
+    },
+    "premiumCompany": {
+      "company": {
+        "title": "A trading company, based in Dubai.",
+        "description": "{company} supplies batteries, lighting and commodities to retailers, wholesalers and distribution partners. Our office and warehouse are in Al Qusais, Dubai.",
+        "action": "Learn more about us",
+        "locationLabel": "OUR HOME IN DUBAI",
+        "locationTitle": "Al Qusais, Dubai",
+        "locationDescription": "Office & Warehouse No. 7 · Industrial Area 1",
+        "mapAction": "Find our office in Al Qusais on the map",
+        "facts": {
+          "established": {
+            "label": "Year established",
+            "value": "2013"
+          },
+          "base": {
+            "label": "Based in Dubai",
+            "value": "UAE"
+          },
+          "office": {
+            "label": "Office & warehouse",
+            "value": "Al Qusais"
+          },
+          "markets": {
+            "label": "Toshiba customer markets",
+            "value": "GCC, Yemen, India & Bangladesh"
+          }
+        }
+      },
+      "services": {
+        "title": "Sourcing, distribution and logistics.",
+        "description": "Work with our Dubai team on product selection, supply and the details of your order.",
+        "action": "Our services",
+        "cardAction": "Learn more",
+        "items": {
+          "sourcing": {
+            "title": "Product sourcing",
+            "description": "Tell us the product, specification and quantity your business needs."
+          },
+          "logistics": {
+            "title": "Warehousing & logistics",
+            "description": "Discuss storage, shipment handling and delivery arrangements with our team."
+          },
+          "support": {
+            "title": "Business support",
+            "description": "Product information, order enquiries and support for your next requirement."
+          }
+        }
+      },
+      "quote": {
+        "title": "Request a quote",
+        "description": "Share your product requirements, quantities and destination. Our team will help you with the next steps.",
+        "location": "Al Qusais, Dubai, UAE"
+      },
+      "footer": {
+        "home": "SFGT — Home",
+        "description": "Batteries, lighting and commodity trading from Dubai. For retailers, wholesalers and distribution partners.",
+        "products": "Products",
+        "quickLinks": "Quick links",
+        "contact": "Contact information",
+        "address": "Al Qusais Industrial Area 1, Dubai, United Arab Emirates",
+        "copyright": "© {year} {company}. All rights reserved.",
+        "supportLink": "Support & downloads",
+        "links": {
+          "batteries": "Batteries",
+          "lighting": "LED lighting",
+          "tekbatt": "Tekbatt",
+          "commodities": "Commodities",
+          "allProducts": "Browse product ranges",
+          "about": "About us",
+          "services": "Our services",
+          "distribution": "Distribution enquiries",
+          "support": "Resources & support",
+          "contact": "Contact"
+        }
+      }
     }
   }
 }

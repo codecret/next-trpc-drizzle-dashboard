@@ -7,6 +7,15 @@ type EnquiryMessages = {
   maxLength: string;
 };
 
+export const enquiryDivisions = [
+  "toshiba",
+  "tekbatt",
+  "commodities",
+  "distribution",
+] as const;
+
+export type EnquiryDivision = (typeof enquiryDivisions)[number] | "";
+
 const defaultMessages: EnquiryMessages = {
   required: "This field is required.",
   invalidEmail: "Enter a valid email address.",
@@ -28,6 +37,8 @@ export function createEnquirySchema(
       .trim()
       .email(messages.invalidEmail)
       .max(254, messages.maxLength),
+    division: z.enum(["", ...enquiryDivisions]),
+    phone: z.string().trim().max(50, messages.maxLength).optional(),
     company: z.string().trim().max(150, messages.maxLength),
     product: z.string().trim().max(250, messages.maxLength),
     quantity: z.string().trim().max(250, messages.maxLength),

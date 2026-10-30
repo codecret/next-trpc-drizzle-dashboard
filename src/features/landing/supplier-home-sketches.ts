@@ -197,14 +197,14 @@ export function setupSupplierSketches({
         finish(state);
         return;
       }
-      const duration = state.city ? 1450 : 940;
+      const duration = state.city ? 620 : 520;
       const entryDelay = state.city ? 0 : visibilityDelay;
       state.wrapper.dataset.sketchState = "drawing";
       state.animations.push(
         state.art.animate(
           [
-            { opacity: 0.32, offset: 0 },
-            { opacity: 0.32, offset: 0.76 },
+            { opacity: 0.78, offset: 0 },
+            { opacity: 0.9, offset: 0.5 },
             { opacity: 1, offset: 1 },
           ],
           { duration, delay: entryDelay, easing: "linear", fill: "both" }
@@ -213,12 +213,18 @@ export function setupSupplierSketches({
       paths.forEach((path, index) => {
         const length = path.getTotalLength();
         if (!Number.isFinite(length) || length <= 0) return;
-        const timing = state.city
+        const originalTiming = state.city
           ? cityTiming(path, index, paths.length, ink.viewBox.baseVal)
           : {
-              delay: (index / Math.max(1, paths.length - 1)) * 330,
-              duration: 360 + Math.min(180, length * 0.45),
+              delay: (index / Math.max(1, paths.length - 1)) * 100,
+              duration: 220 + Math.min(100, length * 0.2),
             };
+        const timing = state.city
+          ? {
+              delay: originalTiming.delay * 0.4,
+              duration: originalTiming.duration * 0.4,
+            }
+          : originalTiming;
         path.style.strokeDasharray = `${length} ${length}`;
         path.style.strokeDashoffset = String(length);
         state.animations.push(
@@ -259,12 +265,12 @@ export function setupSupplierSketches({
           const state = states.get(entry.target);
           if (!state || state.started || state.done) return;
           currentObserver.unobserve(entry.target);
-          draw(state, state.city ? 0 : Math.min(stepIndex++ * 80, 160));
+          draw(state, state.city ? 0 : Math.min(stepIndex++ * 25, 50));
         });
       },
       {
         threshold: 0,
-        rootMargin: `0px 0px -${Math.round(height * 0.24)}px 0px`,
+        rootMargin: "0px 0px -16px 0px",
       }
     );
     states.forEach((state) => {

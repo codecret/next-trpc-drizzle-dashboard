@@ -1,20 +1,11 @@
 import type { SupplierRuntimeContext } from "./supplier-home-runtime";
 import { SUPPLIER_MOTION_EVENT } from "./supplier-home-motion";
 
-type RevealGroup = {
-  element: HTMLElement;
-  items: RevealItem[];
-  outside: boolean;
-  played: boolean;
-};
 type RevealItem = {
   element: HTMLElement;
   kind: "copy" | "card";
-  group: RevealGroup;
-  state: "complete" | "ready" | "revealing";
+  complete: boolean;
   animation: Animation | null;
-  distance: number;
-  count: number;
 };
 
 export function setupSupplierScroll({
@@ -22,75 +13,106 @@ export function setupSupplierScroll({
   signal,
   isArabic,
 }: SupplierRuntimeContext) {
-  // Static HTML always remains fully visible if animation is unavailable.
-  if (typeof Element.prototype.animate !== "function") return () => {};
+  // Content is always readable; only apply motion as it reaches the viewport.
+  if (
+    !("IntersectionObserver" in window) ||
+    typeof Element.prototype.animate !== "function"
+  )
+    return () => {};
+
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   const compact = window.matchMedia("(max-width: 760px)");
   const quiet = () => reduced.matches || root.dataset.motion === "reduced";
   const targets = new Map<HTMLElement, RevealItem>();
-  const sections = new Map<HTMLElement, RevealGroup>();
-  let frame = 0;
-  let navigating = false;
-  let navigationTimer = 0;
 
   const finish = (item: RevealItem) => {
     item.animation?.cancel();
     item.animation = null;
-    item.state = "complete";
+    item.complete = true;
     item.element.dataset.scrollReveal = "complete";
+    observer.unobserve(item.element);
   };
-  const prepare = (item: RevealItem) => {
-    finish(item);
-    if (
-      signal.aborted ||
-      quiet() ||
-      item.element.contains(document.activeElement)
-    )
+
+  const play = (item: RevealItem, delay: number) => {
+    if (item.complete) return;
+    if (quiet() || item.element.contains(document.activeElement)) {
+      finish(item);
       return;
-    item.distance = compact.matches ? 16 : item.kind === "card" ? 24 : 18;
-    item.animation = item.element.animate(
+    }
+    // Observe once. Revisiting a section must never hide or replay its content.
+    observer.unobserve(item.element);
+    item.complete = true;
+    item.element.dataset.scrollReveal = "revealing";
+    item.element.dataset.scrollRevealCount = "1";
+    const distance = compact.matches ? 6 : item.kind === "card" ? 10 : 7;
+    const animation = item.element.animate(
       [
-        {
-          opacity: item.kind === "card" ? 0.12 : 0.35,
-          transform: `translateY(${item.distance}px)`,
-        },
+        { opacity: 0.88, transform: `translateY(${distance}px)` },
         { opacity: 1, transform: "translateY(0)" },
       ],
       {
-        duration: compact.matches ? 620 : item.kind === "card" ? 800 : 700,
-        easing: "cubic-bezier(0.22, 0.61, 0.36, 1)",
-        fill: "both",
+        duration: compact.matches ? 300 : 380,
+        delay,
+        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        fill: "backwards",
       }
     );
-    item.animation.pause();
-    item.animation.currentTime = 0;
-    void item.animation.finished.catch(() => {});
-    item.state = "ready";
-    item.element.dataset.scrollReveal = "ready";
+    item.animation = animation;
+    void animation.finished
+      .then(() => {
+        if (!signal.aborted && item.animation === animation) finish(item);
+      })
+      .catch(() => {});
   };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (signal.aborted || document.hidden) return;
+      const entering = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => {
+          const top = a.boundingClientRect.top - b.boundingClientRect.top;
+          return Math.abs(top) < 24
+            ? isArabic
+              ? b.boundingClientRect.right - a.boundingClientRect.right
+              : a.boundingClientRect.left - b.boundingClientRect.left
+            : top;
+        });
+      let previousTop = -Infinity;
+      let column = 0;
+      for (const entry of entering) {
+        const item = targets.get(entry.target as HTMLElement);
+        if (!item) continue;
+        column =
+          Math.abs(entry.boundingClientRect.top - previousTop) < 24
+            ? column + 1
+            : 0;
+        previousTop = entry.boundingClientRect.top;
+        play(item, Math.min(column, 2) * 35);
+      }
+    },
+    // Start at the viewport edge rather than waiting until content is well inside.
+    { threshold: 0, rootMargin: "0px 0px -16px 0px" }
+  );
+
   const add = (selector: string, kind: RevealItem["kind"]) => {
     root.querySelectorAll<HTMLElement>(selector).forEach((element) => {
-      const section = element.closest<HTMLElement>("section");
-      if (!section || !root.contains(section)) return;
-      if (!sections.has(section))
-        sections.set(section, {
-          element: section,
-          items: [],
-          outside: false,
-          played: false,
-        });
-      const group = sections.get(section)!;
+      if (targets.has(element)) return;
       const item: RevealItem = {
         element,
         kind,
-        group,
-        state: "complete",
+        complete: false,
         animation: null,
-        distance: 0,
-        count: 0,
       };
       targets.set(element, item);
-      group.items.push(item);
+      const bounds = element.getBoundingClientRect();
+      // Avoid making already-painted content jump when hydration completes.
+      if (quiet() || (bounds.height > 0 && bounds.top < innerHeight))
+        finish(item);
+      else {
+        element.dataset.scrollReveal = "ready";
+        observer.observe(element);
+      }
     });
   };
   add(
@@ -101,129 +123,6 @@ export function setupSupplierScroll({
     ".range-grid > .range, .fp-group .fp-card, .ct-food-card, .ct-supply-card, .tb-card, .capabilities-list > details, .company-record > div",
     "card"
   );
-
-  const play = (item: RevealItem, delay: number) => {
-    const animation = item.animation;
-    if (!animation) return;
-    if (item.element.contains(document.activeElement)) {
-      finish(item);
-      return;
-    }
-    item.state = "revealing";
-    item.group.played = true;
-    item.element.dataset.scrollReveal = "revealing";
-    item.element.dataset.scrollRevealCount = String(++item.count);
-    animation.effect?.updateTiming({ delay });
-    animation.currentTime = 0;
-    animation.play();
-    void animation.finished
-      .then(() => {
-        if (!signal.aborted && item.animation === animation) finish(item);
-      })
-      .catch(() => {});
-  };
-  const update = () => {
-    frame = 0;
-    if (signal.aborted || document.hidden || quiet()) return;
-    const height = innerHeight;
-    const groupBounds = Array.from(sections.values()).map((group) => ({
-      group,
-      bounds: group.element.getBoundingClientRect(),
-    }));
-    for (const { group, bounds } of groupBounds) {
-      const outside = bounds.bottom < -120 || bounds.top > height + 120;
-      if (outside && !group.outside && group.played) {
-        group.items.forEach(prepare);
-        group.played = false;
-      }
-      group.outside = outside;
-    }
-    if (navigating) return;
-    const entering = Array.from(targets.values())
-      .filter((item) => item.state === "ready")
-      .map((item) => ({ item, bounds: item.element.getBoundingClientRect() }))
-      .filter(
-        ({ item, bounds }) =>
-          bounds.height > 0 &&
-          bounds.top - item.distance < height * 0.78 &&
-          bounds.bottom - item.distance > 0
-      )
-      .sort((a, b) => {
-        const topA = a.bounds.top - a.item.distance;
-        const topB = b.bounds.top - b.item.distance;
-        return Math.abs(topA - topB) < 36
-          ? isArabic
-            ? b.bounds.right - a.bounds.right
-            : a.bounds.left - b.bounds.left
-          : topA - topB;
-      });
-    let previousTop = -Infinity;
-    let previousGroup: RevealGroup | null = null;
-    let column = 0;
-    for (const { item, bounds } of entering) {
-      const top = bounds.top - item.distance;
-      column =
-        item.group === previousGroup && Math.abs(top - previousTop) < 36
-          ? column + 1
-          : 0;
-      previousTop = top;
-      previousGroup = item.group;
-      play(item, Math.min(column, 3) * 75);
-    }
-  };
-  const schedule = () => {
-    if (!signal.aborted && !frame && !document.hidden)
-      frame = requestAnimationFrame(update);
-  };
-  targets.forEach((item) => {
-    if (
-      quiet() ||
-      item.element.getBoundingClientRect().top < innerHeight * 0.78
-    )
-      finish(item);
-    else prepare(item);
-  });
-  sections.forEach((group) => {
-    group.played = group.items.some((item) => item.state === "complete");
-  });
-  schedule();
-
-  const endNavigation = () => {
-    clearTimeout(navigationTimer);
-    navigating = false;
-    schedule();
-  };
-  const beginNavigation = () => {
-    navigating = true;
-    clearTimeout(navigationTimer);
-    navigationTimer = window.setTimeout(endNavigation, 180);
-  };
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (navigating) {
-        clearTimeout(navigationTimer);
-        navigationTimer = window.setTimeout(endNavigation, 120);
-      }
-      schedule();
-    },
-    { passive: true, signal }
-  );
-  window.addEventListener(
-    "scrollend",
-    () => {
-      if (navigating) endNavigation();
-    },
-    { signal }
-  );
-  window.addEventListener("resize", schedule, { passive: true, signal });
-  window.addEventListener("load", schedule, { once: true, signal });
-  void document.fonts?.ready.then(schedule);
-  let resizeObserver: ResizeObserver | undefined;
-  if ("ResizeObserver" in window) {
-    resizeObserver = new ResizeObserver(schedule);
-    resizeObserver.observe(root);
-  }
 
   const settleInteraction = (event: Event) => {
     if (!(event.target instanceof Node)) return;
@@ -237,112 +136,48 @@ export function setupSupplierScroll({
     passive: true,
     signal,
   });
-  root.addEventListener(
-    "click",
-    (event) => {
-      if (
-        !(event.target instanceof Element) ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      )
-        return;
-      const link = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
-      if (link && root.contains(link)) beginNavigation();
-    },
-    { signal }
-  );
-  window.addEventListener("hashchange", beginNavigation, { signal });
-  window.addEventListener(
-    "wheel",
-    () => {
-      if (navigating) endNavigation();
-    },
-    { passive: true, signal }
-  );
-  window.addEventListener(
-    "touchstart",
-    () => {
-      if (navigating) endNavigation();
-    },
-    { passive: true, signal }
-  );
-  root.addEventListener(
-    "keydown",
-    (event) => {
-      if (
-        navigating &&
-        [
-          "ArrowDown",
-          "ArrowUp",
-          "PageDown",
-          "PageUp",
-          "Home",
-          "End",
-          " ",
-        ].includes(event.key)
-      )
-        endNavigation();
-    },
-    { signal }
-  );
   root.querySelector(".fp-filters")?.addEventListener(
     "click",
     () => {
+      // Product switching has its own compact transition, never two animations.
       targets.forEach((item) => {
         if (item.element.closest(".fp-section")) finish(item);
       });
-      schedule();
     },
     { signal }
   );
   const applyPreference = () => {
     if (quiet()) targets.forEach(finish);
-    else
-      sections.forEach((group) => {
-        const bounds = group.element.getBoundingClientRect();
-        if (bounds.bottom < -120 || bounds.top > innerHeight + 120)
-          group.items.forEach(prepare);
-      });
-    schedule();
   };
   reduced.addEventListener("change", applyPreference, { signal });
   root.addEventListener(SUPPLIER_MOTION_EVENT, applyPreference, { signal });
   document.addEventListener(
     "visibilitychange",
     () => {
-      if (document.hidden) {
-        cancelAnimationFrame(frame);
-        frame = 0;
-        targets.forEach((item) => {
-          if (item.state === "revealing") finish(item);
-        });
-      } else schedule();
+      targets.forEach((item) => {
+        if (document.hidden) {
+          if (item.animation) finish(item);
+          return;
+        }
+        // Observer notifications can arrive while a background tab is hidden.
+        // Settle anything now visible instead of introducing a delayed entrance.
+        const bounds = item.element.getBoundingClientRect();
+        if (bounds.height > 0 && bounds.top < innerHeight && bounds.bottom > 0)
+          finish(item);
+      });
     },
     { signal }
   );
-  const settlePage = () => {
-    clearTimeout(navigationTimer);
-    navigating = false;
-    cancelAnimationFrame(frame);
-    frame = 0;
-    targets.forEach(finish);
-  };
-  window.addEventListener("pagehide", settlePage, { signal });
-  window.addEventListener(
-    "pageshow",
-    (event) => {
-      if (event.persisted) applyPreference();
-    },
-    { signal }
-  );
+  window.addEventListener("pagehide", () => targets.forEach(finish), {
+    signal,
+  });
+
   return () => {
-    settlePage();
-    resizeObserver?.disconnect();
-    targets.forEach(({ element }) => {
-      delete element.dataset.scrollReveal;
-      delete element.dataset.scrollRevealCount;
+    observer.disconnect();
+    targets.forEach((item) => {
+      item.animation?.cancel();
+      delete item.element.dataset.scrollReveal;
+      delete item.element.dataset.scrollRevealCount;
     });
   };
 }

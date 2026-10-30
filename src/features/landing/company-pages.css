@@ -522,3 +522,206 @@
     transition: none;
   }
 }
+.company-about .company-hero {
+  align-items: start;
+  gap: 64px;
+  padding-block: 12px 48px;
+}
+.company-about .company-hero h1 {
+  font-size: clamp(36px, 4.1vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.12;
+}
+.company-about .company-hero .page-intro {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.company-record {
+  padding: 30px 32px;
+  background: #f3f3ef;
+  border-top: 3px solid #d71920;
+}
+.company-record-label {
+  margin-bottom: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  color: #66686a;
+}
+.company-record h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+.company-record dl {
+  margin-top: 24px;
+}
+.company-record dl > div {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 18px;
+  padding-block: 14px;
+  border-top: 1px solid #d7d8d3;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.company-record dt {
+  color: #66686a;
+}
+.company-record dd {
+  font-weight: 600;
+}
+.company-record-location {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #d7d8d3;
+}
+.company-record-location > svg {
+  color: #bd1720;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.company-record-location strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.company-record-location p {
+  max-width: 360px;
+  margin-top: 7px;
+  color: #62656a;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.company-record .company-page-link {
+  margin-top: 10px;
+}
+.company-about .company-story-grid {
+  border-top: 1px solid #d7d8d3;
+  padding-block: 42px;
+}
+.company-about .company-story-copy h2 {
+  font-size: 30px;
+  letter-spacing: -0.025em;
+}
+.company-about .company-story-copy > p {
+  font-size: 16px;
+}
+.company-activity-section {
+  border-top: 1px solid #d7d8d3;
+  padding-top: 34px;
+}
+.company-activity-heading h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+.company-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 28px;
+}
+.company-activity {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-inline-start: 1px solid #d7d8d3;
+  padding-inline-start: 24px;
+}
+.company-activity:first-child {
+  border: 0;
+  padding-inline-start: 0;
+}
+.company-activity > svg {
+  width: 26px;
+  height: 26px;
+  color: #bd1720;
+  margin-bottom: 18px;
+  stroke-width: 1.5;
+}
+.company-activity h3 {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+.company-activity p {
+  margin-block: 12px 18px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #62656a;
+}
+.company-activity > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-top: auto;
+  min-height: 44px;
+  color: #bd1720;
+  font-size: 14px;
+  font-weight: 600;
+}
+.company-activity > span svg {
+  width: 18px;
+  height: 18px;
+}
+.company-activity:hover h3 {
+  color: #bd1720;
+}
+.company-activity:focus-visible {
+  outline: 2px solid #d71920;
+  outline-offset: 6px;
+}
+@media (max-width: 899px) {
+  .company-about .company-hero {
+    gap: 30px;
+  }
+  .company-activity-grid {
+    gap: 22px;
+  }
+  .company-activity {
+    padding-inline-start: 20px;
+  }
+}
+@media (max-width: 639px) {
+  .company-about .company-hero {
+    padding-bottom: 30px;
+  }
+  .company-record {
+    padding: 24px;
+  }
+  .company-record h2 {
+    font-size: 22px;
+  }
+  .company-record dl > div {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 12px;
+  }
+  .company-about .company-story-copy h2,
+  .company-activity-heading h2 {
+    font-size: 28px;
+  }
+  .company-activity-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .company-activity {
+    border-inline-start: 0;
+    border-top: 1px solid #d7d8d3;
+    padding-inline-start: 0;
+    padding-top: 24px;
+  }
+  .company-activity:first-child {
+    padding-top: 0;
+  }
+}
+html[dir="rtl"] .company-about :is(h1, h2, h3) {
+  letter-spacing: normal;
+  line-height: 1.55;
+}

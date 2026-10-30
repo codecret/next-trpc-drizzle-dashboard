@@ -8,9 +8,14 @@ import {
   createEnquiryLimiter,
 } from "../src/features/contact/server/enquiry-handler";
 import { sendEnquiryMessage } from "../src/features/contact/server/enquiry-message";
+import { sendSmtpEnquiry } from "../src/features/contact/server/enquiry-smtp";
+import { mergeEnquiryProduct } from "../src/features/contact/product-selection";
+import { splitSupplierHomeContent } from "../src/features/landing/supplier-home-content";
+import markup from "../src/features/landing/supplier-home-markup.json";
 
 const values = {
   name: "Example Buyer",
+  division: "toshiba" as const,
   email: "buyer@example.com",
   company: "Example Company",
   product: "AA batteries",
@@ -54,6 +59,8 @@ test("valid enquiry reaches delivery with normalized optional fields", async () 
       called = true;
       assert.equal(submitted.name, values.name);
       assert.equal(submitted.company, "");
+      assert.equal(submitted.phone, "");
+      assert.equal(submitted.division, "");
       assert.equal(submitted.destination, "");
       assert.equal(submitted.website, "");
       assert.equal(id, requestId);
@@ -72,6 +79,46 @@ test("valid enquiry reaches delivery with normalized optional fields", async () 
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { success: true });
   assert.equal(called, true);
+});
+
+test("optional phone is normalized and included in the delivery message", async () => {
+  const phone = "+971 50 123 4567";
+  let delivered = false;
+  const endpoint = handler({
+    deliver: async (submitted, id) => {
+      delivered = true;
+      assert.equal(submitted.phone, phone);
+      return sendEnquiryMessage({
+        values: submitted,
+        requestId: id,
+        from: "website@example.com",
+        to: "sales@example.com",
+        send: async (mail) => {
+          assert.match(mail.text ?? "", /Phone: \+971 50 123 4567/);
+          assert.equal(mail.replyTo, values.email);
+          return {
+            data: { id: "mock-phone-email" },
+            error: null,
+            headers: null,
+          };
+        },
+      });
+    },
+  });
+  const response = await endpoint(request({ ...payload, phone: ` ${phone} ` }));
+  assert.equal(response.status, 200);
+  assert.equal(delivered, true);
+  assert.equal(createEnquirySchema().safeParse(values).success, true);
+  assert.equal(
+    createEnquirySchema().safeParse({ ...values, phone: "1".repeat(50) })
+      .success,
+    true
+  );
+  assert.equal(
+    createEnquirySchema().safeParse({ ...values, phone: "1".repeat(51) })
+      .success,
+    false
+  );
 });
 
 test("missing configuration never invokes delivery or claims success", async () => {
@@ -148,9 +195,11 @@ test("invalid fields, filled honeypot and non-UUID request IDs are rejected", as
     { name: "" },
     { message: "short" },
     { destination: "x".repeat(151) },
+    { phone: "1".repeat(51) },
     { website: "https://spam.example" },
     { requestId: "not-a-uuid" },
     { recipient: "someone-else@example.com" },
+    { division: "unrecognised" },
   ]) {
     await expectError(
       await endpoint(request({ ...payload, ...change })),
@@ -216,6 +265,7 @@ test("delivery uses fixed routing, plain text and request idempotency", async ()
       assert.equal(email.to, "sales@example.com");
       assert.equal(email.replyTo, values.email);
       assert.match(email.text ?? "", /Destination: Dubai/);
+      assert.match(email.text ?? "", /Division: toshiba/);
       assert.match(email.text ?? "", /Please provide a quotation/);
       assert.equal(email.html, undefined);
       assert.equal(options.idempotencyKey, `sfgt-enquiry/${requestId}`);
@@ -223,6 +273,86 @@ test("delivery uses fixed routing, plain text and request idempotency", async ()
     },
   });
   assert.equal(sent, true);
+});
+
+test("product selection retains previous products and prevents duplicates", () => {
+  assert.equal(
+    mergeEnquiryProduct("High Power AA", "Alpha Power AAA"),
+    "High Power AA; Alpha Power AAA"
+  );
+  assert.equal(
+    mergeEnquiryProduct("High Power AA; Alpha Power AAA", " High Power AA "),
+    "High Power AA; Alpha Power AAA"
+  );
+  assert.equal(mergeEnquiryProduct("High Power AA", ""), "High Power AA");
+});
+
+test("both homepage locales provide balanced fragments for the shared React form", () => {
+  for (const locale of ["en", "ar"] as const) {
+    const sections = splitSupplierHomeContent(markup[locale]);
+    assert.match(sections.header, /<header/);
+    assert.match(sections.sections, /id="toshiba-products"/);
+    assert.match(sections.quoteCopy, /id="quote-heading"/);
+    assert.match(sections.footer, /<footer/);
+    assert.doesNotMatch(
+      sections.sections,
+      /id="preview-enquiry"|id="quotation"/
+    );
+    assert.doesNotMatch(sections.quoteCopy, /<form\b|data-supplier-enquiry/);
+  }
+  assert.throws(() => splitSupplierHomeContent("<main>broken</main>"));
+});
+
+test("SMTP sends fixed routing and confirms only accepted company recipient", async () => {
+  const input = {
+    values,
+    requestId,
+    from: "website@example.com",
+    to: "sales@example.com",
+  };
+  assert.equal(
+    await sendSmtpEnquiry({
+      ...input,
+      send: async (mail) => {
+        assert.equal(mail.from, input.from);
+        assert.equal(mail.to, input.to);
+        assert.equal(mail.replyTo, values.email);
+        assert.equal(mail.messageId, `<sfgt-enquiry-${requestId}@example.com>`);
+        assert.match(String(mail.text), /Division: toshiba/);
+        assert.equal(mail.disableFileAccess, true);
+        assert.equal(mail.disableUrlAccess, true);
+        return {
+          messageId: "accepted-message",
+          accepted: [input.to],
+          rejected: [],
+        };
+      },
+    }),
+    true
+  );
+  for (const result of [
+    { messageId: "generated-but-rejected", accepted: [], rejected: [input.to] },
+    {
+      messageId: "accepted-other-address",
+      accepted: ["other@example.com"],
+      rejected: [],
+    },
+    { messageId: "", accepted: [input.to], rejected: [] },
+  ]) {
+    assert.equal(
+      await sendSmtpEnquiry({ ...input, send: async () => result }),
+      false
+    );
+  }
+  assert.equal(
+    await sendSmtpEnquiry({
+      ...input,
+      send: async () => {
+        throw new Error("SMTP unavailable");
+      },
+    }),
+    false
+  );
 });
 
 test("SDK error results, missing IDs and thrown failures do not count as sent", async () => {

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Menu } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,8 @@ type MenuGroup = {
   href: string;
   children: { title: string; href: string }[];
 };
-export function Navbar({
+
+export function SiteNavbar({
   logo,
   groups,
 }: {
@@ -47,57 +48,141 @@ export function Navbar({
   const t = useTranslations("Website.nav");
   const locale = useLocale();
   const pathname = usePathname();
+  const isArabic = locale === "ar";
   const [open, setOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const updateScrolled = () => setScrolled(window.scrollY > 8);
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, []);
+  const quoteLabel = isArabic ? "اطلب عرض سعر" : "Request a quote";
+  const rangesLabel = isArabic ? "تصفّح فئات المنتجات" : "View product ranges";
+  const quoteHref = pathname === "/" ? "/#quotation" : "/contact";
   const links = [
-    { label: t("about"), href: "/about" },
-    { label: t("services"), href: "/services" },
-    { label: t("support"), href: "/support" },
+    { label: isArabic ? "خدماتنا" : "Our services", href: "/services" },
+    { label: isArabic ? "من نحن" : "About", href: "/about" },
+    { label: isArabic ? "الموارد" : "Resources", href: "/support" },
+    { label: t("contact"), href: "/contact" },
   ];
-  const logoLink = (
-    <Link
-      href="/"
-      aria-label="Sulemane Faruk General Trading LLC — Home"
-      onClick={() => setOpen(false)}
-      className="brand-logo"
-    >
-      <Image
-        src={logo}
-        width={190}
-        height={56}
-        alt="Sulemane Faruk General Trading LLC"
-        priority
-        className="brand-logo-image"
-        sizes="(max-width: 639px) 148px, 174px"
-      />
-    </Link>
-  );
+  const productRoutes = [
+    {
+      brand: "Toshiba",
+      title:
+        groups.find((group) => group.href === "/products/batteries")?.title ??
+        (isArabic
+          ? "البطاريات والطاقة المحمولة"
+          : "Batteries & portable power"),
+      href: "/products/batteries",
+    },
+    {
+      brand: "Toshiba",
+      title:
+        groups.find((group) => group.href === "/products/led-lighting")
+          ?.title ?? (isArabic ? "إضاءة LED" : "LED lighting"),
+      href: "/products/led-lighting",
+    },
+    {
+      brand: "Tekbatt",
+      title: isArabic ? "مجموعات البطاريات" : "Battery ranges",
+      href: "/#tekbatt",
+    },
+    {
+      brand: isArabic ? "التجارة العامة" : "General trading",
+      title:
+        groups.find((group) => group.href === "/products/commodities")?.title ??
+        (isArabic ? "السلع والمستلزمات" : "Commodities & supplies"),
+      href: "/products/commodities",
+    },
+  ];
+  const industriesLabel = isArabic ? "القطاعات" : "Industries";
+  const industryRoutes = [
+    {
+      title: isArabic ? "التجزئة والجملة" : "Retail & wholesale",
+      detail: isArabic
+        ? "البطاريات والطاقة المحمولة"
+        : "Batteries & portable power",
+      href: "/products/batteries",
+    },
+    {
+      title: isArabic ? "الإضاءة والمشاريع" : "Lighting & projects",
+      detail: isArabic
+        ? "مصابيح وأنابيب وإضاءة LED"
+        : "LED lamps, tubes & fixtures",
+      href: "/products/led-lighting",
+    },
+    {
+      title: isArabic ? "الأغذية والمشروبات" : "Food & beverage",
+      detail: isArabic
+        ? "السلع الغذائية والمستلزمات"
+        : "Food commodities & supplies",
+      href: "/products/commodities",
+    },
+    {
+      title: isArabic ? "الصناعة والتصنيع" : "Industry & manufacturing",
+      detail: isArabic ? "المواد الكيميائية" : "Chemical supplies",
+      href: "/products/chemicals",
+    },
+    {
+      title: isArabic ? "البناء والتشييد" : "Construction",
+      detail: isArabic ? "مواد البناء" : "Construction materials",
+      href: "/products/construction-materials",
+    },
+    {
+      title: isArabic ? "الضيافة" : "Hospitality",
+      detail: isArabic ? "مستلزمات الضيافة" : "Hospitality supplies",
+      href: "/products/hospitality",
+    },
+  ];
+  const closeMenus = () => {
+    setOpen(false);
+    setProductsOpen("");
+  };
+
   return (
-    <header className="site-header sticky top-0 z-40">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground"
-      >
+    <header
+      className="site-header public-surface"
+      data-scrolled={scrolled || undefined}
+    >
+      <a href="#main-content" className="site-skip-link">
         {t("skip")}
       </a>
-      <div className="site-container site-header-inner">
-        {logoLink}
-        <nav
-          aria-label={t("menu")}
-          className="header-navigation hidden items-center xl:flex"
+      <div className="site-header-inner">
+        <Link
+          href="/"
+          aria-label={
+            isArabic
+              ? "سليمان فاروق للتجارة العامة — الرئيسية"
+              : "Sulemane Faruk General Trading LLC — Home"
+          }
+          onClick={closeMenus}
+          className="brand-logo"
         >
-          <Link
-            href="/"
-            aria-current={pathname === "/" ? "page" : undefined}
-            className="nav-link"
-          >
-            {t("home")}
-          </Link>
+          <Image
+            src={logo}
+            width={190}
+            height={56}
+            alt="Sulemane Faruk General Trading LLC"
+            priority
+            className="brand-logo-image"
+            sizes="(max-width: 639px) 148px, 170px"
+          />
+        </Link>
+
+        <nav
+          aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}
+          className="header-navigation"
+        >
           <NavigationMenu
             className="site-mega-menu"
-            dir={locale === "ar" ? "rtl" : "ltr"}
+            dir={isArabic ? "rtl" : "ltr"}
+            value={productsOpen}
+            onValueChange={setProductsOpen}
           >
             <NavigationMenuList>
-              <NavigationMenuItem>
+              <NavigationMenuItem value="products">
                 <NavigationMenuTrigger
                   className="header-products-trigger"
                   data-current={pathname.startsWith("/products") || undefined}
@@ -106,52 +191,64 @@ export function Navbar({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="mega-menu-panel">
+                    <div className="mega-menu-routes">
+                      {productRoutes.map((route) => (
+                        <NavigationMenuLink asChild key={route.href}>
+                          <Link
+                            href={route.href}
+                            className="mega-menu-route"
+                            aria-current={
+                              pathname === route.href ? "page" : undefined
+                            }
+                            onClick={closeMenus}
+                          >
+                            <span className="mega-menu-route-brand">
+                              {route.brand}
+                            </span>
+                            <span className="mega-menu-route-title">
+                              {route.title}
+                            </span>
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
                     <NavigationMenuLink asChild>
                       <Link
                         href="/products"
                         className="mega-menu-overview"
-                        aria-current={
-                          pathname === "/products" ? "page" : undefined
-                        }
+                        onClick={closeMenus}
                       >
-                        {t("allProducts")}
-                        <ArrowUpRight className="size-4" />
+                        {rangesLabel}
+                        <ArrowRight className="size-4" aria-hidden="true" />
                       </Link>
                     </NavigationMenuLink>
-                    <div className="mega-menu-groups">
-                      {groups.map((group) => (
-                        <div key={group.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={group.href}
-                              className="mega-menu-group-title"
-                              aria-current={
-                                pathname === group.href ? "page" : undefined
-                              }
-                            >
-                              {group.title}
-                            </Link>
-                          </NavigationMenuLink>
-                          <ul className="mega-menu-links">
-                            {group.children.map((item) => (
-                              <li key={item.href}>
-                                <NavigationMenuLink asChild>
-                                  <Link
-                                    href={item.href}
-                                    className="mega-menu-link"
-                                    aria-current={
-                                      pathname === item.href
-                                        ? "page"
-                                        : undefined
-                                    }
-                                  >
-                                    {item.title}
-                                  </Link>
-                                </NavigationMenuLink>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem value="industries">
+                <NavigationMenuTrigger className="header-products-trigger">
+                  {industriesLabel}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="mega-menu-panel industry-menu-panel">
+                    <div className="mega-menu-routes">
+                      {industryRoutes.map((route) => (
+                        <NavigationMenuLink asChild key={route.href}>
+                          <Link
+                            href={route.href}
+                            className="mega-menu-route"
+                            onClick={closeMenus}
+                          >
+                            <span className="mega-menu-route-title">
+                              {route.title}
+                            </span>
+                            <span className="mega-menu-route-brand">
+                              {route.detail}
+                            </span>
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                          </Link>
+                        </NavigationMenuLink>
                       ))}
                     </div>
                   </div>
@@ -165,31 +262,32 @@ export function Navbar({
               href={link.href}
               aria-current={pathname === link.href ? "page" : undefined}
               className="nav-link"
+              onClick={closeMenus}
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="header-actions hidden items-center xl:flex">
+
+        <div className="header-actions header-desktop-actions">
           <ProductSearch groups={groups} />
           <LocaleSwitcher />
-          <Button asChild size="sm" className="site-button header-contact">
-            <Link
-              href="/contact"
-              aria-current={pathname === "/contact" ? "page" : undefined}
-            >
-              {t("contact")}
-              <ArrowUpRight className="size-4" />
-            </Link>
-          </Button>
+          <Link
+            href={quoteHref}
+            className="header-quote-link"
+            onClick={closeMenus}
+          >
+            {quoteLabel}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </div>
-        <div className="header-actions flex items-center xl:hidden">
+        <div className="header-actions header-mobile-actions">
           <ProductSearch groups={groups} />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
                 size="icon"
-                variant="outline"
+                variant="ghost"
                 className="header-menu-button"
                 aria-label={t("menu")}
               >
@@ -197,88 +295,102 @@ export function Navbar({
               </Button>
             </SheetTrigger>
             <SheetContent
-              side={locale === "ar" ? "left" : "right"}
+              side={isArabic ? "left" : "right"}
               className="public-surface mobile-navigation"
               closeLabel={t("close")}
+              data-mobile-navigation
             >
               <SheetHeader className="mobile-navigation-heading">
                 <SheetTitle>SFGT</SheetTitle>
                 <SheetDescription>
-                  Sulemane Faruk General Trading LLC
+                  {isArabic
+                    ? "سليمان فاروق للتجارة العامة ذ.م.م"
+                    : "Sulemane Faruk General Trading LLC"}
                 </SheetDescription>
               </SheetHeader>
-              <nav className="mobile-navigation-links" aria-label={t("menu")}>
+              <nav
+                className="mobile-navigation-links"
+                aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}
+              >
                 <Link
                   href="/"
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenus}
                   className="mobile-navigation-link"
                   aria-current={pathname === "/" ? "page" : undefined}
                 >
                   {t("home")}
                 </Link>
-                <Link
-                  href="/products"
-                  onClick={() => setOpen(false)}
-                  className="mobile-navigation-link"
-                  aria-current={pathname === "/products" ? "page" : undefined}
-                >
-                  {t("allProducts")}
-                </Link>
                 <Accordion type="single" collapsible>
-                  {groups.map((group) => (
-                    <AccordionItem key={group.href} value={group.href}>
-                      <AccordionTrigger className="mobile-group-trigger">
-                        {group.title}
-                      </AccordionTrigger>
-                      <AccordionContent>
+                  <AccordionItem value="products">
+                    <AccordionTrigger className="mobile-group-trigger">
+                      {t("products")}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      {productRoutes.map((route) => (
                         <Link
-                          href={group.href}
-                          onClick={() => setOpen(false)}
-                          className="mobile-group-overview"
+                          key={route.href}
+                          href={route.href}
+                          onClick={closeMenus}
+                          className="mobile-product-route"
                           aria-current={
-                            pathname === group.href ? "page" : undefined
+                            pathname === route.href ? "page" : undefined
                           }
                         >
-                          {group.title} {locale === "ar" ? "←" : "→"}
+                          <span>{route.brand}</span>
+                          {route.title}
                         </Link>
-                        {group.children.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setOpen(false)}
-                            className="mobile-group-link"
-                            aria-current={
-                              pathname === item.href ? "page" : undefined
-                            }
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                      ))}
+                      <Link
+                        href="/products"
+                        onClick={closeMenus}
+                        className="mobile-group-overview"
+                      >
+                        {rangesLabel}{" "}
+                        <ArrowRight className="size-4" aria-hidden="true" />
+                      </Link>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="industries">
+                    <AccordionTrigger className="mobile-group-trigger">
+                      {industriesLabel}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      {industryRoutes.map((route) => (
+                        <Link
+                          key={route.href}
+                          href={route.href}
+                          onClick={closeMenus}
+                          className="mobile-product-route"
+                        >
+                          {route.title}
+                          <span>{route.detail}</span>
+                        </Link>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
                 </Accordion>
                 {links.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenus}
                     className="mobile-navigation-link"
                     aria-current={pathname === link.href ? "page" : undefined}
                   >
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  href="/contact"
-                  onClick={() => setOpen(false)}
-                  className="mobile-navigation-link mobile-contact-link"
-                  aria-current={pathname === "/contact" ? "page" : undefined}
-                >
-                  {t("contact")}
-                </Link>
               </nav>
+              <Link
+                href={quoteHref}
+                onClick={closeMenus}
+                className="header-quote-link mobile-quote-link"
+              >
+                {quoteLabel}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
               <div className="mobile-navigation-preferences">
+                <span>{t("language")}</span>
                 <LocaleSwitcher />
               </div>
             </SheetContent>
@@ -288,3 +400,6 @@ export function Navbar({
     </header>
   );
 }
+
+// Existing public layouts share the same header as the supplier homepage.
+export { SiteNavbar as Navbar };

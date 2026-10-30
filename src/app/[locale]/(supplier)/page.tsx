@@ -1,11 +1,15 @@
 import { getTranslations } from "next-intl/server";
-import { brand, company } from "@/features/catalogue/catalogue";
+import {
+  brand,
+  childrenOf,
+  company,
+  localize,
+} from "@/features/catalogue/catalogue";
+import { SiteNavbar } from "@/features/landing/site-navbar";
 import { JsonLd } from "@/features/catalogue/components/json-ld";
 import { pageMetadata, siteOrigin } from "@/features/catalogue/metadata";
-import { SupplierHomeRuntime } from "@/features/landing/supplier-home-runtime";
-import markup from "@/features/landing/supplier-home-markup.json";
-import "@/features/landing/supplier-home.css";
-import "@/features/landing/supplier-home-refinement.css";
+import { PremiumHome } from "@/features/landing/premium-home";
+import { getEnquiryDeliveryEnabled } from "@/features/contact/server/enquiry-delivery";
 
 export async function generateMetadata({
   params,
@@ -31,12 +35,21 @@ export default async function SupplierHome({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const language = locale === "ar" ? "ar" : "en";
+  const groups = childrenOf().map((category) => ({
+    title: localize(category.name, locale),
+    href: `/products/${category.slug}`,
+    children: childrenOf(category.slug).map((child) => ({
+      title: localize(child.name, locale),
+      href: `/products/${child.slug}`,
+    })),
+  }));
   return (
-    <div className="supplier-home">
-      {/* Trusted, checked-in markup generated from the selected EN/AR preview. */}
-      <div dangerouslySetInnerHTML={{ __html: markup[language] }} />
-      <SupplierHomeRuntime locale={language} />
+    <>
+      <SiteNavbar logo={brand.logo} groups={groups} />
+      <PremiumHome
+        locale={locale}
+        deliveryEnabled={getEnquiryDeliveryEnabled()}
+      />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -56,6 +69,6 @@ export default async function SupplierHome({
           },
         }}
       />
-    </div>
+    </>
   );
 }

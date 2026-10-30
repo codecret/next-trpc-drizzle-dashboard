@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
@@ -24,7 +24,7 @@ export function Footer() {
                 alt={company.name}
                 width={210}
                 height={62}
-                sizes="168px"
+                sizes="180px"
               />
             </Link>
             <p className="industrial-footer-description">
@@ -52,7 +52,16 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <Link href="/products">{t("nav.allProducts")}</Link>
+                <Link href="/#tekbatt">
+                  {locale === "ar" ? "بطاريات Tekbatt" : "Tekbatt batteries"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/products">
+                  {locale === "ar"
+                    ? "تصفّح فئات المنتجات"
+                    : "View product ranges"}
+                </Link>
               </li>
             </ul>
           </div>
@@ -66,6 +75,14 @@ export function Footer() {
               <a href="tel:+97143364633">
                 <Phone aria-hidden="true" />
                 {company.phone}
+              </a>
+              <a
+                href={`https://wa.me/${company.whatsapp.replace(/\D/g, "")}`}
+                className="industrial-footer-whatsapp"
+              >
+                <MessageCircle aria-hidden="true" />
+                <span>{locale === "ar" ? "واتساب" : "WhatsApp"}</span>
+                <bdi>{company.whatsapp}</bdi>
               </a>
               <p>
                 <MapPin aria-hidden="true" />

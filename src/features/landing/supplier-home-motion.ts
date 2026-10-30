@@ -27,7 +27,7 @@ export function setupSupplierMotion({
   ) => {
     if (signal.aborted || motionReduced() || !element?.animate) return null;
     const animation = element.animate(frames, {
-      duration: 620,
+      duration: 360,
       easing: "cubic-bezier(0.22, 1, 0.36, 1)",
       ...options,
     });
@@ -45,14 +45,10 @@ export function setupSupplierMotion({
       )
       .forEach((image) => {
         if (image.getBoundingClientRect().top >= innerHeight * 0.85) return;
-        animate(
-          image,
-          [
-            { opacity: 0.85, transform: "scale(1.025)" },
-            { opacity: 1, transform: "scale(1)" },
-          ],
-          { duration: 900, easing: "cubic-bezier(0.25, 0.1, 0.25, 1)" }
-        );
+        animate(image, [{ opacity: 0.92 }, { opacity: 1 }], {
+          duration: 400,
+          easing: "ease-out",
+        });
       });
   }
 
@@ -94,12 +90,12 @@ export function setupSupplierMotion({
                 image,
                 [
                   {
-                    opacity: 0.2,
-                    transform: `translateX(${isArabic ? -24 : 24}px) scale(0.97)`,
+                    opacity: 0.8,
+                    transform: `translateX(${isArabic ? -6 : 6}px)`,
                   },
-                  { opacity: 1, transform: "translateX(0) scale(1)" },
+                  { opacity: 1, transform: "translateX(0)" },
                 ],
-                { duration: 550, delay: index * 65, fill: "backwards" }
+                { duration: 260, delay: index * 25, fill: "backwards" }
               )
             );
           });
@@ -117,111 +113,6 @@ export function setupSupplierMotion({
       track.remove();
       filters.classList.remove("motion-filters");
     });
-  }
-
-  const form = root.querySelector<HTMLFormElement>("#preview-enquiry");
-  const productField = form?.elements.namedItem("product");
-  if (form && productField instanceof HTMLInputElement) {
-    const catalogue = new Map<
-      string,
-      { image: string; name: string; model: string }
-    >();
-    root
-      .querySelectorAll<HTMLAnchorElement>(".fp-enquire[data-enquiry-product]")
-      .forEach((link) => {
-        const card = link.closest(".fp-card");
-        const key = link.dataset.enquiryProduct;
-        const image = card
-          ?.querySelector(".fp-product-image img")
-          ?.getAttribute("src");
-        if (key && image)
-          catalogue.set(key, {
-            image,
-            name: card?.querySelector("h3")?.textContent?.trim() ?? "",
-            model: card?.querySelector(".fp-model")?.textContent?.trim() ?? "",
-          });
-      });
-    const slip = document.createElement("div");
-    slip.className = "quote-selection";
-    slip.hidden = true;
-    slip.setAttribute("aria-hidden", "true");
-    const photo = document.createElement("img");
-    photo.alt = "";
-    const copy = document.createElement("div");
-    const eyebrow = document.createElement("small");
-    eyebrow.textContent = isArabic
-      ? "تمت الإضافة إلى استفسارك"
-      : "Added to your enquiry";
-    const name = document.createElement("strong");
-    const model = document.createElement("span");
-    name.dir = model.dir = "ltr";
-    name.lang = model.lang = "en";
-    copy.append(eyebrow, name, model);
-    const check = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    check.setAttribute("viewBox", "0 0 24 24");
-    check.setAttribute("fill", "none");
-    check.setAttribute("stroke", "currentColor");
-    check.setAttribute("stroke-width", "1.5");
-    const checkPath = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "path"
-    );
-    checkPath.setAttribute("d", "M4 12.5 9 17.5 20 6.5");
-    check.append(checkPath);
-    slip.append(photo, copy, check);
-    productField.after(slip);
-    disposers.push(() => slip.remove());
-    let selected = "";
-    form.addEventListener(
-      "enquiry:prefilled",
-      (event) => {
-        const detail = (event as CustomEvent<{ product?: string }>).detail;
-        if (!detail || typeof detail.product !== "string") return;
-        const item = catalogue.get(detail.product);
-        if (!item) return;
-        selected = detail.product;
-        photo.src = item.image;
-        name.textContent = item.name;
-        model.textContent = item.model;
-        slip.hidden = false;
-        animate(
-          slip,
-          [
-            {
-              opacity: 0,
-              transform: "translateY(-10px) rotate(-1deg) scale(0.97)",
-            },
-            { opacity: 1, transform: "translateY(0) rotate(0) scale(1)" },
-          ],
-          { duration: 600 }
-        );
-        if (typeof checkPath.getTotalLength === "function") {
-          const length = checkPath.getTotalLength();
-          animate(
-            checkPath,
-            [
-              { strokeDasharray: `${length}`, strokeDashoffset: length },
-              { strokeDasharray: `${length}`, strokeDashoffset: 0 },
-            ],
-            { duration: 400, delay: 180, fill: "backwards" }
-          );
-        }
-      },
-      { signal }
-    );
-    productField.addEventListener(
-      "input",
-      () => {
-        if (
-          !productField.value
-            .split(";")
-            .map((value) => value.trim())
-            .includes(selected)
-        )
-          slip.hidden = true;
-      },
-      { signal }
-    );
   }
 
   const toggle = document.createElement("button");

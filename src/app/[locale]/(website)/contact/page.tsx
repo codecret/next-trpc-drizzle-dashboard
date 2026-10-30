@@ -94,10 +94,6 @@ export default async function ContactPage({ searchParams }: Props) {
           deliveryEnabled={getEnquiryDeliveryEnabled()}
         />
         <div className="contact-details">
-          <div className="contact-direct">
-            <p className="eyebrow">{ui("talkToTeam")}</p>
-            <p>{ui("contactHelp")}</p>
-          </div>
           <section className="contact-office">
             <MapPin
               className="mb-4 size-5 text-muted-foreground"

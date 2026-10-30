@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  IBM_Plex_Sans_Arabic,
+  Manrope,
+} from "next/font/google";
 import "./globals.css";
 import "./rtl.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -15,6 +20,13 @@ import { siteOrigin } from "@/features/catalogue/metadata";
 const publicFont = Manrope({
   variable: "--font-public",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const arabicFont = IBM_Plex_Sans_Arabic({
+  variable: "--font-arabic",
+  weight: ["400", "500", "600", "700"],
+  subsets: ["arabic", "latin"],
   display: "swap",
 });
 
@@ -62,7 +74,7 @@ export default async function Layout({
       className="light"
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${publicFont.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${publicFont.variable} ${arabicFont.variable} antialiased`}
       >
         <TRPCProvider>
           <ThemeProvider

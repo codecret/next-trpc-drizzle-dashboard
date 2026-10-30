@@ -1,11 +1,10 @@
-import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import {
   ArrowRight,
-  Building2,
-  Compass,
-  Handshake,
-  Headphones,
+  ArrowUpRight,
+  Battery,
+  Boxes,
+  Lightbulb,
   MapPin,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -36,15 +35,15 @@ export default async function AboutPage() {
   const t = await getTranslations("Website.about");
   const site = await getTranslations("Website");
   const locale = await getLocale();
-  const principles = [
-    { key: "values", Icon: Handshake },
-    { key: "vision", Icon: Compass },
-    { key: "mission", Icon: Headphones },
+  const activities = [
+    { key: "toshiba", Icon: Lightbulb, href: "/#toshiba-products" },
+    { key: "tekbatt", Icon: Battery, href: "/#tekbatt" },
+    { key: "commodities", Icon: Boxes, href: "/products/commodities" },
   ];
 
   return (
     <>
-      <div className="site-container company-page">
+      <div className="site-container company-page company-about">
         <Breadcrumbs
           locale={locale}
           items={[
@@ -72,44 +71,48 @@ export default async function AboutPage() {
               </Link>
             </div>
           </div>
-          <figure className="company-hero-visual">
-            <Image
-              src="/images/campaign/hero-dubai-v1.png"
-              alt={site("reference.heroImageAlt")}
-              width={1448}
-              height={1086}
-              priority
-              sizes="(min-width: 1280px) 540px, (min-width: 900px) 44vw, 90vw"
-            />
-            <figcaption>
-              <span>TOSHIBA</span>
-              {site("reference.heroImageCaption")}
-            </figcaption>
-          </figure>
+          <aside
+            className="company-record"
+            aria-labelledby="company-record-title"
+          >
+            <p className="company-record-label">{t("profileLabel")}</p>
+            <h2 id="company-record-title">
+              Sulemane Faruk
+              <br />
+              General Trading LLC
+            </h2>
+            <dl>
+              <div>
+                <dt>{site("design.established")}</dt>
+                <dd>2013</dd>
+              </div>
+              <div>
+                <dt>{t("profileBase")}</dt>
+                <dd>{site("design.locationShort")}</dd>
+              </div>
+              <div>
+                <dt>{t("profileActivity")}</dt>
+                <dd>{t("profileActivityValue")}</dd>
+              </div>
+            </dl>
+            <div className="company-record-location">
+              <MapPin size={20} aria-hidden="true" />
+              <div>
+                <strong>{t("profileOffice")}</strong>
+                <p>{t("profileAddress")}</p>
+              </div>
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Al+Qusais+Industrial+Area+1+Dubai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="company-page-link"
+            >
+              {t("viewArea")}
+              <ArrowUpRight aria-hidden="true" />
+            </a>
+          </aside>
         </div>
-        <dl className="company-facts">
-          <div>
-            <dt>
-              <Building2 aria-hidden="true" />
-              {site("design.established")}
-            </dt>
-            <dd>2013</dd>
-          </div>
-          <div>
-            <dt>
-              <MapPin aria-hidden="true" />
-              {site("design.locationLabel")}
-            </dt>
-            <dd>{site("design.locationShort")}</dd>
-          </div>
-          <div>
-            <dt>
-              <Handshake aria-hidden="true" />
-              {site("reference.partnerships")}
-            </dt>
-            <dd>{site("reference.trust")}</dd>
-          </div>
-        </dl>
         <div className="company-story-grid company-story-with-footprint">
           <div className="company-story-narrative">
             <section className="company-story-copy">
@@ -127,15 +130,28 @@ export default async function AboutPage() {
           </div>
           <MarketFootprint />
         </div>
-        <div className="company-principles">
-          {principles.map(({ key, Icon }) => (
-            <section key={key}>
-              <Icon aria-hidden="true" />
-              <h2>{t(key)}</h2>
-              <p>{t(`${key}Text`)}</p>
-            </section>
-          ))}
-        </div>
+        <section
+          className="company-activity-section"
+          aria-labelledby="company-activity-heading"
+        >
+          <div className="company-activity-heading">
+            <p className="company-section-label">{t("activityLabel")}</p>
+            <h2 id="company-activity-heading">{t("activityTitle")}</h2>
+          </div>
+          <div className="company-activity-grid">
+            {activities.map(({ key, Icon, href }) => (
+              <Link key={key} href={href} className="company-activity">
+                <Icon aria-hidden="true" />
+                <h3>{t(`activities.${key}.title`)}</h3>
+                <p>{t(`activities.${key}.description`)}</p>
+                <span>
+                  {t("viewRange")}
+                  <ArrowRight aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
       <ContactBanner />
     </>

@@ -112,6 +112,7 @@ export async function CatalogueBrowser({
     const params = new URLSearchParams();
     for (const key of ["q", "category", "family", "sort", "page"] as const)
       if (state[key]) params.set(key, state[key]!);
+    if (!category && !params.size) params.set("view", "all");
     return basePath + (params.size ? `?${params}` : "") + "#catalogue-results";
   }
   function rangeRows(
@@ -354,7 +355,11 @@ export async function CatalogueBrowser({
                     ))}
                   </ul>
                   <Link
-                    href={basePath + "#catalogue-results"}
+                    href={
+                      basePath +
+                      (category ? "" : "?view=all") +
+                      "#catalogue-results"
+                    }
                     className="battery-clear"
                   >
                     {t("clear")}
@@ -376,7 +381,13 @@ export async function CatalogueBrowser({
                   <Search size={28} aria-hidden="true" />
                   <h3>{t("emptyTitle")}</h3>
                   <p>{t("emptyDescription")}</p>
-                  <Link href={basePath + "#catalogue-results"}>
+                  <Link
+                    href={
+                      basePath +
+                      (category ? "" : "?view=all") +
+                      "#catalogue-results"
+                    }
+                  >
                     {t("reset")}
                     <ArrowRight size={16} aria-hidden="true" />
                   </Link>

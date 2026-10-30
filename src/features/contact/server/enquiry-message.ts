@@ -23,18 +23,7 @@ export async function sendEnquiryMessage({
   to: string;
   send: SendEmail;
 }): Promise<boolean> {
-  const text = [
-    "New enquiry from the SFGT website",
-    "",
-    `Name: ${values.name}`,
-    `Email: ${values.email}`,
-    `Company: ${values.company || "Not provided"}`,
-    `Product: ${values.product || "Not provided"}`,
-    `Quantity: ${values.quantity || "Not provided"}`,
-    `Destination: ${values.destination || "Not provided"}`,
-    "",
-    values.message,
-  ].join("\n");
+  const text = formatEnquiryMessage(values);
 
   try {
     const result = await send(
@@ -53,4 +42,21 @@ export async function sendEnquiryMessage({
     // Do not log enquiry contents or expose provider details to visitors.
     return false;
   }
+}
+
+export function formatEnquiryMessage(values: EnquiryValues): string {
+  return [
+    "New enquiry from the SFGT website",
+    "",
+    `Name: ${values.name}`,
+    `Email: ${values.email}`,
+    `Phone: ${values.phone || "Not provided"}`,
+    `Division: ${values.division || "General enquiry"}`,
+    `Company: ${values.company || "Not provided"}`,
+    `Product: ${values.product || "Not provided"}`,
+    `Quantity: ${values.quantity || "Not provided"}`,
+    `Destination: ${values.destination || "Not provided"}`,
+    "",
+    values.message,
+  ].join("\n");
 }

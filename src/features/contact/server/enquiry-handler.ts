@@ -138,7 +138,9 @@ export function createEnquiryHandler({
       return failure("INVALID_INPUT", 400);
     }
     const parsed = submissionSchema.safeParse({
+      division: "",
       company: "",
+      phone: "",
       product: "",
       quantity: "",
       destination: "",
