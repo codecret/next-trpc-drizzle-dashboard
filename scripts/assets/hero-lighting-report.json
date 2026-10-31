@@ -1,0 +1,12 @@
+{
+  "source": "public/images/premium-home/hero-dubai.webp",
+  "sourceSha256": "64a1cc4026a0ccf2015801f0c591ba1ce32ca9710cde39f787ddb4ab89c2474f",
+  "width": 2172,
+  "height": 724,
+  "changedPixels": 162490,
+  "unchangedPixels": 1410038,
+  "outsideChanges": 0,
+  "geometryResampled": false,
+  "encoding": "lossless WebP",
+  "method": "Original pixels plus material-masked low-frequency lighting; no generated photo pixels used"
+}

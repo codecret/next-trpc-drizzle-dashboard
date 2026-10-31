@@ -14,6 +14,7 @@ import { PremiumProducts, ToshibaShowcase } from "./premium-products";
 import {
   PremiumCompany,
   PremiumFooter,
+  PremiumProcess,
   PremiumQuotation,
   PremiumServices,
 } from "./premium-company";
@@ -88,7 +89,7 @@ export async function PremiumHome({
         <section className="premium-hero" aria-labelledby="hero-heading">
           <div className="premium-hero-art">
             <Image
-              src="/images/premium-home/hero-dubai.webp"
+              src="/images/premium-home/hero-dubai-off.webp"
               alt={t("hero.imageAlt")}
               fill
               priority
@@ -261,6 +262,7 @@ export async function PremiumHome({
 
         <PremiumCompany locale={locale} />
         <PremiumServices locale={locale} />
+        <PremiumProcess locale={locale} />
         <PremiumQuotation locale={locale} deliveryEnabled={deliveryEnabled} />
       </main>
       <PremiumFooter locale={locale} />

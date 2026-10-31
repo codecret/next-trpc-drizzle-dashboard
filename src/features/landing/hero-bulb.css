@@ -1,4 +1,4 @@
-/* The plane uses exactly the same cover sizing and position as the photo. */
+/* The plane uses exactly the same cover sizing and position as both photos. */
 .premium-home .premium-hero-art {
   container-type: size;
   pointer-events: none;
@@ -23,138 +23,39 @@
   top: 50%;
   transform: translate(calc(-1 * var(--premium-art-position, 50%)), -50%);
 }
+.premium-home .premium-bulb-on-image,
 .premium-bulb-effects {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  overflow: visible;
   pointer-events: none;
 }
-.bulb-off-shade {
-  opacity: 0.42;
-  mix-blend-mode: multiply;
-  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+.premium-home .premium-bulb-scene .premium-bulb-on-image {
+  /* Cover positioning already happens on the shared source plane. */
+  object-fit: fill;
+  object-position: center;
 }
-:is(
-  .bulb-core,
-  .bulb-edge,
-  .bulb-halo,
-  .bulb-surface-depth,
-  .bulb-housing-reflection,
-  .bulb-body-atmosphere,
-  .bulb-environment,
-  .bulb-metal-reflection
-) {
+.premium-bulb-effects {
+  overflow: visible;
+}
+.premium-bulb-on-image,
+.premium-bulb-ignition-image {
   opacity: 0;
   transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-:is(
-  .bulb-halo,
-  .bulb-housing-shoulder,
-  .bulb-body-atmosphere,
-  .bulb-marble-glint,
-  .bulb-metal-glint
-) {
-  mix-blend-mode: screen;
-}
-.bulb-core,
-.bulb-edge {
-  /* The photograph is already bright. A warm, translucent core retains tonal
-     headroom instead of screening the diffuser toward uniform pure white. */
-  mix-blend-mode: normal;
-}
-.bulb-surface-depth {
-  mix-blend-mode: multiply;
-}
-.bulb-panel-reflection,
-.bulb-marble-bounce {
-  /* Lift the photographed surface while retaining its red pigment, grain
-     and shadows, rather than laying an opaque pool of color over it. */
-  mix-blend-mode: soft-light;
-}
-.bulb-marble-warmth {
-  /* Keep the stone's luminance/veining; the separate glint supplies the lift. */
-  mix-blend-mode: color;
-}
-.bulb-metal-warmth,
-.bulb-housing-warmth {
-  /* Reflected warm light must also tint the photograph's near-white highlights.
-     The source-luminance mask protects lettering, threads and dark grooves. */
-  mix-blend-mode: normal;
-}
-/* Stagger ON transitions, but remove all delays on OFF. Using transitions
-   preserves the current brightness when the visitor switches mid-ignition. */
-.premium-bulb-lighting[data-lit="true"] .bulb-off-shade {
-  opacity: 0.16;
-  transition-duration: 650ms;
-  transition-delay: 350ms;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-surface-depth {
-  opacity: 0.62;
-  transition-duration: 700ms;
-  transition-delay: 350ms;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-core {
-  opacity: 0.94;
+/* The internal diffuser leads. The photographed environmental response then
+   settles at 1.8s. Reversing the state removes both delays and takes 600ms. */
+.premium-bulb-lighting[data-lit="true"] .premium-bulb-ignition-image {
+  opacity: 1;
   transition-duration: 1050ms;
   transition-timing-function: cubic-bezier(0.25, 0.05, 0.3, 1);
 }
-.premium-bulb-lighting[data-lit="true"] .bulb-edge {
-  opacity: 0.8;
-  transition-duration: 850ms;
-  transition-delay: 350ms;
-  transition-timing-function: cubic-bezier(0.32, 0, 0.25, 1);
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-halo {
-  opacity: 0.38;
-  transition-duration: 800ms;
-  transition-delay: 1000ms;
-  transition-timing-function: cubic-bezier(0.32, 0, 0.25, 1);
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-housing-reflection {
-  opacity: 0.84;
-  transition-duration: 950ms;
-  transition-delay: 750ms;
-  transition-timing-function: cubic-bezier(0.32, 0, 0.25, 1);
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-housing-shoulder {
-  opacity: 0.9;
-  transition-duration: 800ms;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-body-atmosphere {
-  opacity: 0.28;
-  transition-duration: 700ms;
-  transition-delay: 1100ms;
-  transition-timing-function: cubic-bezier(0.32, 0, 0.25, 1);
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-environment {
-  opacity: 0.78;
-  transition-duration: 700ms;
-  transition-delay: 1100ms;
-  transition-timing-function: cubic-bezier(0.32, 0, 0.25, 1);
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-panel-reflection {
-  opacity: 0.75;
-  transition-duration: 750ms;
+.premium-bulb-lighting[data-lit="true"] .premium-bulb-on-image {
+  opacity: 1;
+  transition-duration: 1150ms;
   transition-delay: 650ms;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-marble-warmth,
-.premium-bulb-lighting[data-lit="true"] .bulb-marble-bounce {
-  transition-duration: 800ms;
-  transition-delay: 850ms;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-marble-bounce {
-  opacity: 0.5;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-marble-glint {
-  opacity: 0.72;
-  transition-duration: 700ms;
-  transition-delay: 950ms;
-}
-.premium-bulb-lighting[data-lit="true"] .bulb-metal-reflection {
-  opacity: 0.8;
-  transition-duration: 700ms;
-  transition-delay: 1100ms;
   transition-timing-function: cubic-bezier(0.32, 0, 0.25, 1);
 }
 .bulb-hover-light {
@@ -209,16 +110,6 @@
   .premium-bulb-lighting[data-lit="true"]:has(.premium-bulb-switch:hover)
     .bulb-hover-light {
     opacity: 0.065;
-  }
-}
-@media (max-width: 767px) {
-  .premium-bulb-effects {
-    --bulb-glow-strength: 0.7;
-  }
-  .bulb-halo,
-  .bulb-body-atmosphere,
-  .bulb-environment {
-    filter: opacity(var(--bulb-glow-strength));
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -13,6 +13,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { brand, company } from "@/features/catalogue/catalogue";
 import { EnquiryForm } from "@/features/contact/components/enquiry-form";
+import { PremiumSketch } from "./premium-sketch";
 import "./premium-company.css";
 
 type LocaleProps = { locale: string };
@@ -59,14 +60,19 @@ export async function PremiumCompany({ locale }: LocaleProps) {
             <ArrowUpRight size={18} aria-hidden="true" />
           </a>
         </div>
-        <dl className="premium-company-facts">
-          {facts.map((key) => (
-            <div key={key} data-premium-reveal>
-              <dt>{t(`company.facts.${key}.label`)}</dt>
-              <dd>{t(`company.facts.${key}.value`)}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="premium-company-details">
+          <dl className="premium-company-facts">
+            {facts.map((key) => (
+              <div key={key} data-premium-reveal>
+                <dt>{t(`company.facts.${key}.label`)}</dt>
+                <dd>{t(`company.facts.${key}.value`)}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="premium-company-skyline">
+            <PremiumSketch name="dubai" />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -119,6 +125,43 @@ export async function PremiumServices({ locale }: LocaleProps) {
           </Link>
         ))}
       </div>
+    </section>
+  );
+}
+
+export async function PremiumProcess({ locale }: LocaleProps) {
+  const t = await getTranslations({
+    locale,
+    namespace: "Website.premiumCompany.process",
+  });
+  const steps = ["requirements", "quotation", "coordination"] as const;
+
+  return (
+    <section
+      id="how-we-work"
+      className="premium-process premium-container"
+      aria-labelledby="premium-process-title"
+    >
+      <h2
+        id="premium-process-title"
+        className="premium-section-heading"
+        data-premium-reveal
+      >
+        {t("title")}
+      </h2>
+      <ol className="premium-process-steps">
+        {steps.map((step) => (
+          <li key={step}>
+            <div className="premium-process-art">
+              <PremiumSketch name={step} />
+            </div>
+            <div className="premium-process-copy">
+              <h3>{t(`steps.${step}.title`)}</h3>
+              <p>{t(`steps.${step}.description`)}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

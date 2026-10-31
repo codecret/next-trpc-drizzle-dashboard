@@ -1,0 +1,20 @@
+.premium-sketch {
+  width: 100%;
+  aspect-ratio: 240 / 156;
+  pointer-events: none;
+}
+.premium-sketch[data-sketch="dubai"] {
+  aspect-ratio: 600 / 220;
+}
+.premium-sketch > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+@media (prefers-reduced-motion: reduce), print {
+  .premium-sketch path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

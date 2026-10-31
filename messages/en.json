@@ -931,6 +931,23 @@
           "support": "Resources & support",
           "contact": "Contact"
         }
+      },
+      "process": {
+        "title": "How we work",
+        "steps": {
+          "requirements": {
+            "title": "Share your requirements",
+            "description": "Tell us the product, specification, quantity and delivery destination."
+          },
+          "quotation": {
+            "title": "Review your quotation",
+            "description": "Confirm availability, pricing and the terms of your order with our team."
+          },
+          "coordination": {
+            "title": "Coordinate your supply",
+            "description": "Agree on shipment handling and delivery arrangements for your order."
+          }
+        }
       }
     }
   }
