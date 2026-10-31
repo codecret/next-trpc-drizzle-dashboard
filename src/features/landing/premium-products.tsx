@@ -57,7 +57,10 @@ export async function PremiumProducts({ locale }: { locale: string }) {
       aria-labelledby="premium-featured-title"
     >
       <div className="premium-container">
-        <div className="premium-products-heading premium-section-heading">
+        <div
+          className="premium-products-heading premium-section-heading"
+          data-premium-reveal
+        >
           <div>
             <h2 id="premium-featured-title">{t("heading")}</h2>
             <p className="premium-products-description">{t("description")}</p>
@@ -84,6 +87,7 @@ export async function PremiumProducts({ locale }: { locale: string }) {
                 className="premium-product-card"
                 key={product.id}
                 data-product-type={item.type}
+                data-premium-reveal
                 aria-labelledby={`premium-product-${product.id}`}
               >
                 <Link
@@ -187,7 +191,7 @@ export async function ToshibaShowcase({ locale }: { locale: string }) {
       aria-labelledby="premium-toshiba-title"
     >
       <div className="premium-container">
-        <div className="premium-toshiba-banner">
+        <div className="premium-toshiba-banner" data-premium-reveal>
           <div className="premium-toshiba-art" aria-hidden="true">
             <Image
               src="/images/premium-home/toshiba-showcase.webp"

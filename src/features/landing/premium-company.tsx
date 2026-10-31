@@ -35,7 +35,7 @@ export async function PremiumCompany({ locale }: LocaleProps) {
       aria-labelledby="premium-company-title"
     >
       <div className="premium-container premium-company-grid">
-        <div className="premium-company-story">
+        <div className="premium-company-story" data-premium-reveal>
           <h2 id="premium-company-title" className="premium-section-heading">
             {t("company.title")}
           </h2>
@@ -61,7 +61,7 @@ export async function PremiumCompany({ locale }: LocaleProps) {
         </div>
         <dl className="premium-company-facts">
           {facts.map((key) => (
-            <div key={key}>
+            <div key={key} data-premium-reveal>
               <dt>{t(`company.facts.${key}.label`)}</dt>
               <dd>{t(`company.facts.${key}.value`)}</dd>
             </div>
@@ -90,7 +90,7 @@ export async function PremiumServices({ locale }: LocaleProps) {
       aria-labelledby="premium-services-title"
     >
       <div className="premium-container premium-services-grid">
-        <div className="premium-services-intro">
+        <div className="premium-services-intro" data-premium-reveal>
           <div>
             <h2 id="premium-services-title" className="premium-section-heading">
               {t("services.title")}
@@ -103,7 +103,12 @@ export async function PremiumServices({ locale }: LocaleProps) {
           </Link>
         </div>
         {services.map(({ key, Icon, href }) => (
-          <Link key={key} href={href} className="premium-service-card">
+          <Link
+            key={key}
+            href={href}
+            className="premium-service-card"
+            data-premium-reveal
+          >
             <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
             <h3>{t(`services.items.${key}.title`)}</h3>
             <p>{t(`services.items.${key}.description`)}</p>
@@ -135,7 +140,7 @@ export async function PremiumQuotation({
     >
       <div className="premium-container">
         <div className="premium-quote">
-          <div className="premium-quote-copy">
+          <div className="premium-quote-copy" data-premium-reveal>
             <h2 id="quote-heading" className="premium-section-heading">
               {t("quote.title")}
             </h2>
@@ -155,7 +160,7 @@ export async function PremiumQuotation({
               </a>
             </address>
           </div>
-          <div className="premium-quote-form">
+          <div className="premium-quote-form" data-premium-reveal>
             <EnquiryForm
               email={company.email}
               compact

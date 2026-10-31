@@ -18,6 +18,8 @@ import {
   PremiumServices,
 } from "./premium-company";
 import { CategoryNavigation } from "./category-navigation";
+import { PremiumHomeMotion } from "./premium-home-motion";
+import { HeroBulb } from "./hero-bulb";
 import "./premium-home.css";
 
 export async function PremiumHome({
@@ -93,6 +95,7 @@ export async function PremiumHome({
               unoptimized
               sizes="100vw"
             />
+            <HeroBulb />
           </div>
           <div className="premium-container premium-hero-inner">
             <div className="premium-hero-copy">
@@ -161,7 +164,7 @@ export async function PremiumHome({
           id="commodities"
           aria-labelledby="premium-commodities-title"
         >
-          <div className="premium-section-heading">
+          <div className="premium-section-heading" data-premium-reveal>
             <div>
               <h2 id="premium-commodities-title">{t("commodities.title")}</h2>
               <p>{t("commodities.description")}</p>
@@ -177,6 +180,7 @@ export async function PremiumHome({
                 className="premium-commodity-card"
                 key={category.key}
                 href={`/products/${category.slug}`}
+                data-premium-reveal
               >
                 <div className="premium-commodity-image">
                   <Image
@@ -217,7 +221,7 @@ export async function PremiumHome({
           id="tekbatt"
           aria-labelledby="premium-tekbatt-title"
         >
-          <div className="premium-tekbatt-copy">
+          <div className="premium-tekbatt-copy" data-premium-reveal>
             <h2 id="premium-tekbatt-title">{t("tekbatt.title")}</h2>
             <p>{t("tekbatt.description")}</p>
             <a
@@ -237,6 +241,7 @@ export async function PremiumHome({
                 target="_blank"
                 rel="noopener noreferrer"
                 key={item.key}
+                data-premium-reveal
               >
                 <Image
                   src={`/images/supplier-home/tekbatt/${item.image}`}
@@ -279,6 +284,7 @@ export async function PremiumHome({
           <Phone aria-hidden="true" />
         </a>
       </nav>
+      <PremiumHomeMotion />
     </div>
   );
 }

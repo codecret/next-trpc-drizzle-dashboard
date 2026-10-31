@@ -737,6 +737,10 @@
       "viewAll": "View all products",
       "hero": {
         "imageAlt": "Toshiba battery and LED bulb on a stone podium with the Dubai skyline",
+        "bulbLabel": "Bulb illumination",
+        "bulbOn": "Switch the bulb on",
+        "bulbOff": "Switch the bulb off",
+        "bulbHint": "Activate to switch the bulb on or off.",
         "line1": "Batteries, Lighting",
         "line2": "and Commodities",
         "prefix": "for a",
