@@ -1,0 +1,63 @@
+import { LucideIcon, PanelsTopLeft, Users } from "lucide-react";
+
+export interface NavSubItem {
+  title: string;
+  path: string;
+}
+
+export interface NavMainItem {
+  title: string;
+  path: string;
+  icon?: LucideIcon;
+  isActive?: boolean;
+  subItems?: NavSubItem[];
+}
+
+export interface NavGroup {
+  id: number;
+  label: string;
+  items: NavMainItem[];
+}
+
+const basePath = "/admin";
+
+export const sidebarItemsAdmin: NavGroup[] = [
+  {
+    id: 1,
+    label: "Overview",
+    items: [
+      {
+        title: "Overview",
+        path: basePath,
+        icon: PanelsTopLeft,
+        isActive: true,
+      },
+    ],
+  },
+  {
+    id: 2,
+    label: "Users",
+    items: [
+      {
+        title: "All Users",
+        path: `${basePath}/users`,
+        icon: Users,
+      },
+    ],
+  },
+];
+
+export const sidebarItemsProject: NavGroup[] = [
+  {
+    id: 1,
+    label: "Overview",
+    items: [
+      {
+        title: "Overview",
+        path: "./overview",
+        icon: PanelsTopLeft,
+        isActive: true,
+      },
+    ],
+  },
+];
